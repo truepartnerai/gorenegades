@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogTitle = title,
+  ogDescription = description
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <script is:inline>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','970701305763042');fbq('track','PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=970701305763042&ev=PageView&noscript=1" alt="" /></noscript>
+  </head>
+  <body>
+    <div class="grain"></div>
+    <slot />
+    <script is:inline>
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+          })
+        }, {threshold:.12,rootMargin:'0px 0px -8% 0px'});
+        document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+      } else {
+        document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+      }
+    </script>
+  </body>
+</html>
