@@ -1,0 +1,432 @@
+---
+const monthlyCheckout = "https://buy.stripe.com/14AbJ1a1U9sA2gn0U52Ji0o";
+const annualCheckout = "https://buy.stripe.com/bJecN5de6bAIaMTcCN2Ji0p";
+
+const powerHourLink =
+  "https://powerhour.gorenegades.com";
+
+const academyLink = "/academy";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta
+      name="description"
+      content="Simple marketing systems, tools, and live training for small businesses."
+    />
+
+    <title>Marketing Renegades | Get the Renegade System</title>
+
+    <style>
+      :root {
+        --bg: #f5f3ed;
+        --card: #ffffff;
+        --ink: #111111;
+        --muted: #666666;
+        --yellow: #ffd834;
+        --max: 720px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        width: min(100% - 32px, var(--max));
+        margin: 0 auto;
+        padding: 30px 0 56px;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .brand {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 11px;
+        background: var(--yellow);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transform: rotate(-1deg);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(38px, 8vw, 62px);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+      }
+
+      .hero p {
+        max-width: 580px;
+        margin: 16px auto 0;
+        font-size: 18px;
+        color: var(--muted);
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 2px solid var(--ink);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+
+      .card.primary {
+        border-width: 3px;
+      }
+
+      .badge {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 5px 9px;
+        background: var(--yellow);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.08;
+      }
+
+      .subhead {
+        margin: 9px 0 0;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .price {
+        font-size: 38px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+
+      .period {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .outcomes {
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 13px;
+      }
+
+      .outcomes li {
+        display: flex;
+        gap: 10px;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .outcomes li::before {
+        content: "✓";
+        font-weight: 900;
+        flex: 0 0 auto;
+      }
+
+      .outcomes strong {
+        font-weight: 900;
+      }
+
+      .buttons {
+        display: grid;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: block;
+        width: 100%;
+        padding: 15px 18px;
+        border: 2px solid var(--ink);
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 900;
+        transition:
+          transform 0.12s ease,
+          box-shadow 0.12s ease;
+      }
+
+      .button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+
+      .button.primary {
+        background: var(--yellow);
+      }
+
+      .annual-note {
+        margin-top: 8px;
+        font-size: 13px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .small-card h2 {
+        font-size: 24px;
+      }
+
+      .small-card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .little-note {
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 34px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .footer strong {
+        color: var(--ink);
+      }
+
+      @media (max-width: 520px) {
+        .page {
+          width: min(100% - 22px, var(--max));
+          padding-top: 22px;
+        }
+
+        .card {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 42px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+
+      <section class="hero">
+        <div class="brand">Marketing Renegades</div>
+
+        <h1>
+          Capture more leads. <br>Close more business. <br>You're closer than you think.
+        </h1>
+
+        <p>
+          Simple marketing ideas, tools, and technology to help small
+          businesses turn more leads, customers, and contacts into
+          opportunities.
+        </p>
+      </section>
+
+      <section class="stack">
+
+        <article class="card primary">
+
+          <div class="badge">Start here</div>
+
+          <h2>Renegade CRM Unlimited</h2>
+
+          <p class="subhead">
+            One place to organize your people, stay in touch, follow up,
+            and make sure good opportunities don't quietly disappear.
+          </p>
+
+          <div class="price-row">
+            <div class="price">$99</div>
+            <div class="period">/ month</div>
+          </div>
+
+          <ul class="outcomes">
+            <li>
+              <span>
+                <strong>CRM:</strong>
+                Keep your leads, customers, and contacts organized in one place.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <strong>Email + Text:</strong>
+                Stay in touch without having to remember every follow-up yourself.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <strong>Automations:</strong>
+                Make sure good leads don't quietly slip through the cracks.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <strong>Calendars:</strong>
+                Make it easy for people to book time with you.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <strong>Reviews + Referrals:</strong>
+                Turn happy customers into more opportunities.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <strong>Marketing Tools:</strong>
+                Run more of your follow-up, funnels, social, and AI from one system.
+              </span>
+            </li>
+          </ul>
+
+          <div class="buttons">
+            <a
+              class="button primary"
+              href={monthlyCheckout}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Renegade CRM — $99/mo
+            </a>
+
+            <a
+              class="button primary"
+              href={annualCheckout}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Save $189 — Get a Full Year for $999
+            </a>
+          </div>
+
+          <div class="annual-note">
+            Pick the option that works best for you.
+          </div>
+
+        </article>
+
+        <article class="card small-card">
+
+          <h2>Renegade Power Hour</h2>
+
+          <p>
+            A live call where we chat, laugh, and learn simple ways to take
+            your business to the next level.
+          </p>
+
+          <p>
+            We talk marketing, lead generation, follow-up, AI, automation,
+            database ideas, and whatever cool strategy or shiny object happens
+            to come up that week.
+          </p>
+
+          <p class="little-note">
+            Casual. Practical. Free. Bring a question, bring an idea, bring some treats, maybe a bag of chips.
+          </p>
+
+          <div class="buttons">
+            <a
+              class="button primary"
+              href={powerHourLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the Next Power Hour — Free
+            </a>
+          </div>
+
+        </article>
+
+        <article class="card small-card">
+
+          <h2>Renegade Academy</h2>
+
+          <p>
+            Want some help building out your marketing system?
+          </p>
+
+          <p>
+            Join me and a small group of other business owners live each week
+            as we build it together, step by step.
+          </p>
+
+          <p>
+            After eight weeks, you graduate as a full
+            <strong>Renegade Alumni</strong> — with ongoing alumni perks,
+            community access, and plenty more opportunities to keep learning
+            and building.
+          </p>
+
+          <div class="buttons">
+            <a
+              class="button primary"
+              href={academyLink}
+            >
+              See Renegade Academy
+            </a>
+          </div>
+
+        </article>
+
+      </section>
+
+      <footer class="footer">
+        <strong>Marketing Renegades</strong><br />
+        Useful ideas. Cool technology. More opportunities.
+      </footer>
+
+    </main>
+  </body>
+</html>
