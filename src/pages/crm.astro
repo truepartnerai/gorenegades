@@ -3,16 +3,309 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Renegade CRM — Marketing Renegades" description="The tools and systems that keep marketing, follow-up, communication, and customer relationships in one place.">
+
+<BaseLayout
+  title="Renegade CRM | Your Marketing System for $99/Month"
+  description="Renegade CRM helps independent business owners organize leads, automate follow-up, work their database, request reviews, stay visible, and run a more consistent marketing system for $99/month."
+>
   <div class="page">
-    <Header />
-    <main class="sec sec-black" style="min-height:70vh">
-      <div class="wrap rv">
-        <span class="ey">Marketing Renegades</span>
-        <h1 class="disp" style="font-size:clamp(58px,10vw,150px);margin-top:20px">Renegade CRM</h1>
-        <p class="hero-sub">The tools and systems that keep marketing, follow-up, communication, and customer relationships in one place.</p>
-      </div>
+    <Header ctaLabel="Join Free" ctaHref="https://community.gorenegades.com" />
+
+    <main>
+      <!-- HERO -->
+      <header class="crm-hero">
+        <div class="crm-glow"></div>
+        <div class="wrap crm-hero-in rv">
+          <span class="ey">Renegade CRM · The marketing system + the software</span>
+          <h1 class="disp">
+            <span>Your marketing system.</span>
+            <span class="gold">$99/month.</span>
+          </h1>
+          <p class="crm-tag">Stop buying software and hoping you'll remember to use it.</p>
+          <p class="crm-lead">Renegade CRM gives your marketing somewhere to live — then the Renegade playbooks show you what to actually do with it. Work your database. Generate new opportunities. Follow up faster. Ask for reviews and referrals. Stay visible. <strong>Do the important stuff consistently.</strong></p>
+          <div class="hero-cta">
+            <a class="btn btn-gold" href="#start">Get Renegade CRM <span class="ar">→</span></a>
+            <a class="btn btn-ghost" href="#opportunities">See what it helps you run</a>
+          </div>
+          <p class="hero-note">Software included. Playbooks included. No giant course library required.</p>
+        </div>
+      </header>
+
+      <div class="marquee" aria-hidden="true"><div class="mq-track">
+        <span>Database <span class="sl">/</span> Leads <span class="sl">/</span> Follow-Up <span class="sl">/</span> Reviews <span class="sl">/</span> Referrals <span class="sl">/</span> Content <span class="sl">/</span> Automation <span class="sl">/</span> </span><span>Database <span class="sl">/</span> Leads <span class="sl">/</span> Follow-Up <span class="sl">/</span> Reviews <span class="sl">/</span> Referrals <span class="sl">/</span> Content <span class="sl">/</span> Automation <span class="sl">/</span> </span>
+      </div></div>
+
+      <!-- POSITIONING -->
+      <section class="sec sec-ink">
+        <div class="narrow rv">
+          <span class="ey">The point isn't another CRM</span>
+          <h2 class="disp">The opportunity is in the things you're <span class="g">not doing consistently.</span></h2>
+          <p class="sec-lead">Most small business owners already know they should follow up faster, email their database, ask for reviews, stay in touch, and keep generating new opportunities. The expensive part is not knowing. It's letting those things happen randomly.</p>
+
+          <div class="big-idea">
+            <div class="big-idea-label">The idea</div>
+            <p><strong>Renegade CRM is the machine underneath the marketing.</strong> It stores the relationships, triggers the follow-up, organizes the opportunities, sends the communication, and helps turn good intentions into repeatable activity.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPPORTUNITY PODS -->
+      <section class="sec sec-black" id="opportunities">
+        <div class="wrap">
+          <div class="section-intro rv">
+            <span class="ey">Six marketing opportunities</span>
+            <h2 class="disp">Features only matter when they help you <span class="g">make something happen.</span></h2>
+            <p class="sec-lead">So instead of starting with a giant feature list, start with the marketing opportunities sitting inside your business right now.</p>
+          </div>
+
+          <div class="op-grid">
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">01</span><span class="op-label">Database Marketing</span></div>
+              <h3>There is probably money sitting in the database you already have.</h3>
+              <p class="op-copy">Past clients, old leads, prospects, referral partners, and people who already know your name are easier to reach than strangers. Renegade CRM helps you actually work those relationships instead of letting them sit in a spreadsheet.</p>
+              <div class="feature-line"><span>Tools:</span> contact management, smart lists, tags, email, SMS, workflows, campaigns, pipelines.</div>
+              <div class="outcome"><strong>Opportunity:</strong> more repeat business, referrals, reactivation, and conversations from relationships you've already earned.</div>
+            </article>
+
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">02</span><span class="op-label">Generating New Leads</span></div>
+              <h3>Give new people a reason and a place to raise their hand.</h3>
+              <p class="op-copy">Run simple offers, lead forms, landing pages, events, ads, and campaigns — then send every response into the same system instead of scattering leads across inboxes and apps.</p>
+              <div class="feature-line"><span>Tools:</span> forms, surveys, funnels, websites, calendars, lead capture, source tracking, integrations.</div>
+              <div class="outcome"><strong>Opportunity:</strong> create new conversations on purpose instead of relying entirely on referrals and luck.</div>
+            </article>
+
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">03</span><span class="op-label">Lead Follow-Up</span></div>
+              <h3>The lead is rarely the problem. The disappearing act is.</h3>
+              <p class="op-copy">Respond quickly, keep following up, organize the pipeline, and let automation handle the repetitive touches so a good prospect doesn't disappear simply because everybody got busy.</p>
+              <div class="feature-line"><span>Tools:</span> pipelines, automations, email, SMS, voicemail, tasks, calendars, missed-call follow-up, AI tools.</div>
+              <div class="outcome"><strong>Opportunity:</strong> convert more of the leads you're already paying for and creating.</div>
+            </article>
+
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">04</span><span class="op-label">Reviews & Referrals</span></div>
+              <h3>Happy customers are a marketing asset — if you remember to ask.</h3>
+              <p class="op-copy">Build review and referral requests into the customer journey so the ask happens consistently instead of only when somebody on the team happens to remember.</p>
+              <div class="feature-line"><span>Tools:</span> reputation management, automated review requests, email/SMS follow-up, triggers, contact segmentation.</div>
+              <div class="outcome"><strong>Opportunity:</strong> more social proof, stronger local reputation, introductions, and repeat business.</div>
+            </article>
+
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">05</span><span class="op-label">Content & Visibility</span></div>
+              <h3>Stay visible without rebuilding your marketing every Monday.</h3>
+              <p class="op-copy">Plan communication, reuse good ideas, publish across channels, and keep your name showing up with useful messages instead of disappearing for three months and starting over.</p>
+              <div class="feature-line"><span>Tools:</span> email builder, newsletters, social planner, templates, campaigns, scheduling, AI assistance.</div>
+              <div class="outcome"><strong>Opportunity:</strong> stay top-of-mind so people think of you when the need finally appears.</div>
+            </article>
+
+            <article class="op-card rv">
+              <div class="op-top"><span class="op-num">06</span><span class="op-label">Referral Partners</span></div>
+              <h3>Good relationships still need a system behind them.</h3>
+              <p class="op-copy">Organize partners, schedule touches, share useful content, promote events, track opportunities, and create a rhythm that keeps important relationships active.</p>
+              <div class="feature-line"><span>Tools:</span> tags, smart lists, pipelines, reminders, email, SMS, calendars, campaigns, forms.</div>
+              <div class="outcome"><strong>Opportunity:</strong> become more useful, more visible, and harder to forget.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURE STACK -->
+      <section class="feature-band">
+        <div class="wrap rv">
+          <span class="ey">Yes, there is a lot under the hood</span>
+          <h2 class="disp">One system. <span>Lots of capability.</span></h2>
+          <p class="feature-lead">You don't need to use everything on day one. The value is having the pieces connected when you're ready for them.</p>
+
+          <div class="feature-grid">
+            <div>CRM + Contact Management</div>
+            <div>Pipelines + Opportunity Tracking</div>
+            <div>Email Marketing</div>
+            <div>SMS + Messaging</div>
+            <div>Automations + Workflows</div>
+            <div>Calendars + Scheduling</div>
+            <div>Forms + Surveys</div>
+            <div>Landing Pages + Funnels</div>
+            <div>Websites</div>
+            <div>Review Management</div>
+            <div>Social Media Planner</div>
+            <div>AI-Assisted Tools</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM VS SOFTWARE -->
+      <section class="sec sec-ink">
+        <div class="wrap system-grid rv">
+          <div>
+            <span class="ey">The difference</span>
+            <h2 class="disp">Software is easy to buy. <span class="g">A working system is different.</span></h2>
+            <p class="sec-lead">An empty CRM is just another login. Renegade is built around the marketing plays you actually want running in the business.</p>
+          </div>
+
+          <div class="system-list">
+            <div><span>01</span><div><strong>The software</strong><p>The platform where your contacts, communication, campaigns, automation, pipeline, calendars, forms, and marketing tools live.</p></div></div>
+            <div><span>02</span><div><strong>The playbooks</strong><p>Practical Renegade marketing systems for database marketing, new leads, follow-up, reviews, referrals, content, and partner relationships.</p></div></div>
+            <div><span>03</span><div><strong>The rhythm</strong><p>A simpler way to decide what should happen consistently instead of choosing a brand-new tactic every week.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- $99 OFFER -->
+      <section class="price-section" id="start">
+        <div class="wrap price-section-grid rv">
+          <div>
+            <span class="ey">Renegade CRM</span>
+            <h2 class="disp">Start at <span>$99/month.</span></h2>
+            <p class="price-lead">Get the software plus the Renegade marketing playbooks and start installing the systems that matter most to your business.</p>
+            <div class="included-list">
+              <div><span>+</span> Renegade CRM software</div>
+              <div><span>+</span> Marketing playbooks</div>
+              <div><span>+</span> Templates and examples</div>
+              <div><span>+</span> Free Renegades community</div>
+              <div><span>+</span> Power Hours and ongoing ideas</div>
+            </div>
+            <div class="hero-cta">
+              <a class="btn btn-dark" href="https://community.gorenegades.com">Join the Renegades <span class="ar">→</span></a>
+            </div>
+            <p class="checkout-note">When your CRM checkout link is ready, replace this button with the direct signup link.</p>
+          </div>
+
+          <aside class="price-box-crm">
+            <div class="price-small">Renegade CRM</div>
+            <div class="price-big"><sup>$</sup>99</div>
+            <div class="price-period">per month</div>
+            <div class="price-divider"></div>
+            <p><strong>The marketing system + the software.</strong></p>
+            <p class="muted">Start with what you need. Add more capability as the business grows.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ACADEMY BRIDGE -->
+      <section class="sec sec-black">
+        <div class="wrap academy-bridge rv">
+          <div>
+            <span class="ey">Want help actually building it?</span>
+            <h2 class="disp">Take it into <span class="g">Renegade Academy.</span></h2>
+            <p class="sec-lead">The CRM gives you the system and tools. Academy is where we get together live and build the marketing in your real business — step by step, with classmates, structure, questions, and implementation time.</p>
+          </div>
+          <div class="bridge-cta">
+            <a class="btn btn-gold" href="/academy">Explore Renegade Academy <span class="ar">→</span></a>
+            <a class="btn btn-ghost" href="https://community.gorenegades.com">Start with the free community</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="crm-final">
+        <div class="wrap crm-final-in rv">
+          <span class="ey">The goal isn't more software</span>
+          <h2 class="disp">Make the marketing <span>happen anyway.</span></h2>
+          <p>Even when you're busy. Even when you forget. Even when you'd rather be working with customers than staring at another dashboard.</p>
+          <a class="btn btn-gold" href="#start">See the $99 system <span class="ar">→</span></a>
+        </div>
+      </section>
     </main>
+
     <Footer />
   </div>
 </BaseLayout>
+
+<style>
+  .crm-hero{position:relative;overflow:hidden;padding:110px 0 94px;background:var(--black)}
+  .crm-glow{position:absolute;top:-290px;right:-160px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(244,194,13,.18),rgba(244,194,13,.04) 43%,transparent 70%);pointer-events:none}
+  .crm-hero-in{position:relative;z-index:2}
+  .crm-hero .ey{margin-bottom:28px}
+  .crm-hero h1{font-size:clamp(66px,11vw,168px);max-width:10ch;line-height:.82;margin:0}
+  .crm-hero h1 span{display:block}
+  .crm-hero h1 .gold{color:var(--gold)}
+  .crm-tag{font-family:var(--mono);font-size:clamp(16px,2vw,22px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold);margin-top:34px}
+  .crm-lead{font-size:clamp(20px,2.2vw,27px);line-height:1.43;max-width:930px;margin-top:20px;color:var(--white);letter-spacing:-.012em}
+  .crm-lead strong{color:var(--gold)}
+  .hero-note{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--smoke-dim);margin-top:22px}
+
+  .big-idea{margin-top:48px;border:1px solid var(--line);padding:30px;background:var(--black)}
+  .big-idea-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .big-idea p{font-size:19px;line-height:1.6;color:var(--smoke)}
+  .big-idea strong{color:var(--white)}
+
+  .section-intro{max-width:900px}
+  .op-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:54px}
+  .op-card{border:1px solid var(--line);background:var(--ink);padding:32px 30px;display:flex;flex-direction:column}
+  .op-card:hover{border-color:rgba(244,194,13,.65)}
+  .op-top{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+  .op-num{font-family:var(--display);font-size:40px;line-height:.8;color:var(--gold)}
+  .op-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+  .op-card h3{font-family:var(--display);font-size:clamp(28px,3vw,42px);font-weight:400;text-transform:uppercase;line-height:.98;letter-spacing:.005em;max-width:16ch}
+  .op-copy{color:var(--smoke);font-size:16px;line-height:1.62;margin-top:18px}
+  .feature-line{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--smoke-dim);text-transform:uppercase;letter-spacing:.035em;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+  .feature-line span{color:var(--gold);font-weight:700}
+  .outcome{font-size:15px;line-height:1.55;color:var(--smoke);margin-top:14px}
+  .outcome strong{color:var(--white)}
+
+  .feature-band{background:var(--gold);color:var(--black);padding:100px 0}
+  .feature-band .ey{color:#3a2d05}
+  .feature-band h2{font-family:var(--display);font-size:clamp(48px,7vw,98px);font-weight:400;text-transform:uppercase;line-height:.9;margin-top:18px;max-width:11ch}
+  .feature-band h2 span{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:8px}
+  .feature-lead{font-size:19px;line-height:1.55;max-width:700px;margin-top:24px;color:#332a0b}
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--black);border-left:2px solid var(--black);margin-top:46px}
+  .feature-grid div{font-family:var(--mono);font-weight:700;font-size:12px;line-height:1.4;letter-spacing:.05em;text-transform:uppercase;padding:22px 20px;border-right:2px solid var(--black);border-bottom:2px solid var(--black)}
+
+  .system-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .system-list{border-top:1px solid var(--line)}
+  .system-list>div{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:27px 0;border-bottom:1px solid var(--line)}
+  .system-list>div>span{font-family:var(--display);font-size:38px;line-height:.8;color:var(--gold)}
+  .system-list strong{display:block;font-size:18px;color:var(--white);margin-bottom:7px}
+  .system-list p{font-size:15.5px;line-height:1.6;color:var(--smoke)}
+
+  .price-section{background:var(--gold);color:var(--black);padding:110px 0}
+  .price-section-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:80px;align-items:center}
+  .price-section .ey{color:#3a2d05}
+  .price-section h2{font-family:var(--display);font-size:clamp(52px,7vw,100px);font-weight:400;text-transform:uppercase;line-height:.88;margin-top:16px}
+  .price-section h2 span{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:8px}
+  .price-lead{font-size:20px;line-height:1.55;max-width:700px;margin-top:26px;color:#2d250a}
+  .included-list{margin-top:34px;border-top:1px solid rgba(10,10,10,.35);max-width:650px}
+  .included-list div{font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid rgba(10,10,10,.25)}
+  .included-list span{font-family:var(--mono);margin-right:10px}
+  .btn-dark{background:var(--black);border:2px solid var(--black);color:var(--gold)}
+  .btn-dark:hover{background:transparent;color:var(--black);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black)}
+  .checkout-note{font-family:var(--mono);font-size:10px;line-height:1.5;text-transform:uppercase;letter-spacing:.05em;color:#5a4807;margin-top:15px;max-width:560px}
+  .price-box-crm{border:3px solid var(--black);padding:40px 34px;background:rgba(255,255,255,.13)}
+  .price-small{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .price-big{font-family:var(--display);font-size:124px;line-height:.8;margin-top:25px}
+  .price-big sup{font-size:44px;vertical-align:top;position:relative;top:10px}
+  .price-period{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
+  .price-divider{height:2px;background:var(--black);margin:28px 0}
+  .price-box-crm p{font-size:17px;line-height:1.5}
+  .price-box-crm .muted{font-size:14px;color:#44370b;margin-top:12px}
+
+  .academy-bridge{display:grid;grid-template-columns:1fr auto;gap:70px;align-items:center}
+  .bridge-cta{display:flex;flex-direction:column;gap:14px;min-width:300px}
+  .bridge-cta .btn{justify-content:center}
+
+  .crm-final{position:relative;overflow:hidden;background:var(--ink);padding:115px 0;text-align:center}
+  .crm-final:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center top,rgba(244,194,13,.13),transparent 62%);pointer-events:none}
+  .crm-final-in{position:relative;z-index:2;max-width:950px}
+  .crm-final h2{font-family:var(--display);font-size:clamp(56px,8vw,116px);font-weight:400;text-transform:uppercase;line-height:.87;margin-top:18px}
+  .crm-final h2 span{display:block;color:var(--gold)}
+  .crm-final p{font-size:19px;line-height:1.6;color:var(--smoke);max-width:700px;margin:28px auto 38px}
+
+  @media(max-width:920px){
+    .op-grid,.system-grid,.price-section-grid{grid-template-columns:1fr}
+    .feature-grid{grid-template-columns:1fr 1fr}
+    .academy-bridge{grid-template-columns:1fr}
+    .bridge-cta{min-width:0;max-width:420px}
+    .price-box-crm{max-width:430px}
+  }
+  @media(max-width:640px){
+    .crm-hero{padding:82px 0 72px}
+    .crm-hero h1{font-size:clamp(58px,18vw,96px)}
+    .crm-lead{font-size:20px}
+    .op-grid{grid-template-columns:1fr}
+    .feature-band,.price-section{padding:82px 0}
+    .feature-grid{grid-template-columns:1fr}
+    .op-card{padding:27px 24px}
+    .system-list>div{grid-template-columns:52px 1fr}
+  }
+</style>
