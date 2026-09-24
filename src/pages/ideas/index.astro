@@ -37,7 +37,7 @@ const podcast = (await getCollection('podcast')).filter((x)=>!x.data.draft).sort
               <h2 class="disp" style="font-size:48px;margin:10px 0 24px">Listen</h2>
               {podcast.length ? podcast.map((ep)=>(
                 <a class="content-card" style="margin-bottom:14px" href={`/podcast/${ep.id}/`}>
-                  <div class="content-card-body"><div class="content-meta">Episode {ep.data.episode}</div><h3>{ep.data.title}</h3><p>{ep.data.description}</p><span class="read-more">Listen →</span></div>
+                  <div class="content-card-body"><div class="content-meta">{ep.data.episode ? `Episode ${ep.data.episode}` : 'No Fear Marketing Show'}</div><h3>{ep.data.title}</h3><p>{ep.data.description}</p><span class="read-more">Listen →</span></div>
                 </a>
               )) : <div class="content-empty">Podcast episodes are being migrated.</div>}
             </div>
