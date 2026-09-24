@@ -20,14 +20,34 @@ const { Content } = await render(post);
     <main>
       <header class="article-header">
         <div class="article-wrap">
+          <a class="article-back" href="/blog">← Renegade Articles</a>
           <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
           <h1>{post.data.title}</h1>
           <p class="article-deck">{post.data.description}</p>
+          <div class="article-byline">
+            <span>By {post.data.author}</span>
+            {post.data.updatedDate && <span>Updated {post.data.updatedDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>}
+          </div>
+          {post.data.tags.length > 0 && (
+            <div class="tag-row">
+              {post.data.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          )}
         </div>
       </header>
+
       <article class="article-body">
         <div class="article-wrap">
           <Content />
+          <aside class="article-endcap">
+            <div class="content-meta">Keep going</div>
+            <h2>Turn the idea into a system.</h2>
+            <p>Renegade CRM gives independent business owners one place to organize follow-up, database marketing, email, text, reviews, automation, and the other pieces that are easy to forget when business gets busy.</p>
+            <div class="episode-links">
+              <a class="btn btn-gold" href="/crm">See Renegade CRM →</a>
+              <a class="text-link" href="https://community.gorenegades.com">Join the free community →</a>
+            </div>
+          </aside>
         </div>
       </article>
     </main>
