@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/content.css';
+
+const blog = (await getCollection('blog')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
+const podcast = (await getCollection('podcast')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
+---
+
+<BaseLayout title="Renegade Ideas | Marketing Renegades" description="Articles, podcast episodes, Power Hours, playbooks, and useful marketing ideas from Marketing Renegades.">
+  <div class="page content-shell">
+    <Header />
+    <main>
+      <section class="content-hero">
+        <div class="wrap">
+          <span class="ey">Renegade Ideas</span>
+          <h1 class="disp">Come steal our ideas.</h1>
+          <p>Articles, podcast conversations, Power Hours, playbooks, experiments, and new technology we're actually using.</p>
+        </div>
+      </section>
+      <section class="content-main">
+        <div class="wrap">
+          <div class="ideas-split">
+            <div>
+              <div class="content-meta">Articles</div>
+              <h2 class="disp" style="font-size:48px;margin:10px 0 24px">Read</h2>
+              {blog.length ? blog.map((post)=>(
+                <a class="content-card" style="margin-bottom:14px" href={`/blog/${post.id}/`}>
+                  <div class="content-card-body"><h3>{post.data.title}</h3><p>{post.data.description}</p><span class="read-more">Read →</span></div>
+                </a>
+              )) : <div class="content-empty">Articles are being loaded.</div>}
+            </div>
+            <div>
+              <div class="content-meta">Podcast</div>
+              <h2 class="disp" style="font-size:48px;margin:10px 0 24px">Listen</h2>
+              {podcast.length ? podcast.map((ep)=>(
+                <a class="content-card" style="margin-bottom:14px" href={`/podcast/${ep.id}/`}>
+                  <div class="content-card-body"><div class="content-meta">Episode {ep.data.episode}</div><h3>{ep.data.title}</h3><p>{ep.data.description}</p><span class="read-more">Listen →</span></div>
+                </a>
+              )) : <div class="content-empty">Podcast episodes are being migrated.</div>}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
