@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/content.css';
+
+const episodes = (await getCollection('podcast'))
+  .filter((episode) => !episode.data.draft)
+  .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="No Fear Marketing Show | Marketing Renegades" description="Conversations, ideas, and practical marketing systems for independent business owners.">
+  <div class="page content-shell">
+    <Header />
+    <main>
+      <section class="content-hero">
+        <div class="wrap">
+          <span class="ey">The Podcast</span>
+          <h1 class="disp">No Fear Marketing Show.</h1>
+          <p>Marketing, technology, business building, smart experiments, and conversations with people worth learning from.</p>
+        </div>
+      </section>
+      <section class="content-main">
+        <div class="wrap">
+          {episodes.length ? (
+            <div class="content-grid">
+              {episodes.map((episode) => (
+                <a class="content-card" href={`/podcast/${episode.id}/`}>
+                  {episode.data.image && <img src={episode.data.image} alt="" loading="lazy" />}
+                  <div class="content-card-body">
+                    <div class="content-meta">Episode {episode.data.episode} · {episode.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                    <h2>{episode.data.title}</h2>
+                    <p>{episode.data.description}</p>
+                    <span class="read-more">Listen + show notes →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="content-empty">The podcast archive is being rebuilt now. Episodes are coming over next.</div>
+          )}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
