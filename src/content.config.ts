@@ -23,7 +23,7 @@ const podcast = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    episode: z.number().int().positive(),
+    episode: z.number().int().positive().optional(),
     season: z.number().int().positive().optional(),
     duration: z.string().optional(),
     image: z.string().optional(),
