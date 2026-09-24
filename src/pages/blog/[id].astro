@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/content.css';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((post) => !post.data.draft);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Marketing Renegades`} description={post.data.description}>
+  <div class="page content-shell">
+    <Header />
+    <main>
+      <header class="article-header">
+        <div class="article-wrap">
+          <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+          <h1>{post.data.title}</h1>
+          <p class="article-deck">{post.data.description}</p>
+        </div>
+      </header>
+      <article class="article-body">
+        <div class="article-wrap">
+          <Content />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
