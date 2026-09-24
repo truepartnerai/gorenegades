@@ -1,83 +1,46 @@
 {
   "sourceSite": "https://marketingrenegadespodcast.com/",
+  "sourceFeed": "https://marketingrenegadespodcast.com/feed/podcast/marketing-renegades-podcast/",
   "targetSite": "https://gorenegades.com/podcast/",
   "targetFeed": "https://gorenegades.com/podcast.xml",
-  "showName": "The No Fear Marketing Show",
-  "inventoryStatus": "feed-url-confirmed",
+  "show": {
+    "title": "No Fear Marketing Show",
+    "subtitle": "Marketing Renegades",
+    "author": "Darin Rhodes",
+    "type": "episodic",
+    "explicit": false,
+    "artwork": "https://marketingrenegadespodcast.com/wp-content/uploads/2025/07/black-yellow-white-animation-modern-podcast-cover-10-1-scaled.png",
+    "podcastGuid": "818552be-8ada-5171-8b06-dd622037e536",
+    "categories": [
+      "Business > Marketing",
+      "Business > Entrepreneurship"
+    ]
+  },
+  "inventoryStatus": "rss-metadata-imported",
+  "rssItemsImported": 10,
   "notes": [
-    "Source RSS feed URL confirmed from WordPress Seriously Simple Podcasting.",
-    "Do not publish migrated RSS items until original GUID and enclosure metadata are captured from the source feed.",
-    "The old archive exposes an Older Episodes page, so additional legacy episodes may remain to be inventoried."
+    "The uploaded legacy RSS feed contains 10 item records and their original GUID, enclosure URL, file length, duration, dates, artwork, and episode-number metadata where present.",
+    "Original GUID values are preserved in the new episode content so podcast apps can identify migrated episodes correctly.",
+    "The legacy RSS feed appears limited to 10 items. The public archive also exposed at least one older episode not included in this feed export, so older archive discovery is still pending.",
+    "Do not point Apple Podcasts at the new feed until the new RSS output is validated."
   ],
-  "episodes": [
-    {
-      "title": "5 Database Marketing Strategies You Can Implement Today",
-      "published": "2025-10-21",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/5-database-marketing-strategies-you-can-implement-today/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "95% of business owners fail at consistent content creation. Here’s how to join the 5% that dominate their market.",
-      "published": "2025-09-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/95-of-business-owners-fail-at-consistent-content-creation-heres-how-to-join-the-5-that-dominate-their-market/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "Stop making excuses and start making waves – here’s what Charlie Kirk taught me about fearless business",
-      "published": "2025-09-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/stop-making-excuses-and-start-making-waves-heres-what-charlie-kirk-taught-me-about-fearless-business/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "Can AI Really Create Content In Your Voice?",
-      "published": "2025-07-23",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/can-ai-really-create-content-in-your-voice/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "The Yellow Page Model: How to Turn $10/Day into a Lead Machine with Hyper-Local Facebook Ads",
-      "published": "2025-07-22",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/the-yellow-page-model-how-to-turn-10-day-into-a-lead-machine-with-hyper-local-facebook-ads/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "Websites in 1996 Compared to AI Now",
-      "published": "2025-07-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/websites-in-1996-compared-to-ai-now/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "The 3 Points of struggle for Independent Mortgage Brokers",
-      "published": "2025-07-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/the-3-points-of-struggle-for-independent-mortgage-brokers/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "This One Thing is holding you back",
-      "published": "2025-07-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/this-one-thing-is-holding-you-back/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "Why you really want to be your own marketing expert",
-      "published": "2025-07-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/why-you-really-want-to-be-your-own-marketing-expert/",
-      "status": "needs-feed-metadata"
-    },
-    {
-      "title": "Marketing traps to avoid",
-      "published": "2025-07-17",
-      "sourceUrl": "https://marketingrenegadespodcast.com/podcast/marketing-traps-to-avoid/",
-      "status": "needs-feed-metadata"
-    },
+  "importedEpisodes": [
+    "5 Database Marketing Strategies You Can Implement Today",
+    "95% of business owners fail at consistent content creation. Here’s how to join the 5% that dominate their market.",
+    "Stop making excuses and start making waves – here’s what Charlie Kirk taught me about fearless business",
+    "Can AI Really Create Content In Your Voice?",
+    "The Yellow Page Model: How to Turn $10/Day into a Lead Machine with Hyper-Local Facebook Ads",
+    "Websites in 1996 Compared to AI Now",
+    "The 3 Points of struggle for Independent Mortgage Brokers",
+    "This One Thing is holding you back",
+    "Why you really want to be your own marketing expert",
+    "Marketing traps to avoid"
+  ],
+  "archiveOnlyNeedsMetadata": [
     {
       "title": "Don’t ever forget the importance of audiences",
-      "published": "2025-07-17",
       "sourceUrl": "https://marketingrenegadespodcast.com/podcast/dont-ever-forget-the-importance-of-audiences/",
-      "duration": "9:41",
-      "status": "needs-feed-metadata"
+      "status": "not-present-in-uploaded-rss"
     }
-  ],
-  "sourceFeed": "https://marketingrenegadespodcast.com/feed/podcast/marketing-renegades-podcast",
-  "feedConfirmedBy": "WordPress Seriously Simple Podcasting"
+  ]
 }
