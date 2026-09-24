@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/content.css';
+
+export async function getStaticPaths() {
+  const episodes = (await getCollection('podcast')).filter((episode) => !episode.data.draft);
+  return episodes.map((episode) => ({ params: { id: episode.id }, props: { episode } }));
+}
+
+const { episode } = Astro.props;
+const { Content } = await render(episode);
+---
+
+<BaseLayout title={`${episode.data.title} | No Fear Marketing Show`} description={episode.data.description}>
+  <div class="page content-shell">
+    <Header />
+    <main>
+      <header class="article-header">
+        <div class="article-wrap">
+          <div class="content-meta">No Fear Marketing Show · Episode {episode.data.episode} · {episode.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+          <h1>{episode.data.title}</h1>
+          <p class="article-deck">{episode.data.description}</p>
+          <audio class="audio-player" controls preload="metadata" src={episode.data.audioUrl}></audio>
+          <div class="episode-links">
+            {episode.data.youtubeUrl && <a class="btn btn-gold" href={episode.data.youtubeUrl}>Watch episode →</a>}
+          </div>
+        </div>
+      </header>
+      <article class="article-body">
+        <div class="article-wrap">
+          <Content />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
