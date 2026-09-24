@@ -1,19 +1,36 @@
 ---
 const { ctaLabel = 'Join the Renegades', ctaHref = 'https://community.gorenegades.com' } = Astro.props;
 ---
+
 <nav class="nav" aria-label="Primary navigation">
   <div class="wrap nav-in site-nav-in">
     <a class="brand-wordmark" href="/" aria-label="Marketing Renegades home">
       <span>Marketing</span> <strong>Renegades</strong>
     </a>
 
-    <div class="desktop-nav">
+    <div class="desktop-nav" aria-label="Site sections">
       <a href="/crm">CRM</a>
       <a href="/academy">Academy</a>
-      <a href="/top-40">Top 40</a>
+      <a href="https://community.gorenegades.com">Community</a>
       <a href="/about">About</a>
     </div>
 
     <a class="nav-cta" href={ctaHref}>{ctaLabel} →</a>
+
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation menu">
+        <span class="menu-label">Menu</span>
+        <span class="menu-icon" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+      </summary>
+      <div class="mobile-menu-panel">
+        <a href="/crm"><span>01</span> Renegade CRM</a>
+        <a href="/academy"><span>02</span> Renegade Academy</a>
+        <a href="https://community.gorenegades.com"><span>03</span> Renegade Community</a>
+        <a href="/about"><span>04</span> About</a>
+        <a class="mobile-menu-cta" href={ctaHref}>{ctaLabel} →</a>
+      </div>
+    </details>
   </div>
 </nav>
