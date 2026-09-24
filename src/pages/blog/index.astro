@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/content.css';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Renegade Articles | Marketing Renegades" description="Practical marketing ideas, systems, experiments, and lessons for independent business owners.">
+  <div class="page content-shell">
+    <Header />
+    <main>
+      <section class="content-hero">
+        <div class="wrap">
+          <span class="ey">Renegade Articles</span>
+          <h1 class="disp">Useful ideas. No giant course required.</h1>
+          <p>Marketing systems, lead generation, database marketing, automation, content, referrals, and whatever else is worth figuring out.</p>
+        </div>
+      </section>
+      <section class="content-main">
+        <div class="wrap">
+          {posts.length ? (
+            <div class="content-grid">
+              {posts.map((post) => (
+                <a class="content-card" href={`/blog/${post.id}/`}>
+                  {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
+                  <div class="content-card-body">
+                    <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                    <h2>{post.data.title}</h2>
+                    <p>{post.data.description}</p>
+                    <span class="read-more">Read article →</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div class="content-empty">The article library is being loaded now. Check back shortly.</div>
+          )}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>
