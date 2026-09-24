@@ -29,7 +29,7 @@ const episodes = (await getCollection('podcast'))
                 <a class="content-card" href={`/podcast/${episode.id}/`}>
                   {episode.data.image && <img src={episode.data.image} alt="" loading="lazy" />}
                   <div class="content-card-body">
-                    <div class="content-meta">Episode {episode.data.episode} · {episode.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                    <div class="content-meta">{episode.data.episode ? `Episode ${episode.data.episode} · ` : ''}{episode.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
                     <h2>{episode.data.title}</h2>
                     <p>{episode.data.description}</p>
                     <span class="read-more">Listen + show notes →</span>
