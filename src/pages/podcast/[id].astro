@@ -20,7 +20,7 @@ const { Content } = await render(episode);
     <main>
       <header class="article-header">
         <div class="article-wrap">
-          <div class="content-meta">No Fear Marketing Show · Episode {episode.data.episode} · {episode.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+          <div class="content-meta">No Fear Marketing Show · {episode.data.episode ? `Episode ${episode.data.episode} · ` : ''}{episode.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
           <h1>{episode.data.title}</h1>
           <p class="article-deck">{episode.data.description}</p>
           <audio class="audio-player" controls preload="metadata" src={episode.data.audioUrl}></audio>
