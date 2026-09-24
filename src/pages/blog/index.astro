@@ -8,38 +8,88 @@ import '../../styles/content.css';
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const remaining = featured ? posts.filter((post) => post.id !== featured.id) : [];
+const categories = [...new Set(posts.map((post) => post.data.category))];
 ---
 
 <BaseLayout title="Renegade Articles | Marketing Renegades" description="Practical marketing ideas, systems, experiments, and lessons for independent business owners.">
   <div class="page content-shell">
     <Header />
     <main>
-      <section class="content-hero">
+      <section class="content-hero content-hero-blog">
         <div class="wrap">
-          <span class="ey">Renegade Articles</span>
-          <h1 class="disp">Useful ideas. No giant course required.</h1>
-          <p>Marketing systems, lead generation, database marketing, automation, content, referrals, and whatever else is worth figuring out.</p>
+          <div class="content-kicker-row">
+            <span class="ey">Renegade Articles</span>
+            <nav class="content-section-nav" aria-label="Ideas navigation">
+              <a class="active" href="/blog">Articles</a>
+              <a href="/podcast">Podcast</a>
+              <a href="/ideas">All Ideas</a>
+            </nav>
+          </div>
+          <h1 class="disp">Ideas you can actually use.</h1>
+          <p>Marketing systems, database strategy, lead generation, automation, content, referrals, and practical experiments for independent business owners.</p>
+          {categories.length > 0 && (
+            <div class="topic-row" aria-label="Article topics">
+              {categories.map((category) => <span>{category}</span>)}
+            </div>
+          )}
         </div>
       </section>
+
       <section class="content-main">
         <div class="wrap">
-          {posts.length ? (
-            <div class="content-grid">
-              {posts.map((post) => (
-                <a class="content-card" href={`/blog/${post.id}/`}>
-                  {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
-                  <div class="content-card-body">
-                    <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
-                    <h2>{post.data.title}</h2>
-                    <p>{post.data.description}</p>
-                    <span class="read-more">Read article →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+          {featured ? (
+            <>
+              <div class="section-label">Start here</div>
+              <a class="featured-story" href={`/blog/${featured.id}/`}>
+                <div class="featured-story-copy">
+                  <div class="content-meta">{featured.data.category} · {featured.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                  <h2>{featured.data.title}</h2>
+                  <p>{featured.data.description}</p>
+                  <span class="read-more">Read the article →</span>
+                </div>
+                <div class="featured-story-mark" aria-hidden="true">MR</div>
+              </a>
+            </>
           ) : (
-            <div class="content-empty">The article library is being loaded now. Check back shortly.</div>
+            <div class="content-empty">The article library is being loaded now.</div>
           )}
+
+          {remaining.length > 0 && (
+            <div class="article-library">
+              <div class="library-heading">
+                <div>
+                  <div class="section-label">The library</div>
+                  <h2 class="disp">More useful stuff.</h2>
+                </div>
+                <p>Short enough to use. Substantial enough to matter.</p>
+              </div>
+              <div class="content-grid">
+                {remaining.map((post) => (
+                  <a class="content-card" href={`/blog/${post.id}/`}>
+                    {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
+                    <div class="content-card-body">
+                      <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                      <h2>{post.data.title}</h2>
+                      <p>{post.data.description}</p>
+                      <span class="read-more">Read article →</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <section class="content-cta-panel">
+            <div>
+              <div class="content-meta">Want the implementation side too?</div>
+              <h2 class="disp">Learn the idea. Build the system.</h2>
+              <p>The free Renegade Community is where we keep the playbooks, Power Hours, examples, and working notes behind the articles.</p>
+            </div>
+            <a class="btn btn-gold" href="https://community.gorenegades.com">Join the free community →</a>
+          </section>
         </div>
       </section>
     </main>
