@@ -45,7 +45,7 @@ const categories = [...new Set(posts.map((post) => post.data.category))];
               <div class="section-label">Start here</div>
               <a class="featured-story" href={`/blog/${featured.id}/`}>
                 <div class="featured-story-copy">
-                  <div class="content-meta">{featured.data.category} · {featured.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                  <div class="content-meta">{featured.data.series ? `${featured.data.series} · ` : ''}{featured.data.category} · {featured.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
                   <h2>{featured.data.title}</h2>
                   <p>{featured.data.description}</p>
                   <span class="read-more">Read the article →</span>
@@ -71,7 +71,7 @@ const categories = [...new Set(posts.map((post) => post.data.category))];
                   <a class="content-card" href={`/blog/${post.id}/`}>
                     {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
                     <div class="content-card-body">
-                      <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
+                      <div class="content-meta">{post.data.series ? `${post.data.series} · ` : ''}{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
                       <h2>{post.data.title}</h2>
                       <p>{post.data.description}</p>
                       <span class="read-more">Read article →</span>
