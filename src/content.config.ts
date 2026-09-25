@@ -10,6 +10,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     image: z.string().optional(),
     category: z.string().default('Marketing'),
+    series: z.string().optional(),
     tags: z.array(z.string()).default([]),
     author: z.string().default('Darin Rhodes'),
     featured: z.boolean().default(false),
