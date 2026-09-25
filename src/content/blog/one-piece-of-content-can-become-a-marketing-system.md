@@ -4,6 +4,8 @@ description: "Stop treating every post, email, video, and event as a separate jo
 pubDate: "2026-09-24T10:00:00-06:00"
 category: "Content & Visibility"
 series: "Deep Dive"
+visualKicker: "ONE IDEA → MANY ASSETS"
+visualTone: "blue"
 tags: ["content", "repurposing", "relationships", "AI"]
 author: "Darin Rhodes"
 featured: false
