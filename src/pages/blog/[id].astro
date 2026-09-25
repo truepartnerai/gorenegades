@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import EditorialCover from '../../components/EditorialCover.astro';
 import '../../styles/content.css';
 
 export async function getStaticPaths() {
@@ -12,27 +13,44 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const ogImage = post.data.image ? new URL(post.data.image, Astro.site ?? Astro.url.origin).href : undefined;
 ---
 
-<BaseLayout title={`${post.data.title} | Marketing Renegades`} description={post.data.description}>
+<BaseLayout
+  title={`${post.data.title} | Marketing Renegades`}
+  description={post.data.description}
+  ogType="article"
+  ogImage={ogImage}
+>
   <div class="page content-shell">
     <Header />
     <main>
-      <header class="article-header">
-        <div class="article-wrap">
-          <a class="article-back" href="/blog">← Renegade Articles</a>
-          <div class="content-meta">{post.data.series ? `${post.data.series} · ` : ''}{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
-          <h1>{post.data.title}</h1>
-          <p class="article-deck">{post.data.description}</p>
-          <div class="article-byline">
-            <span>By {post.data.author}</span>
-            {post.data.updatedDate && <span>Updated {post.data.updatedDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>}
-          </div>
-          {post.data.tags.length > 0 && (
-            <div class="tag-row">
-              {post.data.tags.map((tag) => <span>{tag}</span>)}
+      <header class="article-header article-header-editorial">
+        <div class="wrap article-header-grid">
+          <div class="article-header-copy">
+            <a class="article-back" href="/blog">← Renegade Media</a>
+            <div class="content-meta">{post.data.series ? `${post.data.series} · ` : ''}{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+            <h1>{post.data.title}</h1>
+            <p class="article-deck">{post.data.description}</p>
+            <div class="article-byline">
+              <span>By {post.data.author}</span>
+              {post.data.updatedDate && <span>Updated {post.data.updatedDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</span>}
             </div>
-          )}
+            {post.data.tags.length > 0 && (
+              <div class="tag-row">
+                {post.data.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+            )}
+          </div>
+          <EditorialCover
+            title={post.data.title}
+            series={post.data.series}
+            category={post.data.category}
+            image={post.data.image}
+            imageAlt={post.data.imageAlt}
+            visualKicker={post.data.visualKicker}
+            tone={post.data.visualTone}
+          />
         </div>
       </header>
 
