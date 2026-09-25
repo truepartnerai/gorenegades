@@ -3,6 +3,7 @@ title: "Your Database Is Probably Your Best Untapped Marketing Asset"
 description: "Before chasing the next lead source, look at the people who already know you. A simple database marketing rhythm can create more conversations without constantly starting from zero."
 pubDate: "2026-09-24T11:00:00-06:00"
 category: "Database Marketing"
+series: "Renegade Playbook"
 tags: ["database", "email", "relationships"]
 author: "Darin Rhodes"
 featured: false
