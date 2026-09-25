@@ -4,6 +4,8 @@ description: "Before chasing the next lead source, look at the people who alread
 pubDate: "2026-09-24T11:00:00-06:00"
 category: "Database Marketing"
 series: "Renegade Playbook"
+visualKicker: "WORK YOUR DATABASE"
+visualTone: "cream"
 tags: ["database", "email", "relationships"]
 author: "Darin Rhodes"
 featured: false
