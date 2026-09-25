@@ -17,6 +17,8 @@ const blog = defineCollection({
     socialSummary: z.string().optional(),
     category: z.string().default('Marketing'),
     series: z.string().optional(),
+    relatedPodcast: z.string().optional(),
+    syndicate: z.boolean().default(true),
     tags: z.array(z.string()).default([]),
     author: z.string().default('Darin Rhodes'),
     featured: z.boolean().default(false),
