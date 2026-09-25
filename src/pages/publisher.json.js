@@ -34,15 +34,18 @@ export async function GET() {
         category: d.category,
         tags: d.tags,
         author: d.author,
+        distributionEnabled: d.syndicate !== false,
         url,
         imageUrl,
         community: {
+          enabled: d.syndicate !== false,
           title,
           body: summary,
           linkUrl: url,
           imageUrl
         },
         email: {
+          enabled: d.syndicate !== false,
           subjectSeed: title,
           summary,
           sourceUrl: url,
