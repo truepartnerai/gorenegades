@@ -13,6 +13,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const podcastEpisodes = post.data.relatedPodcast ? await getCollection('podcast') : [];
+const relatedPodcast = post.data.relatedPodcast
+  ? podcastEpisodes.find((episode) => episode.id === post.data.relatedPodcast && !episode.data.draft)
+  : undefined;
 const generatedSocialImage = new URL(`/og/${post.id}.png`, Astro.site ?? Astro.url.origin).href;
 const ogImage = post.data.socialImage
   ? new URL(post.data.socialImage, Astro.site ?? Astro.url.origin).href
@@ -60,6 +64,14 @@ const ogImage = post.data.socialImage
       <article class="article-body">
         <div class="article-wrap">
           <Content />
+          {relatedPodcast && (
+            <aside class="article-podcast-callout">
+              <div class="content-meta">Related No Fear Marketing Show</div>
+              <h2>{relatedPodcast.data.title}</h2>
+              <p>{relatedPodcast.data.description}</p>
+              <a class="read-more" href={`/podcast/${relatedPodcast.id}/`}>Listen to the episode →</a>
+            </aside>
+          )}
           <aside class="article-endcap">
             <div class="content-meta">Keep going</div>
             <h2>Turn the idea into a system.</h2>
