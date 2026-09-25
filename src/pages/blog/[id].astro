@@ -13,7 +13,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const ogImage = post.data.image ? new URL(post.data.image, Astro.site ?? Astro.url.origin).href : undefined;
+const generatedSocialImage = new URL(`/og/${post.id}.png`, Astro.site ?? Astro.url.origin).href;
+const ogImage = post.data.socialImage
+  ? new URL(post.data.socialImage, Astro.site ?? Astro.url.origin).href
+  : generatedSocialImage;
 ---
 
 <BaseLayout
