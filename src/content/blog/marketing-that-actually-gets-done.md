@@ -4,6 +4,8 @@ description: "Most small businesses do not have an idea problem. They have an ex
 pubDate: "2026-09-24T12:00:00-06:00"
 category: "Marketing Systems"
 series: "Start Here"
+visualKicker: "MARKETING THAT GETS DONE"
+visualTone: "gold"
 tags: ["consistency", "automation", "small business"]
 author: "Darin Rhodes"
 featured: true
