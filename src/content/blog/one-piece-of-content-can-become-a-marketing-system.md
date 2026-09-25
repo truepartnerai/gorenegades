@@ -3,6 +3,7 @@ title: "One Piece of Content Can Become a Marketing System"
 description: "Stop treating every post, email, video, and event as a separate job. One strong idea can become content, follow-up, relationship building, and multiple marketing touchpoints."
 pubDate: "2026-09-24T10:00:00-06:00"
 category: "Content & Visibility"
+series: "Deep Dive"
 tags: ["content", "repurposing", "relationships", "AI"]
 author: "Darin Rhodes"
 featured: false
