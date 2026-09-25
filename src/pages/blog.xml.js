@@ -20,6 +20,9 @@ export async function GET() {
   const items = posts.map((post) => {
     const d = post.data;
     const url = `${SITE}/blog/${post.id}/`;
+    const image = d.socialImage
+      ? (d.socialImage.startsWith('http') ? d.socialImage : `${SITE}${d.socialImage.startsWith('/') ? '' : '/'}${d.socialImage}`)
+      : `${SITE}/og/${post.id}.png`;
     return `
     <item>
       <title>${escapeXml(d.title)}</title>
@@ -29,7 +32,8 @@ export async function GET() {
       <description>${escapeXml(d.description)}</description>
       <dc:creator>${escapeXml(d.author)}</dc:creator>
       <category>${escapeXml(d.category)}</category>
-      ${d.image ? `<media:content url="${escapeXml(d.image)}" medium="image" />` : ''}
+      <media:content url="${escapeXml(image)}" medium="image" width="1200" height="630" />
+      <media:thumbnail url="${escapeXml(image)}" width="1200" height="630" />
     </item>`;
   }).join('');
 
