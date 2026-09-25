@@ -21,7 +21,7 @@ const { Content } = await render(post);
       <header class="article-header">
         <div class="article-wrap">
           <a class="article-back" href="/blog">← Renegade Articles</a>
-          <div class="content-meta">{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+          <div class="content-meta">{post.data.series ? `${post.data.series} · ` : ''}{post.data.category} · {post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
           <h1>{post.data.title}</h1>
           <p class="article-deck">{post.data.description}</p>
           <div class="article-byline">
