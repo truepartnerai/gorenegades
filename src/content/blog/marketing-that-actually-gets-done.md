@@ -3,6 +3,7 @@ title: "Marketing That Actually Gets Done"
 description: "Most small businesses do not have an idea problem. They have an execution problem. The answer is a simpler marketing system that keeps the important work moving."
 pubDate: "2026-09-24T12:00:00-06:00"
 category: "Marketing Systems"
+series: "Start Here"
 tags: ["consistency", "automation", "small business"]
 author: "Darin Rhodes"
 featured: true
