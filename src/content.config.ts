@@ -9,6 +9,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     image: z.string().optional(),
+    socialImage: z.string().optional(),
     imageAlt: z.string().optional(),
     visualKicker: z.string().optional(),
     visualTone: z.enum(['gold','blue','cream','mono']).default('gold'),
