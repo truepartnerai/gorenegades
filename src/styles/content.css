@@ -165,3 +165,8 @@
   .podcast-feature-copy{padding:30px 24px}
   .editorial-cover-generated strong{font-size:46px}
 }
+
+.article-podcast-callout{margin-top:58px;padding:30px 32px;background:#111;color:#fff;border-top:5px solid var(--gold)}
+.article-podcast-callout h2{color:#fff;margin:10px 0 12px;font-size:36px}
+.article-podcast-callout p{color:#b8b8b8;font-size:16px;line-height:1.6}
+.article-podcast-callout .read-more{color:var(--gold)}
