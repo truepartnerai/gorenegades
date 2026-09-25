@@ -7,6 +7,8 @@ interface Props {
   canonical?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -14,7 +16,9 @@ const {
   description,
   canonical = Astro.url.href,
   ogTitle = title,
-  ogDescription = description
+  ogDescription = description,
+  ogImage,
+  ogType = 'website'
 } = Astro.props;
 ---
 <!doctype html>
@@ -28,8 +32,14 @@ const {
     <link rel="alternate" type="application/rss+xml" title="No Fear Marketing Show" href="/podcast.xml" />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta property="og:image:alt" content={ogTitle} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
     <title>{title}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
