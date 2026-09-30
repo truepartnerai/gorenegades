@@ -223,11 +223,27 @@ const opportunities = [
 </BaseLayout>
 
 <style>
-  .home-hero { min-height: 760px; display: flex; align-items: center; }
-  .home-title { font-size: clamp(72px, 14vw, 190px); max-width: 1100px; }
+  .home-hero { min-height: 680px; display: flex; align-items: center; }
+  .home-title {
+    font-family: var(--body);
+    font-size: clamp(52px, 7vw, 86px);
+    font-weight: 700;
+    line-height: .98;
+    letter-spacing: -.045em;
+    text-transform: none;
+    max-width: 900px;
+    margin-top: 16px;
+  }
   .home-title span { display: block; }
   .home-title .gold { color: var(--gold); }
-  .home-lead { max-width: 760px; }
+  .hero-tag {
+    max-width: 850px;
+    font-size: clamp(21px, 2.1vw, 28px);
+    line-height: 1.35;
+    font-weight: 600;
+    margin-top: 28px;
+  }
+  .home-lead { max-width: 760px; margin-top: 18px; }
 
   .hero-proof {
     display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 34px;
@@ -407,8 +423,13 @@ const opportunities = [
   }
 
   @media (max-width: 640px) {
-    .home-hero { min-height: auto; }
-    .home-title { font-size: clamp(62px, 20vw, 100px); }
+    .home-hero { min-height: auto; padding-top: 72px; padding-bottom: 72px; }
+    .home-title {
+      font-size: clamp(44px, 13vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .hero-tag { font-size: 20px; }
     .capability-grid, .renegade-grid, .opportunity-grid { grid-template-columns: 1fr; }
     .opportunity-question { align-items: flex-start; flex-direction: column; gap: 8px; }
     .system-cta { align-items: flex-start; flex-direction: column; }
