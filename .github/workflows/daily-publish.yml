@@ -1,0 +1,28 @@
+# Rebuilds the site once a day so future-dated blog posts go live on their pubDate.
+# Setup (one time): Vercel → Project → Settings → Git → Deploy Hooks → create hook
+# for branch "main", then GitHub → repo Settings → Secrets → Actions →
+# New secret named VERCEL_DEPLOY_HOOK with the hook URL.
+#
+# Blog posts are scheduled for 6:00 AM Mountain. This runs at 13:05 UTC
+# (7:05 AM MDT / 6:05 AM MST), so any post dated at or before 6:00 AM MT is live
+# by ~7:15 AM MT year-round. Schedule social posts that link to the blog after 8:00 AM MT.
+name: Daily publish
+
+on:
+  schedule:
+    - cron: '5 13 * * *'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production build
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::VERCEL_DEPLOY_HOOK secret is not set; scheduled posts will not go live."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOOK"

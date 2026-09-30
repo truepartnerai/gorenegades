@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { isLive } from '../lib/live.js';
 
 export const prerender = true;
 
@@ -14,7 +15,7 @@ const escapeXml = (value='') => String(value)
 
 export async function GET() {
   const posts = (await getCollection('blog'))
-    .filter((post) => !post.data.draft && post.data.syndicate !== false)
+    .filter((post) => isLive(post) && post.data.syndicate !== false)
     .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   const items = posts.map((post) => {

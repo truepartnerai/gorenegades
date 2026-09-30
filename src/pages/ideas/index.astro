@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
+import { isLive } from '../../lib/live.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import '../../styles/content.css';
 
-const blog = (await getCollection('blog')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
+const blog = (await getCollection('blog')).filter(isLive).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
 const podcast = (await getCollection('podcast')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
 ---
 

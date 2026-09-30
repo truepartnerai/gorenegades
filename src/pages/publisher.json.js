@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { isLive } from '../lib/live.js';
 
 export const prerender = true;
 
@@ -13,7 +14,7 @@ const absoluteUrl = (value) => {
 
 export async function GET() {
   const blog = (await getCollection('blog'))
-    .filter((post) => !post.data.draft)
+    .filter(isLive)
     .map((post) => {
       const d = post.data;
       const url = `${SITE}/blog/${post.id}/`;
