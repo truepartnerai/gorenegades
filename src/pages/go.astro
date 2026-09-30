@@ -61,15 +61,20 @@ const academyLink = "/academy";
       }
 
       .brand {
-        display: inline-block;
-        margin-bottom: 14px;
-        padding: 6px 11px;
-        background: var(--yellow);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
         font-size: 12px;
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        transform: rotate(-1deg);
+      }
+      .brand img {
+        width: 64px;
+        height: 38px;
+        object-fit: cover;
+        border-radius: 6px;
       }
 
       h1 {
@@ -256,7 +261,10 @@ const academyLink = "/academy";
     <main class="page">
 
       <section class="hero">
-        <div class="brand">Marketing Renegades</div>
+        <a class="brand" href="/" aria-label="Marketing Renegades home">
+          <img src="/marketing-renegades-logo.svg" alt="" />
+          <span>Marketing Renegades</span>
+        </a>
 
         <h1>
           Capture more leads. <br>Close more business. <br>You're closer than you think.
