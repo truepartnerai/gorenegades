@@ -96,7 +96,7 @@ Names below are the current Facebook names as of 2026-09-30. HighLevel may still
 |---|---|---|---|
 | `fb-academy` | Facebook | Marketing Renegade Academy (facebook.com/nofearmarketingtoday) | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_289618017568423_page` |
 
-**Parked (don't post):** Renegade CRM page (`313498618522250`), Startup Lead Factory, Marketing is Easy, Easy 12 Step Marketing, Lead Generation Machine.
+**Parked (don't post):** Renegade CRM on Facebook (`313498618522250`) and LinkedIn (`673fb0cd7d51af51ba218c4d_752TznWg3s9PT7P486mf_108763937_page`), Startup Lead Factory, Marketing is Easy, Easy 12 Step Marketing, Lead Generation Machine.
 
 Routing: Darin says "founder," "Renegades," or "both." When he doesn't say, stories go to Founder, how-tos go to Renegades, and the strongest pieces go to both, with different copy per lane.
 
