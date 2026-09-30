@@ -3,103 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout
-  title="About Marketing Renegades"
-  description="Marketing Renegades helps entrepreneurs solve marketing and growth problems with smarter systems, tools, automation, and practical implementation."
->
-<div class="page about-page">
-  <Header ctaLabel="Explore Renegade CRM" ctaHref="/crm" />
-  <main>
-    <section class="about-hero">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">About Marketing Renegades</span>
-          <h1>Marketing should make your business easier to grow.</h1>
-        </div>
-        <div class="hero-copy">
-          <p class="lead">Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
-          <p>We focus on practical marketing that can actually live inside a busy business: better follow-up, stronger database marketing, more consistent visibility, useful automation, and simple systems that keep good opportunities moving.</p>
-        </div>
+<BaseLayout title="About Marketing Renegades — Marketing Renegades" description="Why Marketing Renegades exists, what we believe, and Darin Rhodes' role as teacher, strategist, facilitator, and convener.">
+  <div class="page">
+    <Header />
+    <main class="sec sec-black" style="min-height:70vh">
+      <div class="wrap rv">
+        <span class="ey">Marketing Renegades</span>
+        <h1 class="disp" style="font-size:clamp(58px,10vw,150px);margin-top:20px">About Marketing Renegades</h1>
+        <p class="hero-sub">Why Marketing Renegades exists, what we believe, and Darin Rhodes' role as teacher, strategist, facilitator, and convener.</p>
       </div>
-    </section>
-
-    <section class="cream">
-      <div class="wrap belief-grid">
-        <div>
-          <span class="eyebrow">What we believe</span>
-          <h2>Good marketing does not have to be complicated.</h2>
-        </div>
-        <div class="belief-list">
-          <div><span>01</span><p><strong>Start with the real problem.</strong> Choose the bottleneck that matters most and build around it.</p></div>
-          <div><span>02</span><p><strong>Use technology for leverage.</strong> Software and AI should remove friction, not create more work.</p></div>
-          <div><span>03</span><p><strong>Build capability.</strong> The goal is to help owners understand and run better marketing, not become dependent on us.</p></div>
-          <div><span>04</span><p><strong>Keep moving.</strong> Build one useful piece, get it working, and add the next.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="white">
-      <div class="wrap founder-grid">
-        <div>
-          <span class="eyebrow">Who is behind it</span>
-          <h2>Darin Rhodes</h2>
-          <p class="lead-small">Teacher. Strategist. Facilitator. Business builder.</p>
-        </div>
-        <div class="founder-copy">
-          <p>Darin has spent more than two decades working in mortgage, real estate, sales, marketing, and business ownership. Marketing Renegades grew out of a simple idea: independent entrepreneurs now have access to tools and technology that used to require a much larger team.</p>
-          <p>His role is to make those opportunities easier to understand, bring useful people and ideas together, and help owners turn marketing strategy into something they can actually run.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="charcoal">
-      <div class="wrap final-grid">
-        <div>
-          <span class="eyebrow gold">Marketing Renegades</span>
-          <h2>Systems. Tools. Ideas. People who like building businesses.</h2>
-        </div>
-        <div>
-          <p>Explore the software, join the community, or come build with us inside Renegade Academy.</p>
-          <div class="actions">
-            <a class="primary" href="/crm">Explore Renegade CRM</a>
-            <a class="outline" href="https://community.gorenegades.com">Join the community</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</div>
+    </main>
+    <Footer />
+  </div>
 </BaseLayout>
-
-<style>
-.about-page{background:#f7f7f5;color:#171717}
-.about-hero,.white{background:#fff}
-.about-hero{padding:112px 0 104px}
-.hero-grid,.belief-grid,.founder-grid,.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
-.eyebrow{font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#8f7200}
-.about-page h1,.about-page h2{font-family:var(--body);font-weight:700;letter-spacing:-.045em;line-height:1.02}
-.about-page h1{font-size:clamp(52px,6vw,84px);max-width:850px;margin-top:22px}
-.about-page h2{font-size:clamp(40px,4.8vw,64px);margin-top:18px}
-.hero-copy{padding-top:30px}
-.lead{font-size:clamp(22px,2vw,28px);line-height:1.45;font-weight:600;color:#2c2c2c}
-.hero-copy>p:last-child,.founder-copy p{font-size:17px;line-height:1.75;color:#666;margin-top:22px}
-.cream{padding:104px 0;background:#f4f0e7}
-.belief-list{border-top:1px solid #d8d0c2}
-.belief-list>div{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:23px 0;border-bottom:1px solid #d8d0c2}
-.belief-list>div>span{font:700 10px/1 var(--mono);color:#a27f00;padding-top:5px}
-.belief-list p{font-size:15px;line-height:1.65;color:#5d584e}
-.belief-list strong{color:#191919}
-.white{padding:104px 0}
-.lead-small{font-size:18px;color:#777;margin-top:12px}
-.charcoal{padding:92px 0;background:#2d2d2d;color:#fff}
-.charcoal h2{color:#fff}
-.charcoal p{font-size:17px;line-height:1.7;color:#cacaca}
-.gold{color:#e5c044}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.primary,.outline{display:inline-flex;min-height:50px;align-items:center;justify-content:center;padding:0 20px;border-radius:8px;font-weight:700;font-size:14px}
-.primary{background:#f4c20d;color:#111}
-.outline{border:1px solid #666;color:#fff}
-@media(max-width:900px){.hero-grid,.belief-grid,.founder-grid,.final-grid{grid-template-columns:1fr;gap:40px}.hero-copy{padding-top:0}}
-@media(max-width:640px){.about-hero,.cream,.white,.charcoal{padding:72px 0}.about-page h1{font-size:clamp(44px,12vw,60px)}.primary,.outline{width:100%}}
-</style>
