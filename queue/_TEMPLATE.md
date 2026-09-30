@@ -5,6 +5,7 @@ pillar: ""
 problem: ""
 capability: ""
 status: drafted          # drafted | revise | approved | scheduled | live | winner | parked
+lane: both               # founder | renegades | both
 cta: buy-crm             # buy-crm | power-hour | community | comment
 cta_url: https://gorenegades.com/crm
 publish_date: 2026-10-01 # blog day; blog pubDate = 06:00 MT this day
@@ -28,7 +29,7 @@ social:
   - { account: fb-darin,     at: "", status: pending, ghl_post_id: "" }
   - { account: ig-darin,     at: "", status: pending, ghl_post_id: "" }
   - { account: li-renegades, at: "", status: pending, ghl_post_id: "" }
-  - { account: fb-startup-lead-factory, at: "", status: pending, ghl_post_id: "" }
+  - { account: fb-renegades, at: "", status: pending, ghl_post_id: "" }
   - { account: ig-renegades, at: "", status: pending, ghl_post_id: "" }
 media: og-card           # og-card = https://gorenegades.com/og/<slug>.png
 metrics: {}              # filled in by the weekly review
@@ -43,13 +44,13 @@ winner: false
 
 (Plain, personal, short. It links to the article; it doesn't reprint it.)
 
-## Facebook
+## Founder post
 
-(Standalone post that works without the click. Link goes last.)
+(Facebook: Darin Rhodes and LinkedIn: Darin. The story, first person. It should work without the click; link goes last.)
 
-## Facebook (alt)
+## Renegades post
 
-(A different angle for a side page. Never duplicate copy across pages.)
+(Facebook and LinkedIn: Marketing Renegades. The takeaway and how-to. Never the same copy as the Founder post.)
 
 ## Instagram
 

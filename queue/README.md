@@ -45,45 +45,60 @@ Each social slot and the email also carry their own `status` (`pending`, `schedu
 1. **Blog first.** The article goes into `src/content/blog/<slug>.md` with `pubDate` at 6:00 AM Mountain on its publish day. The daily build (`.github/workflows/daily-publish.yml`) makes it live by about 7:15 AM MT.
 2. **Anything that links to the blog is scheduled after 8:00 AM MT** on or after that day, so the link never points to a 404.
 3. **Images:** every post gets an auto-generated card at `https://gorenegades.com/og/<slug>.png`. That covers Instagram's image requirement without design work. Custom images are optional.
-4. **One post per account per day, at most two.** Volume comes from the number of accounts, not from hammering one feed.
-5. **No identical copy across Facebook pages.** Each page gets its own version or a different asset that day. Blasting the same text to eight pages reads as spam to the audience and to Meta.
-6. **Mortgage-branded pages stay out of entrepreneur content.** `Mortgage Broker Takeover` and `Mortgage Marketing Renegades` get mortgage content only.
+4. **At most two posts per account per day.**
+5. **No identical copy across lanes.** When a piece goes to both, the Founder version tells the story and the Renegades version teaches the takeaway.
+6. **Academy page gets Academy and mortgage-broker content only.** Parked pages get nothing.
 7. **Email goes out on weekdays only, and at most once a day.**
 8. **CTA links:** Buy Renegade CRM → `https://gorenegades.com/crm`. Join Community → `https://community.gorenegades.com`. Power Hour → TBD (Darin to supply the registration URL).
 
-## The daily grid (about 11 publishing events from 2 assets)
+## The daily grid (about 10 publishing events from 2 assets)
 
-Asset A is today's blog article. Asset B is yesterday's article, reused on accounts that didn't carry it yet.
+Asset A is today's blog article. Asset B is yesterday's article, reused in the other lane or at a different time of day.
 
 | Time (MT) | Channel | Asset |
 |---|---|---|
 | 6:00 | Blog | A |
 | 8:15 | LinkedIn: Darin | A |
 | 8:30 | Facebook: Darin Rhodes | A |
-| 9:00 | Email (weekdays) | A |
+| 9:00 | Email (weekdays, once set up) | A |
 | 11:30 | Instagram: darinrhodes | A |
 | 12:00 | LinkedIn: Marketing Renegades page | B |
-| 12:30 | Facebook: rotating side page 1 | B |
+| 12:30 | Facebook: Marketing Renegades | B |
 | 15:00 | Instagram: marketing_renegades | B |
-| 17:30 | Facebook: rotating side page 2 | A (alt copy) |
+| 17:30 | Facebook: Marketing Renegades | A (Renegades version) |
 | 19:00 | Facebook: Darin Rhodes | B |
 
-Ten strong packages written in one day covers five weekdays of this grid. That's the leverage: one writing day produces a week of ten-plus posts a day.
+Ten strong packages written in one day covers five weekdays of this grid. That's the leverage: one writing day produces a week of posts.
 
 ## HighLevel accounts (Renegade Academy sub-account `752TznWg3s9PT7P486mf`)
+
+Names below are the current Facebook names as of 2026-09-30. HighLevel may still show older ones until the pages are reconnected; the account ID is what counts.
+
+**Founder lane:** first-person stories, opinions, lessons.
 
 | Key | Platform | Name | Account ID |
 |---|---|---|---|
 | `fb-darin` | Facebook | Darin Rhodes | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_1671233902888533_page` |
-| `fb-startup-lead-factory` | Facebook | Startup Lead Factory | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_260611233793311_page` |
-| `fb-marketing-is-easy` | Facebook | Marketing is Easy | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_224584540727177_page` |
-| `fb-easy-12-step` | Facebook | Easy 12 Step Marketing | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_243764115484245_page` |
-| `fb-lead-gen-machine` | Facebook | Lead Generation Machine | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_191535034049600_page` |
-| `fb-truepartner` | Facebook | TruePartner A.I. | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_100731298783330_page` |
 | `ig-darin` | Instagram | darinrhodes | `641daa768807505960cda8a4_752TznWg3s9PT7P486mf_17841401268080505` |
-| `ig-renegades` | Instagram | marketing_renegades | `641daa768807505960cda8a4_752TznWg3s9PT7P486mf_17841468839851807` |
 | `li-darin` | LinkedIn | Darin Rhodes (profile) | `641daab38807500c7fcda8b6_752TznWg3s9PT7P486mf_sr6Wb3kJWy_profile` |
+
+**Renegades lane:** how-tos, Renegade CRM, community.
+
+| Key | Platform | Name | Account ID |
+|---|---|---|---|
+| `fb-renegades` | Facebook | Marketing Renegades (facebook.com/nofearmarketing) | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_100731298783330_page` |
+| `ig-renegades` | Instagram | marketing_renegades | `641daa768807505960cda8a4_752TznWg3s9PT7P486mf_17841468839851807` |
 | `li-renegades` | LinkedIn | Marketing Renegades (page) | `673fb0cd7d51af51ba218c4d_752TznWg3s9PT7P486mf_108772941_page` |
+
+**Occasional:** Academy and mortgage-broker content only.
+
+| Key | Platform | Name | Account ID |
+|---|---|---|---|
+| `fb-academy` | Facebook | Marketing Renegade Academy (facebook.com/nofearmarketingtoday) | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_289618017568423_page` |
+
+**Parked (don't post):** Renegade CRM page (`313498618522250`), Startup Lead Factory, Marketing is Easy, Easy 12 Step Marketing, Lead Generation Machine.
+
+Routing: Darin says "founder," "Renegades," or "both." When he doesn't say, stories go to Founder, how-tos go to Renegades, and the strongest pieces go to both, with different copy per lane.
 
 The LinkedIn connection expires on 2026-10-02 and needs reconnecting in Social Planner. Check token expiry in the monthly review.
 

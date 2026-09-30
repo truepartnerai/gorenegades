@@ -5,6 +5,7 @@ pillar: Reviews & Reputation
 problem: Happy customers are not consistently becoming public proof.
 capability: Review Requests, Reputation Management, Automations
 status: drafted
+lane: both
 cta: buy-crm
 cta_url: https://gorenegades.com/crm
 publish_date: 2026-10-01
@@ -27,9 +28,8 @@ social:
   - { account: li-darin,     at: "2026-10-01T08:15:00-06:00", status: pending, ghl_post_id: "" }
   - { account: fb-darin,     at: "2026-10-01T08:30:00-06:00", status: pending, ghl_post_id: "" }
   - { account: ig-darin,     at: "2026-10-01T11:30:00-06:00", status: pending, ghl_post_id: "" }
-  - { account: fb-marketing-is-easy, at: "2026-10-01T17:30:00-06:00", status: pending, ghl_post_id: "", copy: alt }
+  - { account: fb-renegades, at: "2026-10-01T17:30:00-06:00", status: pending, ghl_post_id: "", copy: alt }
   - { account: li-renegades, at: "2026-10-02T12:00:00-06:00", status: pending, ghl_post_id: "" }
-  - { account: fb-startup-lead-factory, at: "2026-10-02T12:30:00-06:00", status: pending, ghl_post_id: "" }
   - { account: ig-renegades, at: "2026-10-02T15:00:00-06:00", status: pending, ghl_post_id: "" }
 media: og-card
 metrics: {}
