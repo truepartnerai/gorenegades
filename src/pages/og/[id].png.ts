@@ -66,10 +66,10 @@ export const GET: APIRoute = async ({ props }) => {
   const tone = post.data.visualTone ?? 'gold';
   const colors = palette[tone as keyof typeof palette] ?? palette.gold;
   const kicker = (post.data.visualKicker || post.data.series || post.data.category || 'Renegade Ideas').toUpperCase();
-  const titleLines = wrapText(post.data.title, 28, 4);
+  const titleLines = wrapText(post.data.socialTitle || post.data.title, 28, 4);
   const titleFont = titleLines.length >= 4 ? 62 : titleLines.length === 3 ? 70 : 78;
   const titleLineHeight = Math.round(titleFont * 1.02);
-  const titleStartY = titleLines.length >= 4 ? 242 : 270;
+  const titleStartY = titleLines.length >= 4 ? 262 : 270;
 
   const svg = `
   <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
