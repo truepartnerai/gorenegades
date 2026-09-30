@@ -3,48 +3,180 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/content.css';
 
-const blog = (await getCollection('blog')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
-const podcast = (await getCollection('podcast')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,6);
+const blog = (await getCollection('blog')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,8);
+const podcast = (await getCollection('podcast')).filter((x)=>!x.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,8);
+const featuredArticle = blog[0];
+const featuredPodcast = podcast[0];
+const moreArticles = blog.slice(1);
+const morePodcast = podcast.slice(1);
 ---
-
-<BaseLayout title="Renegade Ideas | Marketing Renegades" description="Articles, podcast episodes, Power Hours, playbooks, and useful marketing ideas from Marketing Renegades.">
-  <div class="page content-shell">
-    <Header />
-    <main>
-      <section class="content-hero">
-        <div class="wrap">
-          <span class="ey">Renegade Ideas</span>
-          <h1 class="disp">Come steal our ideas.</h1>
-          <p>Articles, podcast conversations, Power Hours, playbooks, experiments, and new technology we're actually using.</p>
+<BaseLayout title="Renegade Ideas | Articles + No Fear Marketing Show" description="Articles, podcast episodes, Power Hours, playbooks and practical marketing ideas from Marketing Renegades.">
+<div class="page ideas-page">
+  <Header ctaLabel="Explore Renegade CRM" ctaHref="/crm" />
+  <main>
+    <section class="ideas-hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Renegade Ideas</span>
+          <h1>Useful ideas for building a better business.</h1>
         </div>
-      </section>
-      <section class="content-main">
-        <div class="wrap">
-          <div class="ideas-split">
-            <div>
-              <div class="content-meta">Articles</div>
-              <h2 class="disp" style="font-size:48px;margin:10px 0 24px">Read</h2>
-              {blog.length ? blog.map((post)=>(
-                <a class="content-card" style="margin-bottom:14px" href={`/blog/${post.id}/`}>
-                  <div class="content-card-body"><h3>{post.data.title}</h3><p>{post.data.description}</p><span class="read-more">Read →</span></div>
-                </a>
-              )) : <div class="content-empty">Articles are being loaded.</div>}
-            </div>
-            <div>
-              <div class="content-meta">Podcast</div>
-              <h2 class="disp" style="font-size:48px;margin:10px 0 24px">Listen</h2>
-              {podcast.length ? podcast.map((ep)=>(
-                <a class="content-card" style="margin-bottom:14px" href={`/podcast/${ep.id}/`}>
-                  <div class="content-card-body"><div class="content-meta">{ep.data.episode ? `Episode ${ep.data.episode}` : 'No Fear Marketing Show'}</div><h3>{ep.data.title}</h3><p>{ep.data.description}</p><span class="read-more">Listen →</span></div>
-                </a>
-              )) : <div class="content-empty">Podcast episodes are being migrated.</div>}
-            </div>
+        <div>
+          <p class="hero-copy">Articles, conversations, experiments, new technology and practical marketing ideas for entrepreneurs.</p>
+          <div class="topic-row">
+            <span>Marketing Systems</span><span>AI + Tech</span><span>Database</span><span>Content</span><span>Growth</span>
           </div>
         </div>
-      </section>
-    </main>
-    <Footer />
-  </div>
+      </div>
+    </section>
+
+    <section class="featured-wrap">
+      <div class="wrap featured-grid">
+        <div>
+          <div class="section-label">Latest Article</div>
+          {featuredArticle ? (
+            <a class="featured-card light-card" href={`/blog/${featuredArticle.id}/`}>
+              <span class="card-type">ARTICLE</span>
+              <h2>{featuredArticle.data.title}</h2>
+              <p>{featuredArticle.data.description}</p>
+              <span class="read-link">Read article →</span>
+            </a>
+          ) : <div class="empty">Articles are being loaded.</div>}
+        </div>
+
+        <div>
+          <div class="section-label podcast-label">Latest Podcast</div>
+          {featuredPodcast ? (
+            <a class="featured-card dark-card" href={`/podcast/${featuredPodcast.id}/`}>
+              <span class="card-type">{featuredPodcast.data.episode ? `EPISODE ${featuredPodcast.data.episode}` : 'NO FEAR MARKETING SHOW'}</span>
+              <h2>{featuredPodcast.data.title}</h2>
+              <p>{featuredPodcast.data.description}</p>
+              <span class="listen-link">Listen →</span>
+            </a>
+          ) : <div class="empty dark-empty">Podcast episodes are being migrated.</div>}
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section articles">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Articles</span>
+            <h2>Read</h2>
+          </div>
+          <a href="/blog">View all articles →</a>
+        </div>
+        <div class="mini-grid">
+          {moreArticles.length ? moreArticles.map((post)=>(
+            <a class="mini-card" href={`/blog/${post.id}/`}>
+              <span class="mini-type">ARTICLE</span>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <span class="mini-link">Read →</span>
+            </a>
+          )) : <div class="empty">More articles coming soon.</div>}
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section podcasts">
+      <div class="wrap">
+        <div class="section-head dark-head">
+          <div>
+            <span class="eyebrow gold">No Fear Marketing Show</span>
+            <h2>Listen</h2>
+          </div>
+          <a href="/podcast">View all episodes →</a>
+        </div>
+        <div class="podcast-grid">
+          {morePodcast.length ? morePodcast.map((ep)=>(
+            <a class="pod-card" href={`/podcast/${ep.id}/`}>
+              <span class="pod-num">{ep.data.episode ? `EP ${ep.data.episode}` : 'PODCAST'}</span>
+              <div>
+                <h3>{ep.data.title}</h3>
+                <p>{ep.data.description}</p>
+              </div>
+              <span class="play">▶</span>
+            </a>
+          )) : <div class="empty dark-empty">More podcast episodes coming soon.</div>}
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-band">
+      <div class="wrap resource-grid">
+        <div>
+          <span class="eyebrow">More from Marketing Renegades</span>
+          <h2>Learn it. Try it. Build what works.</h2>
+        </div>
+        <div class="resource-links">
+          <a href="https://community.gorenegades.com"><strong>Renegade Community</strong><span>Playbooks, Power Hours and conversations →</span></a>
+          <a href="/crm"><strong>Renegade CRM</strong><span>Put the systems into your business →</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</div>
 </BaseLayout>
+
+<style>
+.ideas-page{background:#f7f7f5;color:#171717}
+.ideas-hero{padding:96px 0 82px;background:#fff}
+.hero-grid,.featured-grid,.resource-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.eyebrow{font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#8e7100}
+.ideas-page h1,.ideas-page h2,.ideas-page h3{font-family:var(--body);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+.ideas-page h1{font-size:clamp(50px,5.8vw,80px);max-width:820px;margin-top:20px}
+.hero-copy{font-size:21px;line-height:1.6;color:#555;max-width:620px;margin-top:28px}
+.topic-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.topic-row span{font:700 9px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:#f4f0e7;border:1px solid #ddd4c5;padding:9px 10px;border-radius:999px;color:#5c5548}
+
+.featured-wrap{padding:62px 0 92px;background:#f4f0e7}
+.section-label{font:700 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#7c6300;margin-bottom:14px}
+.podcast-label{color:#c7a729}
+.featured-card{display:flex;flex-direction:column;min-height:390px;border-radius:16px;padding:32px;border:1px solid #d8d1c5;transition:.18s ease}
+.featured-card:hover{transform:translateY(-2px)}
+.light-card{background:#fff}
+.dark-card{background:#303030;color:#fff;border-color:#3c3c3c}
+.card-type{font:700 9px/1 var(--mono);letter-spacing:.11em;text-transform:uppercase;color:#9a7b00}
+.dark-card .card-type{color:#e1bf39}
+.featured-card h2{font-size:clamp(32px,3.5vw,48px);margin-top:42px}
+.featured-card p{font-size:15px;line-height:1.7;color:#686868;margin-top:18px;max-width:620px}
+.dark-card p{color:#c1c1c1}
+.read-link,.listen-link{margin-top:auto;padding-top:28px;font-weight:700;font-size:14px}
+.listen-link{color:#f0ca38}
+
+.content-section{padding:96px 0}
+.articles{background:#fff}
+.podcasts{background:#2e2e2e;color:#fff}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:36px}
+.section-head h2{font-size:clamp(38px,4.5vw,58px);margin-top:10px}
+.section-head>a{font-size:13px;font-weight:700;color:#555}
+.dark-head>a{color:#d3d3d3}.gold{color:#e0bd36}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mini-card{background:#fafaf8;border:1px solid #e0e0da;border-radius:12px;padding:22px;min-height:235px;display:flex;flex-direction:column}
+.mini-type,.pod-num{font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#9a7b00}
+.mini-card h3{font-size:19px;margin-top:24px}
+.mini-card p{font-size:13px;line-height:1.65;color:#737373;margin-top:9px}
+.mini-link{margin-top:auto;padding-top:22px;font-size:13px;font-weight:700}
+
+.podcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pod-card{display:grid;grid-template-columns:54px 1fr 30px;gap:15px;align-items:start;background:#363636;border:1px solid #464646;border-radius:12px;padding:20px}
+.pod-card:hover{border-color:#6b5b18}
+.pod-num{color:#dbba39;padding-top:4px}
+.pod-card h3{font-size:18px;color:#fff}
+.pod-card p{font-size:12.5px;line-height:1.55;color:#a9a9a9;margin-top:7px}
+.play{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#f4c20d;color:#171717;font-size:10px}
+
+.resource-band{padding:86px 0;background:#f4f0e7}
+.resource-band h2{font-size:clamp(38px,4.5vw,58px);margin-top:16px}
+.resource-links{border-top:1px solid #d6cec0}
+.resource-links a{display:block;padding:22px 0;border-bottom:1px solid #d6cec0}
+.resource-links strong{display:block;font-size:16px}
+.resource-links span{display:block;font-size:13px;color:#6c665b;margin-top:5px}
+.empty{padding:30px;border:1px solid #ddd;background:#fff;border-radius:12px;color:#777}.dark-empty{background:#373737;border-color:#444;color:#bbb}
+
+@media(max-width:900px){.hero-grid,.featured-grid,.resource-grid{grid-template-columns:1fr}.mini-grid{grid-template-columns:1fr 1fr}.podcast-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.ideas-hero,.content-section,.resource-band{padding:72px 0}.featured-wrap{padding:48px 0 72px}.ideas-page h1{font-size:clamp(44px,12vw,60px)}.mini-grid{grid-template-columns:1fr}.featured-card{min-height:330px}.section-head{align-items:start;flex-direction:column}.pod-card{grid-template-columns:46px 1fr 28px}}
+</style>
