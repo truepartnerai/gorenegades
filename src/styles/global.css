@@ -239,9 +239,11 @@ footer{background:var(--black);border-top:1px solid var(--line);padding:60px 0 1
 
 /* MULTI-PAGE SITE NAV */
 .site-nav-in{gap:24px;position:relative}
-.brand-wordmark{font-family:var(--display);text-transform:uppercase;font-size:25px;line-height:.9;letter-spacing:.02em;white-space:nowrap}
-.brand-wordmark span{color:var(--white)}
-.brand-wordmark strong{color:var(--gold);font-weight:400}
+.brand-wordmark{display:flex;align-items:center;gap:11px;white-space:nowrap}
+.brand-mark{display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(244,194,13,.7);background:var(--gold);color:#0a0a0a;font:700 11px/1 var(--mono);letter-spacing:-.04em}
+.brand-copy{display:flex;flex-direction:column;line-height:.92}
+.brand-copy small{font:700 8px/1 var(--mono);letter-spacing:.19em;text-transform:uppercase;color:#d8d8d8;margin-bottom:4px}
+.brand-copy strong{font-family:var(--body);font-size:18px;letter-spacing:-.035em;color:var(--white);font-weight:800}
 .desktop-nav{display:flex;align-items:center;gap:8px;margin-left:auto}
 .desktop-nav a{
   position:relative;
@@ -354,8 +356,9 @@ footer{background:var(--black);border-top:1px solid var(--line);padding:60px 0 1
 @media(max-width:600px){
   .nav-in{height:68px}
   .site-nav-in{padding-left:18px;padding-right:18px}
-  .brand-wordmark span{display:none}
-  .brand-wordmark strong{font-size:23px}
+  .brand-copy small{display:none}
+  .brand-copy strong{font-size:18px}
+  .brand-mark{width:34px;height:34px}
   .menu-label{display:none}
   .mobile-menu summary{padding:10px;min-width:42px;justify-content:center}
 }
