@@ -9,7 +9,7 @@ import Banner from '../components/Banner.astro';
 
 const faqs: [string, string][] = [
   ['When does the next semester start?', `The ${semester.name} begins ${semester.starts}. Class meets Wednesdays at ${semester.time} for eight weeks, with a break for Thanksgiving, and graduation is ${semester.graduation}.`],
-  ['How much is tuition?', `$${academyPrice.monthly} a month, or $${academyPrice.annual.toLocaleString()} a year if you pay annually, which saves you $${academyPrice.annualSavings}. Renegade CRM is included either way.`],
+  ['How much is tuition?', `$${academyPrice.monthly} a month with a ${academyPrice.minMonths}-month minimum, or $${academyPrice.annual.toLocaleString()} a year if you pay annually, which saves you $${academyPrice.annualSavings}. Renegade CRM is included either way.`],
   ['How big is the class?', `Each semester is capped at ${semester.seats} seats, so there is room to ask questions and actually get help.`],
   ['Is Renegade CRM included?', 'Yes. Tuition includes Renegade CRM, so you are not paying for the software twice. You build everything inside it during the semester.'],
   ['Is this a course?', "There's teaching, but the point is implementation. Each week we build one piece of your marketing system in your actual business, not in a video library you'll never finish."],
@@ -140,7 +140,7 @@ const faqs: [string, string][] = [
             <div class="pp-name">{semester.name}</div>
             <div class="pp-price"><strong>${academyPrice.monthly}</strong><span>/ month</span></div>
             <p class="pp-desc">Or <strong>${academyPrice.annual.toLocaleString()} a year</strong> and save ${academyPrice.annualSavings}.</p>
-            <p class="pp-desc" style="margin-bottom:22px">Renegade CRM included. Classes begin {semester.startsShort}. {semester.seats} seats.</p>
+            <p class="pp-desc" style="margin-bottom:22px">Renegade CRM included. {academyPrice.minMonths}-month minimum on monthly. Classes begin {semester.startsShort}. {semester.seats} seats.</p>
             <a class="p-btn p-btn-primary p-btn-block" href={links.academy}>Register for the semester</a>
             <span class="pp-alt">Just want the software? <a href="/crm">Renegade CRM is $99/mo.</a></span>
           </aside>

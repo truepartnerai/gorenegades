@@ -21,7 +21,8 @@ export const brand = {
 export const academyPrice = {
   monthly: 199,
   annual: 1999,
-  annualSavings: 199 * 12 - 1999
+  annualSavings: 199 * 12 - 1999,
+  minMonths: 6 // minimum commitment on the monthly plan
 };
 
 // The current Renegade Academy semester.
