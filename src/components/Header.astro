@@ -1,37 +1,38 @@
 ---
-const { ctaLabel = 'Join the Renegades', ctaHref = 'https://community.gorenegades.com' } = Astro.props;
+import { links } from '../lib/links.js';
+
+// Props kept for compatibility with older pages that still pass them.
+const { ctaLabel = 'Start for $99/mo', ctaHref = '/crm' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const nav = [
+  { href: '/crm', label: 'Renegade CRM' },
+  { href: '/academy', label: 'Academy' },
+  { href: '/community', label: 'Community' },
+  { href: '/ideas', label: 'Ideas' },
+  { href: '/about', label: 'About' }
+];
+const current = (href) => (path === href || path.startsWith(href + '/') ? 'page' : undefined);
 ---
 
-<nav class="nav" aria-label="Primary navigation">
-  <div class="wrap nav-in site-nav-in">
-    <a class="brand-wordmark" href="/" aria-label="Marketing Renegades home">
-      <span>Marketing</span> <strong>Renegades</strong>
-    </a>
+<nav class="pn" aria-label="Primary navigation">
+  <div class="p-wrap pn-in">
+    <a class="pn-brand" href="/" aria-label="Marketing Renegades home">Marketing <b>Renegades</b></a>
 
-    <div class="desktop-nav" aria-label="Site sections">
-      <a href="/crm">CRM</a>
-      <a href="/academy">Academy</a>
-      <a href="https://community.gorenegades.com">Community</a>
-      <a href="/ideas">Ideas</a>
-      <a href="/about">About</a>
+    <div class="pn-links">
+      {nav.map((item) => <a href={item.href} aria-current={current(item.href)}>{item.label}</a>)}
     </div>
 
-    <a class="nav-cta" href={ctaHref}>{ctaLabel} →</a>
+    <a class="pn-cta" href={ctaHref}>{ctaLabel}</a>
 
-    <details class="mobile-menu">
-      <summary aria-label="Open navigation menu">
-        <span class="menu-label">Menu</span>
-        <span class="menu-icon" aria-hidden="true">
-          <i></i><i></i><i></i>
-        </span>
-      </summary>
-      <div class="mobile-menu-panel">
-        <a href="/crm"><span>01</span> Renegade CRM</a>
-        <a href="/academy"><span>02</span> Renegade Academy</a>
-        <a href="https://community.gorenegades.com"><span>03</span> Renegade Community</a>
-        <a href="/ideas"><span>04</span> Ideas</a>
-        <a href="/about"><span>05</span> About</a>
-        <a class="mobile-menu-cta" href={ctaHref}>{ctaLabel} →</a>
+    <details class="pn-menu">
+      <summary aria-label="Open navigation menu">Menu</summary>
+      <div class="pn-panel">
+        <a href="/crm">Renegade CRM <small>The system · $99/mo</small></a>
+        <a href="/academy">Renegade Academy <small>Build it with us · $199/mo</small></a>
+        <a href="/community">Renegade Community <small>Ideas and Power Hours · Free</small></a>
+        <a href="/ideas">Ideas <small>Articles and podcast</small></a>
+        <a href="/about">About</a>
+        <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start for $99/mo</a>
       </div>
     </details>
   </div>

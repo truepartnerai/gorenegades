@@ -2,93 +2,98 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
+import { links } from '../lib/links.js';
 
-const outcomes = [
-  ['Build a weekly marketing rhythm','Decide what happens every week so marketing stops depending on memory or spare time.'],
-  ['Work your database consistently','Email, nurture, reviews, referrals, and repeat business — organized into a system.'],
-  ['Create new opportunities','Build practical lead-generation campaigns and the follow-up that turns inquiries into conversations.'],
-  ['Use content without becoming a creator','Turn useful ideas into repeatable content instead of reinventing the wheel every day.'],
-  ['Build referral relationships','Create a real rhythm around partners, events, communication, and staying useful.'],
-  ['Use the software for something real','Build workflows, campaigns, pipelines, and automations inside Renegade CRM as we go.']
+const tracks = [
+  ['Build the foundation', 'Set your marketing rhythm, organize the system and decide what actually deserves your attention.'],
+  ['Lead follow-up', 'Speed-to-lead responses and follow-up sequences so new inquiries become conversations.'],
+  ['Email and your database', 'Simple, consistent communication with the people who already know you.'],
+  ['Lead generation', 'Practical campaigns that bring new people into your world, with the follow-up already waiting.'],
+  ['Content and visibility', 'Turn one useful idea into a week of content instead of reinventing the wheel every day.'],
+  ['Reviews and referrals', 'Build the ask into the customer journey so it happens every time.'],
+  ['Relationships and events', 'Partner check-ins, client events and webinars that create more opportunity.'],
+  ['Build lab', "Bring whatever is stuck, confusing or unfinished and we'll work on it together."]
 ];
 
-const curriculum = [
-  ['01','Build the foundation','Set your marketing rhythm, organize the system, and decide what actually deserves your attention.'],
-  ['02','Content + visibility','Create useful content and turn it into a repeatable system instead of random posting.'],
-  ['03','Email + database','Build simple communication and follow-up that keeps you in front of the people who already know you.'],
-  ['04','Lead generation','Create campaigns that bring new people into your world — with the follow-up ready.'],
-  ['05','Build lab','Bring what is stuck, confusing, unfinished, or underperforming and we work on it together.'],
-  ['06','Events + relationships','Use webinars, client events, partner events, and relationship-building to create more opportunity.'],
-  ['07','Reviews + referrals','Build asking, follow-up, and reputation into the customer journey.'],
-  ['08','Make it repeatable','Tie the pieces together into a system you can keep running after the semester ends.']
-];
-
-const faqs = [
-  ['Is this a course?','There is teaching, but the point is implementation. We build the marketing system into your actual business while the cohort is running.'],
-  ['Do I need to be technical?','No. We build step by step and use the software as a tool, not as the subject of the class.'],
-  ['Can I keep my current coach or program?','Absolutely. Academy is designed to complement good sales coaching, business planning, accountability, and other programs you already value.'],
-  ['Is Renegade CRM included?','Yes. Your first year of Renegade CRM is included with Academy tuition.'],
-  ['Who is this best for?','Independent business owners and mortgage professionals who want structure, implementation, and a system instead of more scattered ideas.'],
-  ['What happens after the eight weeks?','You keep the system you built, continue using Renegade CRM, and stay connected to the broader Renegade community.']
+const faqs: [string, string][] = [
+  ['Is Renegade CRM included?', 'Yes. Academy includes everything in Renegade CRM, so you are not paying for the software twice.'],
+  ['Is this a course?', "There's teaching, but the point is implementation. We build the system into your actual business during the live sessions, not in a video library you'll never finish."],
+  ['Do I need to be technical?', 'No. We go step by step and treat the software as a tool, not the subject of the class.'],
+  ['What if I miss a session?', "Life happens. Pick up with the next one, bring your questions to the build lab, and keep going."],
+  ['Can I keep my current coach or program?', 'Absolutely. Academy is about building your marketing system, and it plays well with sales coaching, business planning and accountability groups.'],
+  ['Can I start with just the CRM and upgrade later?', 'Yes. Plenty of people start with Renegade CRM, get a couple of systems running, and move to Academy when they want help going further, faster.']
 ];
 ---
 
 <BaseLayout
   title="Renegade Academy | Build Your Marketing System With Us"
-  description="Renegade Academy is an 8-week live implementation program for business owners who want to build a practical marketing system with help."
+  description="Renegade Academy includes Renegade CRM plus live weekly sessions where we build your marketing system into your business with you. $199/month."
 >
-  <div class="academy-page">
-    <Header ctaLabel="Join the Academy" ctaHref="#enroll" />
+  <div class="page">
+    <Header ctaLabel="Join the Academy" ctaHref="#join" />
 
     <main>
-      <section class="hero academy-hero">
-        <div class="wrap hero-grid">
-          <div>
-            <span class="ey">Renegade Academy</span>
-            <h1 class="disp hero-title">Build your marketing <span>with us.</span></h1>
-            <p class="hero-lead">
-              An 8-week live implementation program for business owners who don't need more marketing ideas —
-              they need a few good ones actually built into the business.
-            </p>
-            <div class="hero-points">
-              <span>Live classes</span><span>Real implementation</span><span>Renegade CRM included</span>
-            </div>
-            <div class="hero-cta">
-              <a href="#enroll" class="btn btn-gold">Join the next Academy <span class="ar">→</span></a>
-              <a href="#how" class="btn btn-ghost">See how it works</a>
-            </div>
+      <section class="p-hero">
+        <div class="p-wrap">
+          <span class="p-eyebrow">Renegade Academy · $199/month</span>
+          <h1 class="p-h1">Don't build it alone. <span class="p-hl">Build it with us.</span></h1>
+          <p class="p-lead">Academy is everything in Renegade CRM plus live weekly sessions where we build your marketing system into your real business, step by step, alongside a small group of other business owners doing the same thing.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.academy}>Join the Academy — $199/mo</a>
+            <a class="p-btn p-btn-secondary" href="#how">How it works</a>
           </div>
-          <aside class="hero-note">
-            <span class="ey">The idea</span>
-            <p class="quote">You're probably a lot closer than you think.</p>
-            <p>We simplify the work, choose the right next moves, and build the system together — one useful piece at a time.</p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="light">
-        <div class="wrap two-col">
-          <div>
-            <span class="ey dark-ey">Who Academy is for</span>
-            <h2 class="disp dark-title">You already know what you should be doing.</h2>
-          </div>
-          <div class="copy">
-            <p>Follow up faster. Email the database. Ask for reviews. Create content. Generate leads. Stay in touch with referral partners.</p>
-            <p><strong>The problem usually isn't ideas. It's getting them organized, built, and running consistently.</strong></p>
-            <p>That's what Academy is for.</p>
+          <div class="p-assure">
+            <span>Renegade CRM included</span>
+            <span>Live, not pre-recorded</span>
+            <span>Real implementation</span>
           </div>
         </div>
       </section>
 
-      <section class="paper">
-        <div class="wrap">
-          <span class="ey dark-ey">What you'll build</span>
-          <h2 class="disp dark-title">A marketing system that lives in your real business.</h2>
-          <div class="cards">
-            {outcomes.map(([title,text],i) => (
-              <article class="card">
-                <span class="num">{String(i+1).padStart(2,'0')}</span>
-                <h3>{title}</h3>
+      <section class="p-sec">
+        <div class="p-wrap p-split">
+          <div>
+            <span class="p-eyebrow">Who it's for</span>
+            <h2 class="p-h2">The difference between knowing and done.</h2>
+            <div class="p-body">
+              <p>You've watched the webinars. You've got a folder full of good ideas. What you don't have is a couple of hours a week with someone who's built this before, sitting next to you while it actually gets set up.</p>
+              <p>That's Academy. You show up, we build, and you leave each week with something running in your business that wasn't running before.</p>
+            </div>
+          </div>
+          <div class="p-grid-2" style="grid-template-columns:1fr">
+            <article class="p-card">
+              <h3 class="p-h3">A great fit if you…</h3>
+              <ul class="p-checks">
+                <li>Want the system built, not just explained</li>
+                <li>Learn better live, with people to ask</li>
+                <li>Have tried to set up software alone and stalled</li>
+                <li>Want structure and a weekly rhythm</li>
+              </ul>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">Probably not for you if you…</h3>
+              <ul class="p-checks p-x">
+                <li>Want someone to do it all for you</li>
+                <li>Are looking for a magic ad that fixes everything</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec p-sec-alt" id="how">
+        <div class="p-wrap">
+          <div class="p-head">
+            <span class="p-eyebrow">What we build together</span>
+            <h2 class="p-h2">One piece at a time, until the whole system runs.</h2>
+            <p class="p-lead">Each build track ends with something working in your Renegade CRM, not homework.</p>
+          </div>
+          <div class="p-grid-2" style="margin-top:40px">
+            {tracks.map(([title, text], i) => (
+              <article class="p-card">
+                <span class="p-num">{i + 1}</span>
+                <h3 class="p-h3">{title}</h3>
                 <p>{text}</p>
               </article>
             ))}
@@ -96,88 +101,45 @@ const faqs = [
         </div>
       </section>
 
-      <section class="dark" id="how">
-        <div class="wrap two-col">
+      <section class="p-sec" id="join">
+        <div class="p-wrap p-offer">
           <div>
-            <span class="ey">How Academy works</span>
-            <h2 class="disp">Learn it. Build it. Use it.</h2>
+            <span class="p-eyebrow">Join the Academy</span>
+            <h2 class="p-h2">Everything in the CRM, plus us in the room.</h2>
+            <ul class="p-checks">
+              <li>Renegade CRM software and playbooks</li>
+              <li>Live weekly build sessions</li>
+              <li>Step-by-step implementation tracks</li>
+              <li>Strategy and troubleshooting help</li>
+              <li>A small group of business owners building alongside you</li>
+              <li>Free Renegade Community and Power Hours</li>
+            </ul>
           </div>
-          <div class="dark-copy">
-            <p>We teach the strategy, open the software, build the campaign, answer questions, troubleshoot what isn't working, and keep moving.</p>
-            <p class="gold">The goal is not a notebook full of ideas. The goal is marketing running.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="light">
-        <div class="wrap">
-          <span class="ey dark-ey">The 8-week build</span>
-          <h2 class="disp dark-title">One piece at a time.</h2>
-          <div class="weeks">
-            {curriculum.map(([num,title,text]) => (
-              <div class="week">
-                <div class="week-num">{num}</div>
-                <div><h3>{title}</h3><p>{text}</p></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="paper">
-        <div class="wrap two-col">
-          <div>
-            <span class="ey dark-ey">Who runs the room</span>
-            <h2 class="disp dark-title">Teacher. Strategist. Facilitator.</h2>
-            <div class="copy">
-              <p>Darin Rhodes has spent more than two decades in mortgage, real estate, sales, marketing, and business building.</p>
-              <p>His job in Academy is to simplify the strategy, help people implement, run a useful room, and bring in specialists when someone else is the better person to learn from.</p>
-              <p><strong>The point is not to make you dependent on Renegades. It's to make you more capable.</strong></p>
-            </div>
-          </div>
-          <aside class="light-quote">
-            <span class="ey dark-ey">Renegade philosophy</span>
-            <blockquote>Start simple.<br/>Get it working.<br/>Add the next piece.</blockquote>
+          <aside class="p-offer-box">
+            <div class="pp-name">Renegade Academy</div>
+            <div class="pp-price"><strong>$199</strong><span>/ month</span></div>
+            <p class="pp-desc" style="margin-bottom:22px">Includes Renegade CRM.</p>
+            <a class="p-btn p-btn-primary p-btn-block" href={links.academy}>Join the Academy</a>
+            <span class="pp-alt">Just want the software? <a href="/crm">Renegade CRM is $99/mo.</a></span>
           </aside>
         </div>
       </section>
 
-      <section class="offer" id="enroll">
-        <div class="wrap offer-grid">
-          <div>
-            <span class="ey">Renegade Academy</span>
-            <h2 class="disp">Build it with us.</h2>
-            <p>Eight weeks of live implementation, Renegade CRM for your first year, playbooks, community, and support.</p>
-          </div>
-          <div class="price-box">
-            <span class="ey">Academy tuition</span>
-            <div class="price">$2,500</div>
-            <p>Includes the 8-week live cohort and your first year of Renegade CRM.</p>
-            <a href="https://enroll.gorenegades.com" class="btn btn-gold">Enroll in Renegade Academy <span class="ar">→</span></a>
-          </div>
+      <section class="p-sec p-sec-alt">
+        <div class="p-narrow">
+          <span class="p-eyebrow">Quick answers</span>
+          <h2 class="p-h2">Before you join.</h2>
+          <Faq items={faqs} />
         </div>
       </section>
 
-      <section class="light">
-        <div class="wrap">
-          <span class="ey dark-ey">Quick answers</span>
-          <h2 class="disp dark-title">Before you jump in.</h2>
-          <div class="faq">
-            {faqs.map(([q,a]) => (
-              <details>
-                <summary>{q}</summary>
-                <p>{a}</p>
-              </details>
-            ))}
+      <section class="p-sec p-sec-dark">
+        <div class="p-narrow p-center">
+          <h2 class="p-h2">Start simple. Get it working. Add the next piece.</h2>
+          <p class="p-lead">We'll do it together.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.academy}>Join the Academy — $199/mo</a>
           </div>
-        </div>
-      </section>
-
-      <section class="final-cta">
-        <div class="wrap">
-          <span class="ey">You're closer than you think.</span>
-          <h2 class="disp">Let's build it.</h2>
-          <a href="https://enroll.gorenegades.com" class="btn btn-gold">Join Renegade Academy <span class="ar">→</span></a>
         </div>
       </section>
     </main>
@@ -185,44 +147,3 @@ const faqs = [
     <Footer />
   </div>
 </BaseLayout>
-
-<style>
-  .academy-page{background:#f4f0e7;color:#111}
-  .academy-hero,.dark,.offer,.final-cta{background:#0a0a0a;color:#fff}
-  .academy-hero{padding:92px 0 82px;background:radial-gradient(circle at 75% 20%,rgba(244,194,13,.14),transparent 34%),#0a0a0a}
-  .hero-grid,.two-col,.offer-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:start}
-  .hero-title{font-size:clamp(58px,8vw,116px);line-height:.88;max-width:9ch;margin-top:18px}
-  .hero-title span{display:block;color:var(--gold)}
-  .hero-lead{max-width:680px;margin-top:28px;color:#c4c4c4;font-size:20px;line-height:1.55}
-  .hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-  .hero-points span{border:1px solid rgba(255,255,255,.16);padding:9px 12px;font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#ccc}
-  .hero-note{border:1px solid rgba(255,255,255,.12);padding:32px;margin-top:20px;background:rgba(255,255,255,.03)}
-  .hero-note .quote{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,4vw,52px);line-height:.95;color:#fff;margin:18px 0}
-  .hero-note p:last-child{color:#aaa;line-height:1.6}
-  .light,.paper,.dark,.offer,.final-cta{padding:100px 0}
-  .light{background:#f4f0e7}.paper{background:#fffdf8}.dark-ey{color:#7a6207}
-  .dark-title{color:#111;font-size:clamp(42px,6vw,78px);margin-top:14px}
-  .copy{padding-top:22px}.copy p{color:#514d44;font-size:18px;line-height:1.7;margin-bottom:18px}.copy strong{color:#111}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
-  .card{background:#fff;border:1px solid #ddd6c8;padding:28px 25px}.num{display:block;font-family:var(--display);font-size:26px;color:#b58e00;margin-bottom:18px}
-  .card h3,.week h3{font-family:var(--display);text-transform:uppercase;color:#111;font-size:27px;line-height:1;margin-bottom:10px}
-  .card p,.week p{color:#5e594f;line-height:1.55;font-size:15px}
-  .dark h2,.offer h2,.final-cta h2{font-size:clamp(46px,6vw,82px);margin-top:14px}
-  .dark-copy{padding-top:22px}.dark-copy p{color:#b7b7b7;font-size:18px;line-height:1.65;margin-bottom:18px}.dark-copy .gold{color:var(--gold);font-weight:700}
-  .weeks{margin-top:48px;border-top:1px solid #d7d0c2}
-  .week{display:grid;grid-template-columns:88px 1fr;gap:26px;padding:26px 0;border-bottom:1px solid #d7d0c2}
-  .week-num{font-family:var(--display);font-size:46px;line-height:.9;color:#b58e00}
-  .light-quote{border-left:5px solid var(--gold);padding:10px 0 10px 28px;margin-top:28px}
-  .light-quote blockquote{font-family:var(--display);text-transform:uppercase;font-size:clamp(38px,5vw,60px);line-height:.96;color:#111}
-  .offer p{color:#b7b7b7;font-size:18px;line-height:1.6;margin-top:18px}
-  .price-box{border:1px solid rgba(255,255,255,.14);padding:32px;background:#141414}
-  .price{font-family:var(--display);font-size:78px;line-height:.9;color:var(--gold);margin:14px 0}
-  .price-box .btn{width:100%;justify-content:center;margin-top:8px}
-  .faq{margin-top:44px;border-top:1px solid #d7d0c2}
-  .faq details{border-bottom:1px solid #d7d0c2}.faq summary{cursor:pointer;list-style:none;padding:22px 0;font-family:var(--display);text-transform:uppercase;color:#111;font-size:24px}
-  .faq summary::-webkit-details-marker{display:none}.faq summary::after{content:'+';float:right;color:#b58e00}.faq details[open] summary::after{content:'−'}
-  .faq p{color:#5e594f;line-height:1.65;padding:0 0 22px;max-width:760px}
-  .final-cta{text-align:center}.final-cta .btn{margin-top:26px}
-  @media(max-width:900px){.hero-grid,.two-col,.offer-grid{grid-template-columns:1fr;gap:30px}.cards{grid-template-columns:1fr 1fr}}
-  @media(max-width:640px){.academy-hero{padding:68px 0 58px}.light,.paper,.dark,.offer,.final-cta{padding:72px 0}.cards{grid-template-columns:1fr}.week{grid-template-columns:60px 1fr;gap:18px}.hero-title{font-size:clamp(54px,18vw,82px)}}
-</style>

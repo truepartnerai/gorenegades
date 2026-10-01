@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { links } from '../lib/links.js';
+---
+
+<BaseLayout
+  title="Renegade Community | Free Marketing Ideas, Playbooks and Power Hours"
+  description="Join the free Renegade Community: weekly Power Hours, playbooks, templates and other entrepreneurs building smarter marketing systems."
+>
+  <div class="page">
+    <Header ctaLabel="Join free" ctaHref={links.community} />
+
+    <main>
+      <section class="p-hero">
+        <div class="p-wrap">
+          <span class="p-eyebrow">Renegade Community · Free</span>
+          <h1 class="p-h1">Come steal our <span class="p-hl">ideas</span>.</h1>
+          <p class="p-lead">A free community for entrepreneurs who want to market smarter. Get the playbooks, come to the weekly Power Hours, see what we're testing and learn from other business owners figuring this stuff out right alongside you.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.community}>Join the community — free</a>
+            <a class="p-btn p-btn-secondary" href={links.powerHour}>Save a seat at the next Power Hour</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec">
+        <div class="p-wrap">
+          <div class="p-head">
+            <span class="p-eyebrow">What's inside</span>
+            <h2 class="p-h2">Useful stuff, no strings attached.</h2>
+          </div>
+          <div class="p-grid-3" style="margin-top:40px">
+            <article class="p-card">
+              <h3 class="p-h3">Weekly Power Hours</h3>
+              <p>A live call where we talk marketing, lead generation, follow-up, AI, automation and whatever good idea shows up that week. Casual, practical and free. Bring a question, and maybe a bag of chips.</p>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">Playbooks and templates</h3>
+              <p>Step-by-step marketing plays you can copy, from database emails to review requests to content you can actually keep up with.</p>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">New tech and experiments</h3>
+              <p>We test the new tools so you don't have to, and share what worked, what flopped and what's worth your time.</p>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">Guest experts</h3>
+              <p>When someone else is the better teacher on a topic, we bring them in.</p>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">Other business owners</h3>
+              <p>People building the same systems you are, swapping what's working in their businesses.</p>
+            </article>
+            <article class="p-card">
+              <h3 class="p-h3">Articles and podcast</h3>
+              <p>Every new idea from the blog and the No Fear Marketing Show, in one place.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec p-sec-alt">
+        <div class="p-wrap">
+          <div class="p-callout" style="margin-top:0">
+            <div>
+              <strong>Ready to put the ideas to work?</strong>
+              <p>Renegade CRM gives you the software and the playbooks to run them, for $99/month.</p>
+            </div>
+            <a class="p-btn p-btn-primary" href="/crm">See Renegade CRM</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec p-sec-dark">
+        <div class="p-narrow p-center">
+          <h2 class="p-h2">Come hang out with the Renegades.</h2>
+          <p class="p-lead">Use whatever helps. It's free.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.community}>Join the community — free</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

@@ -2,17 +2,53 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Pricing from '../components/Pricing.astro';
 ---
-<BaseLayout title="About Marketing Renegades — Marketing Renegades" description="Why Marketing Renegades exists, what we believe, and Darin Rhodes' role as teacher, strategist, facilitator, and convener.">
+
+<BaseLayout
+  title="About Marketing Renegades"
+  description="Why Marketing Renegades exists: helping entrepreneurs solve marketing and growth problems using smarter systems, tools and automation."
+>
   <div class="page">
     <Header />
-    <main class="sec sec-black" style="min-height:70vh">
-      <div class="wrap rv">
-        <span class="ey">Marketing Renegades</span>
-        <h1 class="disp" style="font-size:clamp(58px,10vw,150px);margin-top:20px">About Marketing Renegades</h1>
-        <p class="hero-sub">Why Marketing Renegades exists, what we believe, and Darin Rhodes' role as teacher, strategist, facilitator, and convener.</p>
-      </div>
+
+    <main>
+      <section class="p-hero">
+        <div class="p-narrow">
+          <span class="p-eyebrow">About</span>
+          <h1 class="p-h1">Capability changes everything.</h1>
+          <p class="p-lead">Marketing Renegades exists to help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
+        </div>
+      </section>
+
+      <section class="p-sec">
+        <div class="p-narrow p-body">
+          <h2 class="p-h2">Why we started</h2>
+          <p>I'm Darin Rhodes. I've spent more than 25 years in the mortgage and real estate business, and the longer I've been at it the clearer one thing has become. The people who grow aren't usually the ones with the cleverest marketing. They're the ones who follow up, stay in touch and ask for the review every single time.</p>
+          <p>For most of business history, doing that consistently took a staff. Today automation, AI and inexpensive software have put the capability of a whole marketing department inside a small business. The problem is that most business owners are handed the tools without the plan, so the software sits there while the marketing still depends on memory and spare time.</p>
+          <p>Marketing Renegades is the plan. We teach what's working, test the new stuff in our own businesses first, and give you the system and the playbooks to run it yourself.</p>
+
+          <h2 class="p-h2" style="margin-top:56px">What we believe</h2>
+          <ul class="p-checks">
+            <li><strong>Systems beat willpower.</strong> If it depends on remembering, it won't happen on your busiest week.</li>
+            <li><strong>Start with one thing.</strong> Get it working, then add the next. Nobody needs to do it all today.</li>
+            <li><strong>Teach, don't trap.</strong> The goal is to make you more capable, not dependent on us.</li>
+            <li><strong>Steal good ideas.</strong> We share what works openly, and bring in specialists when they're the better teacher.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="p-sec p-sec-alt">
+        <div class="p-wrap">
+          <div class="p-head p-center">
+            <span class="p-eyebrow">Three ways in</span>
+            <h2 class="p-h2">Pick how much help you want.</h2>
+          </div>
+          <Pricing />
+        </div>
+      </section>
     </main>
+
     <Footer />
   </div>
 </BaseLayout>

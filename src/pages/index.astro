@@ -2,218 +2,198 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Pricing from '../components/Pricing.astro';
+import Faq from '../components/Faq.astro';
+import { links } from '../lib/links.js';
 
-const opportunities = [
-  { title: 'Work Your Database', text: 'Stay in touch with the people who already know you — without relying on memory.' },
-  { title: 'Generate New Leads', text: 'Launch simple campaigns that create new conversations and opportunities.' },
-  { title: 'Follow Up Faster', text: 'Respond, nurture, and keep good leads from quietly disappearing.' },
-  { title: 'Get More Reviews & Referrals', text: 'Make asking for reviews and referrals part of the system instead of an afterthought.' },
-  { title: 'Create More Content', text: 'Turn one useful idea into more places, more formats, and more consistent visibility.' },
-  { title: 'Build Referral Partners', text: 'Create useful, repeatable ways to stay connected with the people who can send business.' }
+const jobs = [
+  ['Follow up with every lead', 'A text and email go out the minute someone raises a hand, and the follow-up keeps going until they answer.'],
+  ['Work your database', 'Stay in front of past customers and contacts every month without writing every email from scratch.'],
+  ['Get more reviews', 'Ask every happy customer, automatically, at the moment they are happiest.'],
+  ['Book more appointments', 'Let people grab time on your calendar instead of playing phone tag for three days.'],
+  ['Win back missed calls', 'A missed call gets an instant text back, so it becomes a conversation instead of a lost lead.'],
+  ['Show up consistently', 'Turn one useful idea into posts, emails and content that keep you visible all week.']
+];
+
+const faqs: [string, string][] = [
+  ['Do I need to be technical?', "No. The playbooks walk you through one system at a time in plain English. If you can send an email and fill out a form, you can run this. And if you'd rather have help, that's exactly what Academy is for."],
+  ['Who is this for?', 'Entrepreneurs and small business owners whose growth depends on leads, follow-up, relationships and referrals. We started with mortgage and real estate professionals, and the same systems work for service businesses, local businesses and solo operators.'],
+  ["What's the difference between the CRM and Academy?", "Renegade CRM is the software plus the playbooks, and you set it up at your own pace. Academy includes the CRM and adds live weekly sessions where we build it into your business with you, step by step."],
+  ['Is Renegade CRM just software?', "No, and that's the point. Most people already own software they don't use. Renegade CRM comes with playbooks that tell you what to turn on first, how to set it up and what to do with it every week."],
+  ["I already have a CRM. Should I switch?", "Maybe, maybe not. Bring the question to a free Power Hour and we'll talk it through honestly. If what you have is working, keep it and steal our ideas instead."],
+  ['Can I start for free?', 'Yes. Join the Renegade Community for free, come to a Power Hour and look around. When you are ready for the system, the CRM is $99 a month.']
 ];
 ---
 
 <BaseLayout
   title="Marketing Renegades | Smarter Marketing Systems for Entrepreneurs"
-  description="Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools, automation, software, playbooks, and practical implementation."
+  description="Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools and automation. Renegade CRM is $99/month."
 >
   <div class="page">
-    <Header ctaLabel="Get Renegade CRM" ctaHref="/crm" />
+    <Header />
 
     <main>
-      <section class="hero home-hero">
-        <div class="hero-glow"></div>
-        <div class="wrap hero-in">
-          <span class="ey">Marketing Renegades — built for entrepreneurs.</span>
-          <h1 class="disp home-title">
-            <span>Build a smarter</span>
-            <span class="gold">marketing system.</span>
-          </h1>
-          <p class="hero-tag">
-            We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.
-          </p>
-          <p class="hero-sub home-lead">
-            Put your follow-up, database, lead generation, reviews, referrals,
-            content and customer communication into a system that actually gets used.
-            Start with the tools, get help implementing them, and build from there.
-          </p>
-          <div class="hero-cta">
-            <a href="#possible" class="btn btn-gold">See what's possible <span class="ar">→</span></a>
-            <a href="https://community.gorenegades.com" class="btn btn-ghost">Join the Renegades — Free</a>
+      <!-- HERO -->
+      <section class="p-hero">
+        <div class="p-wrap">
+          <span class="p-eyebrow">Marketing Renegades</span>
+          <h1 class="p-h1">Your marketing, running on a <span class="p-hl">system</span> instead of your memory.</h1>
+          <p class="p-lead">We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation. Get the software for $99 a month, get help building it if you want it, and steal our best ideas for free.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start Renegade CRM — $99/mo</a>
+            <a class="p-btn p-btn-secondary" href="#pricing">Compare all three options</a>
           </div>
-          <div class="hero-proof">
-            <span>Simple systems.</span>
-            <span>Serious leverage.</span>
-            <span>Start with one thing.</span>
+          <div class="p-assure">
+            <span>Software and playbooks included</span>
+            <span>No tech skills required</span>
+            <span>Free community to start</span>
           </div>
         </div>
       </section>
 
-      <section class="sec sec-ink" id="possible">
-        <div class="wrap">
-          <div class="split-intro rv">
-            <div>
-              <span class="ey">The opportunity</span>
-              <h2 class="disp">Marketing got a whole lot <span class="g">easier.</span></h2>
-            </div>
-            <div class="intro-copy">
-              <p>Not because marketing magically became easy. Because the leverage changed.</p>
-              <p>
-                Automation, AI, inexpensive software, email, text, content,
-                online communities, and better tools have put capabilities
-                inside a small business that used to require a department.
-              </p>
-              <p class="bright">
-                The question isn't whether you can do all of it.
-                It's what you want to make work first.
-              </p>
-            </div>
+      <!-- PROBLEM -->
+      <section class="p-sec">
+        <div class="p-wrap p-split">
+          <div>
+            <span class="p-eyebrow">Sound familiar?</span>
+            <h2 class="p-h2">You don't have a marketing problem. You have a follow-through problem.</h2>
+            <ul class="p-checks p-x">
+              <li>A lead came in Tuesday and nobody called until Friday.</li>
+              <li>You have hundreds of past customers you haven't emailed this year.</li>
+              <li>You know you should ask for reviews. You mostly don't.</li>
+              <li>You bought software once. It's still sitting there, judging you.</li>
+            </ul>
           </div>
-
-          <div class="capability-grid rv">
-            <div class="capability">Follow up with every lead.</div>
-            <div class="capability">Email your database consistently.</div>
-            <div class="capability">Turn one idea into more content.</div>
-            <div class="capability">Ask every customer for a review.</div>
-            <div class="capability">Respond to missed calls faster.</div>
-            <div class="capability">Book appointments automatically.</div>
-          </div>
-
-          <div class="permission rv">
-            <span class="ey">The Renegade approach</span>
-            <h3 class="disp">You don't have to do all of this today.</h3>
-            <p>Start with one thing. Get it working. Add the next. <strong>That's the whole idea.</strong></p>
+          <div class="p-body">
+            <p>None of that is a talent problem. You're good at what you do, which is exactly why your days fill up with the work and the marketing gets pushed to "later." Later, as it turns out, is a very busy place.</p>
+            <p>The businesses that grow aren't necessarily working harder at marketing. They've just put the important stuff on rails, so the follow-up, the database emails and the review requests happen whether or not anybody remembers on a Thursday afternoon.</p>
+            <p><strong>That's what we build. A simple system, set up one piece at a time, that keeps working when you're busy.</strong></p>
           </div>
         </div>
       </section>
 
-      <section class="sec sec-black">
-        <div class="wrap">
-          <div class="section-center rv">
-            <span class="ey">Three ways to use Renegades</span>
-            <h2 class="disp">The system. The build. <span class="g">The community.</span></h2>
-            <p class="sec-lead">Pick the level of help you want. Everything is designed to work together.</p>
+      <!-- PRICING -->
+      <section class="p-sec p-sec-alt" id="pricing">
+        <div class="p-wrap">
+          <div class="p-head p-center">
+            <span class="p-eyebrow">Three ways in</span>
+            <h2 class="p-h2">Pick how much help you want.</h2>
+            <p class="p-lead">Everything works together. Start anywhere and move up whenever you're ready.</p>
           </div>
-
-          <div class="renegade-grid rv">
-            <article class="renegade-card">
-              <div class="card-top">
-                <span class="card-number">01</span>
-                <span class="card-label">Renegade CRM</span>
-              </div>
-              <h3 class="disp">Put the machine in place.</h3>
-              <p>
-                Your marketing system for <strong>$99/month</strong>.
-                CRM, automation, email, text, pipelines, reviews, calendars,
-                social tools, AI, and more — in one place.
-              </p>
-              <a href="/crm" class="text-link">Get Renegade CRM →</a>
-            </article>
-
-            <article class="renegade-card featured">
-              <div class="card-top">
-                <span class="card-number">02</span>
-                <span class="card-label">Renegade Academy</span>
-              </div>
-              <h3 class="disp">Build it with us.</h3>
-              <p>
-                Live classes, real implementation, strategy, troubleshooting,
-                and classmates. We don't just talk about the system.
-                We build it into your actual business.
-              </p>
-              <a href="/academy" class="text-link">Explore the Academy →</a>
-            </article>
-
-            <article class="renegade-card">
-              <div class="card-top">
-                <span class="card-number">03</span>
-                <span class="card-label">Renegade Community</span>
-              </div>
-              <h3 class="disp">Come steal our ideas.</h3>
-              <p>
-                Playbooks. Power Hours. Templates. Experiments. New tech.
-                Guest experts. And other business owners figuring this stuff
-                out right alongside you.
-              </p>
-              <a href="https://community.gorenegades.com" class="text-link">Join Free →</a>
-            </article>
-          </div>
+          <Pricing />
         </div>
       </section>
 
-      <section class="sec sec-ink system-sec">
-        <div class="wrap">
-          <div class="system-head rv">
-            <span class="ey">This is the part that still blows my mind</span>
-            <h2 class="disp">The whole system starts at <span class="g">$99/month.</span></h2>
-            <p class="sec-lead">
-              Not $99 for another course. $99 for the software that runs the system —
-              plus Renegade playbooks that show you what to do with it.
-            </p>
+      <!-- JOBS -->
+      <section class="p-sec">
+        <div class="p-wrap">
+          <div class="p-head">
+            <span class="p-eyebrow">What it actually does</span>
+            <h2 class="p-h2">What do you want your marketing to handle first?</h2>
+            <p class="p-lead">You don't have to do all of this today. Pick one, get it working, then add the next. Each one has a Renegade playbook.</p>
           </div>
-
-          <div class="opportunity-question rv">
-            <span class="mono">START HERE</span>
-            <h3>What do you want this machine to do for you first?</h3>
-          </div>
-
-          <div class="opportunity-grid rv">
-            {opportunities.map((item, i) => (
-              <article class="opp-card">
-                <span class="opp-num">{String(i + 1).padStart(2, '0')}</span>
-                <h4>{item.title}</h4>
-                <p>{item.text}</p>
+          <div class="p-grid-3" style="margin-top:40px">
+            {jobs.map(([title, text], i) => (
+              <article class="p-card">
+                <span class="p-num">{i + 1}</span>
+                <h3 class="p-h3">{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div class="system-cta rv">
-            <div>
-              <span class="ey">Renegade CRM</span>
-              <h3 class="disp">$99/month. Software included.</h3>
+      <!-- REPLACES -->
+      <section class="p-sec p-sec-alt">
+        <div class="p-wrap p-split">
+          <div>
+            <span class="p-eyebrow">One login instead of seven</span>
+            <h2 class="p-h2">Stop duct-taping your marketing together.</h2>
+            <p class="p-lead">Most small businesses are paying for a pile of tools that don't talk to each other, and using about a third of each one. Renegade CRM puts it all in one place for $99 a month.</p>
+          </div>
+          <div>
+            <div class="p-pills">
+              <span class="is-x">Separate CRM</span>
+              <span class="is-x">Email marketing tool</span>
+              <span class="is-x">Texting app</span>
+              <span class="is-x">Scheduling link</span>
+              <span class="is-x">Review request service</span>
+              <span class="is-x">Landing page builder</span>
+              <span class="is-x">Social scheduler</span>
+              <span class="is-x">Sticky notes on the monitor</span>
             </div>
-            <a href="/crm" class="btn btn-gold">See Renegade CRM <span class="ar">→</span></a>
+            <div class="p-callout">
+              <div>
+                <strong>Renegade CRM</strong>
+                <p>All of it, plus the playbooks. $99/month.</p>
+              </div>
+              <a class="p-btn p-btn-primary" href="/crm">See what's inside</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="band belief-band">
-        <div class="wrap">
-          <span class="ey dark-ey">The bigger idea</span>
-          <h2 class="disp">Capability changes everything.</h2>
-          <p>
-            We teach what we know, build alongside you, and bring in specialists
-            when they're the better person to learn from. The goal isn't to make
-            you dependent on Renegades. It's to make you more capable.
-          </p>
+      <!-- HOW IT WORKS -->
+      <section class="p-sec">
+        <div class="p-wrap">
+          <div class="p-head p-center">
+            <span class="p-eyebrow">How it works</span>
+            <h2 class="p-h2">Start simple. Get it working. Add the next piece.</h2>
+          </div>
+          <div class="p-grid-3" style="margin-top:40px">
+            <article class="p-card">
+              <span class="p-num">1</span>
+              <h3 class="p-h3">Start the system</h3>
+              <p>Sign up for Renegade CRM and get access to the software, the playbooks and the free community the same day.</p>
+            </article>
+            <article class="p-card">
+              <span class="p-num">2</span>
+              <h3 class="p-h3">Turn on one thing</h3>
+              <p>Pick the job that would help most right now, usually lead follow-up, and follow the playbook to switch it on.</p>
+            </article>
+            <article class="p-card">
+              <span class="p-num">3</span>
+              <h3 class="p-h3">Stack the next one</h3>
+              <p>Once the first system runs on its own, add database emails, then reviews, then the next. That's the whole idea.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="sec sec-black final-home">
-        <div class="narrow rv">
-          <span class="ey">Not ready to buy anything?</span>
-          <h2 class="disp">Come hang out with the <span class="g">Renegades.</span></h2>
-          <p class="sec-lead">
-            Get the playbooks. Come to the Power Hours. See the ideas we're testing.
-            Learn from the community. Use whatever helps.
-          </p>
-
-          <div class="community-pills">
-            <span>Playbooks</span>
-            <span>Power Hours</span>
-            <span>Templates</span>
-            <span>New Tech</span>
-            <span>Guest Experts</span>
-            <span>Nerd Nights</span>
+      <!-- ABOUT -->
+      <section class="p-sec p-sec-alt">
+        <div class="p-narrow">
+          <span class="p-eyebrow">Who's behind this</span>
+          <h2 class="p-h2">Built by an entrepreneur who got tired of marketing depending on memory.</h2>
+          <div class="p-body">
+            <p>I'm Darin Rhodes. I've spent more than 25 years in the mortgage and real estate business, and somewhere along the way I realized the people who grew weren't the ones with the cleverest ads. They were the ones who followed up, stayed in touch and asked for the review, every single time.</p>
+            <p>So I started building systems that do that automatically, first for my own businesses and then for other business owners who asked how we were doing it. Marketing Renegades is where I teach what's working, test the new stuff and hand you the tools to run it yourself.</p>
           </div>
+          <p class="p-quote">The goal isn't to make you dependent on us. It's to make you more capable.</p>
+          <p style="margin-top:22px"><a class="p-link" href="/about">More about Marketing Renegades →</a></p>
+        </div>
+      </section>
 
-          <div class="hero-cta center-cta">
-            <a href="https://community.gorenegades.com" class="btn btn-gold">
-              Join the Renegades — Free <span class="ar">→</span>
-            </a>
+      <!-- FAQ -->
+      <section class="p-sec">
+        <div class="p-narrow">
+          <span class="p-eyebrow">Quick answers</span>
+          <h2 class="p-h2">Before you jump in.</h2>
+          <Faq items={faqs} />
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="p-sec p-sec-dark">
+        <div class="p-narrow p-center">
+          <span class="p-eyebrow">Ready when you are</span>
+          <h2 class="p-h2">Put your marketing on a system this week.</h2>
+          <p class="p-lead">Start with the software and playbooks for $99 a month. Or come hang out in the free community first. Either way, you'll leave with something useful.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start Renegade CRM — $99/mo</a>
+            <a class="p-btn p-btn-secondary" href={links.community}>Join the community free</a>
           </div>
-
-          <p class="closing-line">Build the system. Keep moving.</p>
         </div>
       </section>
     </main>
@@ -221,218 +201,3 @@ const opportunities = [
     <Footer />
   </div>
 </BaseLayout>
-
-<style>
-  .home-hero { min-height: 680px; display: flex; align-items: center; }
-  .home-title {
-    font-family: var(--body);
-    font-size: clamp(52px, 7vw, 86px);
-    font-weight: 700;
-    line-height: .98;
-    letter-spacing: -.045em;
-    text-transform: none;
-    max-width: 900px;
-    margin-top: 16px;
-  }
-  .home-title span { display: block; }
-  .home-title .gold { color: var(--gold); }
-  .hero-tag {
-    max-width: 850px;
-    font-size: clamp(21px, 2.1vw, 28px);
-    line-height: 1.35;
-    font-weight: 600;
-    margin-top: 28px;
-  }
-  .home-lead { max-width: 760px; margin-top: 18px; }
-
-  .hero-proof {
-    display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 34px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--smoke-dim);
-  }
-
-  .split-intro {
-    display: grid; grid-template-columns: 1.15fr .85fr;
-    gap: 80px; align-items: start;
-  }
-
-  .split-intro h2 { max-width: 760px; }
-  .intro-copy { padding-top: 52px; }
-
-  .intro-copy p {
-    color: var(--smoke); font-size: 18px; line-height: 1.65; margin-bottom: 20px;
-  }
-
-  .intro-copy .bright { color: var(--white); font-weight: 600; }
-
-  .capability-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-    margin-top: 70px; background: var(--line); border: 1px solid var(--line);
-  }
-
-  .capability {
-    background: var(--black); padding: 30px 26px; font-family: var(--display);
-    text-transform: uppercase; font-size: clamp(23px, 2.5vw, 34px); line-height: 1;
-  }
-
-  .capability::before { content: '+'; color: var(--gold); margin-right: 12px; }
-
-  .permission {
-    margin-top: 64px; border-left: 4px solid var(--gold);
-    padding: 8px 0 8px 30px; max-width: 800px;
-  }
-
-  .permission h3 { font-size: clamp(34px, 5vw, 62px); margin-top: 12px; }
-  .permission p { color: var(--smoke); font-size: 18px; margin-top: 14px; }
-  .permission strong { color: var(--white); }
-
-  .section-center { max-width: 880px; margin: 0 auto; text-align: center; }
-  .section-center .sec-lead { margin-left: auto; margin-right: auto; }
-
-  .renegade-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 18px; margin-top: 58px;
-  }
-
-  .renegade-card {
-    min-height: 430px; border: 1px solid var(--line); padding: 34px 30px;
-    background: var(--ink); display: flex; flex-direction: column;
-    transition: transform .2s ease, border-color .2s ease;
-  }
-
-  .renegade-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-
-  .renegade-card.featured {
-    border: 2px solid var(--gold); background: rgba(244,194,13,.045);
-  }
-
-  .card-top {
-    display: flex; justify-content: space-between; gap: 20px;
-    align-items: center; margin-bottom: 44px;
-  }
-
-  .card-number {
-    font-family: var(--display); font-size: 34px;
-    color: var(--gold); line-height: .8;
-  }
-
-  .card-label {
-    font-family: var(--mono); font-size: 10px; letter-spacing: .15em;
-    text-transform: uppercase; color: var(--smoke);
-  }
-
-  .renegade-card h3 {
-    font-size: clamp(34px, 3.4vw, 50px); margin-bottom: 20px;
-  }
-
-  .renegade-card p {
-    color: var(--smoke); line-height: 1.6; font-size: 16px; margin-bottom: 30px;
-  }
-
-  .renegade-card strong { color: var(--white); }
-
-  .text-link {
-    margin-top: auto; color: var(--gold); font-family: var(--mono);
-    font-weight: 700; font-size: 13px; letter-spacing: .04em;
-    text-transform: uppercase;
-  }
-
-  .system-head { max-width: 900px; }
-
-  .opportunity-question {
-    margin-top: 64px; padding: 28px 30px; background: var(--gold);
-    color: var(--black); display: flex; gap: 28px; align-items: center;
-  }
-
-  .opportunity-question .mono {
-    font-size: 11px; font-weight: 700; letter-spacing: .14em;
-  }
-
-  .opportunity-question h3 {
-    font-family: var(--display); text-transform: uppercase;
-    font-size: clamp(26px, 3vw, 40px); line-height: 1;
-  }
-
-  .opportunity-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 18px; margin-top: 18px;
-  }
-
-  .opp-card {
-    border: 1px solid var(--line); background: var(--black); padding: 28px 26px;
-  }
-
-  .opp-num {
-    display: block; font-family: var(--display); font-size: 28px;
-    color: var(--gold); margin-bottom: 20px;
-  }
-
-  .opp-card h4 {
-    font-family: var(--display); text-transform: uppercase;
-    font-size: 27px; line-height: 1; margin-bottom: 12px;
-  }
-
-  .opp-card p { color: var(--smoke); font-size: 14.5px; line-height: 1.5; }
-
-  .system-cta {
-    margin-top: 54px; padding-top: 40px; border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; align-items: center; gap: 30px;
-  }
-
-  .system-cta h3 {
-    font-size: clamp(38px, 5vw, 66px); margin-top: 10px;
-  }
-
-  .belief-band { text-align: left; }
-  .belief-band .wrap { max-width: 1000px; }
-  .belief-band h2 { margin-top: 14px; }
-
-  .belief-band p {
-    max-width: 760px; margin-left: 0; margin-right: 0;
-    font-family: var(--body); text-transform: none; letter-spacing: 0;
-    font-size: 19px; line-height: 1.65;
-  }
-
-  .dark-ey { color: var(--black); opacity: .7; }
-  .final-home { text-align: center; }
-  .final-home .sec-lead { margin-left: auto; margin-right: auto; }
-
-  .community-pills {
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 10px; margin-top: 36px;
-  }
-
-  .community-pills span {
-    border: 1px solid var(--line); padding: 10px 15px; font-family: var(--mono);
-    font-size: 11px; text-transform: uppercase; letter-spacing: .09em;
-    color: var(--smoke);
-  }
-
-  .center-cta { justify-content: center; }
-
-  .closing-line {
-    margin-top: 34px; font-family: var(--display); text-transform: uppercase;
-    font-size: clamp(28px, 4vw, 48px); color: var(--gold);
-  }
-
-  @media (max-width: 900px) {
-    .split-intro { grid-template-columns: 1fr; gap: 20px; }
-    .intro-copy { padding-top: 0; }
-    .capability-grid, .renegade-grid, .opportunity-grid { grid-template-columns: 1fr 1fr; }
-    .renegade-card { min-height: 360px; }
-  }
-
-  @media (max-width: 640px) {
-    .home-hero { min-height: auto; padding-top: 72px; padding-bottom: 72px; }
-    .home-title {
-      font-size: clamp(44px, 13vw, 58px);
-      line-height: 1.02;
-      letter-spacing: -.035em;
-    }
-    .hero-tag { font-size: 20px; }
-    .capability-grid, .renegade-grid, .opportunity-grid { grid-template-columns: 1fr; }
-    .opportunity-question { align-items: flex-start; flex-direction: column; gap: 8px; }
-    .system-cta { align-items: flex-start; flex-direction: column; }
-    .renegade-card { min-height: auto; }
-  }
-</style>
