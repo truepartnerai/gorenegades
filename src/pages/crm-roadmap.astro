@@ -157,6 +157,69 @@ const phases = [
   },
 ];
 
+const toolbox = [
+  {
+    "t": "Calendars & online booking",
+    "d": "Let people book time with you without the “does Tuesday work?” email ping-pong.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005061-getting-started-setup-a-booking-calendar"
+  },
+  {
+    "t": "Appointment reminders",
+    "d": "Automatic email and text reminders, so fewer people forget they booked you.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000003441-calendar-email-in-app-appointment-notifications"
+  },
+  {
+    "t": "One inbox for everything",
+    "d": "Texts, emails, Facebook and Instagram messages, and web chats in one conversation window.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000006610-getting-started-with-the-conversations-tab"
+  },
+  {
+    "t": "The mobile app",
+    "d": "Reply to leads, check your calendar, and answer messages from your phone.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000001702-mobile-apps-overview"
+  },
+  {
+    "t": "Websites",
+    "d": "Build (or finally rebuild) your website from a template.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005069-getting-started-launch-a-website"
+  },
+  {
+    "t": "Funnels & landing pages",
+    "d": "Single-purpose pages for an offer, an event, or a free download.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005057-getting-started-launch-a-funnel"
+  },
+  {
+    "t": "Invoices & text-to-pay",
+    "d": "Send an invoice or payment link by text and get paid faster.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000004042-invoices-new-revamped-ui"
+  },
+  {
+    "t": "Contracts & e-signatures",
+    "d": "Get proposals and agreements signed online. No fax machine from 1997.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000000594-how-to-use-documents-contracts-"
+  },
+  {
+    "t": "Smart lists",
+    "d": "Saved filters like “customers I haven’t talked to in 90 days.”",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/48001062094-how-to-create-manage-smart-lists"
+  },
+  {
+    "t": "Trigger links",
+    "d": "Links that tag people or start an automation when they click.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/48000981404-trigger-links-overview"
+  },
+  {
+    "t": "Courses & memberships",
+    "d": "Teach what you know with an online course or members-only area.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005072-getting-started-launch-a-course"
+  },
+  {
+    "t": "Dashboards & reporting",
+    "d": "See leads, appointments, and revenue in one place.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000001531-how-to-create-a-custom-dashboard"
+  }
+];
+const library = "https://community.gorenegades.com/communities/groups/marketing-renegades/learning";
 const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
 ---
 
@@ -173,11 +236,16 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
     <style>
       :root {
         --black: #0a0a0a;
-        --char: #161616;
+        --char: #faf9f5;
+        --ink: #0a0a0a;
+        --gold-ink: #8a6e00;
+        --gold-mid: #c59a00;
+        --paper: #ffffff;
+        --cream: #fff8d6;
         --gold: #f4c20d;
         --white: #ffffff;
-        --smoke: #a0a0a0;
-        --line: rgba(255, 255, 255, 0.12);
+        --smoke: #5f5f5f;
+        --line: #e7e3d8;
         --display: "Anton", Impact, sans-serif;
         --body: "Space Grotesk", system-ui, sans-serif;
         --mono: "Space Mono", ui-monospace, monospace;
@@ -187,8 +255,8 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        background: var(--black);
-        color: var(--white);
+        background: var(--paper);
+        color: var(--ink);
         font-family: var(--body);
         font-size: 17px;
         line-height: 1.6;
@@ -202,7 +270,7 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
         font-size: 12px;
         letter-spacing: 0.24em;
         text-transform: uppercase;
-        color: var(--gold);
+        color: var(--gold-ink);
       }
       h1 {
         font-family: var(--display);
@@ -212,13 +280,13 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
         font-size: clamp(52px, 11vw, 112px);
         margin: 14px 0 0;
       }
-      h1 span { color: var(--gold); display: block; }
-      .lede { font-size: clamp(17px, 2.2vw, 20px); max-width: 680px; margin: 22px 0 0; color: #e8e8e8; }
+      h1 span { color: var(--gold-mid); display: block; }
+      .lede { font-size: clamp(17px, 2.2vw, 20px); max-width: 680px; margin: 22px 0 0; color: #333; }
       .progress {
         position: sticky;
         top: 0;
         z-index: 10;
-        background: rgba(10, 10, 10, 0.92);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--line);
         margin: 36px 0 8px;
@@ -227,7 +295,7 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
         align-items: center;
         gap: 16px;
       }
-      .bar { flex: 1; height: 10px; background: var(--char); border: 1px solid var(--line); }
+      .bar { flex: 1; height: 10px; background: #f1eee6; border: 1px solid var(--line); }
       .fill { height: 100%; width: 0; background: var(--gold); transition: width 0.25s ease; }
       .count { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
       .phase { margin-top: 48px; }
@@ -250,13 +318,13 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
       }
       .win.done { opacity: 0.55; }
       .win-head { display: flex; gap: 16px; align-items: flex-start; }
-      .num { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--gold); min-width: 52px; }
+      .num { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--gold-mid); min-width: 52px; }
       .win h3 { margin: 0; font-size: 22px; line-height: 1.2; }
-      .win-why { margin: 8px 0 0; color: #d6d6d6; }
+      .win-why { margin: 8px 0 0; color: #444; }
       .win ol { margin: 16px 0 0; padding-left: 20px; }
       .win li { margin-top: 6px; }
       .guides { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px 18px; font-family: var(--mono); font-size: 13px; }
-      .guides a { color: var(--gold); text-underline-offset: 4px; }
+      .guides a { color: var(--gold-ink); font-weight: 700; text-underline-offset: 4px; }
       .check {
         margin-top: 18px;
         display: inline-flex;
@@ -272,11 +340,12 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
       .check input { width: 20px; height: 20px; accent-color: var(--gold); cursor: pointer; }
       .tip {
         margin-top: 18px;
-        background: rgba(244, 194, 13, 0.1);
-        border: 1px solid rgba(244, 194, 13, 0.45);
+        background: var(--cream);
+        border: 1px solid #e7d77b;
+        border-left: 5px solid var(--gold);
         padding: 16px 18px;
       }
-      .tip strong { display: block; color: var(--gold); font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .tip strong { display: block; color: var(--gold-ink); font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
       .tip p { margin: 6px 0 0; font-size: 16px; }
       .btn {
         display: inline-block;
@@ -292,12 +361,12 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
         border: 2px solid var(--gold);
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--white); }
-      .btn.ghost { background: transparent; color: var(--white); border-color: var(--line); }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+      .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
       .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-      .closing { margin-top: 60px; border-top: 3px solid var(--gold); padding-top: 28px; }
+      .closing { margin-top: 60px; border-top: 3px solid var(--ink); padding-top: 28px; }
       .closing h2 { font-family: var(--display); text-transform: uppercase; font-weight: 400; font-size: clamp(32px, 6vw, 48px); margin: 0; line-height: 0.95; }
-      .closing p { color: #d6d6d6; max-width: 640px; }
+      .closing p { color: #444; max-width: 640px; }
       .foot { margin-top: 48px; font-size: 13px; color: var(--smoke); text-align: center; }
       .stamp {
         display: inline-block;
@@ -309,9 +378,18 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
         text-transform: uppercase;
         padding: 10px 16px;
         transform: rotate(-2deg);
-        box-shadow: 5px 5px 0 var(--white);
+        box-shadow: 5px 5px 0 var(--ink);
       }
-      a:focus-visible, input:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+      .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 22px; }
+      .tool { background: var(--char); border: 1px solid var(--line); border-top: 4px solid var(--gold); padding: 18px; display: flex; flex-direction: column; }
+      .tool h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+      .tool p { margin: 6px 0 12px; color: #444; font-size: 15px; flex: 1; }
+      .tool a { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold-ink); text-underline-offset: 4px; }
+      .top { background: var(--black); color: var(--white); }
+      .top-in { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
+      .top-in span { color: var(--gold); }
+      .top-in a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; }
+      a:focus-visible, input:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
       @media (max-width: 560px) {
         .win { padding: 18px; }
         .win-head { gap: 12px; }
@@ -322,6 +400,7 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
   </head>
   <body>
     <div class="rule"></div>
+    <header class="top"><div class="top-in"><div>Renegade <span>CRM</span></div><a href={app}>Log in &rarr;</a></div></header>
     <main class="page">
       <div class="ey">Renegade CRM &middot; Your roadmap</div>
       <h1>Ten wins. <span>Your pace.</span></h1>
@@ -381,6 +460,21 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
           ))}
         </section>
       ))}
+
+      <section class="phase" id="toolbox">
+        <div class="ey">Bonus</div>
+        <h2>More in your toolbox</h2>
+        <p>You don’t need all of these on day one. Pick the one that solves a problem you have this month, and ignore the rest until you need them. Every walkthrough also lives in the <a href={library}>community tutorial library</a>.</p>
+        <div class="tools">
+          {toolbox.map((x) => (
+            <div class="tool">
+              <h3>{x.t}</h3>
+              <p>{x.d}</p>
+              <a href={x.u} target="_blank" rel="noopener">How it works &rarr;</a>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section class="closing">
         <h2>Finished the map?</h2>
