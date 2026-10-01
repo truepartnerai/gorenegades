@@ -96,6 +96,14 @@ Names below are the current Facebook names as of 2026-09-30. HighLevel may still
 |---|---|---|---|
 | `fb-academy` | Facebook | Marketing Renegade Academy (facebook.com/nofearmarketingtoday) | `641daa50954f272fb6712d24_752TznWg3s9PT7P486mf_289618017568423_page` |
 
+**Community:** every blog post also goes to the Renegade Academy group's Discussion / Q&A channel, posted as Darin, on its publish day, with a short intro and a discussion question.
+
+| Key | Platform | Name | Account ID |
+|---|---|---|---|
+| `community-academy-qa` | Community | Renegade Academy, Discussion / Q&A | `673fafb578967c4ea82c00c3_752TznWg3s9PT7P486mf_692f625b54ad64beea55fbb9` |
+
+**Approvals:** for now, posts go into HighLevel as drafts (or are approved one call at a time). Switch to automatic posting once Darin says so.
+
 **Parked (don't post):** Renegade CRM on Facebook (`313498618522250`) and LinkedIn (`673fb0cd7d51af51ba218c4d_752TznWg3s9PT7P486mf_108763937_page`), Startup Lead Factory, Marketing is Easy, Easy 12 Step Marketing, Lead Generation Machine.
 
 Routing: Darin says "founder," "Renegades," or "both." When he doesn't say, stories go to Founder, how-tos go to Renegades, and the strongest pieces go to both, with different copy per lane.
