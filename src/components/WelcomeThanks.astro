@@ -1,0 +1,174 @@
+---
+// Post-checkout thank-you page for the enroll.gorenegades.com funnel.
+// Used by /welcome/crm and /welcome/academy. Unlisted and noindex.
+interface Step { title: string; body: string; cta?: [string, string] }
+interface Props {
+  product: string;
+  pageTitle: string;
+  headline: string;
+  lede: string;
+  steps: Step[];
+  note: string[];
+  upsell?: { title: string; body: string; cta: [string, string] };
+}
+const { product, pageTitle, headline, lede, steps, note, upsell } = Astro.props;
+const app = "https://app.gorenegades.com";
+const community = "https://community.gorenegades.com";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #000000;
+        --paper: #ffffff;
+        --gold: #f4c20d;
+        --gold-ink: #7d6400;
+        --cream: #fff8d6;
+        --line: #e4dfd2;
+        --muted: #4a4a4a;
+        --display: "Anton", Impact, sans-serif;
+        --body: "Space Grotesk", system-ui, sans-serif;
+        --mono: "Space Mono", ui-monospace, monospace;
+        --serif: Georgia, "Times New Roman", serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+      .rule { height: 8px; background: var(--gold); }
+      .bar { background: var(--ink); color: var(--paper); }
+      .bar-in, .wrap { width: min(100% - 32px, 920px); margin: 0 auto; }
+      .bar-in { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+      .brand { font-family: var(--display); font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; }
+      .brand span { color: var(--gold); }
+      .bar a { font-family: var(--mono); font-size: 13px; color: var(--gold); text-decoration: none; }
+
+      .hero { position: relative; padding: 128px 0 40px; }
+      .hero h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(56px, 11vw, 128px); line-height: 0.88; margin: 0; max-width: 13ch; }
+      .lede { font-size: clamp(18px, 2.3vw, 22px); max-width: 34em; margin: 26px 0 0; color: #222; }
+      .stamp {
+        position: absolute; top: 36px; right: 0;
+        background: var(--gold); color: var(--ink);
+        font-family: var(--display); text-transform: uppercase;
+        font-size: clamp(30px, 5.5vw, 58px); line-height: 1;
+        padding: 14px 22px 12px;
+        transform: rotate(-7deg);
+        box-shadow: 7px 7px 0 var(--ink);
+        animation: thump 0.55s cubic-bezier(.2,1.6,.4,1) 0.25s both;
+      }
+      @keyframes thump {
+        0% { transform: rotate(-16deg) scale(2.4); opacity: 0; }
+        60% { opacity: 1; }
+        100% { transform: rotate(-7deg) scale(1); opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) { .stamp { animation: none; } }
+
+      .next { border-top: 4px solid var(--ink); padding-top: 34px; margin-top: 20px; }
+      .next h2, .note h2, .help h2, .upsell h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(32px, 5vw, 46px); line-height: 0.95; margin: 0; }
+      .timeline { list-style: none; margin: 28px 0 0; padding: 0; counter-reset: step; }
+      .timeline li { position: relative; padding: 0 0 34px 84px; counter-increment: step; }
+      .timeline li::before {
+        content: counter(step); position: absolute; left: 0; top: -4px;
+        width: 56px; height: 56px; display: grid; place-items: center;
+        background: var(--ink); color: var(--gold);
+        font-family: var(--display); font-size: 30px;
+      }
+      .timeline li::after { content: ""; position: absolute; left: 27px; top: 56px; bottom: 6px; width: 2px; background: var(--line); }
+      .timeline li:last-child::after { display: none; }
+      .timeline h3 { margin: 0; font-size: 23px; line-height: 1.25; }
+      .timeline p { margin: 6px 0 0; color: var(--muted); max-width: 36em; }
+      .btn {
+        display: inline-block; margin-top: 14px;
+        background: var(--gold); color: var(--ink); text-decoration: none;
+        font-family: var(--mono); font-weight: 700; font-size: 14px; letter-spacing: 0.04em;
+        padding: 14px 20px; border: 2px solid var(--ink);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+
+      .pair { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; margin-top: 30px; }
+      .note { border-top: 4px solid var(--ink); padding-top: 30px; }
+      .note p { font-family: var(--serif); font-size: 21px; line-height: 1.6; margin: 18px 0 0; max-width: 32em; }
+      .sig { font-family: var(--display); font-size: 30px; text-transform: uppercase; margin-top: 18px; }
+      .sig small { display: block; font-family: var(--body); font-size: 15px; text-transform: none; color: var(--muted); margin-top: 4px; }
+      .help { background: var(--cream); border: 1px solid #e7d77b; border-left: 6px solid var(--gold); padding: 26px; align-self: start; margin-top: 34px; }
+      .help h2 { font-size: 32px; }
+      .help p { margin: 12px 0 0; font-size: 16px; }
+      .help a { color: var(--gold-ink); font-weight: 700; text-underline-offset: 3px; }
+
+      .upsell { margin-top: 64px; background: var(--ink); color: var(--paper); padding: 40px 34px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: end; }
+      .upsell p { margin: 14px 0 0; color: #e6e6e6; max-width: 32em; }
+      .upsell .btn { justify-self: start; border-color: var(--gold); }
+      .upsell .btn:hover { box-shadow: 4px 4px 0 var(--paper); }
+
+      .foot { text-align: center; color: #666; font-size: 13px; padding: 56px 0 40px; }
+      a:focus-visible { outline: 3px solid var(--gold-ink); outline-offset: 3px; }
+
+      @media (max-width: 760px) {
+        .hero { padding-top: 120px; }
+        .stamp { top: 26px; right: auto; left: 0; }
+        .pair, .upsell { grid-template-columns: 1fr; }
+        .timeline li { padding-left: 70px; }
+        .timeline li::before { width: 48px; height: 48px; font-size: 26px; }
+        .timeline li::after { left: 23px; top: 48px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rule"></div>
+    <header class="bar"><div class="bar-in"><div class="brand">Renegade <span>{product}</span></div><a href={app}>Log in</a></div></header>
+
+    <main class="wrap">
+      <section class="hero">
+        <div class="stamp" aria-hidden="true">You’re in.</div>
+        <h1>{headline}</h1>
+        <p class="lede">{lede}</p>
+      </section>
+
+      <section class="next">
+        <h2>What happens next</h2>
+        <ol class="timeline">
+          {steps.map((s) => (
+            <li>
+              <h3>{s.title}</h3>
+              <p set:html={s.body} />
+              {s.cta && <a class="btn" href={s.cta[1]}>{s.cta[0]}</a>}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <div class="pair">
+        <section class="note">
+          <h2>A note from Darin</h2>
+          {note.map((p) => <p>{p}</p>)}
+          <div class="sig">Darin Rhodes<small>Founder, Marketing Renegades</small></div>
+        </section>
+        <aside class="help">
+          <h2>Need a hand?</h2>
+          <p>Login email missing, or something not working? Email <a href="mailto:support@gorenegades.com">support@gorenegades.com</a> and a real person will sort it out.</p>
+          <p>Got a question, a win, or a screen you can’t find? Post it in the <a href={community}>Renegade Community</a>. Somebody there has hit the same wall.</p>
+        </aside>
+      </div>
+
+      {upsell && (
+        <section class="upsell">
+          <div>
+            <h2>{upsell.title}</h2>
+            <p>{upsell.body}</p>
+          </div>
+          <a class="btn" href={upsell.cta[1]}>{upsell.cta[0]}</a>
+        </section>
+      )}
+
+      <p class="foot">Marketing Renegades · 321 E State Road, Suite 150, American Fork, UT 84003</p>
+    </main>
+  </body>
+</html>
