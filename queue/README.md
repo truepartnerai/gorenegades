@@ -104,7 +104,7 @@ Names below are the current Facebook names as of 2026-09-30. HighLevel may still
 
 **Post as:** HighLevel user `0bkjHSL1AEXPnFSJpJwU` (Darin, agency user). Pass it as both `userId` and `createdBy` on every post.
 
-**Approvals:** for now, posts go into HighLevel as drafts (or are approved one call at a time). Switch to automatic posting once Darin says so.
+**Approvals:** posts are created as `scheduled` (not drafts), at least 8 hours ahead, so Darin can edit or delete them in Social Planner before they fire. Text-only posts must send `media: []`.
 
 **Parked (don't post):** Renegade CRM on Facebook (`313498618522250`) and LinkedIn (`673fb0cd7d51af51ba218c4d_752TznWg3s9PT7P486mf_108763937_page`), Startup Lead Factory, Marketing is Easy, Easy 12 Step Marketing, Lead Generation Machine.
 
