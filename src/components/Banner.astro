@@ -1,0 +1,9 @@
+---
+interface Props { src?: string | null; alt?: string }
+const { src, alt = '' } = Astro.props;
+---
+{src && (
+  <figure class="p-banner">
+    <img src={src} alt={alt} fetchpriority="high" />
+  </figure>
+)}

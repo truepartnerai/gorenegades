@@ -327,3 +327,9 @@ footer.pf{background:#0b0b0b;border-top:6px solid var(--p-gold);padding:60px 0 6
   .p-prose p,.p-prose li{font-size:18px}
   .pod-nav{flex-direction:column}
 }
+
+/* full-width page banner */
+.p-banner{margin:0;background:#0b0b0b;line-height:0}
+.p-banner img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center}
+.p-banner + .p-hero{padding-top:64px}
+.p-banner + main > .p-hero:first-child{padding-top:64px}

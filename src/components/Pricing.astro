@@ -1,6 +1,6 @@
 ---
 import { links } from '../lib/links.js';
-import { semester } from '../lib/site.js';
+import { semester, academyPrice } from '../lib/site.js';
 ---
 <div class="pp-grid">
   <article class="pp-card">
@@ -39,7 +39,7 @@ import { semester } from '../lib/site.js';
 
   <article class="pp-card">
     <div class="pp-name">Renegade Academy</div>
-    <div class="pp-price"><strong>$199</strong><span>/ month</span></div>
+    <div class="pp-price"><strong>${academyPrice.monthly}</strong><span>/ month</span></div>
     <p class="pp-pitch">Build it with us.</p>
     <p class="pp-desc">An 8-week live semester. You and your classmates build the whole system together. {semester.short} begins {semester.startsShort}.</p>
     <ul class="p-checks">
@@ -50,6 +50,7 @@ import { semester } from '../lib/site.js';
       <li>Graduate into the Renegade Alumni</li>
     </ul>
     <a class="p-btn p-btn-dark p-btn-block pp-cta" href="/academy">See the semester</a>
+    <span class="pp-alt">Or ${academyPrice.annual.toLocaleString()}/year and save ${academyPrice.annualSavings}.</span>
   </article>
 </div>
 <p class="pp-help"><strong>Not sure which one?</strong> Most people should start with Renegade CRM. If you'd rather not build it alone, Academy is the same system built over an 8-week semester with a coach and classmates. And if you're just curious, join the community and poke around for free.</p>

@@ -7,7 +7,21 @@ export const brand = {
   logo: null,
   logoAlt: 'Marketing Renegades',
   homeHero: null,
-  homeHeroAlt: ''
+  homeHeroAlt: '',
+  // Full-width banners shown at the top of each page.
+  banners: {
+    crm: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c17f6f30939b0fb15.jpg',
+    academy: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c1670d0abe8148a5a.png',
+    blog: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c7bca8cd20c124446.png',
+    podcast: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c3df2ee8bbe2f370f.png'
+  }
+};
+
+// Renegade Academy pricing.
+export const academyPrice = {
+  monthly: 199,
+  annual: 1999,
+  annualSavings: 199 * 12 - 1999
 };
 
 // The current Renegade Academy semester.
@@ -19,6 +33,8 @@ export const semester = {
   starts: 'Wednesday, October 21',
   startsShort: 'Oct 21',
   graduation: 'December 16',
+  time: '10:00 AM Mountain',
+  seats: 30,
   schedule: [
     { week: 1, date: 'Wed, Oct 21', title: 'Orientation + the foundation', text: 'Meet your classmates, set your marketing rhythm and organize the system so you know exactly what deserves your attention.' },
     { week: 2, date: 'Wed, Oct 28', title: 'Content + visibility', text: 'Turn useful ideas into a repeatable content system instead of random posting.' },
