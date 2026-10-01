@@ -10,8 +10,9 @@ interface Props {
   steps: Step[];
   note: string[];
   upsell?: { title: string; body: string; cta: [string, string] };
+  logo: string;
 }
-const { product, pageTitle, headline, lede, steps, note, upsell } = Astro.props;
+const { product, pageTitle, headline, lede, steps, note, upsell, logo } = Astro.props;
 const app = "https://app.gorenegades.com";
 const community = "https://community.gorenegades.com";
 ---
@@ -45,7 +46,9 @@ const community = "https://community.gorenegades.com";
       .rule { height: 8px; background: var(--gold); }
       .bar { background: var(--ink); color: var(--paper); }
       .bar-in, .wrap { width: min(100% - 32px, 920px); margin: 0 auto; }
-      .bar-in { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+      .bar-in { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 16px; }
+      .logo { display: block; height: 64px; width: auto; max-width: 70%; }
+      @media (max-width: 760px) { .logo { height: 48px; } }
       .brand { font-family: var(--display); font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; }
       .brand span { color: var(--gold); }
       .bar a { font-family: var(--mono); font-size: 13px; color: var(--gold); text-decoration: none; }
@@ -123,7 +126,7 @@ const community = "https://community.gorenegades.com";
   </head>
   <body>
     <div class="rule"></div>
-    <header class="bar"><div class="bar-in"><div class="brand">Renegade <span>{product}</span></div><a href={app}>Log in</a></div></header>
+    <header class="bar"><div class="bar-in"><img class="logo" src={logo} alt={`Renegade ${product}`} /><a href={app}>Log in</a></div></header>
 
     <main class="wrap">
       <section class="hero">
