@@ -1,0 +1,86 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Order form + GHL page text: use the Renegade fonts instead of the browser default (Times) */
+body{font-family:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif !important;font-size:17px;line-height:1.5}
+body input,body select,body textarea,body button{font-family:'Space Grotesk',system-ui,sans-serif !important}
+body input,body select,body textarea{font-size:17px !important}
+body input::placeholder,body textarea::placeholder{color:#7A7A7A}
+body button{font-size:18px !important;font-weight:700 !important}
+body label{font-size:16px}
+
+:root{
+  --rc-black:#0A0A0A;
+  --rc-gold:#F4C20D;
+  --rc-white:#FFFFFF;
+  --rc-smoke:#C9C9C9;
+  --rc-line:rgba(255,255,255,.14);
+  --rc-display:'Anton',Impact,sans-serif;
+  --rc-body:'Space Grotesk',system-ui,sans-serif;
+  --rc-mono:'Space Mono',monospace;
+}
+.rc-top-block *{box-sizing:border-box;margin:0;padding:0}
+.rc-top-block{background:var(--rc-black);color:var(--rc-white);font-family:var(--rc-body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.rc-top-block a{color:inherit;text-decoration:none}
+.rc-wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.rc-hazard{height:14px;width:100%;background:repeating-linear-gradient(135deg,var(--rc-gold) 0 22px,#0A0A0A 22px 44px)}
+
+/* header */
+.rc-head{border-bottom:1px solid var(--rc-line)}
+.rc-head-in{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.rc-logo img{height:44px;width:auto;display:block}
+.rc-secure{font-family:var(--rc-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--rc-smoke)}
+.rc-secure strong{color:var(--rc-gold)}
+
+/* hero */
+.rc-hero{position:relative;padding:80px 0 64px;overflow:hidden}
+.rc-hero:before{content:"";position:absolute;width:900px;height:650px;left:50%;top:-240px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(244,194,13,.18),rgba(244,194,13,.04) 45%,transparent 70%);pointer-events:none}
+.rc-hero-in{position:relative;z-index:2;max-width:880px}
+.rc-ey{font-family:var(--rc-mono);font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rc-gold);display:inline-block}
+.rc-hero h1{font-family:var(--rc-display);font-weight:400;text-transform:uppercase;font-size:clamp(58px,10vw,126px);line-height:.84;margin-top:18px;letter-spacing:.005em}
+.rc-hero h1 span{color:var(--rc-gold)}
+.rc-hero-sub{margin-top:28px;max-width:760px;font-size:21px;line-height:1.6;color:var(--rc-smoke)}
+.rc-hero-sub strong{color:var(--rc-white)}
+.rc-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.rc-pill{border:1px solid rgba(255,255,255,.28);padding:11px 15px;font-family:var(--rc-mono);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--rc-white)}
+.rc-pill.is-gold{color:var(--rc-black);background:var(--rc-gold);border-color:var(--rc-gold)}
+
+@media(max-width:600px){
+  .rc-logo img{height:36px}
+  .rc-secure{display:none}
+  .rc-hero{padding:56px 0 48px}
+  .rc-hero-sub{font-size:19px}
+}
+</style>
+
+<div class="rc-top-block">
+  <div class="rc-hazard"></div>
+
+  <header class="rc-head">
+    <div class="rc-wrap rc-head-in">
+      <a class="rc-logo" href="https://gorenegades.com" aria-label="Renegade Academy">
+        <img src="https://res.cloudinary.com/dhmzbmbgv/image/upload/v1781654329/if7y7hb2iwlkmumkfz24.png" alt="Renegade Academy">
+      </a>
+      <div class="rc-secure"><strong>Secure enrollment</strong> · powered by Stripe</div>
+    </div>
+  </header>
+
+  <section class="rc-hero">
+    <div class="rc-wrap rc-hero-in">
+      <span class="rc-ey">Renegade Academy · Next semester</span>
+      <h1>Let's make it <span>official.</span></h1>
+      <p class="rc-hero-sub">
+        You're registering for the next Renegade Academy semester and activating your Renegade membership.
+        <strong>Your CRM turns on immediately after enrollment</strong> so you can get inside and look around before the first class.
+      </p>
+      <div class="rc-pills">
+        <span class="rc-pill is-gold">$199/mo or $1,999/yr</span>
+        <span class="rc-pill">8 live classes</span>
+        <span class="rc-pill">30 seats per semester</span>
+        <span class="rc-pill">CRM activated immediately</span>
+      </div>
+    </div>
+  </section>
+</div>
