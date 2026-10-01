@@ -12,6 +12,11 @@ const help = {
   email: "https://help.gohighlevel.com/support/solutions/articles/155000005059-getting-started-launch-an-email-campaign",
   social: "https://help.gohighlevel.com/support/solutions/articles/155000005063-getting-started-setup-social-planner",
   phone: "https://help.gohighlevel.com/support/solutions/articles/155000003226-how-to-purchase-a-phone-number",
+  ai: "https://help.gohighlevel.com/support/solutions/articles/155000004401-how-to-set-up-a-conversation-ai-bot",
+  aiform: "https://help.gohighlevel.com/support/solutions/articles/155000005382-guided-form-based-setup-for-conversation-ai",
+  aitrain: "https://help.gohighlevel.com/support/solutions/articles/155000004416-training-your-conversation-ai-bot",
+  voice: "https://help.gohighlevel.com/support/solutions/articles/155000004107-how-to-create-voice-ai-agents",
+  chat: "https://help.gohighlevel.com/support/solutions/articles/155000004102-getting-started-with-chat-widget",
   a2p: "https://help.gohighlevel.com/support/solutions/articles/155000004539-a2p-campaign-registration-step-by-step-guide-and-faqs",
   gbp: "https://help.gohighlevel.com/support/solutions/articles/48001222899-how-to-integrate-google-business-profile-gbp-with-highlevel",
   reviews: "https://help.gohighlevel.com/support/solutions/articles/48001222668-how-to-send-review-requests",
@@ -103,17 +108,33 @@ const phases = [
     blurb: "Plug the leaks so the leads you earn actually turn into conversations.",
     wins: [
       {
-        n: "07", key: "form", title: "Connect website lead capture",
+        n: "07", key: "ai", title: "Set up your AI assistant",
+        why: "The biggest leak in most businesses is the gap between when someone reaches out and when somebody answers. Your AI assistant answers chat, Facebook, and Instagram messages in seconds, gathers the details, and can book the appointment. This one has more moving parts, so block out an hour.",
+        steps: [
+          "Go to AI Agents, open Conversation AI, and click Create Bot. Choose the Guided Form setup (no prompt writing).",
+          "Teach it your business: point it at your website and add answers to the questions you get every week. Tell it to hand off to you when it doesn’t know.",
+          "Turn it on for your chat widget, Facebook, and Instagram. Texting can join once your number is approved.",
+          "Test it yourself, run it in Suggestive mode for a few days, then switch to Auto-Pilot.",
+        ],
+        guides: [["Setting up your AI assistant", help.ai], ["Using the guided setup", help.aiform], ["Teaching it about your business", help.aitrain]],
+        tip: {
+          title: "Want it to answer the phone too?",
+          body: "Voice AI puts an AI receptionist on your business line to answer calls, take messages, and book appointments. Get the text version working first.",
+          links: [["Adding Voice AI", help.voice]],
+        },
+      },
+      {
+        n: "08", key: "form", title: "Connect website lead capture",
         why: "A form that dumps into an inbox you check “pretty often” is where leads go to wait for a bus that never comes. Route them straight into Renegade CRM.",
         steps: [
           "Build a short form: name, email, phone, and one question that matters.",
-          "Embed it on your website, or share the form link in your bio, email signature, or texts.",
+          "Embed it on your website, or share the form link in your bio, email signature, or texts. Add the chat widget while you’re there so your AI assistant can greet visitors.",
           "Submit a test lead and confirm it lands in Renegade CRM. Planning to text these leads? Add a consent checkbox.",
         ],
-        guides: [["Building a form", help.form]],
+        guides: [["Building a form", help.form], ["Adding the chat widget", help.chat]],
       },
       {
-        n: "08", key: "pipeline", title: "Organize your pipeline",
+        n: "09", key: "pipeline", title: "Organize your pipeline",
         why: "Your memory is not a CRM, and neither is the sticky note on your monitor. Put every deal on one board.",
         steps: [
           "Open Opportunities and set up a few stages that match how you work, like New, Contacted, Appointment, Proposal, Won, Lost.",
@@ -123,10 +144,10 @@ const phases = [
         guides: [["Setting up your pipeline", help.pipe]],
       },
       {
-        n: "09", key: "automation", title: "Automate your first follow-up",
+        n: "10", key: "automation", title: "Automate your first follow-up",
         why: "This is where the system starts running without you. Build one automation, not the Death Star.",
         steps: [
-          "Trigger: someone fills out the form you connected in step 07.",
+          "Trigger: someone fills out the form you connected in step 08.",
           "Send an immediate reply that sounds like you: thanks, and here’s what happens next.",
           "Wait a day, and if they haven’t replied, send a friendly second note.",
         ],
@@ -303,7 +324,7 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
     <div class="rule"></div>
     <main class="page">
       <div class="ey">Renegade CRM &middot; Your roadmap</div>
-      <h1>Nine wins. <span>Your pace.</span></h1>
+      <h1>Ten wins. <span>Your pace.</span></h1>
       <p class="lede">
         Every new Renegade CRM member gets these steps by email, one small win a day. If you’d rather
         go faster (or you’re the type who reads the last chapter first), here’s the whole map. Work through it
