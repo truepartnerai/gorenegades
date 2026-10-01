@@ -1,11 +1,16 @@
 ---
 import { links } from '../lib/links.js';
+import { brand } from '../lib/site.js';
 ---
 <footer class="pf">
   <div class="p-wrap">
     <div class="pf-grid">
       <div>
-        <a class="pn-brand" href="/">Marketing <b>Renegades</b></a>
+        <a class="pn-brand" href="/">
+          {brand.logo
+            ? <img class="pn-logo" src={brand.logo} alt={brand.logoAlt} />
+            : <>Marketing <b>Renegades</b></>}
+        </a>
         <p class="pf-mission">Helping entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
       </div>
       <div>
@@ -17,10 +22,10 @@ import { links } from '../lib/links.js';
       </div>
       <div>
         <h5>Learn</h5>
-        <a href="/ideas">All ideas</a>
-        <a href="/blog">Articles</a>
+        <a href="/blog">Blog</a>
         <a href="/podcast">No Fear Marketing Show</a>
         <a href="/about">About</a>
+        <a href="/blog.xml">RSS</a>
       </div>
     </div>
     <div class="pf-legal">© 2026 Marketing Renegades. Software, education and community for entrepreneurs and small business owners. Results depend on individual effort and circumstances; no specific outcome is guaranteed.</div>

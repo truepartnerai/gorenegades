@@ -170,39 +170,3 @@
 .article-podcast-callout h2{color:#fff;margin:10px 0 12px;font-size:36px}
 .article-podcast-callout p{color:#b8b8b8;font-size:16px;line-height:1.6}
 .article-podcast-callout .read-more{color:var(--gold)}
-
-/* ==========================================================
-   PLAIN overrides — bring articles, podcast and ideas pages in
-   line with the plain design system (see plain.css).
-   ========================================================== */
-.content-shell{--display:var(--p-font);--mono:var(--p-font);background:var(--p-white);color:var(--p-text)}
-.content-shell h1,.content-shell h2,.content-shell h3,.content-shell strong,
-.content-shell .disp,.content-shell .editorial-cover strong{text-transform:none;letter-spacing:-.025em;font-weight:800;line-height:1.1}
-.content-hero,.article-header{background:linear-gradient(180deg,var(--p-gold-tint) 0%,var(--p-white) 100%);color:var(--p-ink);border-bottom:1px solid var(--p-line)}
-.content-hero h1{font-size:clamp(38px,5.5vw,62px)}
-.content-hero p,.article-deck{color:var(--p-muted)}
-.content-hero .ey,.content-meta,.section-label,.media-hero-note span{color:var(--p-gold-ink);letter-spacing:.08em;font-weight:700}
-.article-header h1,.article-header-editorial .article-header-copy h1{font-size:clamp(34px,4.6vw,56px)}
-.article-back{color:var(--p-muted)}
-.article-byline,.topic-row span,.tag-row span{color:var(--p-muted);border-color:var(--p-line)}
-.content-section-nav a{color:var(--p-text);border-color:var(--p-line);border-radius:8px;letter-spacing:.02em}
-.media-hero-note p{color:var(--p-muted)!important}
-.content-main,.article-body{background:var(--p-white)}
-.content-card,.featured-story,.lead-story,.media-story-card,.content-empty,.desk-grid{border-radius:14px;border-color:var(--p-line)}
-.content-card h2,.content-card h3,.media-story-copy h3{font-size:22px}
-.featured-story h2,.lead-story-copy h3{font-size:clamp(30px,3.6vw,46px)}
-.desk-card h3,.deep-dive-card h3{font-size:26px}
-.library-heading h2,.media-section-heading h2{font-size:clamp(30px,4vw,42px)}
-.article-body h2{font-size:30px}.article-body h3{font-size:23px}
-.article-body p,.article-body li{color:#3d3d3d}
-.content-cta-panel,.article-podcast-callout,.podcast-feature,.deep-dive-card{border-radius:14px}
-.article-endcap{border-radius:14px;background:var(--p-paper);border-color:var(--p-line)}
-.read-more,.text-link{letter-spacing:.02em}
-.content-shell .btn{border-radius:10px;font-family:var(--p-font);text-transform:none;letter-spacing:0}
-.content-shell .btn-gold:hover{background:var(--p-gold-hover);color:var(--p-ink);transform:none;box-shadow:none}
-.content-shell .article-header-editorial .article-header-copy h1,
-.content-shell .content-hero h1,.content-shell .editorial-cover-generated strong,
-.content-shell .editorial-cover-overlay strong{text-transform:none;letter-spacing:-.03em}
-.content-shell .editorial-cover-generated strong{font-size:clamp(34px,4.2vw,60px);overflow-wrap:anywhere}
-.content-shell .editorial-cover--compact .editorial-cover-generated strong{font-size:clamp(24px,2.6vw,36px)}
-.content-shell .editorial-cover{border-radius:14px}

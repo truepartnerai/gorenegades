@@ -1,245 +1,120 @@
 ---
 import { getCollection } from 'astro:content';
 import { isLive } from '../../lib/live.js';
+import { fmtDate, readTime } from '../../lib/media.js';
+import { links } from '../../lib/links.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import EditorialCover from '../../components/EditorialCover.astro';
-import '../../styles/content.css';
+import Cover from '../../components/Cover.astro';
 
 const posts = (await getCollection('blog'))
   .filter(isLive)
-  .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const podcast = (await getCollection('podcast'))
-  .filter((episode) => !episode.data.draft)
-  .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.id !== featured?.id);
+const seriesList = [...new Set(rest.map((p) => p.data.series).filter(Boolean))];
 
-const featured = posts.find((post) => post.data.featured) ?? posts[0];
-const latest = posts.filter((post) => post.id !== featured?.id).slice(0,3);
-const categories = [...new Set(posts.map((post) => post.data.category))];
-
-const bySeries = (series) => posts.filter((post) => post.data.series === series);
-const briefing = bySeries('Renegade Briefing')[0];
-const fieldNotes = bySeries('Field Notes')[0];
-const playbook = bySeries('Renegade Playbook')[0];
-const deepDives = bySeries('Deep Dive').slice(0,3);
-const fromDarin = bySeries('From Darin').slice(0,3);
-const latestEpisode = podcast[0];
+const latestEpisode = (await getCollection('podcast'))
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 ---
 
-<BaseLayout title="Renegade Media | Marketing Renegades" description="Marketing systems, experiments, technology, playbooks, field notes, and the No Fear Marketing Show for independent business owners.">
-  <div class="page content-shell">
+<BaseLayout
+  title="The Renegade Blog | Marketing Renegades"
+  description="Practical marketing systems, playbooks, field notes and experiments for entrepreneurs, from Darin Rhodes and Marketing Renegades."
+>
+  <div class="page">
     <Header />
     <main>
-      <section class="content-hero content-hero-blog">
-        <div class="wrap">
-          <div class="content-kicker-row">
-            <span class="ey">Renegade Media</span>
-            <nav class="content-section-nav" aria-label="Ideas navigation">
-              <a class="active" href="/blog">Articles</a>
-              <a href="/podcast">Podcast</a>
-              <a href="/ideas">All Ideas</a>
-            </nav>
-          </div>
-          <div class="media-hero-grid">
-            <div>
-              <h1 class="disp">Useful ideas.<br/>Built in public.</h1>
-              <p>Marketing systems, experiments, AI, database strategy, content, follow-up, and the stuff we're actually building and testing inside Marketing Renegades.</p>
-            </div>
-            <div class="media-hero-note">
-              <span>On the desk</span>
-              <strong>Briefings · Playbooks · Field Notes · Deep Dives · Podcast</strong>
-              <p>No giant course required. Take the idea. Use it.</p>
-            </div>
-          </div>
-          {categories.length > 0 && (
-            <div class="topic-row" aria-label="Article topics">
-              {categories.map((category) => <span>{category}</span>)}
-            </div>
-          )}
+      <section class="p-hero">
+        <div class="p-wrap">
+          <span class="p-eyebrow">The Renegade Blog</span>
+          <h1 class="p-h1">Useful marketing ideas. <span class="p-hl">Built in public.</span></h1>
+          <p class="p-lead">Playbooks you can steal, field notes from what we're actually testing, and the occasional deep dive. No giant course required. Take the idea and use it.</p>
         </div>
       </section>
 
-      <section class="content-main media-main">
-        <div class="wrap">
-          {featured ? (
-            <section class="media-section media-section-lead">
-              <div class="media-section-heading">
-                <div>
-                  <div class="section-label">Lead story</div>
-                  <h2 class="disp">Start here.</h2>
-                </div>
+      <section class="p-sec" style="padding-top:64px">
+        <div class="p-wrap">
+          {featured && (
+            <a class="pm-feature" href={`/blog/${featured.id}/`}>
+              <Cover large title={featured.data.title} kicker={featured.data.visualKicker} series={featured.data.series} image={featured.data.image} imageAlt={featured.data.imageAlt} tone={featured.data.visualTone} />
+              <div class="pm-feature-copy">
+                <div class="pm-meta"><b>Start here</b><span>{fmtDate(featured.data.pubDate)}</span><span>{readTime(featured.body)}</span></div>
+                <h2>{featured.data.title}</h2>
+                <p>{featured.data.description}</p>
+                <span class="pm-go">Read the article →</span>
               </div>
-              <a class="lead-story" href={`/blog/${featured.id}/`}>
-                <div class="lead-story-copy">
-                  <div class="content-meta">{featured.data.series ? `${featured.data.series} · ` : ''}{featured.data.category} · {featured.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
-                  <h3>{featured.data.title}</h3>
-                  <p>{featured.data.description}</p>
-                  <span class="read-more">Read the article →</span>
-                </div>
-                <EditorialCover
-                  title={featured.data.title}
-                  series={featured.data.series}
-                  category={featured.data.category}
-                  image={featured.data.image}
-                  imageAlt={featured.data.imageAlt}
-                  visualKicker={featured.data.visualKicker}
-                  tone={featured.data.visualTone}
-                />
+            </a>
+          )}
+
+          {seriesList.length > 1 && (
+            <div class="pm-filters" role="group" aria-label="Filter articles">
+              <button type="button" data-filter="all" aria-pressed="true">All articles</button>
+              {seriesList.map((s) => <button type="button" data-filter={s} aria-pressed="false">{s}</button>)}
+            </div>
+          )}
+
+          <div class="pm-grid" style={seriesList.length > 1 ? '' : 'margin-top:56px'}>
+            {rest.map((post) => (
+              <a class="pm-card" href={`/blog/${post.id}/`} data-series={post.data.series ?? ''}>
+                <Cover title={post.data.title} kicker={post.data.visualKicker} series={post.data.series} image={post.data.image} imageAlt={post.data.imageAlt} tone={post.data.visualTone} />
+                <div class="pm-meta"><b>{post.data.category}</b><span>{readTime(post.body)}</span></div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
               </a>
-            </section>
-          ) : (
-            <div class="content-empty">The Renegade Media desk is being loaded now.</div>
-          )}
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {latest.length > 0 && (
-            <section class="media-section">
-              <div class="media-section-heading">
-                <div>
-                  <div class="section-label">Latest</div>
-                  <h2 class="disp">Fresh off the desk.</h2>
-                </div>
-                <p>New experiments, practical systems, and ideas worth stealing.</p>
-              </div>
-              <div class="media-latest-grid">
-                {latest.map((post) => (
-                  <a class="media-story-card" href={`/blog/${post.id}/`}>
-                    <EditorialCover
-                      compact
-                      title={post.data.title}
-                      series={post.data.series}
-                      category={post.data.category}
-                      image={post.data.image}
-                      imageAlt={post.data.imageAlt}
-                      visualKicker={post.data.visualKicker}
-                      tone={post.data.visualTone}
-                    />
-                    <div class="media-story-copy">
-                      <div class="content-meta">{post.data.series ? `${post.data.series} · ` : ''}{post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div>
-                      <h3>{post.data.title}</h3>
-                      <p>{post.data.description}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <section class="media-section media-desk-section">
-            <div class="media-section-heading">
+      {latestEpisode && (
+        <section class="p-sec p-sec-alt">
+          <div class="p-wrap">
+            <div class="p-head">
+              <span class="p-eyebrow">Rather listen?</span>
+              <h2 class="p-h2">The No Fear Marketing Show</h2>
+            </div>
+            <div class="pod-player" style="margin-top:32px">
+              {latestEpisode.data.image && <img src={latestEpisode.data.image} alt="" loading="lazy" />}
               <div>
-                <div class="section-label">The Renegade Desk</div>
-                <h2 class="disp">Three ways we work.</h2>
+                <div class="pm-meta"><b>Latest episode</b>{latestEpisode.data.duration && <span>{latestEpisode.data.duration}</span>}</div>
+                <h3>{latestEpisode.data.title}</h3>
+                <p>{latestEpisode.data.description}</p>
+                <audio class="p-audio" controls preload="none" src={latestEpisode.data.audioUrl}></audio>
+                <p style="margin-top:12px"><a class="p-link" href="/podcast">All episodes →</a></p>
               </div>
-              <p>Current developments, real experiments, and implementation you can borrow.</p>
             </div>
-            <div class="desk-grid">
-              <article class="desk-card desk-card-dark">
-                <span class="desk-number">01</span>
-                <div class="content-meta">Renegade Briefing</div>
-                <h3>What changed — and does it matter?</h3>
-                <p>Fast takes on marketing, AI, advertising, and technology without turning your week into an AI-news scavenger hunt.</p>
-                {briefing && <a href={`/blog/${briefing.id}/`}>Latest briefing →</a>}
-              </article>
+          </div>
+        </section>
+      )}
 
-              <article class="desk-card">
-                <span class="desk-number">02</span>
-                <div class="content-meta">Field Notes</div>
-                <h3>{fieldNotes ? fieldNotes.data.title : 'What we are actually testing.'}</h3>
-                <p>{fieldNotes ? fieldNotes.data.description : 'Experiments, numbers, mistakes, surprises, and lessons from the systems we are running right now.'}</p>
-                {fieldNotes && <a href={`/blog/${fieldNotes.id}/`}>Read the field notes →</a>}
-              </article>
-
-              <article class="desk-card">
-                <span class="desk-number">03</span>
-                <div class="content-meta">Renegade Playbook</div>
-                <h3>{playbook ? playbook.data.title : 'Steal the system.'}</h3>
-                <p>{playbook ? playbook.data.description : 'Straightforward frameworks you can put into your own business without creating a second full-time job.'}</p>
-                {playbook && <a href={`/blog/${playbook.id}/`}>Open the playbook →</a>}
-              </article>
-            </div>
-          </section>
-
-          {deepDives.length > 0 && (
-            <section class="media-section">
-              <div class="media-section-heading">
-                <div>
-                  <div class="section-label">Deep Dives</div>
-                  <h2 class="disp">Go a little deeper.</h2>
-                </div>
-                <p>For ideas that deserve more than a 45-second clip.</p>
-              </div>
-              <div class="deep-dive-grid">
-                {deepDives.map((post) => (
-                  <a class="deep-dive-card" href={`/blog/${post.id}/`}>
-                    <div class="content-meta">{post.data.category}</div>
-                    <h3>{post.data.title}</h3>
-                    <p>{post.data.description}</p>
-                    <span class="read-more">Read deep dive →</span>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {latestEpisode && (
-            <section class="media-section">
-              <div class="podcast-feature">
-                <div class="podcast-feature-copy">
-                  <div class="section-label">Latest from the No Fear Marketing Show</div>
-                  <div class="content-meta">{latestEpisode.data.episode ? `Episode ${latestEpisode.data.episode} · ` : ''}{latestEpisode.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
-                  <h2>{latestEpisode.data.title}</h2>
-                  <p>{latestEpisode.data.description}</p>
-                  <div class="episode-links">
-                    <a class="btn btn-gold" href={`/podcast/${latestEpisode.id}/`}>Listen + show notes →</a>
-                    <a class="text-link text-link-light" href="/podcast">Browse the show →</a>
-                  </div>
-                </div>
-                <EditorialCover
-                  title={latestEpisode.data.title}
-                  image={latestEpisode.data.image}
-                  visualKicker="NO FEAR MARKETING"
-                  tone="mono"
-                />
-              </div>
-            </section>
-          )}
-
-          {fromDarin.length > 0 && (
-            <section class="media-section">
-              <div class="media-section-heading">
-                <div>
-                  <div class="section-label">From Darin</div>
-                  <h2 class="disp">A note from the field.</h2>
-                </div>
-              </div>
-              <div class="content-grid">
-                {fromDarin.map((post) => (
-                  <a class="content-card" href={`/blog/${post.id}/`}>
-                    <div class="content-card-body">
-                      <div class="content-meta">{post.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
-                      <h3>{post.data.title}</h3>
-                      <p>{post.data.description}</p>
-                      <span class="read-more">Read →</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <section class="content-cta-panel">
-            <div>
-              <div class="content-meta">Want the implementation side too?</div>
-              <h2 class="disp">Learn the idea. Build the system.</h2>
-              <p>The free Renegade Community is where we keep the playbooks, Power Hours, examples, experiments, and working notes behind the media.</p>
-            </div>
-            <a class="btn btn-gold" href="https://community.gorenegades.com">Join the free community →</a>
-          </section>
+      <section class="p-sec p-sec-dark">
+        <div class="p-narrow p-center">
+          <span class="p-eyebrow">Turn the idea into a system</span>
+          <h2 class="p-h2">Reading about it is step one. Running it is the point.</h2>
+          <p class="p-lead">Renegade CRM gives you the software and the playbooks to put these ideas to work, for $99 a month. Or join the free community and steal more ideas first.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href="/crm">See Renegade CRM</a>
+            <a class="p-btn p-btn-secondary" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.45)" href={links.community}>Join the community free</a>
+          </div>
         </div>
       </section>
     </main>
     <Footer />
   </div>
 </BaseLayout>
+
+<script is:inline>
+  document.querySelectorAll('.pm-filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('.pm-filters button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      document.querySelectorAll('.pm-card[data-series]').forEach(function (c) {
+        c.hidden = !(f === 'all' || c.getAttribute('data-series') === f);
+      });
+    });
+  });
+</script>

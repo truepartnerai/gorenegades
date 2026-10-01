@@ -1,39 +1,64 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { fmtDate } from '../../lib/media.js';
+import { links } from '../../lib/links.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/content.css';
 
 export async function getStaticPaths() {
-  const episodes = (await getCollection('podcast')).filter((episode) => !episode.data.draft);
-  return episodes.map((episode) => ({ params: { id: episode.id }, props: { episode } }));
+  const episodes = (await getCollection('podcast'))
+    .filter((e) => !e.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return episodes.map((episode, i) => ({
+    params: { id: episode.id },
+    props: { episode, newer: episodes[i - 1], older: episodes[i + 1] }
+  }));
 }
 
-const { episode } = Astro.props;
+const { episode, newer, older } = Astro.props;
 const { Content } = await render(episode);
+const d = episode.data;
 ---
 
-<BaseLayout title={`${episode.data.title} | No Fear Marketing Show`} description={episode.data.description}>
-  <div class="page content-shell">
+<BaseLayout title={`${d.title} | No Fear Marketing Show`} description={d.description}>
+  <div class="page">
     <Header />
     <main>
-      <header class="article-header">
-        <div class="article-wrap">
-          <div class="content-meta">No Fear Marketing Show · {episode.data.episode ? `Episode ${episode.data.episode} · ` : ''}{episode.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
-          <h1>{episode.data.title}</h1>
-          <p class="article-deck">{episode.data.description}</p>
-          <audio class="audio-player" controls preload="metadata" src={episode.data.audioUrl}></audio>
-          <div class="episode-links">
-            {episode.data.youtubeUrl && <a class="btn btn-gold" href={episode.data.youtubeUrl}>Watch episode →</a>}
+      <header class="p-hero">
+        <div class="p-wrap pod-ep-head">
+          {d.image && <img class="pod-art" src={d.image} alt="No Fear Marketing Show cover art" />}
+          <div>
+            <a class="pa-back" href="/podcast">← All episodes</a>
+            <div><span class="p-eyebrow">No Fear Marketing Show{d.episode ? ` · Episode ${d.episode}` : ''}</span></div>
+            <h1 class="p-h1" style="font-size:clamp(32px,4.4vw,52px)">{d.title}</h1>
+            <div class="pa-byline"><span>{fmtDate(d.pubDate, true)}</span>{d.duration && <span>{d.duration}</span>}<span>With <strong>Darin Rhodes</strong>{d.guests.length > 0 && ` and ${d.guests.join(', ')}`}</span></div>
+            <audio class="p-audio" controls preload="metadata" src={d.audioUrl}></audio>
+            {d.youtubeUrl && <div class="p-btns" style="margin-top:18px"><a class="p-btn p-btn-secondary" href={d.youtubeUrl}>Watch on YouTube</a></div>}
           </div>
         </div>
       </header>
-      <article class="article-body">
-        <div class="article-wrap">
-          <Content />
-        </div>
+
+      <article class="p-prose">
+        <Content />
       </article>
+
+      <nav class="pod-nav" aria-label="More episodes">
+        {older ? <a href={`/podcast/${older.id}/`}><small>← Previous episode</small>{older.data.title}</a> : <span></span>}
+        {newer ? <a class="is-next" href={`/podcast/${newer.id}/`}><small>Next episode →</small>{newer.data.title}</a> : <span></span>}
+      </nav>
+
+      <div class="pa-end" style="margin-bottom:96px">
+        <aside class="pa-cta">
+          <span class="p-eyebrow" style="color:var(--p-gold)">From idea to system</span>
+          <h2 style="margin-top:8px">Liked the idea? Put it on autopilot.</h2>
+          <p>Renegade CRM gives you the software and the playbooks to run it, for $99 a month.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href="/crm">See Renegade CRM</a>
+            <a class="p-btn p-btn-secondary" href={links.community}>Join the community free</a>
+          </div>
+        </aside>
+      </div>
     </main>
     <Footer />
   </div>

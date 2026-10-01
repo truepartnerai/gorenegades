@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
 import { links } from '../lib/links.js';
+import { brand, semester } from '../lib/site.js';
 
 const jobs = [
   ['Follow up with every lead', 'A text and email go out the minute someone raises a hand, and the follow-up keeps going until they answer.'],
@@ -18,7 +19,7 @@ const jobs = [
 const faqs: [string, string][] = [
   ['Do I need to be technical?', "No. The playbooks walk you through one system at a time in plain English. If you can send an email and fill out a form, you can run this. And if you'd rather have help, that's exactly what Academy is for."],
   ['Who is this for?', 'Entrepreneurs and small business owners whose growth depends on leads, follow-up, relationships and referrals. We started with mortgage and real estate professionals, and the same systems work for service businesses, local businesses and solo operators.'],
-  ["What's the difference between the CRM and Academy?", "Renegade CRM is the software plus the playbooks, and you set it up at your own pace. Academy includes the CRM and adds live weekly sessions where we build it into your business with you, step by step."],
+  ["What's the difference between the CRM and Academy?", "Renegade CRM is the software plus the playbooks, and you set it up at your own pace. Academy includes the CRM and adds an 8-week live semester where you and your classmates build the whole system together, step by step. Graduates join the Renegade Alumni."],
   ['Is Renegade CRM just software?', "No, and that's the point. Most people already own software they don't use. Renegade CRM comes with playbooks that tell you what to turn on first, how to set it up and what to do with it every week."],
   ["I already have a CRM. Should I switch?", "Maybe, maybe not. Bring the question to a free Power Hour and we'll talk it through honestly. If what you have is working, keep it and steal our ideas instead."],
   ['Can I start for free?', 'Yes. Join the Renegade Community for free, come to a Power Hour and look around. When you are ready for the system, the CRM is $99 a month.']
@@ -35,7 +36,9 @@ const faqs: [string, string][] = [
     <main>
       <!-- HERO -->
       <section class="p-hero">
-        <div class="p-wrap">
+        <div class:list={['p-wrap', brand.homeHero && 'p-hero-grid']}>
+          <div>
+          {brand.logo && <img class="p-hero-logo" src={brand.logo} alt={brand.logoAlt} />}
           <span class="p-eyebrow">Marketing Renegades</span>
           <h1 class="p-h1">Your marketing, running on a <span class="p-hl">system</span> instead of your memory.</h1>
           <p class="p-lead">We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation. Get the software for $99 a month, get help building it if you want it, and steal our best ideas for free.</p>
@@ -48,6 +51,8 @@ const faqs: [string, string][] = [
             <span>No tech skills required</span>
             <span>Free community to start</span>
           </div>
+          </div>
+          {brand.homeHero && <img class="p-hero-img" src={brand.homeHero} alt={brand.homeHeroAlt} />}
         </div>
       </section>
 
@@ -139,7 +144,7 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <div class="p-head p-center">
             <span class="p-eyebrow">How it works</span>
-            <h2 class="p-h2">Start simple. Get it working. Add the next piece.</h2>
+            <h2 class="p-h2">Start simple. Get it working. Add the next piece. <span class="p-hl">We'll show you how.</span></h2>
           </div>
           <div class="p-grid-3" style="margin-top:40px">
             <article class="p-card">

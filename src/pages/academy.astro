@@ -4,49 +4,41 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Faq from '../components/Faq.astro';
 import { links } from '../lib/links.js';
-
-const tracks = [
-  ['Build the foundation', 'Set your marketing rhythm, organize the system and decide what actually deserves your attention.'],
-  ['Lead follow-up', 'Speed-to-lead responses and follow-up sequences so new inquiries become conversations.'],
-  ['Email and your database', 'Simple, consistent communication with the people who already know you.'],
-  ['Lead generation', 'Practical campaigns that bring new people into your world, with the follow-up already waiting.'],
-  ['Content and visibility', 'Turn one useful idea into a week of content instead of reinventing the wheel every day.'],
-  ['Reviews and referrals', 'Build the ask into the customer journey so it happens every time.'],
-  ['Relationships and events', 'Partner check-ins, client events and webinars that create more opportunity.'],
-  ['Build lab', "Bring whatever is stuck, confusing or unfinished and we'll work on it together."]
-];
+import { semester } from '../lib/site.js';
 
 const faqs: [string, string][] = [
-  ['Is Renegade CRM included?', 'Yes. Academy includes everything in Renegade CRM, so you are not paying for the software twice.'],
-  ['Is this a course?', "There's teaching, but the point is implementation. We build the system into your actual business during the live sessions, not in a video library you'll never finish."],
-  ['Do I need to be technical?', 'No. We go step by step and treat the software as a tool, not the subject of the class.'],
-  ['What if I miss a session?', "Life happens. Pick up with the next one, bring your questions to the build lab, and keep going."],
-  ['Can I keep my current coach or program?', 'Absolutely. Academy is about building your marketing system, and it plays well with sales coaching, business planning and accountability groups.'],
-  ['Can I start with just the CRM and upgrade later?', 'Yes. Plenty of people start with Renegade CRM, get a couple of systems running, and move to Academy when they want help going further, faster.']
+  ['When does the next semester start?', `The ${semester.name} begins ${semester.starts}. Class meets once a week for eight weeks, with a break for Thanksgiving, and graduation is ${semester.graduation}.`],
+  ['Is Renegade CRM included?', 'Yes. Tuition includes Renegade CRM, so you are not paying for the software twice. You build everything inside it during the semester.'],
+  ['Is this a course?', "There's teaching, but the point is implementation. Each week we build one piece of your marketing system in your actual business, not in a video library you'll never finish."],
+  ['Do I need to be technical?', 'No. We go step by step and treat the software as a tool, not the subject of the class. If you can send an email, you can keep up.'],
+  ['What if I miss a class?', 'Life happens. Catch up with your classmates, bring your questions to the build lab in week five, and keep going.'],
+  ['What happens after graduation?', 'You keep the system you built and join the Renegade Alumni, with private alumni calls and updates as we test new tools and ideas.'],
+  ['Can I keep my current coach or program?', 'Absolutely. Academy is about building your marketing system, and it plays well with sales coaching, business planning and accountability groups.']
 ];
 ---
 
 <BaseLayout
-  title="Renegade Academy | Build Your Marketing System With Us"
-  description="Renegade Academy includes Renegade CRM plus live weekly sessions where we build your marketing system into your business with you. $199/month."
+  title={`Renegade Academy | ${semester.name} Begins ${semester.startsShort}`}
+  description={`Renegade Academy is an 8-week live semester where you and your classmates build your marketing system together. The ${semester.name} begins ${semester.starts}.`}
 >
   <div class="page">
-    <Header ctaLabel="Join the Academy" ctaHref="#join" />
+    <Header ctaLabel="Register now" ctaHref="#register" />
 
     <main>
       <section class="p-hero">
         <div class="p-wrap">
-          <span class="p-eyebrow">Renegade Academy · $199/month</span>
-          <h1 class="p-h1">Don't build it alone. <span class="p-hl">Build it with us.</span></h1>
-          <p class="p-lead">Academy is everything in Renegade CRM plus live weekly sessions where we build your marketing system into your real business, step by step, alongside a small group of other business owners doing the same thing.</p>
+          <span class="p-tag"><i></i>{semester.name} · Classes begin {semester.startsShort}</span>
+          <h1 class="p-h1">Build your marketing system in <span class="p-hl">one 8-week semester.</span></h1>
+          <p class="p-lead">Renegade Academy is a live, cohort-based program. You and a class of fellow business owners meet every week and build your marketing system together, one piece at a time, inside your real business. Then you graduate into the Renegade Alumni.</p>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.academy}>Join the Academy — $199/mo</a>
-            <a class="p-btn p-btn-secondary" href="#how">How it works</a>
+            <a class="p-btn p-btn-primary" href={links.academy}>Register for the next semester</a>
+            <a class="p-btn p-btn-secondary" href="#schedule">See the class schedule</a>
           </div>
-          <div class="p-assure">
-            <span>Renegade CRM included</span>
-            <span>Live, not pre-recorded</span>
-            <span>Real implementation</span>
+          <div class="sem-facts">
+            <div><small>Semester begins</small><strong>{semester.starts.replace('Wednesday, ', 'Wed, ')}</strong></div>
+            <div><small>Length</small><strong>8 weekly classes</strong></div>
+            <div><small>Format</small><strong>Live, with classmates</strong></div>
+            <div><small>Tuition</small><strong>$199/mo · CRM included</strong></div>
           </div>
         </div>
       </section>
@@ -54,11 +46,11 @@ const faqs: [string, string][] = [
       <section class="p-sec">
         <div class="p-wrap p-split">
           <div>
-            <span class="p-eyebrow">Who it's for</span>
+            <span class="p-eyebrow">Why a semester</span>
             <h2 class="p-h2">The difference between knowing and done.</h2>
             <div class="p-body">
-              <p>You've watched the webinars. You've got a folder full of good ideas. What you don't have is a couple of hours a week with someone who's built this before, sitting next to you while it actually gets set up.</p>
-              <p>That's Academy. You show up, we build, and you leave each week with something running in your business that wasn't running before.</p>
+              <p>You've watched the webinars. You've got a folder full of good ideas. What you don't have is a set time every week, a plan for what gets built next, and a room full of people doing the same work alongside you.</p>
+              <p>That's what a semester gives you. Deadlines you actually keep, classmates who notice when you skip, and a finish line. Each week you leave class with something running in your business that wasn't running before.</p>
             </div>
           </div>
           <div class="p-grid-2" style="grid-template-columns:1fr">
@@ -66,60 +58,83 @@ const faqs: [string, string][] = [
               <h3 class="p-h3">A great fit if you…</h3>
               <ul class="p-checks">
                 <li>Want the system built, not just explained</li>
-                <li>Learn better live, with people to ask</li>
+                <li>Do your best work with structure and a deadline</li>
                 <li>Have tried to set up software alone and stalled</li>
-                <li>Want structure and a weekly rhythm</li>
+                <li>Like learning with other business owners in the room</li>
               </ul>
             </article>
             <article class="p-card">
               <h3 class="p-h3">Probably not for you if you…</h3>
               <ul class="p-checks p-x">
                 <li>Want someone to do it all for you</li>
-                <li>Are looking for a magic ad that fixes everything</li>
+                <li>Are looking for one magic ad that fixes everything</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="p-sec p-sec-alt" id="how">
+      <section class="p-sec p-sec-alt" id="schedule">
         <div class="p-wrap">
           <div class="p-head">
-            <span class="p-eyebrow">What we build together</span>
-            <h2 class="p-h2">One piece at a time, until the whole system runs.</h2>
-            <p class="p-lead">Each build track ends with something working in your Renegade CRM, not homework.</p>
+            <span class="p-eyebrow">Course schedule · {semester.name}</span>
+            <h2 class="p-h2">Eight classes. One complete marketing system.</h2>
+            <p class="p-lead">Every class ends with something working in your Renegade CRM, not homework. Here's the syllabus.</p>
           </div>
-          <div class="p-grid-2" style="margin-top:40px">
-            {tracks.map(([title, text], i) => (
-              <article class="p-card">
-                <span class="p-num">{i + 1}</span>
-                <h3 class="p-h3">{title}</h3>
-                <p>{text}</p>
-              </article>
+          <div class="sem-sched">
+            {semester.schedule.map((row) => (
+              <div class:list={['sem-row', row.break && 'is-break', row.week === 8 && 'is-grad']}>
+                <div class="sem-wk">{row.break ? 'Break' : <>Week<span>{row.week}</span></>}</div>
+                <div class="sem-date">{row.date}</div>
+                <div>
+                  <h3>{row.title}</h3>
+                  <p>{row.text}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="p-sec" id="join">
+      <section class="p-sec p-sec-dark">
+        <div class="p-wrap sem-alum">
+          <div>
+            <span class="p-eyebrow">After graduation</span>
+            <h2 class="p-h2">Graduate into the Renegade Alumni.</h2>
+            <p class="p-lead">The semester ends. The momentum doesn't. Every graduate joins the Renegade Alumni, an elite group of business owners who've built the system and keep sharpening it together.</p>
+          </div>
+          <div class="alum-badge">
+            <span class="p-eyebrow">Alumni membership</span>
+            <h3>What graduates get</h3>
+            <ul class="p-checks">
+              <li>Private alumni-only calls</li>
+              <li>Updates as we test new tools, playbooks and ideas</li>
+              <li>Ongoing access to the Renegade Community</li>
+              <li>A network of fellow graduates to learn from</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec" id="register">
         <div class="p-wrap p-offer">
           <div>
-            <span class="p-eyebrow">Join the Academy</span>
-            <h2 class="p-h2">Everything in the CRM, plus us in the room.</h2>
+            <span class="p-eyebrow">Registration is open</span>
+            <h2 class="p-h2">Register for the {semester.name}.</h2>
+            <p class="p-lead">Classes begin {semester.starts}. Here's what your tuition includes.</p>
             <ul class="p-checks">
+              <li>8 live weekly classes with your cohort</li>
               <li>Renegade CRM software and playbooks</li>
-              <li>Live weekly build sessions</li>
-              <li>Step-by-step implementation tracks</li>
+              <li>A build lab for whatever is stuck</li>
               <li>Strategy and troubleshooting help</li>
-              <li>A small group of business owners building alongside you</li>
-              <li>Free Renegade Community and Power Hours</li>
+              <li>Graduation into the Renegade Alumni</li>
             </ul>
           </div>
           <aside class="p-offer-box">
-            <div class="pp-name">Renegade Academy</div>
-            <div class="pp-price"><strong>$199</strong><span>/ month</span></div>
-            <p class="pp-desc" style="margin-bottom:22px">Includes Renegade CRM.</p>
-            <a class="p-btn p-btn-primary p-btn-block" href={links.academy}>Join the Academy</a>
+            <div class="pp-name">{semester.name}</div>
+            <div class="pp-price"><strong>$199</strong><span>/ month tuition</span></div>
+            <p class="pp-desc" style="margin-bottom:22px">Renegade CRM included. Classes begin {semester.startsShort}.</p>
+            <a class="p-btn p-btn-primary p-btn-block" href={links.academy}>Register for the semester</a>
             <span class="pp-alt">Just want the software? <a href="/crm">Renegade CRM is $99/mo.</a></span>
           </aside>
         </div>
@@ -128,17 +143,17 @@ const faqs: [string, string][] = [
       <section class="p-sec p-sec-alt">
         <div class="p-narrow">
           <span class="p-eyebrow">Quick answers</span>
-          <h2 class="p-h2">Before you join.</h2>
+          <h2 class="p-h2">Before you register.</h2>
           <Faq items={faqs} />
         </div>
       </section>
 
       <section class="p-sec p-sec-dark">
         <div class="p-narrow p-center">
-          <h2 class="p-h2">Start simple. Get it working. Add the next piece.</h2>
-          <p class="p-lead">We'll do it together.</p>
+          <span class="p-eyebrow">{semester.name} · Begins {semester.startsShort}</span>
+          <h2 class="p-h2">Start simple. Get it working. Add the next piece. We'll do it together.</h2>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.academy}>Join the Academy — $199/mo</a>
+            <a class="p-btn p-btn-primary" href={links.academy}>Register for the next semester</a>
           </div>
         </div>
       </section>

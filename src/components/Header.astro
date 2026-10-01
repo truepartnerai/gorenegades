@@ -1,14 +1,16 @@
 ---
 import { links } from '../lib/links.js';
+import { brand } from '../lib/site.js';
 
-// Props kept for compatibility with older pages that still pass them.
-const { ctaLabel = 'Start for $99/mo', ctaHref = '/crm' } = Astro.props;
+// Props kept for compatibility with pages that pass them.
+const { ctaLabel = 'Start for $99/mo', ctaHref = links.crmMonthly } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
   { href: '/crm', label: 'Renegade CRM' },
   { href: '/academy', label: 'Academy' },
   { href: '/community', label: 'Community' },
-  { href: '/ideas', label: 'Ideas' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/podcast', label: 'Podcast' },
   { href: '/about', label: 'About' }
 ];
 const current = (href) => (path === href || path.startsWith(href + '/') ? 'page' : undefined);
@@ -16,7 +18,11 @@ const current = (href) => (path === href || path.startsWith(href + '/') ? 'page'
 
 <nav class="pn" aria-label="Primary navigation">
   <div class="p-wrap pn-in">
-    <a class="pn-brand" href="/" aria-label="Marketing Renegades home">Marketing <b>Renegades</b></a>
+    <a class="pn-brand" href="/" aria-label="Marketing Renegades home">
+      {brand.logo
+        ? <img class="pn-logo" src={brand.logo} alt={brand.logoAlt} />
+        : <>Marketing <b>Renegades</b></>}
+    </a>
 
     <div class="pn-links">
       {nav.map((item) => <a href={item.href} aria-current={current(item.href)}>{item.label}</a>)}
@@ -28,9 +34,10 @@ const current = (href) => (path === href || path.startsWith(href + '/') ? 'page'
       <summary aria-label="Open navigation menu">Menu</summary>
       <div class="pn-panel">
         <a href="/crm">Renegade CRM <small>The system · $99/mo</small></a>
-        <a href="/academy">Renegade Academy <small>Build it with us · $199/mo</small></a>
+        <a href="/academy">Renegade Academy <small>8-week semester · $199/mo</small></a>
         <a href="/community">Renegade Community <small>Ideas and Power Hours · Free</small></a>
-        <a href="/ideas">Ideas <small>Articles and podcast</small></a>
+        <a href="/blog">Blog <small>Articles, playbooks and field notes</small></a>
+        <a href="/podcast">Podcast <small>The No Fear Marketing Show</small></a>
         <a href="/about">About</a>
         <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start for $99/mo</a>
       </div>

@@ -1,45 +1,83 @@
 ---
 import { getCollection } from 'astro:content';
+import { fmtDate } from '../../lib/media.js';
+import { links } from '../../lib/links.js';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/content.css';
 
 const episodes = (await getCollection('podcast'))
-  .filter((episode) => !episode.data.draft)
-  .sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .filter((e) => !e.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const latest = episodes[0];
+const art = latest?.data.image;
 ---
 
-<BaseLayout title="No Fear Marketing Show | Marketing Renegades" description="Conversations, ideas, and practical marketing systems for independent business owners.">
-  <div class="page content-shell">
+<BaseLayout
+  title="No Fear Marketing Show | Marketing Renegades Podcast"
+  description="The No Fear Marketing Show: practical marketing, technology and business-building conversations for entrepreneurs, with Darin Rhodes."
+>
+  <div class="page">
     <Header />
     <main>
-      <section class="content-hero">
-        <div class="wrap">
-          <span class="ey">The Podcast</span>
-          <h1 class="disp">No Fear Marketing Show.</h1>
-          <p>Marketing, technology, business building, smart experiments, and conversations with people worth learning from.</p>
+      <section class="p-hero">
+        <div class="p-wrap pod-hero">
+          {art && <img class="pod-art" src={art} alt="No Fear Marketing Show cover art" />}
+          <div>
+            <span class="p-eyebrow">The Marketing Renegades Podcast</span>
+            <h1 class="p-h1">No Fear <span class="p-hl">Marketing</span> Show</h1>
+            <p class="p-lead">Short, practical episodes on marketing systems, database strategy, content, AI and the mindset it takes to actually do the stuff. Most episodes run under 20 minutes, so they fit a drive across town.</p>
+            <div class="p-btns">
+              {latest && <a class="p-btn p-btn-primary" href={`/podcast/${latest.id}/`}>Play the latest episode</a>}
+              <a class="p-btn p-btn-secondary" href="/podcast.xml">Subscribe via RSS</a>
+            </div>
+            <div class="p-assure"><span>{episodes.length} episodes</span><span>Hosted by Darin Rhodes</span></div>
+          </div>
         </div>
       </section>
-      <section class="content-main">
-        <div class="wrap">
-          {episodes.length ? (
-            <div class="content-grid">
-              {episodes.map((episode) => (
-                <a class="content-card" href={`/podcast/${episode.id}/`}>
-                  {episode.data.image && <img src={episode.data.image} alt="" loading="lazy" />}
-                  <div class="content-card-body">
-                    <div class="content-meta">{episode.data.episode ? `Episode ${episode.data.episode} · ` : ''}{episode.data.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</div>
-                    <h2>{episode.data.title}</h2>
-                    <p>{episode.data.description}</p>
-                    <span class="read-more">Listen + show notes →</span>
-                  </div>
-                </a>
-              ))}
+
+      <section class="p-sec" style="padding-top:64px">
+        <div class="p-wrap">
+          {latest && (
+            <div class="pod-player">
+              {latest.data.image && <img src={latest.data.image} alt="" />}
+              <div>
+                <div class="pm-meta"><b>Latest episode</b>{latest.data.episode && <span>Episode {latest.data.episode}</span>}<span>{fmtDate(latest.data.pubDate)}</span>{latest.data.duration && <span>{latest.data.duration}</span>}</div>
+                <h3>{latest.data.title}</h3>
+                <p>{latest.data.description}</p>
+                <audio class="p-audio" controls preload="none" src={latest.data.audioUrl}></audio>
+              </div>
             </div>
-          ) : (
-            <div class="content-empty">The podcast archive is being rebuilt now. Episodes are coming over next.</div>
           )}
+
+          <div class="p-head" style="margin-top:72px">
+            <span class="p-eyebrow">Every episode</span>
+            <h2 class="p-h2">Pick one and hit play.</h2>
+          </div>
+          <div class="pod-list">
+            {episodes.map((ep, i) => (
+              <a class="pod-row" href={`/podcast/${ep.id}/`}>
+                <span class="pod-num">{ep.data.episode ?? episodes.length - i}</span>
+                <div>
+                  <h3>{ep.data.title}</h3>
+                  <p>{ep.data.description}</p>
+                  <div class="pm-meta" style="margin-top:8px"><span>{fmtDate(ep.data.pubDate)}</span>{ep.data.duration && <span>{ep.data.duration}</span>}</div>
+                </div>
+                <span class="pod-listen">Listen</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec p-sec-dark">
+        <div class="p-narrow p-center">
+          <span class="p-eyebrow">Want to talk about it live?</span>
+          <h2 class="p-h2">Bring your questions to a Power Hour.</h2>
+          <p class="p-lead">Every week we get together, talk marketing and steal each other's best ideas. It's free.</p>
+          <div class="p-btns">
+            <a class="p-btn p-btn-primary" href={links.powerHour}>Save a seat at the next Power Hour</a>
+          </div>
         </div>
       </section>
     </main>
