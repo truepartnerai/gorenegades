@@ -26,7 +26,7 @@ const phases = [
     id: "core",
     label: "Phase 1",
     title: "The core wins",
-    blurb: "Seven small jobs that turn Renegade CRM from software you bought into marketing that runs. Most take one sitting.",
+    blurb: "Six small jobs that turn Renegade CRM from software you bought into marketing that runs. Most take one sitting.",
     wins: [
       {
         n: "01", key: "import", title: "Import your contacts",
@@ -49,13 +49,14 @@ const phases = [
         guides: [["Sending your first email", help.email]],
       },
       {
-        n: "03", key: "socials", title: "Connect your social accounts",
-        why: "Post to every platform from one place instead of opening three apps and losing forty minutes.",
+        n: "03", key: "socials", title: "Connect your socials and Google",
+        why: "Post to every platform from one place instead of opening three apps and losing forty minutes. Your Google Business Profile plugs in here too, and it’s where your reviews will live.",
         steps: [
           "Open the Social Planner under Marketing.",
           "Connect Facebook, Instagram, and LinkedIn, or whichever you actually use. Each one asks you to log in and grant permission.",
+          "Connect your Google Business Profile. Don’t have one yet? Create it at google.com/business today, because verification can take a while.",
         ],
-        guides: [["Setting up social posting", help.social]],
+        guides: [["Setting up social posting", help.social], ["Connecting Google Business Profile", help.gbp]],
         tip: {
           title: "Start your phone number today",
           body: "Texting features (including missed-call text-back) need a business number and carrier registration called A2P 10DLC. Approval can take a while, so start it now and let the paperwork work while you do.",
@@ -73,26 +74,18 @@ const phases = [
         guides: [["Creating and scheduling posts", help.social]],
       },
       {
-        n: "05", key: "gbp", title: "Connect your Google Business Profile",
-        why: "When someone searches for your business, this listing often does the talking: hours, photos, reviews, and directions. Connecting it also sets up your review requests.",
-        steps: [
-          "Already have one? Connect it from the integrations area in Settings, then double-check your hours and photos.",
-          "Don’t have one yet? Create it at google.com/business. Verification can take time, so start today.",
-        ],
-        guides: [["Connecting Google Business Profile", help.gbp]],
-      },
-      {
-        n: "06", key: "reviews", title: "Send your first review request",
+        n: "05", key: "reviews", title: "Send your first review request",
         why: "Your happiest customers would gladly tell the internet how great you are. They just need to be asked, with a link that takes five seconds.",
         steps: [
+          "Confirm your Google Business Profile is connected (you did it with your socials in step 03). Still waiting on Google to verify? Come back to this one the day it clears.",
           "Pick three to five customers who would say yes without hesitating.",
           "Send a review request from the Reputation area by email (or text, once your number is approved).",
           "Never offer anything in exchange for a review. Google doesn’t allow it, and you don’t need it.",
         ],
-        guides: [["Sending review requests", help.reviews]],
+        guides: [["Sending review requests", help.reviews], ["Connecting Google Business Profile", help.gbp]],
       },
       {
-        n: "07", key: "mctb", title: "Turn on missed-call text-back",
+        n: "06", key: "mctb", title: "Turn on missed-call text-back",
         why: "When you miss a call, the caller usually tries the next business. This texts them back automatically so the conversation keeps going.",
         steps: [
           "Make sure your business number is set up and your texting registration is approved.",
@@ -110,7 +103,7 @@ const phases = [
     blurb: "Plug the leaks so the leads you earn actually turn into conversations.",
     wins: [
       {
-        n: "08", key: "form", title: "Connect website lead capture",
+        n: "07", key: "form", title: "Connect website lead capture",
         why: "A form that dumps into an inbox you check “pretty often” is where leads go to wait for a bus that never comes. Route them straight into Renegade CRM.",
         steps: [
           "Build a short form: name, email, phone, and one question that matters.",
@@ -120,7 +113,7 @@ const phases = [
         guides: [["Building a form", help.form]],
       },
       {
-        n: "09", key: "pipeline", title: "Organize your pipeline",
+        n: "08", key: "pipeline", title: "Organize your pipeline",
         why: "Your memory is not a CRM, and neither is the sticky note on your monitor. Put every deal on one board.",
         steps: [
           "Open Opportunities and set up a few stages that match how you work, like New, Contacted, Appointment, Proposal, Won, Lost.",
@@ -130,10 +123,10 @@ const phases = [
         guides: [["Setting up your pipeline", help.pipe]],
       },
       {
-        n: "10", key: "automation", title: "Automate your first follow-up",
+        n: "09", key: "automation", title: "Automate your first follow-up",
         why: "This is where the system starts running without you. Build one automation, not the Death Star.",
         steps: [
-          "Trigger: someone fills out the form you connected in step 08.",
+          "Trigger: someone fills out the form you connected in step 07.",
           "Send an immediate reply that sounds like you: thanks, and here’s what happens next.",
           "Wait a day, and if they haven’t replied, send a friendly second note.",
         ],
@@ -310,9 +303,9 @@ const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
     <div class="rule"></div>
     <main class="page">
       <div class="ey">Renegade CRM &middot; Your roadmap</div>
-      <h1>Ten wins. <span>Your pace.</span></h1>
+      <h1>Nine wins. <span>Your pace.</span></h1>
       <p class="lede">
-        Every new Renegade CRM member gets these steps by email, one small win every few days. If you’d rather
+        Every new Renegade CRM member gets these steps by email, one small win a day. If you’d rather
         go faster (or you’re the type who reads the last chapter first), here’s the whole map. Work through it
         in order, check things off as you go, and come back any time.
       </p>
