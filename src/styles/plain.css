@@ -333,3 +333,7 @@ footer.pf{background:#0b0b0b;border-top:6px solid var(--p-gold);padding:60px 0 6
 .p-banner img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center}
 .p-banner + .p-hero{padding-top:64px}
 .p-banner + main > .p-hero:first-child{padding-top:64px}
+
+/* Optional approved homepage offer imagery; no placeholder when unset. */
+.p-offer-image{display:block;width:100%;height:auto;border-radius:18px;margin-bottom:28px}
+#offers,#renegade-crm,#renegade-academy,#renegade-community{scroll-margin-top:100px}

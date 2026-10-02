@@ -31,7 +31,7 @@ const faqs: [string, string][] = [
   description="Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools and automation."
 >
   <div class="page">
-    <Header />
+    <Header ctaLabel="Explore the offers" ctaHref="#offers" />
 
     <main>
       <!-- HERO -->
@@ -44,8 +44,8 @@ const faqs: [string, string][] = [
           <p class="p-lead">We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
           <p class="p-lead">Build the systems, skills and confidence to create more opportunity in your business — with software, strategies, training and a community designed to help you put it all to work.</p>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Explore Renegade CRM — $99/mo</a>
-            <a class="p-btn p-btn-secondary" href="#pricing">See your options</a>
+            <a class="p-btn p-btn-primary" href="/crm">Explore Renegade CRM</a>
+            <a class="p-btn p-btn-secondary" href="#offers">Find your next step</a>
           </div>
           <div class="p-assure">
             <span>Modern tools in one place</span>
@@ -78,15 +78,34 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
-      <!-- PRICING -->
-      <section class="p-sec p-sec-alt" id="pricing">
+      <!-- CORE OFFERS -->
+      <section class="p-sec p-sec-alt" id="offers">
         <div class="p-wrap">
           <div class="p-head p-center">
-            <span class="p-eyebrow">Three ways in</span>
-            <h2 class="p-h2">Choose the level of help that fits you.</h2>
-            <p class="p-lead">Software when you want the tools. Academy when you want help building the system. Community when you want ideas, strategies and a place to learn.</p>
+            <span class="p-eyebrow">Tools. Implementation. Community.</span>
+            <h2 class="p-h2">Build the business. Build the capability.</h2>
+            <p class="p-lead">Three ways to create more opportunity. Start with the tools, build alongside us, or explore ideas with other entrepreneurs.</p>
           </div>
-          <Pricing />
+          <div class="p-grid-3" style="margin-top:40px">
+            <article class="p-card">
+              <span class="p-eyebrow">The toolbox</span>
+              <h3 class="p-h3">Renegade CRM</h3>
+              <p>Connected software and practical playbooks for follow-up, customer relationships and a more consistent business.</p>
+              <p style="margin-top:22px"><a class="p-link" href="#renegade-crm">Explore the tools →</a></p>
+            </article>
+            <article class="p-card">
+              <span class="p-eyebrow">Build with us</span>
+              <h3 class="p-h3">Renegade Academy</h3>
+              <p>Live training and hands-on implementation. Build useful systems in your own business during an eight-week semester.</p>
+              <p style="margin-top:22px"><a class="p-link" href="#renegade-academy">See how we build together →</a></p>
+            </article>
+            <article class="p-card">
+              <span class="p-eyebrow">Learn together</span>
+              <h3 class="p-h3">Renegade Community</h3>
+              <p>A free place for ideas, playbooks, weekly Power Hours and conversations with entrepreneurs putting new tools to work.</p>
+              <p style="margin-top:22px"><a class="p-link" href="#renegade-community">Meet the community →</a></p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -110,32 +129,83 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
-      <!-- TOOLBOX -->
-      <section class="p-sec p-sec-alt">
+      <!-- RENEGADE CRM -->
+      <section class="p-sec p-sec-alt" id="renegade-crm" aria-labelledby="crm-heading">
         <div class="p-wrap p-split">
           <div>
-            <span class="p-eyebrow">One powerful toolbox</span>
-            <h2 class="p-h2">A modern marketing operating system for the everyday entrepreneur.</h2>
-            <p class="p-lead">CRM, email, texting, automation, AI, calendars, reviews, landing pages, social tools and more — connected in one place, with practical playbooks to help you decide what to use first.</p>
+            <span class="p-eyebrow">The tools + the playbooks</span>
+            <h2 class="p-h2" id="crm-heading">Renegade CRM</h2>
+            <p class="p-lead">A connected toolbox for a business that runs more consistently.</p>
+            <div class="p-body">
+              <p>Keep contacts, conversations, appointments and follow-up in one place. Connect email, texting, calendars, reviews, landing pages, social tools and automation around the opportunities that matter most.</p>
+              <p>Practical playbooks show you where to start and how to build one useful system at a time. Explore the tools and build at your own pace.</p>
+            </div>
+            <div class="p-btns"><a class="p-btn p-btn-primary" href="/crm">See what's inside Renegade CRM</a></div>
           </div>
           <div>
+            {brand.homeOffers.crm.src && <img class="p-offer-image" src={brand.homeOffers.crm.src} alt={brand.homeOffers.crm.alt} loading="lazy" />}
             <div class="p-pills">
-              <span>CRM</span>
-              <span>Email</span>
-              <span>Text messaging</span>
-              <span>Calendars</span>
-              <span>Reviews</span>
-              <span>Landing pages</span>
-              <span>Social tools</span>
-              <span>AI + automation</span>
+              <span>CRM</span><span>Email</span><span>Text messaging</span><span>Calendars</span>
+              <span>Reviews</span><span>Landing pages</span><span>Social tools</span><span>AI + automation</span>
             </div>
-            <div class="p-callout">
-              <div>
-                <strong>Renegade CRM</strong>
-                <p>The tools, the playbooks and a clear place to start. $99/month.</p>
-              </div>
-              <a class="p-btn p-btn-primary" href="/crm">See what's inside</a>
+            <div class="p-callout"><div><strong>Build at your own pace.</strong><p>The software, the playbooks and a clear place to start. $99/month.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RENEGADE ACADEMY -->
+      <section class="p-sec" id="renegade-academy" aria-labelledby="academy-heading">
+        <div class="p-wrap p-split">
+          <div>
+            <span class="p-eyebrow">Live training + implementation</span>
+            <h2 class="p-h2" id="academy-heading">Renegade Academy</h2>
+            <p class="p-lead">Build real systems with us, one week at a time.</p>
+            <div class="p-body">
+              <p>Join an eight-week live semester with other business owners. Each week, put a practical piece in place inside your own business — from content and database communication to lead generation, reviews and referrals.</p>
+              <p>Renegade CRM is included. Bring your questions, get help in the build lab and graduate into the Renegade Alumni with systems you can keep using and a community to keep learning with.</p>
             </div>
+            <div class="p-btns"><a class="p-btn p-btn-primary" href="/academy">Explore Renegade Academy</a></div>
+          </div>
+          <div>
+            {brand.homeOffers.academy.src && <img class="p-offer-image" src={brand.homeOffers.academy.src} alt={brand.homeOffers.academy.alt} loading="lazy" />}
+            <article class="p-card">
+              <h3 class="p-h3">Turn ideas into working systems.</h3>
+              <ul class="p-checks">
+                <li>Weekly live classes with fellow entrepreneurs.</li>
+                <li>Hands-on implementation inside your own CRM.</li>
+                <li>A build lab for questions and practical help.</li>
+                <li>Ongoing learning and connection through the Alumni.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- RENEGADE COMMUNITY -->
+      <section class="p-sec p-sec-alt" id="renegade-community" aria-labelledby="community-heading">
+        <div class="p-wrap p-split">
+          <div>
+            <span class="p-eyebrow">Ideas + support + perspective</span>
+            <h2 class="p-h2" id="community-heading">Renegade Community</h2>
+            <p class="p-lead">Find your next good idea. Share what works. Keep learning.</p>
+            <div class="p-body">
+              <p>Start free with practical playbooks, templates and weekly Power Hours. Explore new tools, AI and automation, bring a business question and learn alongside other entrepreneurs.</p>
+              <p>See what we're testing, hear from guest experts and find useful ideas you can put to work. It's a place to build confidence and capability at your own pace.</p>
+            </div>
+            <div class="p-btns"><a class="p-btn p-btn-primary" href="/community">Explore the free Renegade Community</a></div>
+          </div>
+          <div>
+            {brand.homeOffers.community.src && <img class="p-offer-image" src={brand.homeOffers.community.src} alt={brand.homeOffers.community.alt} loading="lazy" />}
+            <article class="p-card">
+              <h3 class="p-h3">A useful place to start.</h3>
+              <ul class="p-checks">
+                <li>Weekly Power Hours with practical conversations.</li>
+                <li>Playbooks and templates to try in your business.</li>
+                <li>New tools, experiments and guest perspectives.</li>
+                <li>Other business owners sharing ideas and experience.</li>
+              </ul>
+              <p style="margin-top:22px"><a class="p-link" href={links.powerHour}>Find the next Power Hour →</a></p>
+            </article>
           </div>
         </div>
       </section>
@@ -181,6 +251,18 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
+      <!-- PRICING -->
+      <section class="p-sec p-sec-alt" id="pricing">
+        <div class="p-wrap">
+          <div class="p-head p-center">
+            <span class="p-eyebrow">Three ways in</span>
+            <h2 class="p-h2">Choose the level of help that fits you.</h2>
+            <p class="p-lead">Software when you want the tools. Academy when you want help building the system. Community when you want ideas, strategies and a place to learn.</p>
+          </div>
+          <Pricing />
+        </div>
+      </section>
+
       <!-- FAQ -->
       <section class="p-sec">
         <div class="p-narrow">
@@ -197,8 +279,8 @@ const faqs: [string, string][] = [
           <h2 class="p-h2">Build a more capable business, one smart system at a time.</h2>
           <p class="p-lead">Explore Renegade CRM for the tools, join Academy for hands-on implementation, or start in the free community and see what is possible.</p>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Explore Renegade CRM — $99/mo</a>
-            <a class="p-btn p-btn-secondary" href={links.community}>Join the community free</a>
+            <a class="p-btn p-btn-primary" href="#offers">Choose your next step</a>
+            <a class="p-btn p-btn-secondary" href="/community">Explore the free community</a>
           </div>
         </div>
       </section>

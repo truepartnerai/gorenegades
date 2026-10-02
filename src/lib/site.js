@@ -8,6 +8,13 @@ export const brand = {
   logoAlt: 'Marketing Renegades',
   homeHero: null,
   homeHeroAlt: '',
+  // Homepage offer imagery: add approved URLs and descriptive alt text here.
+  // Null URLs render no image or empty placeholder. Existing page banners stay separate.
+  homeOffers: {
+    crm: { src: null, alt: '' },
+    academy: { src: null, alt: '' },
+    community: { src: null, alt: '' }
+  },
   // Full-width banners shown at the top of each page.
   banners: {
     crm: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c17f6f30939b0fb15.jpg',
