@@ -5,30 +5,30 @@ import Footer from '../components/Footer.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
 import { links } from '../lib/links.js';
-import { brand, semester } from '../lib/site.js';
+import { brand } from '../lib/site.js';
 
 const jobs = [
-  ['Follow up with every lead', 'A text and email go out the minute someone raises a hand, and the follow-up keeps going until they answer.'],
-  ['Work your database', 'Stay in front of past customers and contacts every month without writing every email from scratch.'],
-  ['Get more reviews', 'Ask every happy customer, automatically, at the moment they are happiest.'],
-  ['Book more appointments', 'Let people grab time on your calendar instead of playing phone tag for three days.'],
-  ['Win back missed calls', 'A missed call gets an instant text back, so it becomes a conversation instead of a lost lead.'],
-  ['Show up consistently', 'Turn one useful idea into posts, emails and content that keep you visible all week.']
+  ['More leads turning into conversations', 'Respond quickly, follow up consistently and give every good lead a better chance to become a customer.'],
+  ['More value from the people you already know', 'Stay connected to past customers, prospects and referral partners with simple, consistent communication.'],
+  ['More reviews and referrals', 'Make it easy to ask at the right moment and keep great customer experiences working for your business.'],
+  ['More appointments on the calendar', 'Give people a simple way to book time and keep the process moving without extra back-and-forth.'],
+  ['More opportunities captured', 'Turn missed calls, website inquiries and new contacts into real conversations instead of loose ends.'],
+  ['More visibility from the ideas you already have', 'Use AI and smart workflows to turn one useful idea into emails, posts and content across multiple channels.']
 ];
 
 const faqs: [string, string][] = [
   ['Do I need to be technical?', "No. The playbooks walk you through one system at a time in plain English. If you can send an email and fill out a form, you can run this. And if you'd rather have help, that's exactly what Academy is for."],
-  ['Who is this for?', 'Entrepreneurs and small business owners whose growth depends on leads, follow-up, relationships and referrals. We started with mortgage and real estate professionals, and the same systems work for service businesses, local businesses and solo operators.'],
-  ["What's the difference between the CRM and Academy?", "Renegade CRM is the software plus the playbooks, and you set it up at your own pace. Academy includes the CRM and adds an 8-week live semester where you and your classmates build the whole system together, step by step. Graduates join the Renegade Alumni."],
-  ['Is Renegade CRM just software?', "No, and that's the point. Most people already own software they don't use. Renegade CRM comes with playbooks that tell you what to turn on first, how to set it up and what to do with it every week."],
-  ["I already have a CRM. Should I switch?", "Maybe, maybe not. Bring the question to a free Power Hour and we'll talk it through honestly. If what you have is working, keep it and steal our ideas instead."],
-  ['Can I start for free?', 'Yes. Join the Renegade Community for free, come to a Power Hour and look around. When you are ready for the system, the CRM is $99 a month.']
+  ['Who is this for?', 'Entrepreneurs and small business owners who want a more capable, consistent business using better systems, modern tools and automation. We started with mortgage and real estate professionals, and the same ideas work for service businesses, local businesses and independent operators.'],
+  ["What's the difference between the CRM and Academy?", "Renegade CRM is the software plus the playbooks, and you can build at your own pace. Academy includes the CRM and adds an 8-week live semester where you build the system with us, step by step. Graduates join the Renegade Alumni."],
+  ['Is Renegade CRM just software?', "No. The software is the toolbox. The playbooks show you where to start, what to build and how to put the tools to work in your business."],
+  ["I already have a CRM. Should I switch?", "Maybe, maybe not. Bring the question to a free Power Hour and we'll talk it through honestly. If what you have is working, keep it and use the ideas that help."],
+  ['Can I start for free?', 'Yes. Join the Renegade Community for free, come to a Power Hour and explore the ideas. When you are ready for the system, Renegade CRM is $99 a month.']
 ];
 ---
 
 <BaseLayout
-  title="Marketing Renegades | Smarter Marketing Systems for Entrepreneurs"
-  description="Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools and automation. Renegade CRM is $99/month."
+  title="Marketing Renegades | Powerful Marketing Tools for Entrepreneurs"
+  description="Marketing Renegades helps entrepreneurs solve marketing and growth problems using smarter systems, tools and automation."
 >
   <div class="page">
     <Header />
@@ -40,15 +40,16 @@ const faqs: [string, string][] = [
           <div>
           {brand.logo && <img class="p-hero-logo" src={brand.logo} alt={brand.logoAlt} />}
           <span class="p-eyebrow">Marketing Renegades</span>
-          <h1 class="p-h1">Your marketing, running on a <span class="p-hl">system</span> instead of your memory.</h1>
-          <p class="p-lead">We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation. Get the software for $99 a month, get help building it if you want it, and steal our best ideas for free.</p>
+          <h1 class="p-h1">Powerful marketing tools.<br />Practical systems.<br /><span class="p-hl">Built for entrepreneurs.</span></h1>
+          <p class="p-lead">We help entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
+          <p class="p-lead">Build the systems, skills and confidence to create more opportunity in your business — with software, strategies, training and a community designed to help you put it all to work.</p>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start Renegade CRM — $99/mo</a>
-            <a class="p-btn p-btn-secondary" href="#pricing">Compare all three options</a>
+            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Explore Renegade CRM — $99/mo</a>
+            <a class="p-btn p-btn-secondary" href="#pricing">See your options</a>
           </div>
           <div class="p-assure">
-            <span>Software and playbooks included</span>
-            <span>No tech skills required</span>
+            <span>Modern tools in one place</span>
+            <span>Practical playbooks included</span>
             <span>Free community to start</span>
           </div>
           </div>
@@ -56,23 +57,23 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
-      <!-- PROBLEM -->
+      <!-- OPPORTUNITY -->
       <section class="p-sec">
         <div class="p-wrap p-split">
           <div>
-            <span class="p-eyebrow">Sound familiar?</span>
-            <h2 class="p-h2">You don't have a marketing problem. You have a follow-through problem.</h2>
-            <ul class="p-checks p-x">
-              <li>A lead came in Tuesday and nobody called until Friday.</li>
-              <li>You have hundreds of past customers you haven't emailed this year.</li>
-              <li>You know you should ask for reviews. You mostly don't.</li>
-              <li>You bought software once. It's still sitting there, judging you.</li>
+            <span class="p-eyebrow">A better-running business</span>
+            <h2 class="p-h2">A few smart systems can change the way your whole business runs.</h2>
+            <ul class="p-checks">
+              <li>More leads get a response while the opportunity is still fresh.</li>
+              <li>Your database stays connected without starting from zero every week.</li>
+              <li>Reviews, referrals and follow-up become part of the way the business operates.</li>
+              <li>AI and automation take repetitive work off your plate.</li>
             </ul>
           </div>
           <div class="p-body">
-            <p>None of that is a talent problem. You're good at what you do, which is exactly why your days fill up with the work and the marketing gets pushed to "later." Later, as it turns out, is a very busy place.</p>
-            <p>The businesses that grow aren't necessarily working harder at marketing. They've just put the important stuff on rails, so the follow-up, the database emails and the review requests happen whether or not anybody remembers on a Thursday afternoon.</p>
-            <p><strong>That's what we build. A simple system, set up one piece at a time, that keeps working when you're busy.</strong></p>
+            <p>Powerful technology that once took a full marketing team is now available to everyday entrepreneurs. The opportunity is not to add more work. It is to build a business that handles more of the important work by design.</p>
+            <p>You may already have most of what you need: customers, contacts, ideas, relationships and opportunities. A few connected systems can help you make much more of all of it.</p>
+            <p><strong>That is what Marketing Renegades is about: better tools, practical systems and the capability to create opportunity on purpose.</strong></p>
           </div>
         </div>
       </section>
@@ -82,20 +83,20 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <div class="p-head p-center">
             <span class="p-eyebrow">Three ways in</span>
-            <h2 class="p-h2">Pick how much help you want.</h2>
-            <p class="p-lead">Everything works together. Start anywhere and move up whenever you're ready.</p>
+            <h2 class="p-h2">Choose the level of help that fits you.</h2>
+            <p class="p-lead">Software when you want the tools. Academy when you want help building the system. Community when you want ideas, strategies and a place to learn.</p>
           </div>
           <Pricing />
         </div>
       </section>
 
-      <!-- JOBS -->
+      <!-- BOTTLENECKS -->
       <section class="p-sec">
         <div class="p-wrap">
           <div class="p-head">
-            <span class="p-eyebrow">What it actually does</span>
-            <h2 class="p-h2">What do you want your marketing to handle first?</h2>
-            <p class="p-lead">You don't have to do all of this today. Pick one, get it working, then add the next. Each one has a Renegade playbook.</p>
+            <span class="p-eyebrow">Where is the biggest opportunity?</span>
+            <h2 class="p-h2">What's the biggest bottleneck in your business right now?</h2>
+            <p class="p-lead">Start there. You do not need every tool or every strategy at once. Find the opportunity that matters most, build a simple system around it, then add the next piece.</p>
           </div>
           <div class="p-grid-3" style="margin-top:40px">
             {jobs.map(([title, text], i) => (
@@ -109,29 +110,29 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
-      <!-- REPLACES -->
+      <!-- TOOLBOX -->
       <section class="p-sec p-sec-alt">
         <div class="p-wrap p-split">
           <div>
-            <span class="p-eyebrow">One login instead of seven</span>
-            <h2 class="p-h2">Stop duct-taping your marketing together.</h2>
-            <p class="p-lead">Most small businesses are paying for a pile of tools that don't talk to each other, and using about a third of each one. Renegade CRM puts it all in one place for $99 a month.</p>
+            <span class="p-eyebrow">One powerful toolbox</span>
+            <h2 class="p-h2">A modern marketing operating system for the everyday entrepreneur.</h2>
+            <p class="p-lead">CRM, email, texting, automation, AI, calendars, reviews, landing pages, social tools and more — connected in one place, with practical playbooks to help you decide what to use first.</p>
           </div>
           <div>
             <div class="p-pills">
-              <span class="is-x">Separate CRM</span>
-              <span class="is-x">Email marketing tool</span>
-              <span class="is-x">Texting app</span>
-              <span class="is-x">Scheduling link</span>
-              <span class="is-x">Review request service</span>
-              <span class="is-x">Landing page builder</span>
-              <span class="is-x">Social scheduler</span>
-              <span class="is-x">Sticky notes on the monitor</span>
+              <span>CRM</span>
+              <span>Email</span>
+              <span>Text messaging</span>
+              <span>Calendars</span>
+              <span>Reviews</span>
+              <span>Landing pages</span>
+              <span>Social tools</span>
+              <span>AI + automation</span>
             </div>
             <div class="p-callout">
               <div>
                 <strong>Renegade CRM</strong>
-                <p>All of it, plus the playbooks. $99/month.</p>
+                <p>The tools, the playbooks and a clear place to start. $99/month.</p>
               </div>
               <a class="p-btn p-btn-primary" href="/crm">See what's inside</a>
             </div>
@@ -149,18 +150,18 @@ const faqs: [string, string][] = [
           <div class="p-grid-3" style="margin-top:40px">
             <article class="p-card">
               <span class="p-num">1</span>
-              <h3 class="p-h3">Start the system</h3>
-              <p>Sign up for Renegade CRM and get access to the software, the playbooks and the free community the same day.</p>
+              <h3 class="p-h3">Start with the opportunity</h3>
+              <p>Choose the area that could make the biggest difference right now — follow-up, your database, reviews, content, appointments or something else.</p>
             </article>
             <article class="p-card">
               <span class="p-num">2</span>
-              <h3 class="p-h3">Turn on one thing</h3>
-              <p>Pick the job that would help most right now, usually lead follow-up, and follow the playbook to switch it on.</p>
+              <h3 class="p-h3">Build one useful system</h3>
+              <p>Use the software and the playbook to put that piece in place without turning it into a giant project.</p>
             </article>
             <article class="p-card">
               <span class="p-num">3</span>
               <h3 class="p-h3">Stack the next one</h3>
-              <p>Once the first system runs on its own, add database emails, then reviews, then the next. That's the whole idea.</p>
+              <p>Once the first system is working, add the next. Over time, those small systems change how the whole business operates.</p>
             </article>
           </div>
         </div>
@@ -169,11 +170,11 @@ const faqs: [string, string][] = [
       <!-- ABOUT -->
       <section class="p-sec p-sec-alt">
         <div class="p-narrow">
-          <span class="p-eyebrow">Who's behind this</span>
-          <h2 class="p-h2">Built by an entrepreneur who got tired of marketing depending on memory.</h2>
+          <span class="p-eyebrow">Why Marketing Renegades</span>
+          <h2 class="p-h2">Powerful tools are finally within reach of the everyday entrepreneur.</h2>
           <div class="p-body">
-            <p>I'm Darin Rhodes. I've spent more than 25 years in the mortgage and real estate business, and somewhere along the way I realized the people who grew weren't the ones with the cleverest ads. They were the ones who followed up, stayed in touch and asked for the review, every single time.</p>
-            <p>So I started building systems that do that automatically, first for my own businesses and then for other business owners who asked how we were doing it. Marketing Renegades is where I teach what's working, test the new stuff and hand you the tools to run it yourself.</p>
+            <p>I'm Darin Rhodes. I've spent more than 25 years building businesses in mortgage, real estate, sales and marketing. What excites me most right now is how much capability entrepreneurs can access without needing a giant team or giant budget.</p>
+            <p>Marketing Renegades brings together the software, strategies, training and community to help business owners put that capability to work in practical ways.</p>
           </div>
           <p class="p-quote">The goal isn't to make you dependent on us. It's to make you more capable.</p>
           <p style="margin-top:22px"><a class="p-link" href="/about">More about Marketing Renegades →</a></p>
@@ -184,7 +185,7 @@ const faqs: [string, string][] = [
       <section class="p-sec">
         <div class="p-narrow">
           <span class="p-eyebrow">Quick answers</span>
-          <h2 class="p-h2">Before you jump in.</h2>
+          <h2 class="p-h2">A few things you may be wondering.</h2>
           <Faq items={faqs} />
         </div>
       </section>
@@ -192,11 +193,11 @@ const faqs: [string, string][] = [
       <!-- FINAL CTA -->
       <section class="p-sec p-sec-dark">
         <div class="p-narrow p-center">
-          <span class="p-eyebrow">Ready when you are</span>
-          <h2 class="p-h2">Put your marketing on a system this week.</h2>
-          <p class="p-lead">Start with the software and playbooks for $99 a month. Or come hang out in the free community first. Either way, you'll leave with something useful.</p>
+          <span class="p-eyebrow">Start where it makes sense</span>
+          <h2 class="p-h2">Build a more capable business, one smart system at a time.</h2>
+          <p class="p-lead">Explore Renegade CRM for the tools, join Academy for hands-on implementation, or start in the free community and see what is possible.</p>
           <div class="p-btns">
-            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start Renegade CRM — $99/mo</a>
+            <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Explore Renegade CRM — $99/mo</a>
             <a class="p-btn p-btn-secondary" href={links.community}>Join the community free</a>
           </div>
         </div>
