@@ -35,7 +35,7 @@ const faqs: [string, string][] = [
 
     <main>
       <!-- HERO -->
-      <section class="p-hero">
+      <section class="p-hero p-home-hero">
         <div class:list={['p-wrap', brand.homeHero && 'p-hero-grid']}>
           <div>
           {brand.logo && <img class="p-hero-logo" src={brand.logo} alt={brand.logoAlt} />}
@@ -53,7 +53,7 @@ const faqs: [string, string][] = [
             <span>Free community to start</span>
           </div>
           </div>
-          {brand.homeHero && <img class="p-hero-img" src={brand.homeHero} alt={brand.homeHeroAlt} />}
+          {brand.homeHero && <img class="p-hero-img" src={brand.homeHero} alt={brand.homeHeroAlt} width={brand.homeHeroWidth} height={brand.homeHeroHeight} fetchpriority="high" />}
         </div>
       </section>
 

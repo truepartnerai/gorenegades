@@ -9,7 +9,7 @@ import { brand } from '../lib/site.js';
         <a class="pn-brand" href="/">
           {brand.logo
             ? <img class="pn-logo" src={brand.logo} alt={brand.logoAlt} />
-            : <>Marketing <b>Renegades</b></>}
+            : <>{brand.insignia && <img class="pn-insignia" src={brand.insignia} alt="" width="40" height="40" />}<span>Marketing <b>Renegades</b></span></>}
         </a>
         <p class="pf-mission">Helping entrepreneurs solve marketing and growth problems using smarter systems, tools and automation.</p>
       </div>

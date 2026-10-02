@@ -6,8 +6,13 @@
 export const brand = {
   logo: null,
   logoAlt: 'Marketing Renegades',
-  homeHero: null,
-  homeHeroAlt: '',
+  homeHero: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6769f7bc8710c6481e12b084.png',
+  homeHeroAlt: 'Marketing Renegades — No Fear Marketing, with the gold Renegade hand insignia',
+  homeHeroWidth: 1920,
+  homeHeroHeight: 1080,
+  // Approved alternate splash; switch homeHero above to use it.
+  alternateSplash: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6aa89137a4d512c32b6464c1.png',
+  insignia: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/683de917fac9a618371c071d.png',
   // Homepage offer imagery: add approved URLs and descriptive alt text here.
   // Null URLs render no image or empty placeholder. Existing page banners stay separate.
   homeOffers: {

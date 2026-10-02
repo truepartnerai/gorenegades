@@ -21,7 +21,7 @@ const current = (href) => (path === href || path.startsWith(href + '/') ? 'page'
     <a class="pn-brand" href="/" aria-label="Marketing Renegades home">
       {brand.logo
         ? <img class="pn-logo" src={brand.logo} alt={brand.logoAlt} />
-        : <>Marketing <b>Renegades</b></>}
+        : <>{brand.insignia && <img class="pn-insignia" src={brand.insignia} alt="" width="40" height="40" />}<span>Marketing <b>Renegades</b></span></>}
     </a>
 
     <div class="pn-links">
