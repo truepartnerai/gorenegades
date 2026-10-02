@@ -1,0 +1,462 @@
+---
+// Unlisted Renegade CRM AI assistant setup guide.
+// Linked from onboarding email 08 and the roadmap, not from site navigation.
+// noindex so it stays out of search results.
+
+const app = "https://app.gorenegades.com";
+const community = "https://community.gorenegades.com";
+const academy = "https://enroll.gorenegades.com/enroll";
+const roadmap = "/crm-roadmap";
+
+const help = {
+  ai: "https://help.gohighlevel.com/support/solutions/articles/155000004401-how-to-set-up-a-conversation-ai-bot",
+  aiform: "https://help.gohighlevel.com/support/solutions/articles/155000005382-guided-form-based-setup-for-conversation-ai",
+  aitrain: "https://help.gohighlevel.com/support/solutions/articles/155000004416-training-your-conversation-ai-bot",
+  voice: "https://help.gohighlevel.com/support/solutions/articles/155000004107-how-to-create-voice-ai-agents",
+  chat: "https://help.gohighlevel.com/support/solutions/articles/155000004102-getting-started-with-chat-widget",
+  a2p: "https://help.gohighlevel.com/support/solutions/articles/155000004539-a2p-campaign-registration-step-by-step-guide-and-faqs",
+};
+
+const phases = [
+  {
+    id: "prep",
+    label: "Part 1",
+    title: "Get ready",
+    blurb: "Ten minutes of prep makes everything after it go faster. Your assistant can only be as good as what you teach it.",
+    wins: [
+      {
+        n: "01", key: "gather", title: "Gather what it needs to know",
+        why: "The setup itself is mostly filling in forms. The thinking happens here, and nobody knows these answers better than you.",
+        steps: [
+          "Write down the ten questions customers ask you most, with the answer you’d give in your own words. Hours, service area, how pricing works, what happens on a first call, how fast you can start.",
+          "Have your website address handy. Your assistant can read it to learn about your business.",
+          "If you want it to book appointments, make sure you have a calendar set up in Renegade CRM first.",
+          "Decide who should get an email when the assistant hits a question it can’t answer (usually you).",
+        ],
+        guides: [["Setting up your AI assistant", help.ai]],
+        tip: {
+          title: "About cost",
+          body: "AI usage isn’t included in your Renegade CRM subscription. It’s billed separately based on how much your assistant actually does, a little like a phone bill. Start small and keep an eye on it the first week. Questions about rates? Email support@gorenegades.com.",
+          links: [],
+        },
+      },
+    ],
+  },
+  {
+    id: "build",
+    label: "Part 2",
+    title: "Build your assistant",
+    blurb: "The guided setup walks you through a form, so there’s no prompt writing. Each of these is one screen.",
+    wins: [
+      {
+        n: "02", key: "create", title: "Create the bot",
+        why: "Start with the guided setup. You can graduate to the fancier builders later if you ever need them.",
+        steps: [
+          "In Renegade CRM, go to AI Agents, open the Conversation AI tab, and click + Create Bot.",
+          "Choose Guided Form Based Setup.",
+          "Pick the bot type: General Q&A (answers questions) or Appointment Booking (gets people onto your calendar).",
+        ],
+        guides: [["Using the guided setup", help.aiform]],
+      },
+      {
+        n: "03", key: "settings", title: "Give it a voice and a job",
+        why: "This is where it starts sounding like your business instead of a robot reading a warranty.",
+        steps: [
+          "Choose a Brand Voice, or create one that matches how you actually talk to customers.",
+          "Name the bot and choose its channels: Live Chat, Facebook, and Instagram to start. Add SMS once your number’s texting registration is approved.",
+          "Write a friendly first message, turn on “Make this as Primary Bot” so it answers incoming messages, and set a short wait time of a few seconds before it replies.",
+        ],
+        guides: [["Bot settings walkthrough", help.aiform]],
+        tip: {
+          title: "Texting not approved yet?",
+          body: "Totally normal. Skip SMS for now and add it the day your registration clears.",
+          links: [["Registering your number for texting", help.a2p]],
+        },
+      },
+      {
+        n: "04", key: "collect", title: "Tell it what to collect",
+        why: "A great conversation that ends without a phone number is just a nice chat.",
+        steps: [
+          "Choose the contact details it should gather. Name, email, and phone cover most businesses.",
+          "Add one or two custom questions that help you qualify a lead, like what they need or when they want to start. Turn on “Skip if Already Filled” so it doesn’t ask people things you already know.",
+        ],
+        guides: [["Collecting contact details", help.aiform]],
+      },
+      {
+        n: "05", key: "booking", title: "Turn on booking (optional)",
+        why: "If a conversation usually ends with “let’s set up a time,” let the assistant do it while the person is still interested.",
+        steps: [
+          "Enable appointment booking and choose your calendar.",
+          "Decide whether the assistant can also cancel or reschedule appointments.",
+        ],
+        guides: [["Appointment settings", help.aiform]],
+      },
+      {
+        n: "06", key: "notify", title: "Set up your safety net, then save",
+        why: "An assistant that says “let me get the owner” beats one that confidently makes things up.",
+        steps: [
+          "Turn on email notifications for when the bot can’t answer a question, and send them to yourself.",
+          "Optionally turn on conversation summaries so you can skim what happened without reading every message.",
+          "Click Save. When it asks for a status, choose Off for now. You’ll turn it on after it’s trained and tested.",
+        ],
+        guides: [["Notifications and summaries", help.aiform]],
+      },
+    ],
+  },
+  {
+    id: "train",
+    label: "Part 3",
+    title: "Teach it your business",
+    blurb: "This is the part that separates a helpful assistant from an awkward one. Use the answers you gathered in step 01.",
+    wins: [
+      {
+        n: "07", key: "crawl", title: "Let it read your website",
+        why: "The web crawler pulls what your site already says about you into the assistant’s knowledge.",
+        steps: [
+          "In your bot’s training area, add your website. You can crawl one page, everything under a path (like yoursite.com/services/*), or the whole domain.",
+          "Click Get Data, then select the pages you want it to learn from. Skip anything outdated.",
+          "Have info in a Google Doc instead? Share it as “Anyone with the link” and add that too.",
+        ],
+        guides: [["Training your AI assistant", help.aitrain]],
+      },
+      {
+        n: "08", key: "faqs", title: "Add your FAQs",
+        why: "Your website explains what you do. Your FAQs explain how you actually answer people.",
+        steps: [
+          "Add each of your top questions with + Add Q&A, using the answers you wrote in step 01.",
+          "Keep answers short, and think about the different ways people ask the same thing.",
+          "Revisit these whenever your prices, hours, or services change.",
+        ],
+        guides: [["Adding custom answers", help.aitrain]],
+      },
+    ],
+  },
+  {
+    id: "live",
+    label: "Part 4",
+    title: "Go live",
+    blurb: "Test it, supervise it, then hand over the keys.",
+    wins: [
+      {
+        n: "09", key: "test", title: "Test it like a difficult customer",
+        why: "Better that it stumbles in front of you than in front of a customer.",
+        steps: [
+          "Message it yourself. Ask your common questions, then a few weird ones it shouldn’t know.",
+          "If booking is on, book a test appointment all the way through.",
+          "Fix anything off by updating your FAQs, then test again.",
+        ],
+        guides: [["Testing your assistant", help.ai]],
+      },
+      {
+        n: "10", key: "supervise", title: "Supervise, then switch to Auto-Pilot",
+        why: "Suggestive mode lets it draft replies that you approve, so nothing goes out without your say-so.",
+        steps: [
+          "Set the bot’s status to Suggestive and review its drafts for a few days.",
+          "Use thumbs up and thumbs down on its replies to help it improve.",
+          "When you’re consistently approving what it writes, switch it to Auto-Pilot.",
+        ],
+        guides: [["Bot status modes", help.ai]],
+      },
+      {
+        n: "11", key: "widget", title: "Put it on your website",
+        why: "Give your assistant visitors to talk to.",
+        steps: [
+          "Go to Sites, then Chat Widget, and click New. Choose Live Chat.",
+          "Style it to match your brand, then copy the code and add it to your website.",
+          "Visit your site and say hello to your new assistant.",
+        ],
+        guides: [["Adding the chat widget", help.chat]],
+        tip: {
+          title: "Want it to answer the phone too?",
+          body: "Voice AI puts an AI receptionist on your business line to answer calls, take messages, and book appointments. Get the text version working first, since it’s easier to fine-tune.",
+          links: [["Adding Voice AI", help.voice]],
+        },
+      },
+    ],
+  },
+];
+
+const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Set up your Renegade CRM AI assistant, step by step." />
+    <title>Your Renegade CRM AI Assistant Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --char: #faf9f5;
+        --ink: #0a0a0a;
+        --gold-ink: #8a6e00;
+        --gold-mid: #c59a00;
+        --paper: #ffffff;
+        --cream: #fff8d6;
+        --gold: #f4c20d;
+        --white: #ffffff;
+        --smoke: #5f5f5f;
+        --line: #e7e3d8;
+        --display: "Anton", Impact, sans-serif;
+        --body: "Space Grotesk", system-ui, sans-serif;
+        --mono: "Space Mono", ui-monospace, monospace;
+        --max: 860px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      .rule { height: 7px; background: var(--gold); }
+      .page { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 40px 0 64px; }
+      .ey {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold-ink);
+      }
+      h1 {
+        font-family: var(--display);
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 0.9;
+        font-size: clamp(52px, 11vw, 112px);
+        margin: 14px 0 0;
+      }
+      h1 span { color: var(--gold-mid); display: block; }
+      .lede { font-size: clamp(17px, 2.2vw, 20px); max-width: 680px; margin: 22px 0 0; color: #333; }
+      .progress {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        margin: 36px 0 8px;
+        padding: 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .bar { flex: 1; height: 10px; background: #f1eee6; border: 1px solid var(--line); }
+      .fill { height: 100%; width: 0; background: var(--gold); transition: width 0.25s ease; }
+      .count { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+      .phase { margin-top: 48px; }
+      .phase h2 {
+        font-family: var(--display);
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: clamp(34px, 6vw, 52px);
+        line-height: 0.95;
+        margin: 8px 0 0;
+      }
+      .phase > p { color: var(--smoke); margin: 10px 0 0; max-width: 640px; }
+      .win {
+        margin-top: 22px;
+        background: var(--char);
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--gold);
+        padding: 24px;
+        transition: opacity 0.2s ease;
+      }
+      .win.done { opacity: 0.55; }
+      .win-head { display: flex; gap: 16px; align-items: flex-start; }
+      .num { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--gold-mid); min-width: 52px; }
+      .win h3 { margin: 0; font-size: 22px; line-height: 1.2; }
+      .win-why { margin: 8px 0 0; color: #444; }
+      .win ol { margin: 16px 0 0; padding-left: 20px; }
+      .win li { margin-top: 6px; }
+      .guides { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px 18px; font-family: var(--mono); font-size: 13px; }
+      .guides a { color: var(--gold-ink); font-weight: 700; text-underline-offset: 4px; }
+      .check {
+        margin-top: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        user-select: none;
+      }
+      .check input { width: 20px; height: 20px; accent-color: var(--gold); cursor: pointer; }
+      .tip {
+        margin-top: 18px;
+        background: var(--cream);
+        border: 1px solid #e7d77b;
+        border-left: 5px solid var(--gold);
+        padding: 16px 18px;
+      }
+      .tip strong { display: block; color: var(--gold-ink); font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .tip p { margin: 6px 0 0; font-size: 16px; }
+      .btn {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--black);
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 16px 24px;
+        border: 2px solid var(--gold);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+      .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+      .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .closing { margin-top: 60px; border-top: 3px solid var(--ink); padding-top: 28px; }
+      .closing h2 { font-family: var(--display); text-transform: uppercase; font-weight: 400; font-size: clamp(32px, 6vw, 48px); margin: 0; line-height: 0.95; }
+      .closing p { color: #444; max-width: 640px; }
+      .foot { margin-top: 48px; font-size: 13px; color: var(--smoke); text-align: center; }
+      .stamp {
+        display: inline-block;
+        margin-top: 40px;
+        background: var(--gold);
+        color: var(--black);
+        font-family: var(--display);
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 10px 16px;
+        transform: rotate(-2deg);
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+      .top { background: var(--black); color: var(--white); }
+      .top-in { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
+      .top-in span { color: var(--gold); }
+      .top-in a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; }
+      a:focus-visible, input:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
+      @media (max-width: 560px) {
+        .win { padding: 18px; }
+        .win-head { gap: 12px; }
+        .num { font-size: 30px; min-width: 40px; }
+        .win h3 { font-size: 19px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rule"></div>
+    <header class="top"><div class="top-in"><div>Renegade <span>CRM</span></div><a href={app}>Log in &rarr;</a></div></header>
+    <main class="page">
+      <div class="ey">Renegade CRM &middot; AI assistant guide</div>
+      <h1>Hire your <span>AI assistant.</span></h1>
+      <p class="lede">
+        Your AI assistant answers your chat, Facebook, and Instagram messages in seconds, gathers the details,
+        and can book the appointment, all while sounding like your business. This win has more moving parts
+        than the others, so here’s every step in order. Block out about an hour, check things off as you go,
+        and come back any time.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href={app}>Open Renegade CRM &rarr;</a>
+        <a class="btn ghost" href={roadmap}>Back to your roadmap</a>
+      </div>
+
+      <div class="progress" aria-live="polite">
+        <div class="bar"><div class="fill" id="fill"></div></div>
+        <div class="count"><span id="done">0</span> of {total} steps</div>
+      </div>
+
+      {phases.map((phase) => (
+        <section class="phase" id={phase.id}>
+          <div class="ey">{phase.label}</div>
+          <h2>{phase.title}</h2>
+          <p>{phase.blurb}</p>
+          {phase.wins.map((w) => (
+            <article class="win" id={w.key} data-key={w.key}>
+              <div class="win-head">
+                <div class="num">{w.n}</div>
+                <div>
+                  <h3>{w.title}</h3>
+                  <p class="win-why">{w.why}</p>
+                </div>
+              </div>
+              <ol>
+                {w.steps.map((s) => <li>{s}</li>)}
+              </ol>
+              <div class="guides">
+                {w.guides.map(([label, url]) => (
+                  <a href={url} target="_blank" rel="noopener">Step-by-step: {label} &rarr;</a>
+                ))}
+              </div>
+              {w.tip && (
+                <div class="tip">
+                  <strong>{w.tip.title}</strong>
+                  <p>{w.tip.body}</p>
+                  <div class="guides">
+                    {w.tip.links.map(([label, url]) => (
+                      <a href={url} target="_blank" rel="noopener">{label} &rarr;</a>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <label class="check">
+                <input type="checkbox" data-key={w.key} />
+                Done
+              </label>
+            </article>
+          ))}
+        </section>
+      ))}
+
+      <section class="closing">
+        <h2>Assistant on the clock?</h2>
+        <p>
+          Nice work. You now have someone answering messages at 9:40 at night while you’re watching a movie.
+          Keep feeding it new FAQs as questions come in, and it gets better every week. Stuck on a step? Post a
+          screenshot in the community and somebody will help you sort it out.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href={roadmap}>Back to your roadmap &rarr;</a>
+          <a class="btn ghost" href={community}>Ask the community</a>
+        </div>
+        <div class="stamp">Go Renegades!</div>
+      </section>
+
+      <p class="foot">Marketing Renegades &middot; 321 E State Road, Suite 150, American Fork, UT 84003</p>
+    </main>
+
+    <script is:inline>
+      (function () {
+        var KEY = "rcrm-ai-guide-done";
+        var done = {};
+        try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { done = {}; }
+        var boxes = document.querySelectorAll('.check input');
+        function render() {
+          var count = 0;
+          boxes.forEach(function (b) {
+            var on = !!done[b.dataset.key];
+            b.checked = on;
+            var card = document.querySelector('.win[data-key="' + b.dataset.key + '"]');
+            if (card) card.classList.toggle('done', on);
+            if (on) count++;
+          });
+          document.getElementById('done').textContent = count;
+          document.getElementById('fill').style.width = (count / boxes.length * 100) + '%';
+        }
+        boxes.forEach(function (b) {
+          b.addEventListener('change', function () {
+            done[b.dataset.key] = b.checked;
+            try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+            render();
+          });
+        });
+        render();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,526 @@
+---
+// Unlisted Renegade CRM onboarding roadmap for new customers.
+// Linked from the onboarding emails and the Academy, not from site navigation.
+// noindex so it stays out of search results.
+
+const app = "https://app.gorenegades.com";
+const community = "https://community.gorenegades.com";
+const academy = "https://enroll.gorenegades.com/enroll";
+
+const help = {
+  import: "https://help.gohighlevel.com/support/solutions/articles/155000005056-getting-started-import-existing-contacts",
+  email: "https://help.gohighlevel.com/support/solutions/articles/155000005059-getting-started-launch-an-email-campaign",
+  social: "https://help.gohighlevel.com/support/solutions/articles/155000005063-getting-started-setup-social-planner",
+  phone: "https://help.gohighlevel.com/support/solutions/articles/155000003226-how-to-purchase-a-phone-number",
+  ai: "https://help.gohighlevel.com/support/solutions/articles/155000004401-how-to-set-up-a-conversation-ai-bot",
+  aiform: "https://help.gohighlevel.com/support/solutions/articles/155000005382-guided-form-based-setup-for-conversation-ai",
+  aitrain: "https://help.gohighlevel.com/support/solutions/articles/155000004416-training-your-conversation-ai-bot",
+  voice: "https://help.gohighlevel.com/support/solutions/articles/155000004107-how-to-create-voice-ai-agents",
+  chat: "https://help.gohighlevel.com/support/solutions/articles/155000004102-getting-started-with-chat-widget",
+  a2p: "https://help.gohighlevel.com/support/solutions/articles/155000004539-a2p-campaign-registration-step-by-step-guide-and-faqs",
+  gbp: "https://help.gohighlevel.com/support/solutions/articles/48001222899-how-to-integrate-google-business-profile-gbp-with-highlevel",
+  reviews: "https://help.gohighlevel.com/support/solutions/articles/48001222668-how-to-send-review-requests",
+  mctb: "https://help.gohighlevel.com/support/solutions/articles/48001239140",
+  form: "https://help.gohighlevel.com/support/solutions/articles/155000004549-how-to-create-a-contact-form-in-highlevel-",
+  pipe: "https://help.gohighlevel.com/support/solutions/articles/155000005062-getting-started-setup-pipelines-and-opportunities",
+  wf: "https://help.gohighlevel.com/support/solutions/articles/155000002288-getting-started-with-workflows",
+};
+
+const phases = [
+  {
+    id: "core",
+    label: "Phase 1",
+    title: "The core wins",
+    blurb: "Six small jobs that turn Renegade CRM from software you bought into marketing that runs. Most take one sitting.",
+    wins: [
+      {
+        n: "01", key: "import", title: "Import your contacts",
+        why: "Nothing else in Renegade CRM matters until the people you already know are inside it. Your past customers and current clients are the most valuable marketing asset you own.",
+        steps: [
+          "Export contacts from your phone, email, or old CRM into a spreadsheet. Name, email, and phone is plenty, and messy is fine.",
+          "Go to Contacts, choose Import, and upload the file.",
+          "Tag them “original list” so you always know where they came from.",
+        ],
+        guides: [["Importing your contacts", help.import]],
+      },
+      {
+        n: "02", key: "email", title: "Send your first email",
+        why: "Most people never email their list because they’re waiting for something important enough to say. Your first one just needs to go out.",
+        steps: [
+          "Open the email builder under Marketing and pick the simplest layout.",
+          "Write it like a note to a friend: what’s new, one helpful thing, and a question they can answer.",
+          "Send it to your “original list” tag. Only email people who would recognize your name.",
+        ],
+        guides: [["Sending your first email", help.email]],
+      },
+      {
+        n: "03", key: "socials", title: "Connect your socials and Google",
+        why: "Post to every platform from one place instead of opening three apps and losing forty minutes. Your Google Business Profile plugs in here too, and it’s where your reviews will live.",
+        steps: [
+          "Open the Social Planner under Marketing.",
+          "Connect Facebook, Instagram, and LinkedIn, or whichever you actually use. Each one asks you to log in and grant permission.",
+          "Connect your Google Business Profile. Don’t have one yet? Create it at google.com/business today, because verification can take a while.",
+        ],
+        guides: [["Setting up social posting", help.social], ["Connecting Google Business Profile", help.gbp]],
+        tip: {
+          title: "Start your phone number today",
+          body: "Texting features (including missed-call text-back) need a business number and carrier registration called A2P 10DLC. Approval can take a while, so start it now and let the paperwork work while you do.",
+          links: [["Get a business number", help.phone], ["Register it for texting", help.a2p]],
+        },
+      },
+      {
+        n: "04", key: "post", title: "Publish your first social post",
+        why: "Connected is nice. Posted is better. This is the moment it stops being software and starts being your marketing.",
+        steps: [
+          "Create a new post in the Social Planner, add a photo if you have one, and pick the accounts.",
+          "Publish now or schedule it. Both count.",
+          "Not sure what to post? Answer a question your customers ask you all the time.",
+        ],
+        guides: [["Creating and scheduling posts", help.social]],
+      },
+      {
+        n: "05", key: "reviews", title: "Send your first review request",
+        why: "Your happiest customers would gladly tell the internet how great you are. They just need to be asked, with a link that takes five seconds.",
+        steps: [
+          "Confirm your Google Business Profile is connected (you did it with your socials in step 03). Still waiting on Google to verify? Come back to this one the day it clears.",
+          "Pick three to five customers who would say yes without hesitating.",
+          "Send a review request from the Reputation area by email (or text, once your number is approved).",
+          "Never offer anything in exchange for a review. Google doesn’t allow it, and you don’t need it.",
+        ],
+        guides: [["Sending review requests", help.reviews], ["Connecting Google Business Profile", help.gbp]],
+      },
+      {
+        n: "06", key: "mctb", title: "Turn on missed-call text-back",
+        why: "When you miss a call, the caller usually tries the next business. This texts them back automatically so the conversation keeps going.",
+        steps: [
+          "Make sure your business number is set up and your texting registration is approved.",
+          "Turn on missed-call text-back and write a short, friendly reply that sounds like you.",
+          "Test it: call your business number from another phone and let it ring out.",
+        ],
+        guides: [["Turning on missed-call text-back", help.mctb], ["Registering your number for texting", help.a2p]],
+      },
+    ],
+  },
+  {
+    id: "phase2",
+    label: "Phase 2",
+    title: "Stop losing opportunities",
+    blurb: "Plug the leaks so the leads you earn actually turn into conversations.",
+    wins: [
+      {
+        n: "07", key: "ai", title: "Set up your AI assistant",
+        why: "The biggest leak in most businesses is the gap between when someone reaches out and when somebody answers. Your AI assistant answers chat, Facebook, and Instagram messages in seconds, gathers the details, and can book the appointment. This one has more moving parts, so block out an hour. Heads-up: AI usage is billed separately from your Renegade CRM subscription, based on how much your assistant does, so start small and keep an eye on it the first week.",
+        steps: [
+          "Go to AI Agents, open Conversation AI, and click Create Bot. Choose the Guided Form setup (no prompt writing).",
+          "Teach it your business: point it at your website and add answers to the questions you get every week. Tell it to hand off to you when it doesn’t know.",
+          "Turn it on for your chat widget, Facebook, and Instagram. Texting can join once your number is approved.",
+          "Test it yourself, run it in Suggestive mode for a few days, then switch to Auto-Pilot.",
+        ],
+        guides: [["The full AI assistant guide", "/crm-ai-assistant"], ["Setting up your AI assistant", help.ai], ["Teaching it about your business", help.aitrain]],
+        tip: {
+          title: "Want it to answer the phone too?",
+          body: "Voice AI puts an AI receptionist on your business line to answer calls, take messages, and book appointments. Get the text version working first.",
+          links: [["Adding Voice AI", help.voice]],
+        },
+      },
+      {
+        n: "08", key: "form", title: "Connect website lead capture",
+        why: "A form that dumps into an inbox you check “pretty often” is where leads go to wait for a bus that never comes. Route them straight into Renegade CRM.",
+        steps: [
+          "Build a short form: name, email, phone, and one question that matters.",
+          "Embed it on your website, or share the form link in your bio, email signature, or texts. Add the chat widget while you’re there so your AI assistant can greet visitors.",
+          "Submit a test lead and confirm it lands in Renegade CRM. Planning to text these leads? Add a consent checkbox.",
+        ],
+        guides: [["Building a form", help.form], ["Adding the chat widget", help.chat]],
+      },
+      {
+        n: "09", key: "pipeline", title: "Organize your pipeline",
+        why: "Your memory is not a CRM, and neither is the sticky note on your monitor. Put every deal on one board.",
+        steps: [
+          "Open Opportunities and set up a few stages that match how you work, like New, Contacted, Appointment, Proposal, Won, Lost.",
+          "Add every open opportunity you can think of, including the one you’re avoiding.",
+          "Drag deals forward as they move.",
+        ],
+        guides: [["Setting up your pipeline", help.pipe]],
+      },
+      {
+        n: "10", key: "automation", title: "Automate your first follow-up",
+        why: "This is where the system starts running without you. Build one automation, not the Death Star.",
+        steps: [
+          "Trigger: someone fills out the form you connected in step 08.",
+          "Send an immediate reply that sounds like you: thanks, and here’s what happens next.",
+          "Wait a day, and if they haven’t replied, send a friendly second note.",
+        ],
+        guides: [["Building your first automation", help.wf]],
+      },
+    ],
+  },
+];
+
+const toolbox = [
+  {
+    "t": "Calendars & online booking",
+    "d": "Let people book time with you without the “does Tuesday work?” email ping-pong.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005061-getting-started-setup-a-booking-calendar"
+  },
+  {
+    "t": "Appointment reminders",
+    "d": "Automatic email and text reminders, so fewer people forget they booked you.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000003441-calendar-email-in-app-appointment-notifications"
+  },
+  {
+    "t": "One inbox for everything",
+    "d": "Texts, emails, Facebook and Instagram messages, and web chats in one conversation window.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000006610-getting-started-with-the-conversations-tab"
+  },
+  {
+    "t": "The mobile app",
+    "d": "Reply to leads, check your calendar, and answer messages from your phone.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000001702-mobile-apps-overview"
+  },
+  {
+    "t": "Websites",
+    "d": "Build (or finally rebuild) your website from a template.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005069-getting-started-launch-a-website"
+  },
+  {
+    "t": "Funnels & landing pages",
+    "d": "Single-purpose pages for an offer, an event, or a free download.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005057-getting-started-launch-a-funnel"
+  },
+  {
+    "t": "Invoices & text-to-pay",
+    "d": "Send an invoice or payment link by text and get paid faster.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000004042-invoices-new-revamped-ui"
+  },
+  {
+    "t": "Contracts & e-signatures",
+    "d": "Get proposals and agreements signed online. No fax machine from 1997.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000000594-how-to-use-documents-contracts-"
+  },
+  {
+    "t": "Smart lists",
+    "d": "Saved filters like “customers I haven’t talked to in 90 days.”",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/48001062094-how-to-create-manage-smart-lists"
+  },
+  {
+    "t": "Trigger links",
+    "d": "Links that tag people or start an automation when they click.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/48000981404-trigger-links-overview"
+  },
+  {
+    "t": "Courses & memberships",
+    "d": "Teach what you know with an online course or members-only area.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000005072-getting-started-launch-a-course"
+  },
+  {
+    "t": "Dashboards & reporting",
+    "d": "See leads, appointments, and revenue in one place.",
+    "u": "https://help.gohighlevel.com/support/solutions/articles/155000001531-how-to-create-a-custom-dashboard"
+  }
+];
+const library = "https://community.gorenegades.com/communities/groups/marketing-renegades/learning";
+const total = phases.reduce((sum, p) => sum + p.wins.length, 0);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Your Renegade CRM roadmap: every setup win in order, with step-by-step guides." />
+    <title>Your Renegade CRM Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --char: #faf9f5;
+        --ink: #0a0a0a;
+        --gold-ink: #8a6e00;
+        --gold-mid: #c59a00;
+        --paper: #ffffff;
+        --cream: #fff8d6;
+        --gold: #f4c20d;
+        --white: #ffffff;
+        --smoke: #5f5f5f;
+        --line: #e7e3d8;
+        --display: "Anton", Impact, sans-serif;
+        --body: "Space Grotesk", system-ui, sans-serif;
+        --mono: "Space Mono", ui-monospace, monospace;
+        --max: 860px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      .rule { height: 7px; background: var(--gold); }
+      .page { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 40px 0 64px; }
+      .ey {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold-ink);
+      }
+      h1 {
+        font-family: var(--display);
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 0.9;
+        font-size: clamp(52px, 11vw, 112px);
+        margin: 14px 0 0;
+      }
+      h1 span { color: var(--gold-mid); display: block; }
+      .lede { font-size: clamp(17px, 2.2vw, 20px); max-width: 680px; margin: 22px 0 0; color: #333; }
+      .progress {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        margin: 36px 0 8px;
+        padding: 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .bar { flex: 1; height: 10px; background: #f1eee6; border: 1px solid var(--line); }
+      .fill { height: 100%; width: 0; background: var(--gold); transition: width 0.25s ease; }
+      .count { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+      .phase { margin-top: 48px; }
+      .phase h2 {
+        font-family: var(--display);
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: clamp(34px, 6vw, 52px);
+        line-height: 0.95;
+        margin: 8px 0 0;
+      }
+      .phase > p { color: var(--smoke); margin: 10px 0 0; max-width: 640px; }
+      .win {
+        margin-top: 22px;
+        background: var(--char);
+        border: 1px solid var(--line);
+        border-left: 5px solid var(--gold);
+        padding: 24px;
+        transition: opacity 0.2s ease;
+      }
+      .win.done { opacity: 0.55; }
+      .win-head { display: flex; gap: 16px; align-items: flex-start; }
+      .num { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--gold-mid); min-width: 52px; }
+      .win h3 { margin: 0; font-size: 22px; line-height: 1.2; }
+      .win-why { margin: 8px 0 0; color: #444; }
+      .win ol { margin: 16px 0 0; padding-left: 20px; }
+      .win li { margin-top: 6px; }
+      .guides { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px 18px; font-family: var(--mono); font-size: 13px; }
+      .guides a { color: var(--gold-ink); font-weight: 700; text-underline-offset: 4px; }
+      .check {
+        margin-top: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        user-select: none;
+      }
+      .check input { width: 20px; height: 20px; accent-color: var(--gold); cursor: pointer; }
+      .tip {
+        margin-top: 18px;
+        background: var(--cream);
+        border: 1px solid #e7d77b;
+        border-left: 5px solid var(--gold);
+        padding: 16px 18px;
+      }
+      .tip strong { display: block; color: var(--gold-ink); font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+      .tip p { margin: 6px 0 0; font-size: 16px; }
+      .btn {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--black);
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 16px 24px;
+        border: 2px solid var(--gold);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+      .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+      .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .closing { margin-top: 60px; border-top: 3px solid var(--ink); padding-top: 28px; }
+      .closing h2 { font-family: var(--display); text-transform: uppercase; font-weight: 400; font-size: clamp(32px, 6vw, 48px); margin: 0; line-height: 0.95; }
+      .closing p { color: #444; max-width: 640px; }
+      .foot { margin-top: 48px; font-size: 13px; color: var(--smoke); text-align: center; }
+      .stamp {
+        display: inline-block;
+        margin-top: 40px;
+        background: var(--gold);
+        color: var(--black);
+        font-family: var(--display);
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 10px 16px;
+        transform: rotate(-2deg);
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+      .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 22px; }
+      .tool { background: var(--char); border: 1px solid var(--line); border-top: 4px solid var(--gold); padding: 18px; display: flex; flex-direction: column; }
+      .tool h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+      .tool p { margin: 6px 0 12px; color: #444; font-size: 15px; flex: 1; }
+      .tool a { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold-ink); text-underline-offset: 4px; }
+      .top { background: var(--black); color: var(--white); }
+      .top-in { width: min(100% - 32px, var(--max)); margin: 0 auto; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--display); font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
+      .top-in span { color: var(--gold); }
+      .top-in a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; }
+      a:focus-visible, input:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 3px; }
+      @media (max-width: 560px) {
+        .win { padding: 18px; }
+        .win-head { gap: 12px; }
+        .num { font-size: 30px; min-width: 40px; }
+        .win h3 { font-size: 19px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rule"></div>
+    <header class="top"><div class="top-in"><div>Renegade <span>CRM</span></div><a href={app}>Log in &rarr;</a></div></header>
+    <main class="page">
+      <div class="ey">Renegade CRM &middot; Your roadmap</div>
+      <h1>Ten wins. <span>Your pace.</span></h1>
+      <p class="lede">
+        Every new Renegade CRM member gets these steps by email, one small win a day. If you’d rather
+        go faster (or you’re the type who reads the last chapter first), here’s the whole map. Work through it
+        in order, check things off as you go, and come back any time.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href={app}>Open Renegade CRM &rarr;</a>
+        <a class="btn ghost" href={community}>Ask the community</a>
+      </div>
+
+      <div class="progress" aria-live="polite">
+        <div class="bar"><div class="fill" id="fill"></div></div>
+        <div class="count"><span id="done">0</span> of {total} wins</div>
+      </div>
+
+      {phases.map((phase) => (
+        <section class="phase" id={phase.id}>
+          <div class="ey">{phase.label}</div>
+          <h2>{phase.title}</h2>
+          <p>{phase.blurb}</p>
+          {phase.wins.map((w) => (
+            <article class="win" id={w.key} data-key={w.key}>
+              <div class="win-head">
+                <div class="num">{w.n}</div>
+                <div>
+                  <h3>{w.title}</h3>
+                  <p class="win-why">{w.why}</p>
+                </div>
+              </div>
+              <ol>
+                {w.steps.map((s) => <li>{s}</li>)}
+              </ol>
+              <div class="guides">
+                {w.guides.map(([label, url]) => (
+                  <a href={url} target="_blank" rel="noopener">Step-by-step: {label} &rarr;</a>
+                ))}
+              </div>
+              {w.tip && (
+                <div class="tip">
+                  <strong>{w.tip.title}</strong>
+                  <p>{w.tip.body}</p>
+                  <div class="guides">
+                    {w.tip.links.map(([label, url]) => (
+                      <a href={url} target="_blank" rel="noopener">{label} &rarr;</a>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <label class="check">
+                <input type="checkbox" data-key={w.key} />
+                Done
+              </label>
+            </article>
+          ))}
+        </section>
+      ))}
+
+      <section class="phase" id="toolbox">
+        <div class="ey">Bonus</div>
+        <h2>More in your toolbox</h2>
+        <p>You don’t need all of these on day one. Pick the one that solves a problem you have this month, and ignore the rest until you need them. Every walkthrough also lives in the <a href={library}>community tutorial library</a>.</p>
+        <div class="tools">
+          {toolbox.map((x) => (
+            <div class="tool">
+              <h3>{x.t}</h3>
+              <p>{x.d}</p>
+              <a href={x.u} target="_blank" rel="noopener">How it works &rarr;</a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="closing">
+        <h2>Finished the map?</h2>
+        <p>
+          Then you’ve built an actual marketing system: your people in one place, consistent email and social,
+          reviews coming in, missed calls caught, leads captured, and follow-up that happens without you
+          remembering. If you want help building the bigger version alongside a crew of entrepreneurs doing the
+          same thing, that’s what Renegade Academy is for.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href={academy}>Upgrade to Renegade Academy &rarr;</a>
+          <a class="btn ghost" href="mailto:support@gorenegades.com">Email support</a>
+        </div>
+        <div class="stamp">Go Renegades!</div>
+      </section>
+
+      <p class="foot">Marketing Renegades &middot; 321 E State Road, Suite 150, American Fork, UT 84003</p>
+    </main>
+
+    <script is:inline>
+      (function () {
+        var KEY = "rcrm-roadmap-done";
+        var done = {};
+        try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { done = {}; }
+        var boxes = document.querySelectorAll('.check input');
+        function render() {
+          var count = 0;
+          boxes.forEach(function (b) {
+            var on = !!done[b.dataset.key];
+            b.checked = on;
+            var card = document.querySelector('.win[data-key="' + b.dataset.key + '"]');
+            if (card) card.classList.toggle('done', on);
+            if (on) count++;
+          });
+          document.getElementById('done').textContent = count;
+          document.getElementById('fill').style.width = (count / boxes.length * 100) + '%';
+        }
+        boxes.forEach(function (b) {
+          b.addEventListener('change', function () {
+            done[b.dataset.key] = b.checked;
+            try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+            render();
+          });
+        });
+        render();
+      })();
+    </script>
+  </body>
+</html>

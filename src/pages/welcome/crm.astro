@@ -1,0 +1,38 @@
+---
+// Thank-you page for Renegade CRM purchases (enroll.gorenegades.com funnel). Unlisted.
+import WelcomeThanks from "../../components/WelcomeThanks.astro";
+const steps = [
+  {
+    title: "Watch your inbox for your login",
+    body: "Your username and password arrive in their own email within a few minutes. Not there? Check your spam folder, then rescue it, because you’ll need it.",
+  },
+  {
+    title: "Log in and bookmark it",
+    body: "Renegade CRM lives at app.gorenegades.com. Bookmark it now and future-you will thank present-you.",
+    cta: ["Log in to Renegade CRM", "https://app.gorenegades.com"],
+  },
+  {
+    title: "Knock out your first win today",
+    body: "Import your contacts. It takes one sitting, and everything else in Renegade CRM builds on it. After that, we’ll email you one small win a day for the next ten days, and your roadmap has every step if you’d rather go faster.",
+    cta: ["Open your roadmap", "/crm-roadmap"],
+  },
+];
+const note = [
+  "Thank you. Seriously. You just bet on yourself, and I don’t take that lightly.",
+  "Here’s what I believe after a lot of years in business: most entrepreneurs are a lot closer than they think. You don’t need a 47-step funnel or a marketing degree. You need your people in one place, a few simple habits, and some automation doing the remembering for you. That’s exactly what we’re going to build together, one small win at a time.",
+];
+---
+<WelcomeThanks
+  logo="https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe67bd10ee4f1556147bda.png"
+  product="CRM"
+  pageTitle="Welcome to Renegade CRM"
+  headline="Welcome to Renegade CRM."
+  lede="Your account is being set up right now. Here’s exactly what happens over the next few minutes, so nothing catches you off guard."
+  steps={steps}
+  note={note}
+  upsell={{
+    title: "Want help building it?",
+    body: "Renegade Academy is an eight-week live semester where you build the whole system alongside a crew of entrepreneurs doing the same thing. Class meets Wednesdays at 10 AM Mountain.",
+    cta: ["See Renegade Academy", "/academy"],
+  }}
+/>

@@ -1,0 +1,37 @@
+---
+// Thank-you page for Renegade Academy enrollments (enroll.gorenegades.com funnel). Unlisted.
+import WelcomeThanks from "../../components/WelcomeThanks.astro";
+const steps = [
+  {
+    title: "Watch your inbox",
+    body: "You’ll get a welcome email, plus a separate email with your Renegade CRM login (it comes with the Academy). Not there in ten minutes? Check your spam folder.",
+  },
+  {
+    title: "Join the Renegade Community",
+    body: "Your Academy channel lives in the Community, along with the class schedule and the full tutorial library. Log in and say hello.",
+    cta: ["Go to the Community", "https://community.gorenegades.com"],
+  },
+  {
+    title: "Block Wednesdays at 10 AM Mountain",
+    body: "That’s when class meets live. Put it on your calendar now as a recurring meeting you don’t skip. Your semester dates are on the Community calendar.",
+  },
+  {
+    title: "Get a head start",
+    body: "Want to show up to the first class already rolling? Log in to Renegade CRM and start on your roadmap. The first win is importing your contacts.",
+    cta: ["Open your roadmap", "/crm-roadmap"],
+  },
+];
+const note = [
+  "Welcome to the crew. You just decided to stop winging your marketing, and that decision matters more than any tactic we’ll cover.",
+  "Over the next eight weeks we’re going to build real systems for your business, together, live, with a group of entrepreneurs who are doing the same work you are. Show up, do the reps, ask the questions you think are dumb (they never are), and you’ll be surprised how far you get. I can’t wait to meet you in class.",
+];
+---
+<WelcomeThanks
+  logo="https://res.cloudinary.com/dhmzbmbgv/image/upload/v1781654329/if7y7hb2iwlkmumkfz24.png"
+  product="Academy"
+  pageTitle="Welcome to Renegade Academy"
+  headline="Welcome to the Academy."
+  lede="You just enrolled in an eight-week semester with a crew of entrepreneurs who are done winging their marketing. Here’s what happens next."
+  steps={steps}
+  note={note}
+/>
