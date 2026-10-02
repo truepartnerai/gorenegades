@@ -11,8 +11,8 @@ export const brand = {
   // Homepage offer imagery: add approved URLs and descriptive alt text here.
   // Null URLs render no image or empty placeholder. Existing page banners stay separate.
   homeOffers: {
-    crm: { src: null, alt: '' },
-    academy: { src: null, alt: '' },
+    crm: { src: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c17f6f30939b0fb15.jpg', alt: 'Renegade CRM — Marketing Command Center' },
+    academy: { src: 'https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6abe6a4c1670d0abe8148a5a.png', alt: 'Renegade Marketing Academy' },
     community: { src: null, alt: '' }
   },
   // Full-width banners shown at the top of each page.

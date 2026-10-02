@@ -131,6 +131,7 @@ const faqs: [string, string][] = [
 
       <!-- RENEGADE CRM -->
       <section class="p-sec p-sec-alt" id="renegade-crm" aria-labelledby="crm-heading">
+        {brand.homeOffers.crm.src && <div class="p-wrap"><img class="p-offer-image" src={brand.homeOffers.crm.src} alt={brand.homeOffers.crm.alt} width="1128" height="191" loading="lazy" /></div>}
         <div class="p-wrap p-split">
           <div>
             <span class="p-eyebrow">The tools + the playbooks</span>
@@ -143,7 +144,6 @@ const faqs: [string, string][] = [
             <div class="p-btns"><a class="p-btn p-btn-primary" href="/crm">See what's inside Renegade CRM</a></div>
           </div>
           <div>
-            {brand.homeOffers.crm.src && <img class="p-offer-image" src={brand.homeOffers.crm.src} alt={brand.homeOffers.crm.alt} loading="lazy" />}
             <div class="p-pills">
               <span>CRM</span><span>Email</span><span>Text messaging</span><span>Calendars</span>
               <span>Reviews</span><span>Landing pages</span><span>Social tools</span><span>AI + automation</span>
@@ -155,6 +155,7 @@ const faqs: [string, string][] = [
 
       <!-- RENEGADE ACADEMY -->
       <section class="p-sec" id="renegade-academy" aria-labelledby="academy-heading">
+        {brand.homeOffers.academy.src && <div class="p-wrap"><img class="p-offer-image" src={brand.homeOffers.academy.src} alt={brand.homeOffers.academy.alt} width="1024" height="401" loading="lazy" /></div>}
         <div class="p-wrap p-split">
           <div>
             <span class="p-eyebrow">Live training + implementation</span>
@@ -167,7 +168,6 @@ const faqs: [string, string][] = [
             <div class="p-btns"><a class="p-btn p-btn-primary" href="/academy">Explore Renegade Academy</a></div>
           </div>
           <div>
-            {brand.homeOffers.academy.src && <img class="p-offer-image" src={brand.homeOffers.academy.src} alt={brand.homeOffers.academy.alt} loading="lazy" />}
             <article class="p-card">
               <h3 class="p-h3">Turn ideas into working systems.</h3>
               <ul class="p-checks">
