@@ -1,0 +1,85 @@
+/* Homepage art direction: black, gold, oversized type and a Renegade identity. */
+.r-home{background:#090909;color:#f5f5f1;--p-ink:#f5f5f1;--p-text:#ededeb;--p-muted:#bebeba;--p-soft:#a2a29e;--p-line:#353530;--p-paper:#141414;--p-white:#111;--p-gold-ink:#f4c20d}
+.r-home .p-wrap{max-width:1240px}
+.r-home .p-sec{background:#090909;border-top:1px solid #2c2c28;padding:100px 0}
+.r-home .p-h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(42px,5.8vw,76px);font-weight:400;line-height:1.05;letter-spacing:-.015em}
+.r-home .p-h3{color:#f5f5f1;font-weight:800}
+.r-home .p-eyebrow,.r-gold{color:var(--p-gold)}
+.r-home .p-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.13em}
+.r-home .p-lead{font-size:clamp(19px,2vw,24px);color:#e0e0da}
+.r-home .p-body p{color:#bcbcb6}
+.r-home .p-body strong{color:#fff}
+.r-home .p-btn{border-radius:2px;text-transform:uppercase;letter-spacing:.04em;font-size:14px;padding:18px 25px}
+.r-home .p-btn-primary{color:#090909}
+.r-home .p-btn-secondary{background:transparent;color:#fff;border-color:#666}
+.r-home .p-btn-secondary:hover{background:#f4c20d;color:#090909;border-color:#f4c20d}
+.r-home .p-btn-dark{background:#f4c20d;color:#090909}
+.r-home .p-link{color:#f5f5f1}
+.r-home .p-split{gap:64px;align-items:center}
+.r-home .p-card{border-radius:0;background:#151515;border:1px solid #333;border-top:3px solid #f4c20d}
+.r-home .p-num{border-radius:0;background:#f4c20d;color:#090909}
+.r-home .p-checks li{color:#deded8}
+.r-home .p-checks li::before{border-radius:0;color:#090909}
+.r-home .pn{background:#090909}
+.r-home .pn-cta{color:#090909;border-radius:2px}
+.r-home .pn-brand{color:#fff}
+.r-home .pn-brand b{color:#090909;border-radius:0}
+.r-home .pn-panel{background:#111}
+.r-home .pn-panel a{color:#fff}
+.r-home .pn-panel .p-btn-primary{color:#090909}
+.r-home .pf{background:#090909;border-top:1px solid #353530}
+.r-home .pf h5{color:#fff}
+.r-hero{position:relative;isolation:isolate;overflow:hidden;background:#050505;padding:88px 0 42px;border-bottom:5px solid #f4c20d}
+.r-watermark{position:absolute;z-index:-2;right:-9%;top:-12%;height:125%;width:auto;max-width:none;opacity:.24;object-fit:contain;pointer-events:none}
+.r-hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.35) 55%,rgba(0,0,0,.12));pointer-events:none}
+.r-hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.94;font-size:clamp(64px,12.4vw,160px);letter-spacing:-.025em;font-weight:400;margin:26px 0 28px;color:#fff}
+.r-hero h1 span{color:#f4c20d}
+.r-subhead{font-size:clamp(19px,2.4vw,28px);font-weight:700;line-height:1.35;max-width:760px}
+.r-hero-line{font-size:17px;color:#bcbcb6;margin-top:18px}
+.r-hero-foot{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:60px;padding-top:20px;border-top:1px solid #565024;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#bbb}
+.r-home .r-crm{background:#101010}
+.r-crm-banner{display:block;width:100%;height:auto;margin-bottom:50px;border-bottom:1px solid #353530}
+.r-command-panel{border:1px solid #55513a;border-top:5px solid #f4c20d;padding:36px;background:#080808}
+.r-price{font-family:'Anton',sans-serif;font-size:100px;line-height:1.1;color:#f4c20d;margin-top:12px}
+.r-price span{font-family:'Inter',sans-serif;font-size:17px;color:#bebeba;margin-left:12px}
+.r-command-panel>p{color:#ccc}
+.r-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0}
+.r-tool-grid span{padding:14px 6px;border-bottom:1px solid #30302d;font-size:14px;color:#deded8}
+.r-section-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #343430;padding-bottom:24px;margin-bottom:40px;gap:20px}
+.r-stamp{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:24px;color:#f4c20d;transform:rotate(-3deg)}
+.r-cohort-panel{border:1px solid #333;background:#121212;padding:0 28px 30px}
+.r-academy-banner{width:calc(100% + 56px);max-width:none;height:auto;display:block;margin:0 -28px 26px}
+.r-cohort-facts{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #333;padding-bottom:22px;gap:20px}
+.r-cohort-facts strong{font-family:'Anton',sans-serif;font-size:64px;color:#f4c20d;line-height:1}
+.r-cohort-facts span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-top:10px;color:#bbb}
+.r-cohort-panel .p-link{display:inline-block;margin-top:28px}
+.r-home .r-community{background:#121212}
+.r-crew-poster{position:relative;text-align:center;padding:36px 20px;border:1px solid #343430;background:#050505}
+.r-crew-poster img{width:70%;max-width:300px;height:auto;display:block;margin:0 auto 28px}
+.r-crew-poster p{font-family:'Anton',sans-serif;font-size:clamp(28px,3vw,40px);text-transform:uppercase;line-height:1.15}
+.r-crew-poster strong{color:#f4c20d;font-weight:400}
+.r-home .r-transformation{background:#f4c20d;color:#090909;border-color:#f4c20d}
+.r-transformation .p-eyebrow,.r-transformation .p-h2,.r-transformation .p-h3{color:#090909}
+.r-transformation .p-h2{font-size:clamp(52px,9vw,112px);margin-top:20px}
+.r-transformation .p-h2 span{display:inline-block;border-bottom:5px solid #090909}
+.r-manifesto{font-size:clamp(20px,3vw,32px);font-weight:700;line-height:1.3;margin-top:30px}
+.r-transformation .p-grid-3{margin-top:50px;gap:40px}
+.r-transformation article{border-top:2px solid #090909;padding-top:22px}
+.r-transformation article p{margin-top:14px;color:#292510}
+.r-index{display:block;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;margin-bottom:16px}
+.r-home .r-how,.r-home .r-faq{background:#141414}
+.r-home .pp-card{border-radius:0;background:#151515;border-color:#404039;color:#fff}
+.r-home .pp-card.is-featured{border:2px solid #f4c20d;box-shadow:none}
+.r-home .pp-price strong,.r-home .pp-pitch{color:#fff}
+.r-home .pp-price strong{font-family:'Anton',sans-serif;font-weight:400}
+.r-home .pp-badge{border-radius:0;background:#f4c20d;color:#090909}
+.r-home .pp-alt a{color:#f4c20d}
+.r-home .pp-help{background:#151515;color:#bcbcb6;border-radius:0;border-color:#333}
+.r-home .pp-help strong{color:#fff}
+.r-home .p-faq summary{color:#fff}
+.r-home .p-faq p{color:#bcbcb6}
+.r-home .r-final{border-top:5px solid #f4c20d;background:#050505}
+#renegade-crm,#renegade-academy,#renegade-community,#pricing{scroll-margin-top:68px}
+@media(max-width:980px){.r-home .p-split{grid-template-columns:1fr;gap:36px}.r-watermark{right:-20%;height:95%;top:0;opacity:.22}.r-hero h1{font-size:clamp(64px,13vw,124px)}.r-home .p-sec{padding:72px 0}}
+@media(max-width:640px){.r-hero{padding:64px 0 30px}.r-watermark{right:-75%;height:105%;opacity:.19}.r-hero h1{font-size:clamp(52px,13.5vw,85px);margin:25px 0}.r-hero-foot{margin-top:38px;gap:12px;font-size:10px}.r-home .p-h2{font-size:42px}.r-home .p-sec{padding:60px 0}.r-home .p-grid-3{grid-template-columns:1fr}.r-command-panel{padding:26px 20px}.r-price{font-size:84px}.r-section-top{align-items:start}.r-stamp{font-size:19px}.r-transformation .p-h2{font-size:55px}.r-transformation .p-grid-3{gap:30px}.r-tool-grid span{font-size:12px}.r-hero .p-btn{width:100%}}
+.r-home .pn-menu summary{color:#fff}
