@@ -7,15 +7,54 @@ import { links } from '../lib/links.js';
 import Banner from '../components/Banner.astro';
 import { brand } from '../lib/site.js';
 
-const features = [
-  ['Contacts, CRM and pipelines', 'Every lead, customer and referral partner in one place, with a clear view of where each one stands.'],
-  ['Email and text', 'Two-way conversations from one inbox, plus campaigns that keep your database warm.'],
-  ['Automated follow-up', 'New leads get an instant response and a follow-up sequence that keeps going until they reply.'],
-  ['Calendars and booking', 'A booking link with reminders, so appointments land on your calendar and actually show up.'],
-  ['Reviews and referrals', 'Automatic review requests after every job, and a simple way to ask for introductions.'],
-  ['Missed-call text back', 'Miss a call and the caller gets a text right away, so the lead stays yours.'],
-  ['Funnels and landing pages', 'Simple pages and forms that capture leads and drop them straight into follow-up.'],
-  ['Social and AI tools', 'Schedule posts, draft content and replies faster with built-in AI.']
+const research = {
+  email: {
+    number: '$10–$36',
+    text: 'returned per $1 spent on email, reported by 35% of respondents in Litmus’s 2025 survey of nearly 500 marketing professionals.',
+    source: 'Litmus · State of Email 2025',
+    href: 'https://www.litmus.com/blog/infographic-the-roi-of-email-marketing?639a0fac_page=3'
+  },
+  followUp: {
+    number: '15%',
+    text: 'more connections reported with seven or more follow-up attempts in InsideSales’s analysis of approximately 30 million contact attempts from 2018–2020.',
+    source: 'InsideSales · Lead Response Management 2021',
+    href: 'https://www.insidesales.com/wp-content/uploads/2021/02/infographic_LeadRespMgmt2021.pdf'
+  },
+  reviews: {
+    number: '85%',
+    text: 'of US consumers surveyed said positive reviews make them more likely to use a business. BrightLocal surveyed 1,002 adults in 2026.',
+    source: 'BrightLocal · Local Consumer Review Survey 2026',
+    href: 'https://www.brightlocal.com/research/local-consumer-review-survey/'
+  },
+  speed: {
+    number: '57.1%',
+    text: 'of first call attempts happened more than a week after an inquiry in InsideSales’s 2021 study of 5.7 million inbound leads. A reason to make quick response a priority.',
+    source: 'InsideSales · Lead Response Management 2021',
+    href: 'https://www.insidesales.com/wp-content/uploads/2021/02/infographic_LeadRespMgmt2021.pdf'
+  },
+  pages: {
+    number: '54%',
+    text: 'of consumers surveyed said they check a business’s website after reading positive reviews. Give that interest a clear next step.',
+    source: 'BrightLocal · Local Consumer Review Survey 2026',
+    href: 'https://www.brightlocal.com/research/local-consumer-review-survey/'
+  },
+  social: {
+    number: '81%',
+    text: 'of consumers surveyed said social media prompts impulse purchases. The 2025 Sprout Social Index surveyed 4,044 consumers who follow at least five brands.',
+    source: 'Sprout Social · 2025 Index',
+    href: 'https://sproutsocial.com/insights/press/the-days-of-trend-chasing-are-over-new-research-from-sprout-social-reveals-a-third-of-consumers-think-jumping-on-viral-trends-is-embarrassing-for-brands/'
+  }
+};
+
+const features: { title: string; text: string; proof?: { number: string; text: string; source: string; href: string } }[] = [
+  { title: 'Contacts, CRM and pipelines', text: 'Every lead, customer and referral partner in one place, with a clear view of where each one stands.' },
+  { title: 'Email and text', text: 'Stay connected to the people who already know you. Keep two-way conversations in one inbox and send useful updates, offers and check-ins.', proof: research.email },
+  { title: 'Automated follow-up', text: 'Give new inquiries an immediate acknowledgment, then keep the conversation moving with follow-up sequences you control.', proof: research.followUp },
+  { title: 'Calendars and booking', text: 'Make it easy to book time with you. Booking links and reminders keep appointments moving with less back-and-forth.' },
+  { title: 'Reviews and referrals', text: 'Let happy customers build your reputation. Set up review requests after a job and make it easy to ask for introductions.', proof: research.reviews },
+  { title: 'Missed-call text back', text: 'Keep the door open when you cannot pick up. Send a text right away so the caller has an easy way to continue the conversation.', proof: research.speed },
+  { title: 'Funnels and landing pages', text: 'Put your next idea or offer in front of customers. Build a page with a clear call to action and send new inquiries straight into follow-up.', proof: research.pages },
+  { title: 'Social and AI tools', text: 'Put your expertise out there. Schedule posts and use built-in AI to turn your ideas into drafts, content and replies faster.', proof: research.social }
 ];
 
 const playbooks = [
@@ -29,7 +68,8 @@ const playbooks = [
 
 const faqs: [string, string][] = [
   ['What exactly do I get for $99?', 'The full Renegade CRM software, the Renegade playbooks that walk you through setting up each system, templates you can copy, and access to the free Renegade Community and Power Hours.'],
-  ['Do I need to be technical?', "No. The playbooks are written for business owners, not IT departments. Start with one system, follow the steps and you're running."],
+  ['Do I need to be technical?', "No. Start with the problem you want to solve first. The playbooks walk you through one system at a time in plain English, and you can add more as you are ready."],
+  ['Do I have to set up everything at once?', 'No. Pick your biggest bottleneck: lead response, follow-up, staying connected to customers, reviews or visibility. Put that system to work first. The rest of the Command Center is there when you need it.'],
   ['Is there an annual option?', 'Yes. Pay $1,149 once for the year if you would rather not think about it monthly.'],
   ['Is there a contract?', 'No. The monthly plan has no commitment, so you can cancel before your next billing date.'],
   ['What if I want help setting it up?', "That's Renegade Academy. It includes the CRM and adds an 8-week live semester where you build your system alongside a class of other business owners, for $199 a month."],
@@ -38,8 +78,8 @@ const faqs: [string, string][] = [
 ---
 
 <BaseLayout
-  title="Renegade CRM | Your Marketing System for $99/Month"
-  description="Renegade CRM gives entrepreneurs the software and the playbooks to automate follow-up, work their database, get reviews and stay visible, for $99/month."
+  title="Renegade CRM | Solve Your Biggest Problem First. Then Grow."
+  description="Your marketing Command Center for $99/month. Solve your biggest problem first, then grow with connected tools for follow-up, email, reviews, booking, content and AI."
 >
   <div class="page">
     <Header />
@@ -49,8 +89,8 @@ const faqs: [string, string][] = [
       <section class="p-hero">
         <div class="p-wrap">
           <span class="p-eyebrow">Renegade CRM · $99/month</span>
-          <h1 class="p-h1">The software and the playbook, <span class="p-hl">together</span>.</h1>
-          <p class="p-lead">Most business owners already own software they don't use. Renegade CRM gives your marketing somewhere to live, then the Renegade playbooks show you exactly what to switch on first so it actually gets used.</p>
+          <h1 class="p-h1">Solves your biggest problem first.<br /><span class="p-hl">Then grows with you.</span></h1>
+          <p class="p-lead">Your marketing Command Center. Start with the bottleneck that matters most: faster lead response, consistent follow-up, more reviews or staying connected to customers. Put one system to work, then add more when you're ready.</p>
           <div class="p-btns">
             <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start for $99/mo</a>
             <a class="p-btn p-btn-secondary" href="#inside">See what's inside</a>
@@ -67,27 +107,35 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <div class="p-head">
             <span class="p-eyebrow">What's inside</span>
-            <h2 class="p-h2">Everything your marketing needs to run, in one place.</h2>
+            <h2 class="p-h2">Pick your first win. The tools are ready.</h2>
+            <p class="p-lead">Choose the problem you want to solve today. Every tool below is included, so your next move is already within reach.</p>
           </div>
           <div class="p-grid-2" style="margin-top:40px">
-            {features.map(([title, text]) => (
+            {features.map(({title, text, proof}) => (
               <article class="p-card">
                 <h3 class="p-h3">{title}</h3>
                 <p>{text}</p>
+                {proof && (
+                  <div class="crm-proof">
+                    <p><strong>{proof.number}</strong> {proof.text}</p>
+                    <a href={proof.href} target="_blank" rel="noopener noreferrer">{proof.source} ↗</a>
+                  </div>
+                )}
               </article>
             ))}
           </div>
+          <p class="crm-research-note">Research notes describe findings from the linked surveys and studies, rather than measured Renegade CRM results. Outcomes vary by business and how the tools are used.</p>
         </div>
       </section>
 
       <section class="p-sec p-sec-alt">
         <div class="p-wrap p-split">
           <div>
-            <span class="p-eyebrow">The part other software skips</span>
-            <h2 class="p-h2">Playbooks that tell you what to do with it.</h2>
+            <span class="p-eyebrow">Start here. Grow from here.</span>
+            <h2 class="p-h2">A clear first move. Room for the next.</h2>
             <div class="p-body">
-              <p>Software on its own is a gym membership. It feels great the day you sign up and then quietly bills you every month. The difference with Renegade CRM is that it comes with a plan.</p>
-              <p>Each playbook takes one marketing job, tells you why it matters, and walks you through turning it on inside the CRM. Do one, get it working, then add the next.</p>
+              <p>You don't need to launch every system on day one. Start with the opportunity that matters most to your business, and use a practical playbook to put the right tools to work.</p>
+              <p>Each playbook explains why the system matters and walks you through setting it up inside the CRM. Get your first win, build on it, and add the next system when you're ready.</p>
             </div>
           </div>
           <div>
@@ -103,7 +151,7 @@ const faqs: [string, string][] = [
         <div class="p-wrap p-offer">
           <div>
             <span class="p-eyebrow">Get started</span>
-            <h2 class="p-h2">One system. One price. Start today.</h2>
+            <h2 class="p-h2">Your first win starts here.</h2>
             <ul class="p-checks">
               <li>Renegade CRM software</li>
               <li>Renegade marketing playbooks</li>
@@ -114,7 +162,7 @@ const faqs: [string, string][] = [
           <aside class="p-offer-box">
             <div class="pp-name">Renegade CRM</div>
             <div class="pp-price"><strong>$99</strong><span>/ month</span></div>
-            <p class="pp-desc" style="margin-bottom:22px">The marketing system plus the software.</p>
+            <p class="pp-desc" style="margin-bottom:22px">The full Command Center. The playbooks. Room to grow.</p>
             <a class="p-btn p-btn-primary p-btn-block" href={links.crmMonthly} rel="noopener">Start for $99/mo</a>
             <span class="pp-alt">Or <a href={links.crmAnnual} rel="noopener">pay $1,149 for the year</a>. No contract either way.</span>
           </aside>
@@ -143,8 +191,8 @@ const faqs: [string, string][] = [
 
       <section class="p-sec p-sec-dark">
         <div class="p-narrow p-center">
-          <h2 class="p-h2">Make the marketing happen anyway.</h2>
-          <p class="p-lead">Even when you're busy, even when you forget, even when you'd rather be with customers than staring at a dashboard.</p>
+          <h2 class="p-h2">Solve the big one. Build from there.</h2>
+          <p class="p-lead">Pick your biggest bottleneck and put your first system to work. Your next move is ready when you are.</p>
           <div class="p-btns">
             <a class="p-btn p-btn-primary" href={links.crmMonthly} rel="noopener">Start Renegade CRM — $99/mo</a>
           </div>
@@ -155,3 +203,12 @@ const faqs: [string, string][] = [
     <Footer />
   </div>
 </BaseLayout>
+
+<style>
+  .crm-proof{margin-top:20px;padding-top:18px;border-top:1px solid var(--p-line)}
+  .crm-proof p{font-size:14px;line-height:1.6;margin-top:0}
+  .crm-proof strong{color:var(--p-ink);font-size:22px;font-weight:800}
+  .crm-proof a{display:inline-block;margin-top:8px;color:var(--p-gold-ink);font-size:12px;line-height:1.5;text-decoration:underline;text-underline-offset:3px}
+  .crm-proof a:focus-visible{outline:3px solid var(--p-gold);outline-offset:3px}
+  .crm-research-note{margin-top:24px;max-width:760px;color:var(--p-muted);font-size:13px;line-height:1.6}
+</style>
