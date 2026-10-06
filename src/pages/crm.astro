@@ -7,9 +7,8 @@ import Banner from '../components/Banner.astro';
 import { links } from '../lib/links.js';
 import { brand } from '../lib/site.js';
 
-// Add the approved stadium-rock sound-guy video URL here when supplied.
-// A null URL shows branded copy, without a dead player or invented media.
-const soundGuyVideoUrl: string | null = null;
+// Optimized from the approved sound-guy MOV supplied for this section.
+const soundGuyVideoUrl = '/media/renegade-crm-sound-guy.mp4';
 const outcomes = [
   { title: 'Stay Organized', text: 'Know your people, see where opportunities stand and keep the next step clear.', tools: ['Contact manager and smart lists for customers, prospects and partners.', 'Pipelines, opportunities and tasks to see what needs attention.', 'Unified conversations for email, text and customer history.', 'Calendar booking and reminders to make meeting easy.'] },
   { title: 'Get More Business From Past Clients & Contacts', text: 'The people who already know you can be the beginning of your next opportunity. Give those relationships a consistent rhythm.', tools: ['Email campaigns and newsletters for useful updates and offers.', 'Stay-in-touch and reactivation sequences built around your audience.', 'Event invitations, reminders and follow-up to keep the connection going.'] },
@@ -66,7 +65,7 @@ const faqs: [string, string][] = [
             <div class="p-body"><p>Your ideas, expertise and relationships are the starting point. Renegade CRM connects the tools that help you reach people, stay in touch and turn interest into opportunity.</p></div>
           </div>
           <div class="crm-amplifier">
-            {soundGuyVideoUrl ? <video class="crm-video" controls preload="metadata" aria-label="Renegade CRM: the system behind the sound"><source src={soundGuyVideoUrl} />Your browser does not support embedded video.</video> : <div class="crm-stage">{brand.insignia && <img src={brand.insignia} alt="" width="2025" height="2025" loading="lazy" />}<p>You bring the voice.<br /><strong>We'll bring the system.</strong></p></div>}
+            {soundGuyVideoUrl ? <video class="crm-video" controls playsinline preload="metadata" poster="/media/renegade-crm-sound-guy.jpg" aria-label="Renegade CRM: the system behind the sound"><source src={soundGuyVideoUrl} type="video/mp4" />Your browser does not support embedded video.</video> : <div class="crm-stage">{brand.insignia && <img src={brand.insignia} alt="" width="2025" height="2025" loading="lazy" />}<p>You bring the voice.<br /><strong>We'll bring the system.</strong></p></div>}
           </div>
         </div>
       </section>
@@ -108,7 +107,7 @@ const faqs: [string, string][] = [
   </div>
 </BaseLayout>
 <style>
-  #amplify .p-body{color:#c9c9c9}
+  #amplify .p-body p{color:#c9c9c9}
   .crm-tools{margin-top:20px}
   .crm-amplifier{align-self:center;min-width:0}
   .crm-stage{position:relative;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--p-gold);border-radius:12px;background:#111}
