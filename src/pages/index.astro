@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
 import { links } from '../lib/links.js';
-import { brand, semester } from '../lib/site.js';
+import { brand, semester, academyPrice } from '../lib/site.js';
 import '../styles/renegade-home.css';
 
 const jobs = [
@@ -47,12 +47,7 @@ const faqs: [string, string][] = [
             <a class="p-btn p-btn-secondary" href="#how-it-works">See how it works</a>
           </div>
 
-<!--
-          <div class="r-hero-foot"><span>Renegade CRM</span><span>Renegade Academy</span><span>Renegade Community</span></div>
         </div>
-
-
--->
       </section>
 
       <section class="p-sec r-crm" id="renegade-crm" aria-labelledby="crm-heading">
@@ -97,6 +92,9 @@ const faqs: [string, string][] = [
             </div>
             <div class="r-cohort-panel">
               {brand.homeOffers.academy.src && <img class="r-academy-banner" src={brand.homeOffers.academy.src} alt={brand.homeOffers.academy.alt} width="1024" height="401" loading="lazy" />}
+              <span class="p-eyebrow">Renegade Academy</span>
+              <div class="r-price">${academyPrice.monthly}<span>/ month</span></div>
+              <p class="r-panel-description">The CRM. The semester. Your fellow Renegades.</p>
               <div class="r-cohort-facts"><div><strong>8</strong><span>Live weekly classes</span></div><div><strong>{semester.seats}</strong><span>Seats per cohort</span></div></div>
               <ul class="p-checks"><li>Classmates to learn with and bounce ideas off.</li><li>A weekly plan to build working systems in your business.</li><li>A build lab to work through questions together.</li><li>Alumni connection that keeps going after graduation.</li></ul>
               <a class="p-link" href="/academy">See the semester courses and schedule.→</a>
@@ -114,9 +112,12 @@ const faqs: [string, string][] = [
             <div class="p-body"><p>Bring a questions, share a wins (and losses). Feel free to grab a playbook. Meet entrepreneurs trying new things and helping each other move forward.</p><p>Weekly Power Hours, templates, guest perspectives and experiments with new tools, AI and automation. Useful ideas, real conversations and room to make friends along the way.</p></div>
             <div class="p-btns"><a class="p-btn p-btn-primary" href="/community">Join the free community →</a><a class="p-btn p-btn-secondary" href={links.powerHour}>Next Power Hour Call</a></div>
           </div>
-          <div class="r-crew-poster">
-            {brand.insignia && <img src={brand.insignia} alt="" width="2025" height="2025" loading="lazy" />}
-            <p>Renegade Community<br /><strong>Pleased to meet you!</strong></p>
+          <div class="r-command-panel r-community-panel">
+            <span class="p-eyebrow">Renegade Community</span>
+            <div class="r-price">FREE</div>
+            <p>Ideas. Playbooks. People worth knowing.</p>
+            <div class="r-tool-grid"><span>Weekly Power Hours</span><span>Playbooks + templates</span><span>AI + tool experiments</span><span>Renegade shenanigans</span></div>
+            <a class="p-link" href={links.community}>Join the Renegades. Pleased to meet you! →</a>
           </div>
         </div>
       </section>
@@ -125,11 +126,22 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <span class="p-eyebrow">The next chapter is yours.</span>
           <h2 class="p-h2" id="transformation-heading">You're already a RENEGADE.<br /><span>We just help you unlock it.</span></h2>
-          <p class="r-manifesto">Create opportunity. Grow on purpose.<br />Build a business that gives you more freedom.</p>
+          <p class="r-manifesto">You've got a song to sing,<br />you just need the masses to hear it.</p>
           <div class="p-grid-3">
-            <article><span class="r-index">01 / Capability</span><h3 class="p-h3">Know your next move.</h3><p>Get the tools and a clear place to start. Turn opportunity into something you can act on.</p></article>
-            <article><span class="r-index">02 / Camaraderie</span><h3 class="p-h3">Go further together.</h3><p>Make connections. Trade ideas. Build friendships with people who understand the ambition and the work.</p></article>
-            <article><span class="r-index">03 / Freedom</span><h3 class="p-h3">Compete on your terms.</h3><p>Build systems that take repetitive work off your plate, so you can put more energy into the business and life you want.</p></article>
+            <article><span class="r-index">01 / The system</span><h3 class="p-h3">Renegade CRM</h3><p>You bring the voice. The CRM brings the amps, the connections and the follow-up. Put your ideas in front of more people, then keep the conversation going.</p><a class="p-link" href="/crm">Plug into the system →</a></article>
+            <article><span class="r-index">02 / The brainiac</span><h3 class="p-h3">Renegade Academy</h3><p>Join the semester. Make connections. Feed your Renegade brainiac with new ideas, live classes and a crew that builds alongside you. Mixer and Nerd Night included.</p><a class="p-link" href="/academy">Find your semester →</a></article>
+            <article><span class="r-index">03 / The Renegade within</span><h3 class="p-h3">Renegade Community</h3><p>Got an idea you want to try? Bring it. Swap stories, experiment with the crew and give that Renegade streak some room to run. The door's open.</p><a class="p-link" href={links.community}>Unleash your Renegade →</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-sec r-how" id="how-it-works">
+        <div class="p-wrap">
+          <div class="p-head"><span class="p-eyebrow">How it works</span><h2 class="p-h2">Start simple. Get one thing working.<br />Add the next piece. <span class="r-gold">Renegade CRM grows with you.</span></h2></div>
+          <div class="p-grid-3" style="margin-top:40px">
+            <article class="p-card"><span class="p-num">1</span><h3 class="p-h3">Pick a playbook</h3><p>Choose a Renegade playbook for the result you want. It lays out the tools, the steps and an example you can make your own.</p></article>
+            <article class="p-card"><span class="p-num">2</span><h3 class="p-h3">Get one thing working</h3><p>Follow the steps, put it to work and see what happens. Make a few adjustments until it fits the way you run your business.</p></article>
+            <article class="p-card"><span class="p-num">3</span><h3 class="p-h3">Add the next piece</h3><p>Keep what works and build on it. The connected tools are ready whenever your next idea is.</p></article>
           </div>
         </div>
       </section>
@@ -141,24 +153,13 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
-      <section class="p-sec r-how" id="how-it-works">
-        <div class="p-wrap">
-          <div class="p-head"><span class="p-eyebrow">How it works</span><h2 class="p-h2">Start simple. Get it working. Add the next piece. <span class="r-gold">We'll show you how.</span></h2></div>
-          <div class="p-grid-3" style="margin-top:40px">
-            <article class="p-card"><span class="p-num">1</span><h3 class="p-h3">Start with the opportunity</h3><p>Choose the area that could make the biggest difference right now — follow-up, your database, reviews, content, appointments or something else.</p></article>
-            <article class="p-card"><span class="p-num">2</span><h3 class="p-h3">Build one useful system</h3><p>Use the software and the playbook to put that piece in place with clear steps and a practical example to follow.</p></article>
-            <article class="p-card"><span class="p-num">3</span><h3 class="p-h3">Stack the next one</h3><p>Once the first system is working, add the next. Over time, those small systems change how the whole business operates.</p></article>
-          </div>
-        </div>
-      </section>
-
       <section class="p-sec" id="pricing">
-        <div class="p-wrap"><div class="p-head"><span class="p-eyebrow">Three ways to join the Renegades</span><h2 class="p-h2">Get the tools.<br />Find your crew.<br /><span class="r-gold">Make your move.</span></h2></div><Pricing /></div>
+        <div class="p-wrap"><div class="p-head"><span class="p-eyebrow">Three ways to join the Renegades</span><h2 class="p-h2">Unleash your inner Renegade.</h2></div><Pricing /></div>
       </section>
 
       <section class="p-sec r-faq"><div class="p-narrow"><span class="p-eyebrow">Straight answers</span><h2 class="p-h2">Before you jump in.</h2><Faq items={faqs} /></div></section>
 
-      <section class="p-sec r-final"><div class="p-wrap"><span class="p-eyebrow">No Fear Marketing.</span><h2 class="p-h2">You're building a business.<br /><span class="r-gold">Let's make it Renegade.</span></h2><p class="p-lead">Explore the CRM, build with Academy, or join the free Community.<br />Choose the next step that fits your business.</p><div class="p-btns"><a class="p-btn p-btn-primary" href="#pricing">Join the Renegades →</a><a class="p-btn p-btn-secondary" href="/community">Start with the free crew</a></div></div></section>
+      <section class="p-sec r-final"><div class="p-wrap"><span class="p-eyebrow">No Fear Marketing.</span><h2 class="p-h2">You've got a song to sing,<br /><span class="r-gold">let the world hear it.</span></h2><p class="p-lead">Explore the CRM, build with Academy, or join the free Community.<br />Choose the next step that fits your business.</p><div class="p-btns"><a class="p-btn p-btn-primary" href="#pricing">Join the Renegades →</a><a class="p-btn p-btn-secondary" href="/community">Start with the free crew</a></div></div></section>
     </main>
     <Footer />
   </div>
