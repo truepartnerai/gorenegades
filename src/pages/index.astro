@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import HeroVideo from '../components/HeroVideo.astro';
 import Footer from '../components/Footer.astro';
 import Pricing from '../components/Pricing.astro';
 import Faq from '../components/Faq.astro';
@@ -35,7 +36,7 @@ const faqs: [string, string][] = [
     <Header ctaLabel="Join the Renegades" ctaHref="#pricing" />
     <main>
       <section class="r-hero" aria-labelledby="hero-heading">
-        {brand.insignia && <img class="r-watermark" src={brand.insignia} alt="" width="2025" height="2025" fetchpriority="high" />}
+        <HeroVideo />
         <div class="p-wrap r-hero-copy">
           <span class="p-eyebrow">No Fear Marketing.</span>
           <h1 id="hero-heading">Marketing<br /><span>Renegades.</span></h1>

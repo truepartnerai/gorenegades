@@ -1,0 +1,49 @@
+---
+// Silent H.264 background derived from the approved stadium-rock video:
+// https://assets.cdn.filesafe.space/752TznWg3s9PT7P486mf/media/6ac52fd9bbad531ac8f22cf0.mov
+---
+<div class="hero-video" data-hero-video>
+  <video muted loop playsinline preload="none" poster="/media/renegade-stadium-hero.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+    <source data-src="/media/renegade-stadium-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-video-shade"></div>
+  <button type="button" hidden>Pause background video</button>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-hero-video]').forEach(root => {
+    const video = root.querySelector('video')!;
+    const source = video.querySelector('source')!;
+    const button = root.querySelector('button')!;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let userPaused = false;
+    const sync = () => {
+      button.textContent = video.paused ? 'Play background video' : 'Pause background video';
+    };
+    const play = async () => {
+      if (!source.src) { source.src = source.dataset.src!; video.load(); }
+      video.muted = true;
+      try { await video.play(); button.hidden = false; sync(); }
+      catch { button.hidden = false; sync(); }
+    };
+    button.addEventListener('click', () => {
+      if (video.paused) { userPaused = false; void play(); }
+      else { userPaused = true; video.pause(); sync(); }
+    });
+    motion.addEventListener('change', () => {
+      if (motion.matches) { video.pause(); button.hidden = true; }
+      else if (!userPaused) { void play(); }
+    });
+    video.addEventListener('error', () => { video.hidden = true; button.hidden = true; });
+    video.addEventListener('playing', sync);
+    video.addEventListener('pause', sync);
+    if (!motion.matches) void play();
+  });
+</script>
+<style>
+  .hero-video{position:absolute;inset:0;z-index:0;background:#080808 url('/media/renegade-stadium-hero.jpg') center/cover no-repeat;pointer-events:none}
+  video{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-video-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.5)),linear-gradient(0deg,rgba(0,0,0,.55),transparent 55%)}
+  button{position:absolute;right:24px;bottom:14px;pointer-events:auto;z-index:3;border:1px solid #aaa;border-radius:3px;background:rgba(0,0,0,.8);color:#fff;padding:8px 12px;font:500 12px/1.4 'Inter',sans-serif;cursor:pointer}
+  button:focus-visible{outline:3px solid #f4c20d;outline-offset:3px}
+  button[hidden]{display:none}
+</style>

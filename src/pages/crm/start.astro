@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Faq from '../../components/Faq.astro';
+import HeroVideo from '../../components/HeroVideo.astro';
 import { links } from '../../lib/links.js';
 import { brand } from '../../lib/site.js';
 
@@ -27,8 +28,8 @@ const faqs: [string, string][] = [
 ---
 
 <BaseLayout
-  title="Renegade CRM | Put Your Follow-Up on a System for $99/Month"
-  description="Renegade CRM gives entrepreneurs one place to organize contacts, follow up, stay visible and automate the small jobs that keep opportunities moving — for $99/month."
+  title="Renegade CRM | You Bring the Voice. We Bring the System."
+  description="Connected tools, AI and practical playbooks to help entrepreneurs reach more people, build stronger relationships and turn interest into opportunity. Renegade CRM — $99/month."
 >
   <div class="lp">
     <header class="lp-top">
@@ -43,36 +44,15 @@ const faqs: [string, string][] = [
 
     <main>
       <section class="lp-hero">
+        <HeroVideo />
         <div class="p-wrap lp-hero-in">
           <div class="lp-hero-copy">
             <span class="p-eyebrow">Practical systems. Built for entrepreneurs.</span>
-            <h1>Your business should keep moving <span>even when you're busy.</span></h1>
-            <p class="lp-lead">Renegade CRM puts your contacts, conversations, follow-up, booking, reviews and simple automations in one place — then gives you the playbooks to turn it into a working system.</p>
+            <h1>You've got a song to sing.<br /><span>You just need the masses to hear it.</span></h1>
+            <p class="lp-lead">You bring the voice. Renegade CRM brings the system to amplify it — connected tools, AI and practical playbooks to help you reach more people, build stronger relationships and turn interest into opportunity.</p>
           </div>
 
-          <div class="lp-vsl-wrap">
-            {vslEmbedUrl ? (
-              <div class="lp-vsl">
-                <iframe
-                  src={vslEmbedUrl}
-                  title="Renegade CRM overview"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                  loading="eager"
-                ></iframe>
-              </div>
-            ) : (
-              <div class="lp-vsl lp-vsl-placeholder">
-                <img src={brand.banners.crm} alt="Renegade CRM — Marketing Command Center" />
-                <div class="lp-play" aria-hidden="true">▶</div>
-                <div class="lp-vsl-note">
-                  <strong>Renegade CRM walkthrough</strong>
-                  <span>VSL embed ready to drop in</span>
-                </div>
-              </div>
-            )}
-            <p class="lp-video-caption">See how Renegade CRM turns the loose ends in your business into a simple, repeatable system.</p>
-          </div>
+          {vslEmbedUrl && <div class="lp-vsl-wrap"><div class="lp-vsl"><iframe src={vslEmbedUrl} title="Renegade CRM overview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe></div></div>}
 
           <div class="lp-buy">
             <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/month</a>
@@ -290,9 +270,10 @@ const faqs: [string, string][] = [
     .lp-price{font-size:14px;font-weight:600;color:#aaa}
     .lp-price strong{color:var(--p-gold)}
 
-    .lp-hero{position:relative;overflow:hidden;background:#0b0b0b;color:#fff;padding:76px 0 66px;border-bottom:6px solid var(--p-gold)}
+    .lp-hero{position:relative;overflow:hidden;background:#0b0b0b;color:#fff;padding:96px 0 76px;border-bottom:6px solid var(--p-gold)}
     .lp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(65% 55% at 50% 18%,rgba(244,194,13,.17),transparent 70%),linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:auto,60px 60px,60px 60px;pointer-events:none}
-    .lp-hero-in{position:relative;z-index:1}
+    .lp-hero-in{position:relative;z-index:1;pointer-events:none}
+    .lp-hero-in a,.lp-hero-in iframe{pointer-events:auto}
     .lp-hero-copy{text-align:center;max-width:900px;margin:0 auto}
     .lp-hero .p-eyebrow{color:var(--p-gold)}
     .lp-hero h1{margin:14px auto 0;max-width:920px;font-size:clamp(42px,6.8vw,78px);line-height:1.01;letter-spacing:-.045em;font-weight:850;color:#fff}
@@ -394,7 +375,7 @@ const faqs: [string, string][] = [
       .lp-brand{font-size:15px}
       .lp-brand img{width:30px;height:30px}
       .lp-price{font-size:12px}
-      .lp-hero{padding:52px 0 46px}
+      .lp-hero{padding:52px 0 76px}
       .lp-hero h1{font-size:clamp(40px,12vw,58px)}
       .lp-lead{font-size:18px}
       .lp-vsl-wrap{margin-top:30px}
