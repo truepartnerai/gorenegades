@@ -210,10 +210,10 @@ export const comparisonFeatures=[
     "description": "Give website visitors a way to start a conversation.",
     "availability": {
       "renegade": "c",
-      "hubspot": "u",
-      "pipedrive": "l",
+      "hubspot": "c",
+      "pipedrive": "u",
       "zoho": "x",
-      "keap": "c"
+      "keap": "x"
     }
   },
   {
@@ -500,7 +500,7 @@ export const comparisonFeatures=[
       "renegade": "u",
       "hubspot": "u",
       "pipedrive": "u",
-      "zoho": "x",
+      "zoho": "u",
       "keap": "l"
     }
   }
