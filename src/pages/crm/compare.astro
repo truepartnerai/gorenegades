@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { brand } from '../../lib/site.js';
+import { comparisonGroups, comparisonProviders, comparisonFeatures, comparisonSources } from '../../data/crmComparison.js';
+
+const marks = {
+  c: { text: 'Included', symbol: '✓', detail: 'Available in this compared plan or platform. Setup, limits and usage costs may apply.' },
+  u: { text: 'Upgrade', symbol: '+', detail: 'Higher tier, add-on or separate feature activation required.' },
+  x: { text: 'Separate tool', symbol: '↗', detail: 'Usually handled through an additional product or connected integration.' },
+  l: { text: 'Limited', symbol: '◐', detail: 'A partial or restricted version is available in this plan.' },
+  q: { text: 'Check plan', symbol: '?', detail: 'Current plan availability could not be sufficiently verified.' }
+};
+---
+
+<BaseLayout
+  title="Compare CRMs | Renegade CRM vs HubSpot, Pipedrive, Zoho & Keap"
+  description="Compare 36 business capabilities across Renegade CRM, HubSpot Starter, Pipedrive Growth, Zoho CRM Standard and Keap. Clear plan and add-on distinctions."
+  canonical="https://gorenegades.com/crm/compare"
+>
+  <div class="cx">
+    <header class="cx-top">
+      <div class="cx-wrap cx-top-inner">
+        <a href="/crm/start" class="cx-brand" data-return><img src={brand.insignia} alt="" width="35" height="35" />Marketing <strong>Renegades</strong></a>
+        <nav aria-label="Related pages"><a href="/crm/solutions" data-return>Business solutions</a><a href="/crm/start#checkout" class="cx-top-buy" data-return>Get CRM · $99/mo →</a></nav>
+      </div>
+    </header>
+    <main>
+      <section class="cx-hero">
+        <div class="cx-wrap">
+          <span class="cx-kicker">The Renegade CRM comparison guide</span>
+          <h1>Compare what your business <em>can actually do.</em></h1>
+          <p>There's more to choosing a CRM than finding somewhere to store contacts. Explore how different platforms handle organization, lead capture, follow-up, marketing, sales, and AI.</p>
+          <div class="cx-hero-actions">
+            <a class="cx-button" href="#comparison">Compare capabilities ↓</a>
+            <a class="cx-link-light" href="/crm/solutions" data-return>Explore 72 real-world scenarios →</a>
+          </div>
+          <p class="cx-date">36 capabilities · 5 platforms · Specific plans · Reviewed October 2026</p>
+        </div>
+      </section>
+
+      <section class="cx-main" id="comparison" aria-labelledby="cx-heading">
+        <div class="cx-wrap">
+          <span class="cx-kicker">Side-by-side</span>
+          <h2 id="cx-heading">One comparison. No tricks.</h2>
+          <p class="cx-intro">We're comparing named subscription tiers — not pretending that competing products can't do something. Where a feature requires an upgrade or separate application, the chart says so.</p>
+          <div class="cx-plans">
+            {comparisonProviders.map((p,i) => (
+              <article class:list={['cx-plan',{'cx-featured':i===0}]}>
+                <h3>{p.label}</h3><span>{p.plan}</span><p>{p.description}</p>
+                <a href={p.url} target={i===0?undefined:'_blank'} rel={i===0?undefined:'noopener noreferrer'}>{i===0?'Explore Renegade CRM →':'Official plan details ↗'}</a>
+              </article>
+            ))}
+          </div>
+          <div class="cx-key" aria-label="Comparison legend">
+            {Object.entries(marks).map(([key,mark]) => <div><b class={'cx-symbol cx-'+key}>{mark.symbol}</b><strong>{mark.text}</strong><small>{mark.detail}</small></div>)}
+          </div>
+
+          <div class="cx-controls">
+            <label for="cx-search">Find a capability<input id="cx-search" type="search" placeholder="Try email, SMS, social, AI, appointments..." /></label>
+            <label for="cx-vendor">Compare against
+              <select id="cx-vendor"><option value="all">All alternatives</option>
+                {comparisonProviders.slice(1).map(p=><option value={p.key}>{p.label}</option>)}
+              </select>
+            </label>
+            <label class="cx-diff"><input id="cx-diff" type="checkbox" /> Differences only</label>
+          </div>
+          <div class="cx-tabs" role="group" aria-label="Filter by category">
+            <button class="active" aria-pressed="true" data-group="all" type="button">All {comparisonFeatures.length}</button>
+            {comparisonGroups.map(g=><button aria-pressed="false" data-group={g.key} type="button">{g.label}</button>)}
+          </div>
+          <p class="cx-count" id="cx-count" aria-live="polite">Showing {comparisonFeatures.length} capabilities. Scroll horizontally on smaller screens.</p>
+
+          <div class="cx-table-wrap" tabindex="0" role="region" aria-label="Scrollable CRM plan comparison">
+            <table class="cx-table" id="cx-table">
+              <caption class="cx-screen-reader">Comparison of the availability of business software features across five CRM platforms.</caption>
+              <thead><tr>
+                <th scope="col" class="cx-first">Capability</th>
+                {comparisonProviders.map((p,i)=><th scope="col" data-vendor={p.key} class:list={[{'cx-renegade':i===0}]}>{p.label}<small>{i===0?'$99/month':p.plan}</small></th>)}
+              </tr></thead>
+              <tbody>
+                {comparisonFeatures.map(f => (
+                  <tr data-row data-group={f.group} data-find={[f.label,f.description,comparisonGroups.find(g=>g.key===f.group)?.label].join(' ').toLowerCase()} data-identical={Object.values(f.availability).every(v=>v===f.availability.renegade)?'true':'false'}>
+                    <th scope="row" class="cx-first">
+                      <span>{comparisonGroups.find(g=>g.key===f.group)?.label}</span>
+                      <strong>{f.label}</strong><small>{f.description}</small>
+                    </th>
+                    {comparisonProviders.map((p,i)=>{
+                      const mark=marks[f.availability[p.key]];
+                      const code=f.availability[p.key];
+                      return <td data-vendor={p.key} class:list={[{'cx-renegade':i===0}]}>
+                        <span class={'cx-status cx-'+code} title={mark.detail}><b aria-hidden="true">{mark.symbol}</b>{mark.text}</span>
+                      </td>;
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div id="cx-empty" class="cx-empty" hidden><strong>Nothing matches that filter.</strong><p>Try another term or clear the filters.</p><button id="cx-reset" type="button">Show all capabilities</button></div>
+          <p class="cx-footnote">The comparison describes feature availability, not identical limits, quality, ease of use, or total cost. Usage charges, contact limits, seat pricing, and optional features can materially change costs.</p>
+        </div>
+      </section>
+
+      <section class="cx-convert">
+        <div class="cx-wrap cx-convert-grid">
+          <div>
+            <span class="cx-kicker">The Renegade approach</span>
+            <h2>Start with one problem. Build a better system.</h2>
+            <p>Organize your contacts. Follow up with interested people. Stay visible to the people who know you. Add capabilities as the business grows, without trying to implement everything at once.</p>
+            <div class="cx-convert-links">
+              <a href="/crm/solutions" data-return>Explore 72 real business scenarios →</a>
+              <a href="/crm/start" data-return>Watch the VSL presentation →</a>
+            </div>
+          </div>
+          <aside class="cx-offer">
+            <span>Renegade CRM</span><div class="cx-price">$99<small>/month</small></div>
+            <p>The software, practical playbooks, and a clear place to start.</p>
+            <a class="cx-button" href="/crm/start#checkout" data-return>Start Renegade CRM →</a>
+            <small>AI services, phone, SMS, email sending, and integrations can have additional usage or subscription charges.</small>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cx-method">
+        <div class="cx-wrap">
+          <h2>Methodology and source documents</h2>
+          <p>We compared Renegade CRM's advertised HighLevel-platform capabilities with HubSpot Starter Customer Platform, Pipedrive Growth, Zoho CRM Standard, and Keap's full-platform offering. <strong>Included</strong> means native in that product or plan, but does not imply unlimited usage or that a workflow is preconfigured. <strong>Upgrade</strong> means a higher plan or extra paid feature. <strong>Separate tool</strong> means the capability is normally accomplished with an integrated application, not that the vendor cannot offer a solution. <strong>Limited</strong> describes reduced or conditional functionality. Renegade $99 entitlements, particularly AI, must be confirmed against the customer's actual subscription before purchase. Pricing models differ significantly across companies.</p>
+          <p>Official vendor documents and plan pages consulted for this October 2026 comparison:</p>
+          <div class="cx-sources">{comparisonSources.map(s=><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>)}</div>
+        </div>
+      </section>
+    </main>
+    <footer class="cx-footer"><div class="cx-wrap"><span>Marketing Renegades · Powerful tools. Practical systems.</span><a href="/crm/start" data-return>Return to the CRM presentation ↑</a></div></footer>
+    <div class="cx-mobile"><a href="/crm/start#checkout" data-return>Get Renegade CRM · $99/month →</a></div>
+  </div>
+  <script is:inline>
+    (() => {
+      const search=document.getElementById('cx-search');
+      const vendor=document.getElementById('cx-vendor');
+      const differences=document.getElementById('cx-diff');
+      const table=document.getElementById('cx-table');
+      const rows=Array.from(table.querySelectorAll('[data-row]'));
+      const tabs=Array.from(document.querySelectorAll('[data-group]'));
+      const count=document.getElementById('cx-count');
+      const empty=document.getElementById('cx-empty');
+      let group='all';
+      const refresh=()=>{
+        let visible=0;
+        const q=search.value.trim().toLowerCase();
+        rows.forEach(row=>{
+          const yes=(group==='all'||row.dataset.group===group)
+            &&(!q||row.dataset.find.includes(q))
+            &&(!differences.checked||row.dataset.identical!=='true');
+          row.hidden=!yes;
+          if(yes)visible++;
+        });
+        table.querySelectorAll('[data-vendor]').forEach(cell=>{
+          cell.hidden=vendor.value!=='all'&&cell.dataset.vendor!=='renegade'&&cell.dataset.vendor!==vendor.value;
+        });
+        table.classList.toggle('cx-focus',vendor.value!=='all');
+        count.textContent='Showing '+visible+' of '+rows.length+' capabilities.'+(vendor.value==='all'?' Scroll horizontally on smaller screens.':'');
+        empty.hidden=visible!==0;
+      };
+      tabs.forEach(tab=>tab.addEventListener('click',()=>{
+        group=tab.dataset.group;
+        tabs.forEach(t=>{const active=t===tab;t.classList.toggle('active',active);t.setAttribute('aria-pressed',String(active));});
+        refresh();
+      }));
+      search.addEventListener('input',refresh);
+      vendor.addEventListener('change',refresh);
+      differences.addEventListener('change',refresh);
+      document.getElementById('cx-reset').addEventListener('click',()=>{
+        search.value='';vendor.value='all';differences.checked=false;group='all';
+        tabs.forEach(t=>{const active=t.dataset.group==='all';t.classList.toggle('active',active);t.setAttribute('aria-pressed',String(active));});
+        refresh();search.focus();
+      });
+      const query=new URLSearchParams(location.search);
+      document.querySelectorAll('[data-return]').forEach(a=>{
+        const u=new URL(a.href,location.origin);
+        ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'].forEach(k=>{
+          if(query.has(k))u.searchParams.set(k,query.get(k));
+        });
+        a.href=u.pathname+u.search+u.hash;
+      });
+      refresh();
+    })();
+  </script>
+  <style>
+    .cx{font-family:Inter,Arial,sans-serif;color:#202020;background:#fff}
+    .cx-wrap{width:min(1220px,calc(100% - 48px));margin:auto}
+    .cx-screen-reader{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .cx-top{background:#111;border-bottom:1px solid #333}
+    .cx-top-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .cx-brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-size:17px;font-weight:750;letter-spacing:-.025em}
+    .cx-brand strong{color:#f4c20d}.cx-brand img{object-fit:contain}
+    .cx-top nav{display:flex;gap:22px;align-items:center}.cx-top nav a{color:#ddd;font-size:13px;text-decoration:none;font-weight:750}
+    .cx-top nav .cx-top-buy{background:#f4c20d;color:#111;padding:12px 16px;border-radius:7px}
+    .cx-hero{padding:79px 0 65px;background:#101010 radial-gradient(ellipse at 90% 20%,#f4c20d1c,transparent 55%);color:#fff}
+    .cx-kicker{text-transform:uppercase;letter-spacing:.1em;font-size:12px;font-weight:850;color:#967400}
+    .cx-hero .cx-kicker,.cx-convert .cx-kicker{color:#f4c20d}
+    .cx-hero h1{font-size:clamp(44px,6.5vw,77px);letter-spacing:-.055em;line-height:1.03;max-width:960px;color:#fff;margin:17px 0 24px}
+    .cx-hero h1 em{font-style:normal;color:#f4c20d}
+    .cx-hero p{max-width:830px;font-size:19px;line-height:1.65;color:#ccc}
+    .cx-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:29px}
+    .cx-button{display:inline-flex;align-items:center;justify-content:center;background:#f4c20d;color:#111;padding:14px 22px;min-height:48px;border-radius:7px;font-size:15px;font-weight:800;text-decoration:none}
+    .cx-link-light{color:#fff;text-decoration:underline;text-underline-offset:3px;font-size:14px;font-weight:750}
+    .cx-hero .cx-date{border-top:1px solid #333;margin-top:45px;padding-top:20px;color:#aaa;font-size:13px}
+    .cx-main{background:#faf9f6;padding:74px 0 90px;scroll-margin-top:16px}
+    .cx-main h2{font-size:clamp(33px,4.5vw,53px);letter-spacing:-.05em;margin:12px 0 13px}
+    .cx-intro{max-width:850px;line-height:1.7;color:#555;font-size:17px}
+    .cx-plans{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:31px}
+    .cx-plan{display:flex;flex-direction:column;background:#fff;border:1px solid #dedbd3;border-radius:9px;padding:19px 15px;min-width:0}
+    .cx-plan.cx-featured{background:#1a1a1a;border-color:#bb9820;color:#fff}
+    .cx-plan h3{font-size:18px;letter-spacing:-.035em;margin:0 0 5px}
+    .cx-plan>span{color:#8b6e0c;font-size:12px;font-weight:750}.cx-featured>span{color:#f4c20d}
+    .cx-plan p{font-size:12px;color:#666;line-height:1.6;margin:12px 0 15px}.cx-featured p{color:#c9c9c9}
+    .cx-plan a{color:#695100;font-size:12px;font-weight:750;margin-top:auto;text-decoration:underline;text-underline-offset:3px}.cx-featured a{color:#f4c20d}
+    .cx-key{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:22px 0}
+    .cx-key>div{background:#fff;border:1px solid #e4e0d6;border-radius:9px;padding:13px;display:grid;grid-template-columns:27px 1fr;gap:8px;align-items:center}
+    .cx-key strong{font-size:12px}.cx-key small{grid-column:1/-1;color:#777;font-size:11px;line-height:1.55}
+    .cx-symbol{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;font-size:16px}
+    .cx-c{background:#e7f5eb;color:#216b42}.cx-u{background:#fff2c9;color:#856109}.cx-x{background:#e8edf2;color:#516577}.cx-l{background:#efeafa;color:#67558d}.cx-q{background:#eee;color:#666}
+    .cx-controls{display:flex;flex-wrap:wrap;align-items:end;gap:14px;padding:20px;background:#fff;border:1px solid #dedbd3;border-radius:9px}
+    .cx-controls label{display:grid;gap:7px;font-size:12px;color:#333;font-weight:800}.cx-controls label:first-child{flex:1 1 250px}
+    .cx-controls input[type=search],.cx-controls select{min-height:45px;border:1px solid #c9c5bc;border-radius:6px;background:#fff;color:#222;font-size:14px;padding:10px 11px;width:100%}
+    .cx-controls .cx-diff{display:flex;align-items:center;min-height:45px;gap:9px;cursor:pointer}.cx-controls .cx-diff input{width:17px;height:17px;accent-color:#a88200}
+    .cx-tabs{display:flex;gap:8px;overflow:auto;padding:20px 0 14px;scrollbar-width:thin}
+    .cx-tabs button{border:1px solid #d7d3ca;border-radius:30px;padding:10px 13px;white-space:nowrap;background:#fff;color:#333;font-size:13px;font-weight:750;cursor:pointer}
+    .cx-tabs button.active{background:#171717;color:#fff;border-color:#171717}
+    .cx-count{color:#666;font-size:13px;margin:3px 0 12px}
+    .cx-table-wrap{overflow:auto;border:1px solid #dedbd3;border-radius:9px;background:#fff}
+    .cx-table{width:100%;min-width:1050px;border-collapse:separate;border-spacing:0;table-layout:fixed}
+    .cx-table.cx-focus{min-width:590px}
+    .cx-table th,.cx-table td{padding:15px 12px;text-align:center;border-bottom:1px solid #e9e6de;vertical-align:middle}
+    .cx-table thead th{background:#191919;color:#fff;font-size:13px;font-weight:800;position:sticky;top:0;z-index:2}
+    .cx-table thead th small{display:block;font-size:11px;color:#aaa;margin-top:6px;font-weight:600}
+    .cx-table .cx-first{width:265px;text-align:left;position:sticky;left:0;z-index:3;background:#fff}
+    .cx-table thead .cx-first{background:#191919;z-index:4}
+    .cx-table tbody .cx-first>span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;color:#92720b}
+    .cx-table tbody .cx-first strong{display:block;color:#222;font-size:14px;line-height:1.4;margin:4px 0}
+    .cx-table tbody .cx-first small{display:block;font-size:12px;color:#777;line-height:1.5;font-weight:450}
+    .cx-table .cx-renegade{background:#fff8e1}
+    .cx-table thead .cx-renegade{color:#f4c20d;background:#2e2817}
+    .cx-table tbody tr:nth-child(even) .cx-first{background:#fcfaf6}
+    .cx-table tbody tr:nth-child(even) .cx-renegade{background:#faf0d0}
+    .cx-table th[hidden],.cx-table td[hidden],.cx-table tr[hidden]{display:none!important}
+    .cx-table.cx-focus .cx-first{width:43%}
+    .cx-status{background:transparent;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;white-space:nowrap}
+    .cx-status b{border-radius:50%;font-size:14px;font-weight:850;display:grid;place-items:center;width:22px;height:22px;background:#eee}
+    .cx-status.cx-c{color:#237847}.cx-status.cx-c b{background:#e8f6ec}
+    .cx-status.cx-u{color:#886008}.cx-status.cx-u b{background:#fff1c7}
+    .cx-status.cx-x{color:#526676}.cx-status.cx-x b{background:#e9eef1}
+    .cx-status.cx-l{color:#6d598e}.cx-status.cx-l b{background:#f1eafb}
+    .cx-status.cx-q{color:#666}
+    .cx-empty[hidden]{display:none}.cx-empty{background:#fff;text-align:center;padding:32px;border-radius:8px;margin-top:12px}
+    .cx-empty strong{font-size:21px}.cx-empty p{margin:9px 0 16px;color:#777}.cx-empty button{border:0;background:#111;color:#fff;padding:12px 17px;border-radius:5px;cursor:pointer}
+    .cx-footnote{font-size:12px;line-height:1.65;color:#777;margin:12px 0}
+    .cx-convert{background:#171717;color:#fff;padding:74px 0}
+    .cx-convert-grid{display:grid;grid-template-columns:1.2fr .77fr;align-items:center;gap:62px}
+    .cx-convert h2{color:#fff;font-size:clamp(34px,4.6vw,55px);line-height:1.08;letter-spacing:-.05em;margin:14px 0 18px}
+    .cx-convert p{color:#c9c9c9;font-size:17px;line-height:1.7}
+    .cx-convert-links{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}.cx-convert-links a{color:#f4c20d;text-decoration:underline;text-underline-offset:3px;font-size:14px;font-weight:750}
+    .cx-offer{background:#fff;color:#181818;border-top:5px solid #f4c20d;border-radius:11px;padding:32px}
+    .cx-offer>span{font-size:12px;color:#8d6c0b;text-transform:uppercase;font-weight:850}
+    .cx-price{font-size:64px;font-weight:850;letter-spacing:-.06em;margin:10px 0 0}.cx-price small{font-size:16px;color:#777;letter-spacing:0}
+    .cx-offer p{font-size:15px;color:#555;margin:12px 0 20px}.cx-offer .cx-button{display:flex}
+    .cx-offer>small{display:block;margin-top:13px;font-size:12px;color:#777;line-height:1.55}
+    .cx-method{background:#faf9f6;padding:57px 0 73px}
+    .cx-method h2{font-size:25px;letter-spacing:-.03em;margin:0 0 16px}
+    .cx-method p{max-width:1070px;color:#555;font-size:14px;line-height:1.75;margin:0 0 16px}
+    .cx-sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 18px}
+    .cx-sources a{font-size:13px;color:#665109;text-decoration:underline;text-underline-offset:3px;line-height:1.4}
+    .cx-footer{background:#111;color:#aaa;padding:26px 0}.cx-footer>.cx-wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}.cx-footer a{color:#f4c20d;text-decoration:none}
+    .cx-mobile{display:none}
+    @media(max-width:1020px){.cx-plans{grid-template-columns:repeat(3,1fr)}.cx-key{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:790px){.cx-hero{padding:58px 0}.cx-main{padding:57px 0}.cx-convert-grid{grid-template-columns:1fr;gap:30px}.cx-sources{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){
+      .cx-wrap{width:calc(100% - 32px)}.cx-brand{font-size:14px}.cx-brand img{width:30px;height:30px}.cx-top-inner{min-height:62px}.cx-top nav>a:first-child{display:none}.cx-top nav .cx-top-buy{font-size:12px;padding:10px}
+      .cx-hero h1{font-size:43px}.cx-hero p{font-size:17px}.cx-hero-actions .cx-button{width:100%}
+      .cx-plans{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-plan{padding:14px 12px}.cx-plan h3{font-size:16px}
+      .cx-key{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-controls{padding:14px}
+      .cx-table .cx-first{width:195px}.cx-table th,.cx-table td{padding:13px 9px}
+      .cx-table tbody .cx-first strong{font-size:13px}.cx-table tbody .cx-first small{font-size:11px}
+      .cx-convert{padding:57px 0}.cx-offer{padding:25px}.cx-sources{grid-template-columns:1fr}
+      .cx-footer{padding-bottom:90px}.cx-mobile{display:block;position:fixed;bottom:0;left:0;right:0;background:#111;padding:10px 13px calc(10px + env(safe-area-inset-bottom));z-index:30}
+      .cx-mobile a{display:block;background:#f4c20d;color:#111;text-decoration:none;border-radius:6px;padding:14px 8px;text-align:center;font-weight:850;font-size:14px}
+    }
+  </style>
+</BaseLayout>
