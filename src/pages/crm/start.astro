@@ -57,6 +57,7 @@ const faqs: [string, string][] = [
           <div class="lp-buy">
             <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/month</a>
             <span>No long-term contract. Start with one system and build from there.</span>
+            <a class="lp-solutions-link" href="/crm/solutions" data-solutions-link>See 72 ways Renegade CRM can help your business <span aria-hidden="true">→</span></a>
           </div>
 
           <div class="lp-assure" aria-label="Included with Renegade CRM">
@@ -169,6 +170,7 @@ const faqs: [string, string][] = [
               <h3>Put the first bottleneck on a system.</h3>
               <p>You do not need a huge implementation project. Start with one win, then build.</p>
               <a class="p-btn p-btn-primary p-btn-block" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
+              <a class="lp-offer-solutions" href="/crm/solutions" data-solutions-link>Explore all 72 business scenarios →</a>
               <small>Annual billing is available for $1,149. No long-term contract on the monthly plan.</small>
             </aside>
           </div>
@@ -246,6 +248,12 @@ const faqs: [string, string][] = [
         } catch (_) {}
       }
 
+      document.querySelectorAll('[data-solutions-link]').forEach((link) => {
+        const url = new URL(link.href);
+        carry.forEach((value, key) => url.searchParams.set(key, value));
+        link.href = url.toString();
+      });
+
       document.querySelectorAll('[data-checkout-trigger]').forEach((link) => {
         link.addEventListener('click', () => {
           if (typeof window.fbq === 'function') {
@@ -292,6 +300,8 @@ const faqs: [string, string][] = [
 
     .lp-buy{text-align:center;margin-top:28px}
     .lp-main-cta{min-width:min(100%,360px)}
+    .lp-solutions-link{display:inline-block;margin-top:14px;color:var(--p-gold);font-weight:700;text-decoration:underline;text-underline-offset:4px;font-size:15px}
+    .lp-offer-solutions{display:block;text-align:center;margin-top:16px;font-size:14px;color:#353535;text-decoration:underline;text-underline-offset:3px;font-weight:700}
     .lp-buy>span{display:block;margin-top:12px;font-size:14px;color:#999}
     .lp-assure{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin:24px auto 0;font-size:14px;color:#b7b7b7}
     .lp-assure span::before{content:'✓';color:var(--p-gold);font-weight:800;margin-right:7px}
