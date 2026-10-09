@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { brand } from '../../lib/site.js';
+import { solutionCategories, solutionScenarios } from '../../data/crmSolutions.js';
+
+const counts = Object.fromEntries(solutionCategories.map(category => [
+  category.key,
+  solutionScenarios.filter(item => item.category === category.key).length
+]));
+---
+
+<BaseLayout
+  title="Renegade CRM Business Solutions | What Can It Do for You?"
+  description="Explore 72 practical ways Renegade CRM can help organize contacts, follow up with leads, market consistently, manage appointments, and use AI-assisted tools."
+  canonical="https://gorenegades.com/crm/solutions"
+>
+  <div class="solutions">
+    <header class="sd-header">
+      <div class="sd-wrap sd-header-inner">
+        <a class="sd-brand" href="/crm/start" data-funnel-link aria-label="Marketing Renegades — return to CRM presentation">
+          <img src={brand.insignia} alt="" width="38" height="38" />
+          <span>Marketing <strong>Renegades</strong></span>
+        </a>
+        <a class="sd-header-cta" href="/crm/start#checkout" data-funnel-link>Get Renegade CRM · $99/mo <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="sd-hero">
+        <div class="sd-wrap">
+          <span class="sd-eyebrow">The Renegade Business Solutions Directory</span>
+          <h1>What would you like your business to <em>do better?</em></h1>
+          <p class="sd-intro">Maybe it's getting 7,000 contacts into one place. Maybe it's following up with a new lead before you forget. Or maybe it's finally getting your marketing on a schedule. Start with the problem. We'll show you a way to put the system to work.</p>
+          <div class="sd-hero-actions">
+            <a class="sd-primary" href="#explore">Explore the scenarios <span aria-hidden="true">↓</span></a>
+            <a class="sd-secondary" href="/crm/start" data-funnel-link>Watch the Renegade CRM presentation <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="sd-facts" aria-label="Directory overview">
+            <div><strong>{solutionScenarios.length}</strong><span>business scenarios</span></div>
+            <div><strong>{solutionCategories.length}</strong><span>areas to explore</span></div>
+            <div><strong>$99</strong><span>monthly CRM plan</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sd-main" id="explore" aria-labelledby="sd-explore-title">
+        <div class="sd-wrap">
+          <div class="sd-section-title">
+            <span class="sd-eyebrow">Find your next Renegade Win</span>
+            <h2 id="sd-explore-title">The problem probably has a solution.</h2>
+            <p>Search for a situation you're dealing with or choose an area below. Select any scenario to see how a connected system can help.</p>
+          </div>
+
+          <div class="sd-controls">
+            <label for="sd-search">Search by problem, task, or tool</label>
+            <div class="sd-searchbox">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input id="sd-search" type="search" placeholder="Try: Facebook leads, email, missed calls, AI…" autocomplete="off" />
+              <button type="button" id="sd-clear" class="sd-clear" hidden>Clear</button>
+            </div>
+            <div class="sd-categories" role="group" aria-label="Filter scenarios by category">
+              <button type="button" class="sd-filter active" aria-pressed="true" data-filter="all">All scenarios <span>{solutionScenarios.length}</span></button>
+              {solutionCategories.map(category => (
+                <button type="button" class="sd-filter" aria-pressed="false" data-filter={category.key}>{category.label} <span>{counts[category.key]}</span></button>
+              ))}
+            </div>
+            <div class="sd-results-line"><p id="sd-results" role="status" aria-live="polite">Showing all {solutionScenarios.length} scenarios</p><span>Choose a question to reveal the approach</span></div>
+          </div>
+
+          <div class="sd-grid" id="sd-grid">
+            {solutionScenarios.map((scenario, index) => (
+              <article class="sd-card" data-scenario data-category={scenario.category} data-search={[scenario.title,scenario.how,scenario.tools,solutionCategories.find(c => c.key === scenario.category)?.label].join(' ').toLowerCase()}>
+                <details>
+                  <summary>
+                    <span class="sd-card-top"><span class="sd-category">{solutionCategories.find(c => c.key === scenario.category)?.label}</span><span class="sd-index">#{String(index + 1).padStart(2, '0')}</span></span>
+                    <span class="sd-question">{scenario.title}</span>
+                    <span class="sd-expand" aria-hidden="true">+</span>
+                  </summary>
+                  <div class="sd-answer">
+                    <p>{scenario.how}</p>
+                    <div class="sd-feature">Tools involved: <strong>{scenario.tools}</strong></div>
+                    {scenario.access === 'ai' && <p class="sd-ai-note">AI features may require activation, configuration, a separate subscription, or usage charges.</p>}
+                  </div>
+                </details>
+              </article>
+            ))}
+          </div>
+          <div class="sd-empty" id="sd-empty" hidden>
+            <h3>Nothing matches that search just yet.</h3>
+            <p>Try a broader term, such as "contacts," "email," "follow-up," or "AI."</p>
+            <button type="button" id="sd-reset">Show all scenarios</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="sd-bridge">
+        <div class="sd-wrap sd-bridge-inner">
+          <div>
+            <span class="sd-eyebrow">Start simple. Build from there.</span>
+            <h2>You don't need to turn on 72 things.</h2>
+            <p>Pick one problem worth solving. Get that working. Then add the next system when it makes sense. That's what Renegade CRM and our practical playbooks are designed to help you do.</p>
+          </div>
+          <div class="sd-action-card">
+            <div class="sd-card-caption">The software + practical playbooks</div>
+            <div class="sd-price">$99<span>/month</span></div>
+            <p>Contacts, conversations, marketing, follow-up, calendars, and more — together in one business command center.</p>
+            <a class="sd-primary" href="/crm/start#checkout" data-funnel-link>Get Renegade CRM <span aria-hidden="true">→</span></a>
+            <a class="sd-secondary-dark" href="/crm/start" data-funnel-link>Watch the short presentation instead</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sd-fineprint">
+        <div class="sd-wrap">
+          <h2>Good to know before you start</h2>
+          <p>These are examples of what you can build using Renegade CRM's underlying platform and connected tools, not a promise that every workflow is already configured in your account. Features vary by plan, integration, channel permissions, and setup. AI services, phone numbers, calls, email and text messaging, payment processing, and some integrations may involve extra charges. We'll help you start with the capabilities that fit your plan and goals.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="sd-footer">
+      <div class="sd-wrap sd-footer-inner">
+        <span>Marketing Renegades · Powerful tools. Practical systems.</span>
+        <a href="/crm/start" data-funnel-link>Back to the Renegade CRM presentation ↑</a>
+      </div>
+    </footer>
+
+    <div class="sd-mobile-buy"><a href="/crm/start#checkout" data-funnel-link>Start Renegade CRM — $99/month →</a></div>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const input = document.getElementById('sd-search');
+      const clear = document.getElementById('sd-clear');
+      const reset = document.getElementById('sd-reset');
+      const cards = Array.from(document.querySelectorAll('[data-scenario]'));
+      const filters = Array.from(document.querySelectorAll('[data-filter]'));
+      const results = document.getElementById('sd-results');
+      const empty = document.getElementById('sd-empty');
+      let activeCategory = 'all';
+
+      function apply() {
+        const phrase = (input.value || '').toLocaleLowerCase().trim();
+        let visible = 0;
+        cards.forEach(card => {
+          const matches = (activeCategory === 'all' || card.dataset.category === activeCategory)
+            && (!phrase || card.dataset.search.includes(phrase));
+          card.hidden = !matches;
+          if (matches) visible++;
+        });
+        results.textContent = visible === cards.length && activeCategory === 'all' && !phrase
+          ? 'Showing all ' + visible + ' scenarios'
+          : 'Showing ' + visible + ' of ' + cards.length + ' scenarios';
+        empty.hidden = visible !== 0;
+        clear.hidden = phrase.length === 0;
+      }
+
+      filters.forEach(button => button.addEventListener('click', () => {
+        activeCategory = button.dataset.filter;
+        filters.forEach(filter => {
+          const selected = filter === button;
+          filter.classList.toggle('active', selected);
+          filter.setAttribute('aria-pressed', String(selected));
+        });
+        apply();
+      }));
+      input.addEventListener('input', apply);
+      function showAll() {
+        activeCategory = 'all';
+        input.value = '';
+        filters.forEach(filter => {
+          const selected = filter.dataset.filter === 'all';
+          filter.classList.toggle('active', selected);
+          filter.setAttribute('aria-pressed', String(selected));
+        });
+        apply();
+        input.focus();
+      }
+      clear.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+      reset.addEventListener('click', showAll);
+
+      // Keep ad attribution intact when the visitor returns to the VSL or checkout.
+      const params = new URLSearchParams(window.location.search);
+      const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+      document.querySelectorAll('[data-funnel-link]').forEach(link => {
+        const url = new URL(link.getAttribute('href'), window.location.origin);
+        keys.forEach(key => {
+          if (params.has(key)) url.searchParams.set(key, params.get(key));
+        });
+        link.href = url.pathname + url.search + url.hash;
+      });
+    })();
+  </script>
+
+  <style>
+    .solutions{background:#fff;color:#1c1c1c;font-family:Inter,Arial,sans-serif}
+    .sd-wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    .sd-header{background:#111;border-bottom:1px solid #333}
+    .sd-header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .sd-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;font-size:17px;font-weight:700;letter-spacing:-.025em}
+    .sd-brand img{object-fit:contain;width:38px;height:38px}
+    .sd-brand strong{color:#f4c20d}
+    .sd-header-cta{font-weight:750;text-decoration:none;color:#f4c20d;font-size:14px}
+    .sd-header-cta:hover,.sd-secondary:hover{ text-decoration:underline }
+    .sd-hero{background:#101010;color:#fff;padding:86px 0 65px;position:relative;overflow:hidden}
+    .sd-hero::before{content:'';pointer-events:none;position:absolute;inset:0;background:radial-gradient(60% 80% at 85% 10%,rgba(244,194,13,.12),transparent 73%)}
+    .sd-hero>.sd-wrap{position:relative}
+    .sd-eyebrow{text-transform:uppercase;letter-spacing:.11em;font-size:12px;font-weight:800;color:#c39505}
+    .sd-hero .sd-eyebrow,.sd-bridge .sd-eyebrow{color:#f4c20d}
+    .sd-hero h1{font-size:clamp(42px,6.2vw,74px);letter-spacing:-.055em;line-height:1.03;max-width:990px;margin:19px 0 23px;font-weight:850;color:#fff}
+    .sd-hero h1 em{font-style:normal;color:#f4c20d}
+    .sd-intro{font-size:clamp(17px,2vw,21px);line-height:1.65;max-width:820px;color:#d0d0d0;margin:0}
+    .sd-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:34px}
+    .sd-primary{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:50px;padding:12px 22px;border-radius:7px;text-decoration:none;background:#f4c20d;color:#121212;font-size:15px;font-weight:800}
+    .sd-primary:hover{background:#ffdc58}
+    .sd-secondary{font-size:14px;color:#eee;text-decoration:none;font-weight:650;padding:10px}
+    .sd-facts{display:flex;gap:64px;flex-wrap:wrap;border-top:1px solid #323232;margin-top:55px;padding-top:24px}
+    .sd-facts div{display:flex;flex-direction:column;gap:5px}
+    .sd-facts strong{font-size:30px;letter-spacing:-.04em;color:#fff}
+    .sd-facts span{color:#a9a9a9;font-size:13px}
+    .sd-main{padding:78px 0 98px;background:#faf9f6;scroll-margin-top:24px}
+    .sd-section-title{max-width:750px}
+    .sd-section-title h2{font-size:clamp(30px,4.5vw,52px);line-height:1.1;letter-spacing:-.045em;color:#171717;margin:12px 0 14px}
+    .sd-section-title p{font-size:17px;color:#555;line-height:1.7;margin:0}
+    .sd-controls{margin-top:34px}
+    .sd-controls>label{display:block;font-weight:700;margin-bottom:10px;font-size:14px}
+    .sd-searchbox{display:flex;align-items:center;gap:12px;max-width:750px;background:#fff;border:1px solid #c8c5bf;border-radius:9px;padding:0 16px;color:#777}
+    .sd-searchbox:focus-within{outline:3px solid rgba(244,194,13,.4);border-color:#9b7800}
+    .sd-searchbox input{height:57px;border:0;outline:0;background:transparent;width:100%;font-size:16px;min-width:0;color:#171717}
+    .sd-clear{padding:7px 10px;border:0;cursor:pointer;background:#eceae4;border-radius:5px;color:#222;font-size:12px;font-weight:750}
+    .sd-categories{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0 20px}
+    .sd-filter{cursor:pointer;border:1px solid #ddd9d0;background:#fff;padding:10px 13px;border-radius:6px;font-size:13px;font-weight:650;color:#333;display:flex;align-items:center;gap:8px}
+    .sd-filter span{font-size:11px;color:#777;font-weight:700}
+    .sd-filter:hover{border-color:#9c8b53}
+    .sd-filter.active{background:#1b1b1b;color:#fff;border-color:#1b1b1b}
+    .sd-filter.active span{color:#f4c20d}
+    .sd-results-line{border-top:1px solid #dcd9d2;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .sd-results-line p{font-size:14px;font-weight:700;color:#282828;margin:0}
+    .sd-results-line>span{font-size:13px;color:#777}
+    .sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .sd-card{background:#fff;border:1px solid #e0ddd5;border-radius:10px;overflow:hidden;align-self:start}
+    .sd-card[hidden]{display:none!important}
+    .sd-card:has(details[open]){border-color:#b69b43;box-shadow:0 12px 28px rgba(0,0,0,.06)}
+    .sd-card summary{list-style:none;cursor:pointer;position:relative;padding:23px 54px 24px 23px;min-height:114px;display:flex;flex-direction:column;gap:12px}
+    .sd-card summary::-webkit-details-marker{display:none}
+    .sd-card summary:focus-visible{outline:3px solid #e2b51a;outline-offset:-4px}
+    .sd-card-top{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;color:#8a6b00;text-transform:uppercase;letter-spacing:.06em}
+    .sd-index{color:#aaa;font-size:11px}
+    .sd-question{font-size:17px;line-height:1.45;letter-spacing:-.01em;font-weight:750;color:#171717}
+    .sd-expand{position:absolute;right:21px;top:44px;font-size:25px;color:#998038;font-weight:400;transition:transform .2s}
+    details[open] .sd-expand{transform:rotate(45deg)}
+    .sd-answer{border-top:1px solid #efede6;padding:18px 23px 23px}
+    .sd-answer>p{font-size:15px;color:#484848;line-height:1.65;margin:0 0 15px}
+    .sd-feature{font-size:12.5px;color:#6e6e6e}
+    .sd-feature strong{color:#1d1d1d}
+    .sd-answer .sd-ai-note{border-left:3px solid #c4ad65;padding-left:11px;font-size:12.5px;color:#666;margin:16px 0 0}
+    .sd-empty[hidden]{display:none}
+    .sd-empty{background:#fff;border:1px solid #e2ded5;border-radius:10px;padding:36px;text-align:center;margin-top:10px}
+    .sd-empty h3{font-size:24px;margin:0 0 10px}
+    .sd-empty p{color:#666;margin-bottom:15px}
+    .sd-empty button{background:#1c1c1c;color:#fff;border:0;border-radius:5px;padding:12px 16px;cursor:pointer}
+    .sd-bridge{background:#171717;color:#fff;padding:75px 0}
+    .sd-bridge-inner{display:grid;grid-template-columns:1fr .8fr;gap:70px;align-items:center}
+    .sd-bridge h2{font-size:clamp(36px,5vw,58px);line-height:1.06;letter-spacing:-.05em;margin:13px 0 22px;color:#fff}
+    .sd-bridge p{color:#c6c6c6;font-size:17px;line-height:1.7}
+    .sd-action-card{background:#fff;border-radius:12px;color:#171717;padding:34px;border-top:5px solid #f4c20d}
+    .sd-card-caption{font-size:12px;color:#9d7700;text-transform:uppercase;font-weight:800;letter-spacing:.06em}
+    .sd-price{font-size:64px;font-weight:850;letter-spacing:-.06em;margin-top:9px;line-height:1.1}
+    .sd-price span{font-size:16px;font-weight:650;color:#777;letter-spacing:0}
+    .sd-action-card p{color:#555;font-size:15px;line-height:1.65;margin:15px 0 23px}
+    .sd-action-card .sd-primary{display:flex;width:100%}
+    .sd-secondary-dark{display:block;text-align:center;text-decoration:underline;color:#555;font-size:13px;margin:18px 0 0}
+    .sd-fineprint{padding:50px 0;background:#f6f4ef}
+    .sd-fineprint .sd-wrap{max-width:900px}
+    .sd-fineprint h2{font-size:19px;margin:0 0 10px;letter-spacing:-.02em}
+    .sd-fineprint p{font-size:14px;line-height:1.75;color:#565656;margin:0}
+    .sd-footer{background:#0f0f0f;color:#aaa;padding:27px 0}
+    .sd-footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+    .sd-footer a{color:#e2c55c;text-decoration:none}
+    .sd-mobile-buy{display:none}
+    @media(max-width:800px){
+      .sd-bridge-inner{grid-template-columns:1fr;gap:30px}
+      .sd-grid{grid-template-columns:1fr}
+      .sd-hero{padding:65px 0 48px}
+      .sd-main{padding:54px 0 65px}
+      .sd-facts{gap:38px}
+    }
+    @media(max-width:560px){
+      .sd-wrap{width:calc(100% - 32px)}
+      .sd-header-inner{min-height:62px;gap:12px}
+      .sd-brand{font-size:14px;gap:7px}
+      .sd-brand img{width:31px;height:31px}
+      .sd-header-cta{font-size:12px}
+      .sd-header-cta span{display:none}
+      .sd-hero h1{font-size:44px}
+      .sd-hero-actions .sd-primary{width:100%}
+      .sd-facts{gap:28px}
+      .sd-facts strong{font-size:25px}
+      .sd-controls{margin-top:26px}
+      .sd-categories{flex-wrap:nowrap;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
+      .sd-filter{white-space:nowrap}
+      .sd-results-line>span{display:none}
+      .sd-bridge{padding:55px 0}
+      .sd-action-card{padding:26px}
+      .sd-footer{padding-bottom:86px}
+      .sd-mobile-buy{display:block;position:fixed;z-index:30;bottom:0;left:0;right:0;padding:11px 14px;background:#111;box-shadow:0 -6px 20px #0003}
+      .sd-mobile-buy a{display:block;text-align:center;border-radius:5px;background:#f4c20d;color:#111;font-size:14px;font-weight:800;text-decoration:none;padding:13px 8px}
+    }
+    @media(prefers-reduced-motion:reduce){.sd-expand{transition:none}}
+  </style>
+</BaseLayout>
