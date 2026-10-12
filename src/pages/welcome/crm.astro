@@ -1,5 +1,6 @@
 ---
-// Thank-you page for Renegade CRM purchases (enroll.gorenegades.com funnel). Unlisted.
+// Thank-you page for Renegade CRM purchases. Unlisted — reached via post-purchase
+// redirect from the HighLevel order form (used by /crm/start checkout).
 import WelcomeThanks from "../../components/WelcomeThanks.astro";
 const steps = [
   {
@@ -36,3 +37,19 @@ const note = [
     cta: ["See Renegade Academy", "/academy"],
   }}
 />
+
+<script is:inline>
+  // Fire the Meta Purchase event once per buyer session. The checkout itself
+  // lives in a cross-domain HighLevel iframe, so the pixel can't see the sale —
+  // this thank-you page (the order form's post-purchase redirect target) is
+  // where the conversion gets recorded.
+  (() => {
+    try {
+      if (sessionStorage.getItem('rgm_purchase_tracked')) return;
+      sessionStorage.setItem('rgm_purchase_tracked', '1');
+    } catch (e) {}
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Purchase', { value: 99.0, currency: 'USD' });
+    }
+  })();
+</script>
