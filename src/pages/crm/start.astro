@@ -20,16 +20,18 @@ const faqs: [string, string][] = [
   ['What exactly is Renegade CRM?', 'It is an all-in-one business command center for contacts, conversations, follow-up, email, text, calendars, forms, funnels, reviews, social tools and simple automation. It also includes Renegade playbooks that show you practical ways to put the system to work.'],
   ['What do I get for $99 a month?', 'You get Renegade CRM software, the Renegade playbooks, templates and examples, plus access to the Renegade Community and Power Hours.'],
   ['Do I need to use everything?', 'No. In fact, you should not. Start with the one bottleneck that is costing you the most opportunities, get that working, then add the next system when it makes sense.'],
-  ['Do I need to be technical?', 'No. The goal is practical use, not building complicated software projects. The playbooks are designed to help business owners turn on one useful system at a time.'],
+  ['Do I need to be technical?', 'No. The goal is practical use, not building complicated software projects. The playbooks are designed to help business owners turn on one useful system at a time, and the AI employees come with a step-by-step setup manual \u2014 if you can follow simple instructions, you can run your whole AI team.'],
   ['Is there a contract?', 'No. The monthly plan is $99 per month and you can cancel before your next billing date.'],
   ['Is there an annual option?', 'Yes. You can pay $1,149 for the year if you prefer annual billing.'],
-  ['What if I want help setting everything up?', 'Renegade Academy adds live implementation and guidance. Renegade CRM is the self-serve option for entrepreneurs who want the software, playbooks and community without joining the full Academy.']
+  ['What if I want help setting everything up?', 'Renegade Academy adds live implementation and guidance. Renegade CRM is the self-serve option for entrepreneurs who want the software, playbooks and community without joining the full Academy.'],
+  ['Why not just buy GoHighLevel directly?', 'You could \u2014 Renegade CRM runs on that same world-class engine. What you are really buying is everything around it: the AI employees pre-configured, the playbooks that tell you what to switch on first, the community, and the weekly Power Hours. They hand you a toolbox and wish you luck. We hand you the team that already knows how to use it.'],
+  ['Are there any costs beyond $99/month?', 'Just AI usage. Your $99 covers the command center, playbooks, templates, community, and Power Hours. The AI agents bill per use \u2014 a quiet month costs you almost nothing extra, and a busy month means the team earned it. And if you would rather build it all with us instead of following the manual solo, that is exactly what Renegade Academy is for.']
 ];
 ---
 
 <BaseLayout
-  title="Renegade CRM | You Bring the Voice. We Bring the System."
-  description="Connected tools, AI and practical playbooks to help entrepreneurs reach more people, build stronger relationships and turn interest into opportunity. Renegade CRM — $99/month."
+  title="Renegade CRM | Meet Your AI Team — $99/mo"
+  description="Meet your AI team: four AI employees that answer every lead in seconds, follow up relentlessly, book appointments, and collect reviews. Renegade CRM — $99/mo."
 >
   <div class="lp">
     <header class="lp-top">
@@ -47,16 +49,16 @@ const faqs: [string, string][] = [
         <HeroVideo />
         <div class="p-wrap lp-hero-in">
           <div class="lp-hero-copy">
-            <span class="p-eyebrow">Practical systems. Built for entrepreneurs.</span>
-            <h1>You've got a song to sing.<br /><span>You just need the masses to hear it.</span></h1>
-            <p class="lp-lead">You bring the voice. Renegade CRM brings the system to amplify it — connected tools, AI and practical playbooks to help you reach more people, build stronger relationships and turn interest into opportunity.</p>
+            <span class="p-eyebrow">Your AI workforce · $99/mo</span>
+            <h1>Stop losing deals to <span>whoever follows up first.</span></h1>
+            <p class="lp-lead">Meet your AI team: the Responder, the Follow-Up Specialist, the Receptionist, and the Review Collector. They answer every lead in seconds, follow up relentlessly, and never forget. A human team doing this costs around $13,000 a month. Yours is $99/mo — no technical skill needed, just follow the setup manual.</p>
           </div>
 
           {vslEmbedUrl && <div class="lp-vsl-wrap"><div class="lp-vsl"><iframe src={vslEmbedUrl} title="Renegade CRM overview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe></div></div>}
 
           <div class="lp-buy">
-            <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/month</a>
-            <span>No long-term contract. Start with one system and build from there.</span>
+            <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Hire My AI Team — $99/mo</a>
+            <span>No long-term contract. AI usage billed per use.</span>
             <a class="lp-solutions-link" href="/crm/solutions" data-solutions-link>See 72 ways Renegade CRM can help your business <span aria-hidden="true">→</span></a>
             <a class="lp-solutions-link lp-compare-link" href="/crm/compare" data-solutions-link>Compare Renegade CRM with other platforms <span aria-hidden="true">→</span></a>
           </div>
@@ -130,7 +132,7 @@ const faqs: [string, string][] = [
             <p class="lp-copy">You can start small: one useful playbook, one working system, one less thing depending on memory.</p>
           </div>
           <div class="lp-playbook-card">
-            <span class="lp-card-label">Example Renegade Wins</span>
+            <span class="lp-card-label">What you'll switch on first</span>
             <ul>
               <li>Import your contacts and organize your database</li>
               <li>Send your first email to your list</li>
@@ -155,6 +157,11 @@ const faqs: [string, string][] = [
             <div class="lp-offer-copy">
               <div class="lp-offer-name">Renegade CRM</div>
               <div class="lp-offer-price"><strong>$99</strong><span>/month</span></div>
+              <div class="lp-stack">
+                <div><span>A human team covering follow-up, reception &amp; reviews</span><strong>~$13,000/mo</strong></div>
+                <div><span>Typical all-in-one platforms</span><strong>$297/mo</strong></div>
+                <div class="lp-stack-you"><span>Renegade CRM founding-member price — locked for life</span><strong>$99/mo</strong></div>
+              </div>
               <ul>
                 <li>CRM, contacts and pipelines</li>
                 <li>Email and two-way text</li>
@@ -170,13 +177,18 @@ const faqs: [string, string][] = [
               <span class="lp-card-label">Start here</span>
               <h3>Put the first bottleneck on a system.</h3>
               <p>You do not need a huge implementation project. Start with one win, then build.</p>
-              <a class="p-btn p-btn-primary p-btn-block" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
+              <a class="p-btn p-btn-primary p-btn-block" href="#checkout" data-checkout-trigger>Hire My AI Team — $99/mo</a>
               <a class="lp-offer-solutions" href="/crm/solutions" data-solutions-link>Explore all 72 business scenarios →</a>
               <small>Annual billing is available for $1,149. No long-term contract on the monthly plan.</small>
             </aside>
           </div>
 
-          <div class="lp-checkout" id="checkout">
+          <div class="lp-guarantee">
+              <strong>Love it or leave it.</strong>
+              <p>If Renegade CRM hasn't earned its place in your business within 30 days, cancel in one click and never pay another dime. No contract, no hard feelings.</p>
+            </div>
+
+            <div class="lp-checkout" id="checkout">
             <div class="lp-checkout-head">
               <span class="p-eyebrow">Activate your membership</span>
               <h2>Choose monthly or annual and finish right here.</h2>
@@ -225,7 +237,7 @@ const faqs: [string, string][] = [
     </footer>
 
     <div class="lp-mobile-cta">
-      <a href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
+      <a href="#checkout" data-checkout-trigger>Hire My AI Team — $99/mo</a>
     </div>
   </div>
 
@@ -373,6 +385,15 @@ const faqs: [string, string][] = [
     .lp-footer .p-wrap{display:flex;justify-content:space-between;gap:18px;font-size:13px}
     .lp-footer strong{color:#aaa}
 
+    .lp-stack{margin-top:22px;display:grid;gap:10px}
+    .lp-stack>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px;color:#bdbdbd}
+    .lp-stack strong{color:#fff;font-weight:800;white-space:nowrap}
+    .lp-stack-you{border:1px solid var(--p-gold);border-radius:12px;padding:14px 16px!important;background:rgba(244,194,13,.07)}
+    .lp-stack-you strong{color:var(--p-gold);font-size:20px}
+    .lp-stack-you span{color:#fff;font-weight:700}
+    .lp-guarantee{max-width:760px;margin:56px auto 0;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:34px 30px;background:#141414}
+    .lp-guarantee strong{font-size:26px;color:var(--p-gold);letter-spacing:-.02em}
+    .lp-guarantee p{margin-top:12px;font-size:17px;line-height:1.6;color:#d4d4d4}
     .lp-mobile-cta{display:none}
 
     @media(max-width:850px){
