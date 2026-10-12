@@ -31,7 +31,7 @@ const faqs: [string, string][] = [
 
 <BaseLayout
   title="Renegade CRM | Meet Your AI Team — $99/mo"
-  description="Meet your AI team: four AI employees that answer every lead in seconds, follow up relentlessly, book appointments, and collect reviews. Renegade CRM — $99/mo."
+  description="Renegade CRM organizes your business with a built-in AI team: AI agents answer every lead in seconds, follow up, book appointments, and collect reviews. $99/mo."
 >
   <div class="lp">
     <header class="lp-top">
@@ -51,53 +51,56 @@ const faqs: [string, string][] = [
           <div class="lp-hero-copy">
             <span class="p-eyebrow">Built for solopreneurs · $99/mo</span>
             <h1>More business. <span>Less chaos.</span></h1>
-            <p class="lp-lead">Renegade CRM organizes your business and puts a 4-person AI team to work on it — the Responder, the Follow-Up Specialist, the Receptionist, and the Review Collector. They answer leads, follow up, book appointments, and collect reviews while you do the work you actually like. $99/mo. No technical skill needed.</p>
           </div>
 
           {vslEmbedUrl && <div class="lp-vsl-wrap"><div class="lp-vsl"><iframe src={vslEmbedUrl} title="Renegade CRM overview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe></div></div>}
 
           <div class="lp-buy">
             <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Hire My AI Team — $99/mo</a>
-            <span>No long-term contract. AI usage billed per use.</span>
-            <a class="lp-solutions-link" href="/crm/solutions" data-solutions-link>See 72 ways Renegade CRM can help your business <span aria-hidden="true">→</span></a>
-            <a class="lp-solutions-link lp-compare-link" href="/crm/compare" data-solutions-link>Compare Renegade CRM with other platforms <span aria-hidden="true">→</span></a>
           </div>
+        </div>
+      </section>
 
-          <div class="lp-assure" aria-label="Included with Renegade CRM">
+      <section class="lp-sec lp-intro">
+        <div class="p-narrow">
+          <p class="lp-intro-lead">Renegade CRM organizes your business — with a built-in AI team included. AI agents answer your leads, follow up, book appointments, and collect reviews while you focus on the work you actually like. $99/mo. No technical skill needed.</p>
+          <div class="lp-intro-points">
             <span>All-in-one CRM + follow-up</span>
             <span>Step-by-step playbooks</span>
             <span>Community + Power Hours included</span>
           </div>
+          <p class="lp-intro-micro">No long-term contract. AI usage billed per use.</p>
+          <p class="lp-intro-links"><a href="/crm/solutions" data-solutions-link>See 72 ways Renegade CRM can help your business →</a><a href="/crm/compare" data-solutions-link>Compare Renegade CRM with other platforms →</a></p>
         </div>
       </section>
 
       <section class="lp-sec lp-problem">
         <div class="p-wrap">
           <div class="lp-section-head">
-            <span class="p-eyebrow">The real bottleneck</span>
-            <h2>Your business is all over the place.</h2>
-            <p>You don't need more ideas, contacts, or tools. You need your business organized — every lead answered, every relationship followed up, every opportunity caught.</p>
+            <span class="p-eyebrow">What is Renegade CRM?</span>
+            <h2>Everything you need to get more business. In one place.</h2>
+            <p>Renegade CRM is the system you run your marketing from — your contacts, follow-up, booking, and reviews organized in one place, with a built-in AI team and step-by-step playbooks doing the work for you.</p>
           </div>
 
           <div class="lp-three">
             <article>
               <span>01</span>
-              <h3>The lead came in.</h3>
-              <p>Then the day got busy and the follow-up became another tab, note or good intention.</p>
+              <h3>The command center.</h3>
+              <p>Every contact, conversation, pipeline, and calendar in one organized place. Nothing lives on sticky notes or in your head anymore.</p>
             </article>
             <article>
               <span>02</span>
-              <h3>The database exists.</h3>
-              <p>But staying in touch with everyone consistently keeps getting pushed to next week.</p>
+              <h3>The AI team.</h3>
+              <p>Built-in AI agents answer leads in seconds, follow up relentlessly, book appointments, and collect reviews — 24/7, while you work.</p>
             </article>
             <article>
               <span>03</span>
-              <h3>The opportunity was there.</h3>
-              <p>But the system that should have caught it depended on memory, timing or manual effort.</p>
+              <h3>The playbooks.</h3>
+              <p>Step-by-step systems for every job that brings in business. You always know exactly what to switch on next.</p>
             </article>
           </div>
 
-          <div class="lp-quote">Renegade CRM organizes the chaos — and puts an AI team on it.</div>
+          <div class="lp-quote">One system. One team. One price — $99/mo.</div>
         </div>
       </section>
 
@@ -394,6 +397,14 @@ const faqs: [string, string][] = [
     .lp-guarantee{max-width:760px;margin:56px auto 0;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:34px 30px;background:#141414}
     .lp-guarantee strong{font-size:26px;color:var(--p-gold);letter-spacing:-.02em}
     .lp-guarantee p{margin-top:12px;font-size:17px;line-height:1.6;color:#d4d4d4}
+    .lp-intro{padding:72px 0 80px;text-align:center}
+    .lp-intro-lead{font-size:clamp(20px,2.6vw,26px);line-height:1.6;color:#1f1f1f;max-width:840px;margin:0 auto;font-weight:500}
+    .lp-intro-points{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin:26px auto 0;font-size:15px;color:#555;font-weight:600}
+    .lp-intro-points span::before{content:'\2713';color:#8a6d00;font-weight:800;margin-right:7px}
+    .lp-intro-micro{margin-top:18px;font-size:14px;color:#999}
+    .lp-intro-links{margin-top:14px;font-size:15px}
+    .lp-intro-links a{color:#8a6d00;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+    .lp-intro-links a+a{margin-left:22px}
     .lp-emp{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#8a6d00;margin-top:8px}
     .lp-mobile-cta{display:none}
 
