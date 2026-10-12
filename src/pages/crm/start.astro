@@ -9,10 +9,10 @@ const vslEmbedUrl = '';
 
 const outcomes = [
   ['Keep every opportunity in view', 'Leads, customers, prospects and referral partners live in one organized system instead of notes, inboxes and memory.'],
-  ['Follow up without carrying it in your head', 'Use email, text and simple automations so important conversations keep moving even when the day gets busy.'],
-  ['Stay visible to the people you already know', 'Keep your database warm with repeatable communication instead of starting from zero every month.'],
-  ['Turn happy customers into more business', 'Build review and referral requests into the process so they happen more consistently.'],
-  ['Respond faster when new leads appear', 'Missed-call text back, lead follow-up and booking tools help reduce the gap between interest and response.'],
+  ['Follow up without carrying it in your head', 'Use email, text and simple automations so important conversations keep moving even when the day gets busy.', 'The Follow-Up Specialist'],
+  ['Stay visible to the people you already know', 'Keep your database warm with repeatable communication instead of starting from zero every month.', 'The Follow-Up Specialist'],
+  ['Turn happy customers into more business', 'Build review and referral requests into the process so they happen more consistently.', 'The Review Collector'],
+  ['Respond faster when new leads appear', 'Missed-call text back, lead follow-up and booking tools help reduce the gap between interest and response.', 'The Responder'],
   ['Run more from one place', 'Contacts, conversations, calendars, forms, funnels, social tools and AI live inside the same command center.']
 ];
 
@@ -49,9 +49,9 @@ const faqs: [string, string][] = [
         <HeroVideo />
         <div class="p-wrap lp-hero-in">
           <div class="lp-hero-copy">
-            <span class="p-eyebrow">Your AI workforce · $99/mo</span>
-            <h1>Stop losing deals to <span>whoever follows up first.</span></h1>
-            <p class="lp-lead">Meet your AI team: the Responder, the Follow-Up Specialist, the Receptionist, and the Review Collector. They answer every lead in seconds, follow up relentlessly, and never forget. A human team doing this costs around $13,000 a month. Yours is $99/mo — no technical skill needed, just follow the setup manual.</p>
+            <span class="p-eyebrow">Built for solopreneurs · $99/mo</span>
+            <h1>More business. <span>Less chaos.</span></h1>
+            <p class="lp-lead">Renegade CRM organizes your business and puts a 4-person AI team to work on it — the Responder, the Follow-Up Specialist, the Receptionist, and the Review Collector. They answer leads, follow up, book appointments, and collect reviews while you do the work you actually like. $99/mo. No technical skill needed.</p>
           </div>
 
           {vslEmbedUrl && <div class="lp-vsl-wrap"><div class="lp-vsl"><iframe src={vslEmbedUrl} title="Renegade CRM overview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe></div></div>}
@@ -75,8 +75,8 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <div class="lp-section-head">
             <span class="p-eyebrow">The real bottleneck</span>
-            <h2>You probably don't need more things to remember.</h2>
-            <p>Most entrepreneurs already have plenty of ideas, contacts, tools and opportunities. The problem is that too much of the business still depends on someone remembering what to do next.</p>
+            <h2>Your business is all over the place.</h2>
+            <p>You don't need more ideas, contacts, or tools. You need your business organized — every lead answered, every relationship followed up, every opportunity caught.</p>
           </div>
 
           <div class="lp-three">
@@ -97,7 +97,7 @@ const faqs: [string, string][] = [
             </article>
           </div>
 
-          <div class="lp-quote">Renegade CRM is built to make more of those things happen anyway.</div>
+          <div class="lp-quote">Renegade CRM organizes the chaos — and puts an AI team on it.</div>
         </div>
       </section>
 
@@ -110,11 +110,11 @@ const faqs: [string, string][] = [
           </div>
 
           <div class="lp-outcomes">
-            {outcomes.map(([title, text]) => (
+            {outcomes.map(([title, text, emp]) => (
               <article class="lp-outcome">
                 <div class="lp-check">✓</div>
                 <div>
-                  <h3>{title}</h3>
+                  <h3>{title}{emp && <span class="lp-emp">{emp}</span>}</h3>
                   <p>{text}</p>
                 </div>
               </article>
@@ -149,7 +149,7 @@ const faqs: [string, string][] = [
         <div class="p-wrap">
           <div class="lp-section-head">
             <span class="p-eyebrow">The offer</span>
-            <h2>One command center. One price.</h2>
+            <h2>One team. One price.</h2>
             <p>Use the pieces that solve a problem now. Add the rest when they earn their place.</p>
           </div>
 
@@ -160,7 +160,7 @@ const faqs: [string, string][] = [
               <div class="lp-stack">
                 <div><span>A human team covering follow-up, reception &amp; reviews</span><strong>~$13,000/mo</strong></div>
                 <div><span>Typical all-in-one platforms</span><strong>$297/mo</strong></div>
-                <div class="lp-stack-you"><span>Renegade CRM founding-member price — locked for life</span><strong>$99/mo</strong></div>
+                <div class="lp-stack-you"><span>Renegade CRM founding-member price — locked for life, available during launch</span><strong>$99/mo</strong></div>
               </div>
               <ul>
                 <li>CRM, contacts and pipelines</li>
@@ -175,7 +175,7 @@ const faqs: [string, string][] = [
             </div>
             <aside class="lp-offer-action">
               <span class="lp-card-label">Start here</span>
-              <h3>Put the first bottleneck on a system.</h3>
+              <h3>Your AI team is one click away.</h3>
               <p>You do not need a huge implementation project. Start with one win, then build.</p>
               <a class="p-btn p-btn-primary p-btn-block" href="#checkout" data-checkout-trigger>Hire My AI Team — $99/mo</a>
               <a class="lp-offer-solutions" href="/crm/solutions" data-solutions-link>Explore all 72 business scenarios →</a>
@@ -394,6 +394,7 @@ const faqs: [string, string][] = [
     .lp-guarantee{max-width:760px;margin:56px auto 0;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:34px 30px;background:#141414}
     .lp-guarantee strong{font-size:26px;color:var(--p-gold);letter-spacing:-.02em}
     .lp-guarantee p{margin-top:12px;font-size:17px;line-height:1.6;color:#d4d4d4}
+    .lp-emp{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#8a6d00;margin-top:8px}
     .lp-mobile-cta{display:none}
 
     @media(max-width:850px){
