@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const included = [
+  ['Account configured', 'Your Renegade CRM set up with your business info and branding.'],
+  ['Contacts imported', 'Up to 1,000 contacts imported from your CSV or spreadsheet.'],
+  ['Pipeline built', 'The standard Renegade sales pipeline configured for your business.'],
+  ['AI team activated', 'Responder, Follow-Up Specialist, Receptionist, and Review Collector configured and live.'],
+  ['Speed-to-lead, live', 'Missed-call text-back and instant new-lead response switched on.'],
+  ['Review engine connected', 'Automated review requests linked to your Google profile.'],
+  ['Booking calendar set up', 'One appointment calendar configured and connected.'],
+  ['Follow-up sequences loaded', 'The core Renegade follow-up playbooks switched on.'],
+  ['A2P texting registration', 'Your business carrier verification submitted — the part that trips up nearly everyone.'],
+];
+
+const excluded = [
+  'Custom workflows beyond the standard Renegade playbooks',
+  'Copywriting beyond the proven templates',
+  'Website or funnel builds',
+  'Ongoing changes or management after handoff — that\u2019s what Renegade Academy is for',
+  'Additional businesses or locations (one business per setup)',
+];
+
+const steps = [
+  ['01', 'Fill out the intake form', 'Business details for your A2P registration, your Google review link, and your contact file — within 7 days of purchase. While you do that, grab our step-by-step guides and connect your own social accounts (Facebook, Instagram, Google Business Profile). We never see your logins.'],
+  ['02', 'We build everything', 'Within 5 business days of receiving your intake, your entire system is configured: contacts in, pipelines built, AI team live, A2P submitted.'],
+  ['03', 'Walkthrough & handoff', 'One 30-minute call: we verify your connections, show you the finished system, and answer your questions. Includes one round of minor fixes within 7 days of handoff — then it\u2019s yours.'],
+];
+---
+
+<BaseLayout
+  title="Done-For-You Setup — Renegade CRM"
+  description="Our team sets up your entire Renegade CRM for a one-time $399: contacts imported, pipelines built, AI team activated, A2P texting registered. You approve it on a 30-minute walkthrough."
+>
+  <div class="su">
+    <main>
+      <section class="su-hero">
+        <div class="p-wrap su-hero-in">
+          <span class="p-eyebrow">Done-for-you service · $399 one-time</span>
+          <h1>We Set Up Your Entire System <span>For You.</span></h1>
+          <p class="su-lead">Don&rsquo;t spend your weekend configuring software. Our team builds your whole Renegade CRM — contacts, pipelines, AI team, texting registration — and you approve the finished system on a single 30-minute walkthrough.</p>
+          <div class="su-buy">
+            <a class="p-btn p-btn-primary" href="/crm/start#checkout">Get Renegade CRM + Setup</a>
+            <span>One payment of $399. Never billed again.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="su-sec">
+        <div class="p-wrap">
+          <div class="su-head">
+            <span class="p-eyebrow">What&rsquo;s included</span>
+            <h2>Everything handled, down to the paperwork.</h2>
+          </div>
+          <div class="su-grid">
+            {included.map(([t, d]) => (
+              <article class="su-card">
+                <h3>{t}</h3>
+                <p>{d}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="su-sec su-alt">
+        <div class="p-narrow">
+          <span class="p-eyebrow">What&rsquo;s not included</span>
+          <h2>A clear fence keeps this fast.</h2>
+          <p class="su-sub">This is a setup service, not an open-ended customization engagement. The boundaries below are what let us deliver in days instead of months.</p>
+          <ul class="su-fence">
+            {excluded.map((e) => (
+              <li>{e}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section class="su-sec">
+        <div class="p-wrap">
+          <div class="su-head">
+            <span class="p-eyebrow">How it works</span>
+            <h2>Three steps. No password-sharing, ever.</h2>
+          </div>
+          <div class="su-steps">
+            {steps.map(([n, t, d]) => (
+              <article>
+                <span>{n}</span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+              </article>
+            ))}
+          </div>
+          <div class="su-promise">
+            <h3>We will never ask for your passwords. Ever.</h3>
+            <p>Social accounts connect via secure OAuth that you complete yourself with our step-by-step guides. DNS records we prepare, you paste at your registrar. Nothing of yours ever sits in our hands — by design, not by trust.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="su-final">
+        <div class="p-narrow">
+          <span class="p-eyebrow">Renegade CRM · Done-for-you setup</span>
+          <h2>Your system, built for you, ready for leads.</h2>
+          <p>One payment of $399. A consultant would charge $2,000+ for the same work.</p>
+          <a class="p-btn p-btn-primary" href="/crm/start#checkout">Get Renegade CRM + Setup</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="su-footer">
+      <div class="p-wrap">
+        <strong>Marketing Renegades</strong>
+        <span>Practical systems. Built for entrepreneurs.</span>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    .su{background:#fff;color:#1f1f1f}
+    .su-hero{background:#0b0b0b;color:#fff;padding:96px 0 84px;text-align:center}
+    .su-hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.08;letter-spacing:-.02em;margin:18px auto 0;max-width:820px;font-weight:800}
+    .su-hero h1 span{color:#f4c20d}
+    .su-lead{font-size:clamp(17px,2.2vw,21px);line-height:1.65;color:#c9c9c9;max-width:700px;margin:22px auto 0}
+    .su-buy{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:12px}
+    .su-buy span{font-size:14px;color:#999}
+    .su-sec{padding:88px 0}
+    .su-alt{background:#f7f5ef}
+    .su-head{text-align:center;max-width:720px;margin:0 auto 48px}
+    .su-head h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-.02em;margin:14px 0 0;font-weight:800}
+    .su-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .su-card{border:1px solid #e8e4d8;border-radius:14px;padding:24px;background:#fff}
+    .su-card h3{font-size:17px;margin:0 0 8px;font-weight:800}
+    .su-card h3::before{content:'\2713';color:#8a6d00;font-weight:800;margin-right:8px}
+    .su-card p{margin:0;font-size:15px;line-height:1.6;color:#555}
+    .su-sub{font-size:17px;line-height:1.65;color:#555;margin:16px auto 0;max-width:640px}
+    .su-fence{list-style:none;margin:32px auto 0;padding:0;max-width:640px;display:grid;gap:12px;text-align:left}
+    .su-fence li{font-size:16px;color:#555;padding-left:28px;position:relative}
+    .su-fence li::before{content:'\2715';position:absolute;left:0;color:#b00;font-weight:800}
+    .su-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:56px}
+    .su-steps article{border:1px solid #e8e4d8;border-radius:14px;padding:28px 24px;background:#fff}
+    .su-steps span{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.08em;color:#8a6d00;border:1px solid #e8d98a;background:#fdf6dd;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+    .su-steps h3{font-size:19px;margin:0 0 10px;font-weight:800}
+    .su-steps p{margin:0;font-size:15px;line-height:1.65;color:#555}
+    .su-promise{background:#0b0b0b;color:#fff;border-radius:16px;padding:44px 40px;text-align:center;max-width:860px;margin:0 auto}
+    .su-promise h3{font-size:clamp(22px,3vw,30px);margin:0 0 14px;font-weight:800;color:#f4c20d}
+    .su-promise p{margin:0 auto;font-size:16px;line-height:1.7;color:#c9c9c9;max-width:640px}
+    .su-final{background:#0b0b0b;color:#fff;padding:96px 0;text-align:center}
+    .su-final h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.02em;margin:14px 0 0;font-weight:800}
+    .su-final p{color:#c9c9c9;font-size:18px;margin:16px 0 32px}
+    .su-footer{padding:36px 0;border-top:1px solid #eee}
+    .su-footer .p-wrap{display:flex;align-items:baseline;gap:14px;justify-content:center;flex-wrap:wrap}
+    .su-footer span{color:#999;font-size:14px}
+    @media(max-width:900px){.su-grid,.su-steps{grid-template-columns:1fr}}
+    @media(max-width:640px){.su-sec{padding:64px 0}.su-promise{padding:36px 24px}}
+  </style>
+</BaseLayout>
