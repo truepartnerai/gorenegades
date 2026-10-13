@@ -3,7 +3,7 @@
 //
 // Required Vercel environment variables (set in the Vercel dashboard, never in git):
 //   META_CAPI_TOKEN – Conversions API access token
-//                     (Events Manager → pixel 970701305763042 → Settings → Conversions API)
+//                     (Events Manager → pixel 764446858889673 → Settings → Conversions API)
 //   META_CAPI_KEY   – shared secret; must match the ?key= value on the webhook URL
 //
 // HighLevel workflow → Webhook action → POST to:
@@ -19,7 +19,7 @@
 
 const crypto = require('node:crypto');
 
-const PIXEL_ID = '970701305763042';
+const PIXEL_ID = '764446858889673';
 const API_VERSION = 'v21.0';
 
 const sha256 = (v) =>
