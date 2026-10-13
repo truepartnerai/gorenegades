@@ -2,11 +2,11 @@
 // Forwards a hashed Purchase event to Meta's Conversions API (server-side tracking).
 //
 // Required Vercel environment variables (set in the Vercel dashboard, never in git):
-//   META_CAPI_TOKEN – Conversions API access token
-//                     (Events Manager → pixel 764446858889673 → Settings → Conversions API)
-//   META_CAPI_KEY   – shared secret; must match the ?key= value on the webhook URL
+//   META_CAPI_TOKEN \u2013 Conversions API access token
+//                     (Events Manager \u2192 pixel 764446858889673 \u2192 Settings \u2192 Conversions API)
+//   META_CAPI_KEY   \u2013 shared secret; must match the ?key= value on the webhook URL
 //
-// HighLevel workflow → Webhook action → POST to:
+// HighLevel workflow \u2192 Webhook action \u2192 POST to:
 //   https://www.gorenegades.com/api/meta-capi?key=YOUR_META_CAPI_KEY
 // with a JSON body like:
 //   {
@@ -17,7 +17,7 @@
 //     "value": "99"
 //   }
 
-const crypto = require('node:crypto');
+import crypto from 'node:crypto';
 
 const PIXEL_ID = '764446858889673';
 const API_VERSION = 'v21.0';
@@ -25,7 +25,7 @@ const API_VERSION = 'v21.0';
 const sha256 = (v) =>
   crypto.createHash('sha256').update(String(v).trim().toLowerCase()).digest('hex');
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'POST only' });
     return;
@@ -94,4 +94,4 @@ module.exports = async (req, res) => {
   } catch (err) {
     res.status(502).json({ error: 'meta request failed', detail: String(err).slice(0, 200) });
   }
-};
+}
