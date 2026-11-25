@@ -4,31 +4,44 @@ import Faq from '../../components/Faq.astro';
 import { links } from '../../lib/links.js';
 import { brand } from '../../lib/site.js';
 
-const outcomes = [
-  ['Keep every opportunity in view', 'Leads, customers, prospects and referral partners live in one organized system instead of notes, inboxes and memory.'],
-  ['Follow up without carrying it in your head', 'Use email, text and simple automations so important conversations keep moving even when the day gets busy.', 'The Follow-Up Specialist'],
-  ['Stay visible to the people you already know', 'Keep your database warm with repeatable communication instead of starting from zero every month.', 'The Follow-Up Specialist'],
-  ['Turn happy customers into more business', 'Build review and referral requests into the process so they happen more consistently.', 'The Review Collector'],
-  ['Respond faster when new leads appear', 'Missed-call text back, lead follow-up and booking tools help reduce the gap between interest and response.', 'The Responder'],
-  ['Run more from one place', 'Contacts, conversations, calendars, forms, funnels, social tools and AI live inside the same command center.']
+// Ways to make money with Renegade CRM. [title, what it does, first step]
+const ways = [
+  ['Email your database', 'The people who already know you are your fastest money. Send a useful email every month and stay the first name they think of.', 'Import your contacts and send your first email.'],
+  ['Post automatically', 'Write once, schedule a week of posts to your social accounts, and get back to running your business.', 'Connect your accounts and schedule your first week.'],
+  ['Collect more reviews', 'Ask every happy customer for a review right after the job, automatically, so it happens every time.', 'Turn on an automatic review request.'],
+  ['Never miss a lead', 'Missed a call? A text goes out instantly so the lead talks to you instead of the next company on the list.', 'Turn on missed-call text back.'],
+  ['Let AI follow up', 'An AI assistant answers new inquiries by text or chat and helps get them on your calendar.', 'Set up your AI assistant with your business details.'],
+  ['Book appointments', 'Share one booking link. People pick a time, and reminders go out on their own so fewer people no-show.', 'Create your calendar and booking link.'],
+  ['Run ads', 'Launch ads from the same place your leads land, so every new lead goes straight into your follow-up.', 'Connect your ad account and launch one campaign.'],
+  ['Build a landing page', 'Put up a simple page for an offer, event or freebie without hiring a web designer.', 'Pick a template and publish it.']
+];
+
+const replaces = ['Email marketing', 'Text messaging', 'Social scheduling', 'Review requests', 'Online booking', 'Landing pages & websites', 'Contact manager', 'Follow-up automation'];
+
+const roadmap = [
+  'Get your people in one place',
+  'Email your database',
+  'Never miss a lead',
+  'Make booking easy',
+  'Collect reviews automatically',
+  'Post without thinking about it',
+  'Let AI handle the first reply',
+  'Turn on ads'
 ];
 
 const faqs: [string, string][] = [
-  ['What exactly is Renegade CRM?', 'It is an all-in-one business command center for contacts, conversations, follow-up, email, text, calendars, forms, funnels, reviews, social tools and simple automation. It also includes Renegade playbooks that show you practical ways to put the system to work.'],
-  ['What do I get for $99 a month?', 'You get Renegade CRM software, the Renegade playbooks, templates and examples, plus access to the Renegade Community and Power Hours.'],
-  ['Do I need to use everything?', 'No. In fact, you should not. Start with the one bottleneck that is costing you the most opportunities, get that working, then add the next system when it makes sense.'],
-  ['Do I need to be technical?', 'You can start with basic contacts, email and follow-up. Our playbooks explain one system at a time. Some integrations and AI assistants require additional setup.'],
-  ['Is there a contract?', 'No. The monthly plan is $99 per month and you can cancel before your next billing date.'],
-  ['Is there an annual option?', 'Yes. You can pay $1,149 for the year if you prefer annual billing.'],
-  ['What if I want help setting everything up?', 'Renegade CRM is the self-service software plan. Optional paid setup and implementation help may be available separately. Renegade Academy offers additional guided learning.'],
-  ['Why not just buy GoHighLevel directly?', 'Renegade CRM runs on the HighLevel platform. Our offer adds Renegade playbooks, templates, community and practical guidance to help you apply the tools to your business. Compare the plans and choose what fits you.'],
-  ['Are there any costs beyond $99/month?', 'Some features, including AI, phone calls, texts, email delivery and optional integrations, may incur usage-based or third-party charges. Optional setup and installation assistance is priced separately. Review any charges before activating those features.']
+  ['What is Renegade CRM?', 'All-in-one marketing software for small businesses. Your contacts, email, text, social posting, reviews, booking, landing pages, ads and AI follow-up live in one place, with step-by-step playbooks that show you how to use them.'],
+  ['Do I need to use everything?', 'No, and you should not try. Pick the one thing that would help your business most right now, get it working, then add the next.'],
+  ['I am not technical. Can I do this?', 'Yes. The 2027 Marketing Roadmap tells you what to turn on first, and each playbook walks you through it in plain English. Bring questions to the free weekly Power Hour.'],
+  ['Is there a contract?', 'No. The monthly plan is $99 and you can cancel before your next billing date. There is also an annual option for $1,149.'],
+  ['Are there costs beyond $99 a month?', 'Texting, calling, AI and email sending are billed based on how much you use them, so you only pay for what you actually send. Optional done-for-you setup is priced separately.'],
+  ['Why not buy GoHighLevel directly?', 'Renegade CRM runs on the HighLevel platform. With us you also get the Renegade playbooks, templates, the 2027 Marketing Roadmap, the Community and weekly Power Hours, so you are not figuring it out alone.']
 ];
 ---
 
 <BaseLayout
-  title="Renegade CRM | Follow Up, Automate & Grow — $99/mo"
-  description="Renegade CRM gives entrepreneurs contacts, email, SMS, follow-up, booking, reviews, and practical playbooks in one place. $99/month; optional AI usage costs extra."
+  title="Renegade CRM | All-in-One Marketing Software — $99/mo"
+  description="All-in-one marketing software for small businesses: email, text, social posting, reviews, booking, landing pages, ads and AI follow-up in one place. $99/month, no contract."
 >
   <div class="lp">
     <header class="lp-top">
@@ -37,165 +50,135 @@ const faqs: [string, string][] = [
           <img src={brand.insignia} alt="" width="44" height="44" />
           <span>Marketing <strong>Renegades</strong></span>
         </div>
-        <div class="lp-price">Renegade CRM · <strong>$99/mo</strong></div>
+        <a class="lp-top-cta" href="#checkout" data-checkout-trigger>Start for $99/mo</a>
       </div>
     </header>
 
     <main>
+      <!-- HERO: what it is, who it's for, one button -->
       <section class="lp-hero">
         <div class="p-wrap lp-hero-in">
-          <div class="lp-hero-copy">
-            <span class="p-eyebrow">Built for entrepreneurs · $99/month</span>
-            <h1>Get more customers. <span>Miss fewer opportunities.</span></h1>
-            <p class="lp-lead">Keep your contacts organized, follow up more consistently, and automate the everyday marketing work that slips through the cracks. All in one CRM, with practical playbooks to help you get started.</p>
-          </div>
-
+          <span class="p-eyebrow">Renegade CRM · For small businesses and entrepreneurs</span>
+          <h1>All-in-one marketing software to <span>power your business.</span></h1>
+          <p class="lp-lead">Email your list, post to social, collect reviews, book appointments and follow up with every lead, all from one place. Start with the one thing you need most. We'll show you exactly how to turn it on.</p>
           <div class="lp-buy">
             <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
+            <div class="lp-assure">
+              <span>No contract</span>
+              <span>Cancel anytime</span>
+              <span>Free 2027 Marketing Roadmap</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="lp-sec lp-intro">
-        <div class="p-narrow">
-          <p class="lp-intro-lead">Renegade CRM puts your contacts, conversations, follow-up, calendars, and marketing in one place. Use automation to keep important tasks moving, with optional AI assistants for jobs like lead response and booking when configured.</p>
-          <div class="lp-intro-points">
-            <span>All-in-one CRM + follow-up</span>
-            <span>Step-by-step playbooks</span>
-            <span>Community + Power Hours included</span>
-          </div>
-          <p class="lp-intro-micro">Monthly plan: $99. No long-term contract. AI, calling, messaging, and other usage-based charges may apply.</p>
-          <p class="lp-intro-links"><a href="/crm/solutions" data-solutions-link>Want to see more? Explore 72 ways to use Renegade CRM →</a></p>
+      <!-- THREE REASONS -->
+      <section class="lp-reasons">
+        <div class="p-wrap lp-reasons-in">
+          <article>
+            <h2>Easy to use</h2>
+            <p>Step-by-step playbooks walk you through each tool in plain English. No tech degree required.</p>
+          </article>
+          <article>
+            <h2>Affordable</h2>
+            <p>One low monthly price for tools most businesses pay for one app at a time.</p>
+          </article>
+          <article>
+            <h2>Packed with features</h2>
+            <p>Start with the one or two you need today. The rest are waiting when you're ready to grow.</p>
+          </article>
         </div>
       </section>
 
-      <section class="lp-sec lp-problem">
+      <!-- WAYS TO MAKE MONEY -->
+      <section class="lp-sec" id="ways">
         <div class="p-wrap">
-          <div class="lp-section-head">
-            <span class="p-eyebrow">What is Renegade CRM?</span>
-            <h2>Everything you need to get more business. In one place.</h2>
-            <p>Renegade CRM is where you organize your contacts, marketing, lead follow-up, booking, and reviews. Playbooks show you where to start; automations and optional AI features help with repeatable work once you set them up.</p>
+          <div class="lp-head">
+            <span class="p-eyebrow">What do you need first?</span>
+            <h2>Pick one way to make money with it.</h2>
+            <p>You don't need all of these. Pick the one that would help your business most this month, and start there.</p>
           </div>
-
-          <div class="lp-three">
-            <article>
-              <span>01</span>
-              <h3>The command center.</h3>
-              <p>Every contact, conversation, pipeline, and calendar in one organized place. Nothing lives on sticky notes or in your head anymore.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>The AI tools.</h3>
-              <p>Set up supported AI assistants to respond to inquiries or help book appointments. Capabilities depend on configuration, and usage is billed separately.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>The playbooks.</h3>
-              <p>Step-by-step systems for every job that brings in business. You always know exactly what to switch on next.</p>
-            </article>
-          </div>
-
-          <div class="lp-quote">One connected system. Start for $99/month.</div>
-        </div>
-      </section>
-
-      <section class="lp-sec lp-alt">
-        <div class="p-wrap">
-          <div class="lp-section-head">
-            <span class="p-eyebrow">What it actually does</span>
-            <h2>Start with your biggest bottleneck.</h2>
-            <p>You do not need to become a CRM expert. Pick the job that is costing you the most opportunities and put that one job on a system.</p>
-          </div>
-
-          <div class="lp-outcomes">
-            {outcomes.map(([title, text, emp]) => (
-              <article class="lp-outcome">
-                <div class="lp-check">✓</div>
-                <div>
-                  <h3>{title}{emp && <span class="lp-emp">{emp}</span>}</h3>
-                  <p>{text}</p>
-                </div>
+          <div class="lp-ways">
+            {ways.map(([title, text, step], i) => (
+              <article class="lp-way">
+                <span class="lp-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <div class="lp-step"><strong>First step:</strong> {step}</div>
               </article>
             ))}
           </div>
+          <p class="lp-ways-note">AI, texting and calling are billed as you use them. Everything else is included.</p>
         </div>
       </section>
 
-      <section class="lp-sec">
-        <div class="p-wrap lp-split">
+      <!-- REPLACES THE PILE OF APPS -->
+      <section class="lp-sec lp-alt">
+        <div class="p-wrap lp-replace">
           <div>
-            <span class="p-eyebrow">Software is only half the answer</span>
-            <h2>The playbooks tell you what to switch on first.</h2>
-            <p class="lp-copy">Most software gives you a giant toolbox and wishes you luck. Renegade CRM pairs the tools with practical playbooks for jobs like database follow-up, speed-to-lead, review requests, referral partner check-ins and content.</p>
-            <p class="lp-copy">You can start small: one useful playbook, one working system, one less thing depending on memory.</p>
+            <span class="p-eyebrow">One login instead of a pile of apps</span>
+            <h2>All the things you need, in one low price.</h2>
+            <p class="lp-copy">Most small businesses end up paying for a separate tool for every job, and none of them talk to each other. Renegade CRM puts every one of these in the same place, so a new lead, a booked appointment and a five-star review all land in one spot.</p>
           </div>
-          <div class="lp-playbook-card">
-            <span class="lp-card-label">What you'll switch on first</span>
+          <div class="lp-replace-card">
             <ul>
-              <li>Import your contacts and organize your database</li>
-              <li>Send your first email to your list</li>
-              <li>Turn on a follow-up sequence</li>
-              <li>Set up missed-call text back</li>
-              <li>Ask for reviews automatically</li>
-              <li>Create a booking link with reminders</li>
+              {replaces.map((r) => <li>{r}</li>)}
             </ul>
+            <div class="lp-replace-total">
+              <span>All of it, one login</span>
+              <strong>$99<small>/mo</small></strong>
+            </div>
           </div>
         </div>
       </section>
 
+      <!-- WHERE TO START: the bonus -->
       <section class="lp-sec lp-dark">
+        <div class="p-wrap lp-road">
+          <div>
+            <span class="lp-badge">Free bonus with your subscription</span>
+            <h2>Not sure where to start? We already mapped it out.</h2>
+            <p class="lp-copy">The <strong>2027 Marketing Roadmap</strong> shows you what to turn on in Renegade CRM, and in what order, so every step pays for itself before you add the next one. Each step comes with a playbook that walks you through the setup.</p>
+            <p class="lp-copy">Stuck anyway? Bring your question to the free weekly Power Hour and the Renegade Community. You won't be figuring this out alone.</p>
+          </div>
+          <ol class="lp-road-list">
+            {roadmap.map((step) => <li>{step}</li>)}
+          </ol>
+        </div>
+      </section>
+
+      <!-- OFFER + CHECKOUT -->
+      <section class="lp-sec lp-offer-sec" id="checkout">
         <div class="p-wrap">
-          <div class="lp-section-head">
-            <span class="p-eyebrow">The offer</span>
-            <h2>One system. One place to start.</h2>
-            <p>Use the pieces that solve a problem now. Add the rest when they earn their place.</p>
+          <div class="lp-head lp-head-center">
+            <span class="p-eyebrow">Start today</span>
+            <h2>Renegade CRM. $99 a month.</h2>
+            <p>Everything below is included. No contract, cancel anytime.</p>
           </div>
 
           <div class="lp-offer">
-            <div class="lp-offer-copy">
-              <div class="lp-offer-name">Renegade CRM</div>
+            <div class="lp-offer-card">
               <div class="lp-offer-price"><strong>$99</strong><span>/month</span></div>
-              <div class="lp-stack">
-                <div><span>Renegade CRM software, playbooks and community</span><strong>$99/mo</strong></div>
-                <div><span>Optional AI, calling, texting and other usage</span><strong>As used</strong></div>
-                <div class="lp-stack-you"><span>Optional done-for-you setup or installation</span><strong>Separate</strong></div>
-              </div>
+              <p class="lp-offer-annual">Or pay $1,149 for the year.</p>
               <ul>
-                <li>CRM, contacts and pipelines</li>
+                <li>Contacts, pipelines and the mobile app</li>
                 <li>Email and two-way text</li>
-                <li>Automated follow-up</li>
-                <li>Calendars and booking</li>
-                <li>Forms, funnels and landing pages</li>
-                <li>Reviews, social tools and AI</li>
+                <li>Social media scheduling</li>
+                <li>Review requests</li>
+                <li>Calendars, booking and reminders</li>
+                <li>Landing pages, forms and websites</li>
+                <li>Ads, AI assistants and automations</li>
                 <li>Renegade playbooks and templates</li>
-                <li>Renegade Community + Power Hours</li>
+                <li>Free Community and weekly Power Hours</li>
+                <li class="lp-bonus">Bonus: the 2027 Marketing Roadmap</li>
               </ul>
-            </div>
-            <aside class="lp-offer-action">
-              <span class="lp-card-label">Start here</span>
-              <h3>Start with one useful system.</h3>
-              <p>Bring your contacts, follow-up and marketing together. Use a playbook to get your first system running.</p>
-              <a class="p-btn p-btn-primary p-btn-block" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
-              <a class="lp-offer-solutions" href="/crm/solutions" data-solutions-link>Explore all 72 business scenarios →</a>
-              <small>Annual billing is available for $1,149. No long-term contract on the monthly plan.</small>
-            </aside>
-          </div>
-
-          <div class="lp-guarantee">
-              <strong>Start monthly. Stay because it works.</strong>
-              <p>No long-term contract on the monthly plan. Cancel before your next billing date to avoid another subscription renewal. Usage charges incurred while active may still apply.</p>
+              <p class="lp-offer-fine">Texting, calling, AI and email sending are billed as used. Optional done-for-you setup is priced separately.</p>
             </div>
 
-            <div class="lp-checkout" id="checkout">
-            <div class="lp-checkout-head">
-              <span class="p-eyebrow">Activate your membership</span>
-              <h2>Choose monthly or annual and finish right here.</h2>
-              <p>Complete your enrollment through our secure HighLevel order form. Review the selected plan and any applicable charges before payment.</p>
-            </div>
             <div class="lp-checkout-shell">
               <iframe
                 id="renegade-checkout-frame"
-                title="Renegade CRM secure enrollment checkout"
+                title="Renegade CRM secure checkout"
                 data-base-src={links.crmMonthly}
                 src={links.crmMonthly + '#two-setp-order-4jiP-au3mA'}
                 loading="lazy"
@@ -203,11 +186,12 @@ const faqs: [string, string][] = [
                 referrerpolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
-            <p class="lp-checkout-note">Prefer the full checkout page? <a id="lp-checkout-external" href={links.crmMonthly} rel="noopener">Open the secure order form.</a></p>
           </div>
+          <p class="lp-checkout-note">Prefer a full page? <a id="lp-checkout-external" href={links.crmMonthly} rel="noopener">Open the secure order form.</a></p>
         </div>
       </section>
 
+      <!-- FAQ -->
       <section class="lp-sec lp-alt">
         <div class="p-narrow">
           <span class="p-eyebrow">Quick answers</span>
@@ -216,13 +200,13 @@ const faqs: [string, string][] = [
         </div>
       </section>
 
+      <!-- FINAL CTA -->
       <section class="lp-final">
         <div class="p-narrow">
-          <img src={brand.insignia} alt="" width="72" height="72" />
-          <span class="p-eyebrow">Renegade CRM</span>
-          <h2>Build a business that remembers what happens next.</h2>
-          <p>Organize the people. Keep the conversations moving. Let simple systems handle more of the follow-up.</p>
-          <a class="p-btn p-btn-primary" href="#checkout" data-checkout-trigger>Start for $99/month</a>
+          <img src={brand.insignia} alt="" width="64" height="64" />
+          <h2>Pick one thing. Turn it on this week.</h2>
+          <p>Every tool your business needs to market itself, a roadmap for what to do first, and people to help when you get stuck. All for $99 a month.</p>
+          <a class="p-btn p-btn-primary lp-main-cta" href="#checkout" data-checkout-trigger>Start Renegade CRM — $99/mo</a>
         </div>
       </section>
     </main>
@@ -230,7 +214,7 @@ const faqs: [string, string][] = [
     <footer class="lp-footer">
       <div class="p-wrap">
         <strong>Marketing Renegades</strong>
-        <span>Practical systems. Built for entrepreneurs.</span>
+        <span>Results depend on your effort and circumstances; no specific outcome is guaranteed.</span>
       </div>
     </footer>
 
@@ -241,6 +225,7 @@ const faqs: [string, string][] = [
 
   <script is:inline>
     (() => {
+      // Carry ad attribution into the HighLevel checkout.
       const params = new URLSearchParams(window.location.search);
       const keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
       const carry = new URLSearchParams();
@@ -259,15 +244,9 @@ const faqs: [string, string][] = [
         } catch (_) {}
       }
 
-      document.querySelectorAll('[data-solutions-link]').forEach((link) => {
-        const url = new URL(link.href);
-        carry.forEach((value, key) => url.searchParams.set(key, value));
-        link.href = url.toString();
-      });
-
-      // A CTA click only scrolls to the checkout section; it is not a
-      // confirmed checkout start or purchase. Those events belong to the
-      // HighLevel order system and its coordinated Meta Pixel/CAPI integration.
+      // A CTA click only scrolls to checkout; it is not a checkout start or
+      // purchase. Those events belong to the HighLevel order system and its
+      // Meta Pixel/CAPI integration.
       const externalCheckout = document.getElementById('lp-checkout-external');
       if (externalCheckout) {
         const externalUrl = new URL(externalCheckout.href);
@@ -279,163 +258,132 @@ const faqs: [string, string][] = [
 
   <style>
     .lp{background:#fff;color:#1f1f1f}
-    .lp-top{background:#0b0b0b;border-bottom:1px solid rgba(255,255,255,.09)}
-    .lp-top-in{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .lp h1,.lp h2,.lp h3{text-wrap:balance}
+
+    .lp-top{background:#0b0b0b;border-bottom:1px solid rgba(255,255,255,.09);position:sticky;top:0;z-index:60}
+    .lp-top-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .lp-brand{display:flex;align-items:center;gap:10px;color:#fff;font-size:18px;font-weight:800;letter-spacing:-.02em}
-    .lp-brand img{width:36px;height:36px;object-fit:contain}
+    .lp-brand img{width:34px;height:34px;object-fit:contain}
     .lp-brand strong{color:var(--p-gold)}
-    .lp-price{font-size:14px;font-weight:600;color:#aaa}
-    .lp-price strong{color:var(--p-gold)}
+    .lp-top-cta{background:var(--p-gold);color:#111;font-weight:800;font-size:14px;padding:10px 16px;border-radius:8px;white-space:nowrap}
+    .lp-top-cta:hover{background:var(--p-gold-hover)}
 
-    .lp-hero{position:relative;overflow:hidden;background:#0b0b0b;color:#fff;padding:96px 0 76px;border-bottom:6px solid var(--p-gold)}
-    .lp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(65% 55% at 50% 18%,rgba(244,194,13,.17),transparent 70%),linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:auto,60px 60px,60px 60px;pointer-events:none}
-    .lp-hero-in{position:relative;z-index:1;pointer-events:none}
-    .lp-hero-in a,.lp-hero-in iframe{pointer-events:auto}
-    .lp-hero-copy{text-align:center;max-width:900px;margin:0 auto}
+    .lp-hero{position:relative;overflow:hidden;background:#0b0b0b;color:#fff;padding:92px 0 84px;text-align:center}
+    .lp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 10%,rgba(244,194,13,.16),transparent 70%),linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:auto,60px 60px,60px 60px;pointer-events:none}
+    .lp-hero-in{position:relative;z-index:1;max-width:980px}
     .lp-hero .p-eyebrow{color:var(--p-gold)}
-    .lp-hero h1{margin:14px auto 0;max-width:920px;font-size:clamp(42px,6.8vw,78px);line-height:1.01;letter-spacing:-.045em;font-weight:850;color:#fff}
+    .lp-hero h1{margin:16px auto 0;font-size:clamp(40px,6.6vw,76px);line-height:1.02;letter-spacing:-.045em;font-weight:850;color:#fff}
     .lp-hero h1 span{color:var(--p-gold)}
-    .lp-lead{max-width:780px;margin:24px auto 0;font-size:clamp(18px,2.2vw,22px);line-height:1.58;color:#c9c9c9}
-
-    .lp-vsl-wrap{max-width:900px;margin:42px auto 0}
-    .lp-vsl{position:relative;aspect-ratio:16/9;background:#050505;border:1px solid rgba(255,255,255,.16);border-radius:18px;overflow:hidden;box-shadow:0 34px 80px -38px rgba(0,0,0,.95)}
-    .lp-vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .lp-vsl-placeholder img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.42) saturate(.9)}
-    .lp-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;background:var(--p-gold);color:#111;font-size:30px;padding-left:5px;box-shadow:0 12px 34px rgba(0,0,0,.35)}
-    .lp-vsl-note{position:absolute;left:24px;right:24px;bottom:20px;display:flex;justify-content:space-between;gap:16px;align-items:end;color:#fff}
-    .lp-vsl-note strong{font-size:17px}
-    .lp-vsl-note span{font-size:13px;color:#c8c8c8}
-    .lp-video-caption{text-align:center;color:#9f9f9f;font-size:14px;margin:14px auto 0}
-
-    .lp-buy{text-align:center;margin-top:28px}
-    .lp-main-cta{min-width:min(100%,360px)}
-    .lp-solutions-link{display:inline-block;margin-top:14px;color:var(--p-gold);font-weight:700;text-decoration:underline;text-underline-offset:4px;font-size:15px}
-    .lp-compare-link{display:block;margin:12px auto 0;color:#e7e7e7;font-size:14px;font-weight:650}
-    .lp-offer-solutions{display:block;text-align:center;margin-top:16px;font-size:14px;color:#353535;text-decoration:underline;text-underline-offset:3px;font-weight:700}
-    .lp-buy>span{display:block;margin-top:12px;font-size:14px;color:#999}
-    .lp-assure{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin:24px auto 0;font-size:14px;color:#b7b7b7}
+    .lp-lead{max-width:760px;margin:24px auto 0;font-size:clamp(18px,2.1vw,21px);line-height:1.6;color:#cfcfcf}
+    .lp-buy{margin-top:34px}
+    .lp-main-cta{min-width:min(100%,360px);font-size:18px;padding:18px 30px}
+    .lp-assure{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-top:20px;font-size:15px;color:#bdbdbd}
     .lp-assure span::before{content:'✓';color:var(--p-gold);font-weight:800;margin-right:7px}
 
-    .lp-sec{padding:92px 0}
+    .lp-reasons{background:var(--p-gold);color:#111}
+    .lp-reasons-in{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+    .lp-reasons article{padding:34px 30px}
+    .lp-reasons article+article{border-left:1px solid rgba(0,0,0,.14)}
+    .lp-reasons h2{font-size:22px;font-weight:850;letter-spacing:-.02em}
+    .lp-reasons p{font-size:16px;line-height:1.55;margin-top:6px;color:#2a2200}
+
+    .lp-sec{padding:96px 0;scroll-margin-top:64px}
     .lp-alt{background:var(--p-paper);border-top:1px solid var(--p-line);border-bottom:1px solid var(--p-line)}
-    .lp-section-head{max-width:790px}
-    .lp-section-head h2,.lp-split h2,.lp-faq-title{font-size:clamp(34px,4.8vw,54px);line-height:1.06;letter-spacing:-.04em;color:var(--p-ink);margin:10px 0 0;font-weight:830}
-    .lp-section-head>p{font-size:19px;color:var(--p-muted);max-width:720px;margin-top:18px;line-height:1.65}
-
-    .lp-three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
-    .lp-three article{border:1px solid var(--p-line);border-radius:16px;padding:28px;background:#fff}
-    .lp-three article>span{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:50%;background:#111;color:var(--p-gold);font-size:13px;font-weight:800}
-    .lp-three h3{font-size:22px;line-height:1.2;letter-spacing:-.025em;margin-top:18px;color:#111}
-    .lp-three p{font-size:16px;line-height:1.6;color:var(--p-muted);margin-top:8px}
-    .lp-quote{margin-top:28px;padding:26px 30px;border-left:5px solid var(--p-gold);background:#111;color:#fff;font-size:clamp(22px,2.8vw,30px);line-height:1.35;font-weight:750;border-radius:0 14px 14px 0}
-
-    .lp-outcomes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
-    .lp-outcome{display:grid;grid-template-columns:44px 1fr;gap:16px;background:#fff;border:1px solid var(--p-line);border-radius:16px;padding:26px}
-    .lp-check{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--p-gold);color:#111;font-weight:900}
-    .lp-outcome h3{font-size:20px;line-height:1.25;color:#111;letter-spacing:-.02em}
-    .lp-outcome p{font-size:15.5px;line-height:1.6;color:var(--p-muted);margin-top:6px}
-
-    .lp-split{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+    .lp-head{max-width:760px}
+    .lp-head-center{text-align:center;margin:0 auto}
+    .lp-head h2,.lp-replace h2,.lp-road h2,.lp-faq-title{font-size:clamp(32px,4.6vw,52px);line-height:1.06;letter-spacing:-.04em;color:var(--p-ink);margin:10px 0 0;font-weight:830}
+    .lp-head>p{font-size:19px;color:var(--p-muted);margin-top:16px;line-height:1.6}
     .lp-copy{font-size:18px;line-height:1.7;color:var(--p-muted);margin-top:20px}
-    .lp-playbook-card{background:#111;color:#fff;border-radius:18px;padding:32px;border-top:6px solid var(--p-gold);box-shadow:0 24px 56px -32px rgba(0,0,0,.35)}
-    .lp-card-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--p-gold)}
-    .lp-playbook-card ul{list-style:none;margin-top:22px;display:grid;gap:14px}
-    .lp-playbook-card li{position:relative;padding-left:28px;color:#e3e3e3;font-size:16px;line-height:1.45}
-    .lp-playbook-card li::before{content:'✓';position:absolute;left:0;color:var(--p-gold);font-weight:900}
 
-    .lp-dark{background:#0b0b0b;color:#fff}
-    .lp-dark .p-eyebrow{color:var(--p-gold)}
-    .lp-dark .lp-section-head h2{color:#fff}
-    .lp-dark .lp-section-head>p{color:#bdbdbd}
-    .lp-offer{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch;margin-top:44px}
-    .lp-offer-copy{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:34px;background:#141414}
-    .lp-offer-name{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p-gold)}
-    .lp-offer-price{display:flex;align-items:baseline;gap:8px;margin-top:8px}
-    .lp-offer-price strong{font-size:72px;line-height:.95;letter-spacing:-.06em;color:#fff}
+    .lp-ways{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+    .lp-way{display:flex;flex-direction:column;border:1px solid var(--p-line);border-radius:16px;padding:24px;background:#fff;transition:border-color .15s ease,transform .15s ease}
+    .lp-way:hover{border-color:var(--p-gold);transform:translateY(-2px)}
+    .lp-num{font-size:13px;font-weight:800;color:var(--p-gold-ink);letter-spacing:.06em}
+    .lp-way h3{font-size:20px;line-height:1.2;letter-spacing:-.02em;color:#111;margin-top:10px}
+    .lp-way p{font-size:15px;line-height:1.6;color:var(--p-muted);margin-top:8px;flex:1}
+    .lp-step{margin-top:16px;padding-top:14px;border-top:1px dashed var(--p-line);font-size:14px;line-height:1.5;color:#333}
+    .lp-step strong{color:var(--p-gold-ink)}
+    .lp-ways-note{margin-top:22px;font-size:14px;color:var(--p-soft)}
+
+    .lp-replace{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+    .lp-replace-card{background:#fff;border:1px solid var(--p-line);border-radius:18px;padding:30px;box-shadow:0 24px 50px -34px rgba(0,0,0,.3)}
+    .lp-replace-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+    .lp-replace-card li{position:relative;padding-left:26px;font-size:15.5px;font-weight:600;color:#222}
+    .lp-replace-card li::before{content:'✓';position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--p-gold);color:#111;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:3px}
+    .lp-replace-total{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding:18px 20px;background:#111;border-radius:12px;color:#fff;font-weight:700}
+    .lp-replace-total strong{font-size:34px;color:var(--p-gold);letter-spacing:-.04em}
+    .lp-replace-total small{font-size:15px;color:#bbb;margin-left:2px}
+
+    .lp-dark{background:#0b0b0b;color:#fff;border-top:6px solid var(--p-gold)}
+    .lp-road{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .lp-dark h2{color:#fff}
+    .lp-dark .lp-copy{color:#c4c4c4}
+    .lp-dark .lp-copy strong{color:#fff}
+    .lp-badge{display:inline-block;background:var(--p-gold);color:#111;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+    .lp-road-list{list-style:none;counter-reset:r;display:grid;gap:10px}
+    .lp-road-list li{counter-increment:r;display:flex;align-items:center;gap:14px;padding:14px 18px;background:#151515;border:1px solid rgba(255,255,255,.1);border-radius:12px;font-weight:650;font-size:16px;color:#eee}
+    .lp-road-list li::before{content:counter(r);flex:none;width:30px;height:30px;border-radius:50%;background:var(--p-gold);color:#111;font-size:14px;font-weight:850;display:flex;align-items:center;justify-content:center}
+
+    .lp-offer{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start;margin-top:44px}
+    .lp-offer-card{background:#111;color:#fff;border-radius:18px;padding:32px;border-top:6px solid var(--p-gold);position:sticky;top:88px}
+    .lp-offer-price{display:flex;align-items:baseline;gap:8px}
+    .lp-offer-price strong{font-size:68px;line-height:.95;letter-spacing:-.06em}
     .lp-offer-price span{font-size:17px;color:#aaa;font-weight:600}
-    .lp-offer-copy ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-top:26px}
-    .lp-offer-copy li{position:relative;padding-left:24px;font-size:15px;color:#d4d4d4}
-    .lp-offer-copy li::before{content:'✓';position:absolute;left:0;color:var(--p-gold);font-weight:900}
-    .lp-offer-action{background:#fff;color:#111;border-radius:18px;padding:34px;display:flex;flex-direction:column;justify-content:center}
-    .lp-offer-action .lp-card-label{color:var(--p-gold-ink)}
-    .lp-offer-action h3{font-size:30px;line-height:1.08;letter-spacing:-.035em;margin-top:10px}
-    .lp-offer-action p{font-size:16px;line-height:1.6;color:var(--p-muted);margin:12px 0 24px}
-    .lp-offer-action small{display:block;text-align:center;color:var(--p-soft);font-size:13px;line-height:1.5;margin-top:12px}
-
-    .lp-checkout{margin-top:64px;padding-top:56px;border-top:1px solid rgba(255,255,255,.14);scroll-margin-top:24px}
-    .lp-checkout-head{max-width:760px;margin:0 auto;text-align:center}
-    .lp-checkout-head .p-eyebrow{color:var(--p-gold)}
-    .lp-checkout-head h2{font-size:clamp(34px,4.8vw,54px);line-height:1.06;letter-spacing:-.04em;color:#fff;margin:10px 0 0;font-weight:830}
-    .lp-checkout-head p{font-size:17px;line-height:1.65;color:#bdbdbd;max-width:680px;margin:18px auto 0}
-    .lp-checkout-shell{max-width:860px;margin:34px auto 0;background:#f4f4f2;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 28px 70px -36px rgba(0,0,0,.95)}
+    .lp-offer-annual{margin-top:8px;font-size:15px;color:#bdbdbd}
+    .lp-offer-card ul{list-style:none;display:grid;gap:11px;margin-top:24px}
+    .lp-offer-card li{position:relative;padding-left:26px;font-size:15.5px;color:#ddd}
+    .lp-offer-card li::before{content:'✓';position:absolute;left:0;color:var(--p-gold);font-weight:900}
+    .lp-offer-card li.lp-bonus{color:var(--p-gold);font-weight:750}
+    .lp-offer-card li.lp-bonus::before{content:'★'}
+    .lp-offer-fine{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;line-height:1.55;color:#8f8f8f}
+    .lp-checkout-shell{background:#f4f4f2;border-radius:18px;overflow:hidden;border:1px solid var(--p-line);box-shadow:0 28px 60px -38px rgba(0,0,0,.45)}
     .lp-checkout-shell iframe{display:block;width:100%;height:1180px;border:0;background:#f4f4f2}
-    .lp-checkout-note{text-align:center;color:#858585;font-size:13px;margin-top:14px}
-    .lp-checkout-note a{color:#d6d6d6;text-decoration:underline;text-decoration-color:var(--p-gold);text-underline-offset:3px}
+    .lp-checkout-note{text-align:center;color:var(--p-soft);font-size:13px;margin-top:16px}
+    .lp-checkout-note a{color:#333;text-decoration:underline;text-decoration-color:var(--p-gold);text-underline-offset:3px}
+
+    .lp-faq-title{margin-bottom:24px}
 
     .lp-final{padding:96px 0;background:#111;color:#fff;text-align:center;border-top:6px solid var(--p-gold)}
-    .lp-final img{display:block;margin:0 auto 16px;width:72px;height:72px;object-fit:contain}
-    .lp-final .p-eyebrow{color:var(--p-gold)}
-    .lp-final h2{font-size:clamp(38px,5.5vw,64px);line-height:1.03;letter-spacing:-.045em;margin-top:10px;color:#fff}
-    .lp-final p{font-size:19px;line-height:1.6;color:#bdbdbd;max-width:640px;margin:20px auto 30px}
-    .lp-footer{background:#080808;color:#777;padding:26px 0 90px}
+    .lp-final img{display:block;margin:0 auto 18px;width:64px;height:64px;object-fit:contain}
+    .lp-final h2{font-size:clamp(36px,5.2vw,60px);line-height:1.04;letter-spacing:-.045em;color:#fff}
+    .lp-final p{font-size:19px;line-height:1.6;color:#bdbdbd;max-width:620px;margin:20px auto 30px}
+    .lp-footer{background:#080808;color:#777;padding:26px 0}
     .lp-footer .p-wrap{display:flex;justify-content:space-between;gap:18px;font-size:13px}
     .lp-footer strong{color:#aaa}
-
-    .lp-stack{margin-top:22px;display:grid;gap:10px}
-    .lp-stack>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px;color:#bdbdbd}
-    .lp-stack strong{color:#fff;font-weight:800;white-space:nowrap}
-    .lp-stack-you{border:1px solid var(--p-gold);border-radius:12px;padding:14px 16px!important;background:rgba(244,194,13,.07)}
-    .lp-stack-you strong{color:var(--p-gold);font-size:20px}
-    .lp-stack-you span{color:#fff;font-weight:700}
-    .lp-guarantee{max-width:760px;margin:56px auto 0;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:34px 30px;background:#141414}
-    .lp-guarantee strong{font-size:26px;color:var(--p-gold);letter-spacing:-.02em}
-    .lp-guarantee p{margin-top:12px;font-size:17px;line-height:1.6;color:#d4d4d4}
-    .lp-intro{padding:72px 0 80px;text-align:center}
-    .lp-intro-lead{font-size:clamp(20px,2.6vw,26px);line-height:1.6;color:#1f1f1f;max-width:840px;margin:0 auto;font-weight:500}
-    .lp-intro-points{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin:26px auto 0;font-size:15px;color:#555;font-weight:600}
-    .lp-intro-points span::before{content:'\2713';color:#8a6d00;font-weight:800;margin-right:7px}
-    .lp-intro-micro{margin-top:18px;font-size:14px;color:#999}
-    .lp-intro-links{margin-top:14px;font-size:15px}
-    .lp-intro-links a{color:#8a6d00;font-weight:700;text-decoration:underline;text-underline-offset:4px}
-    .lp-intro-links a+a{margin-left:22px}
-    .lp-emp{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#8a6d00;margin-top:8px}
     .lp-mobile-cta{display:none}
 
-    @media(max-width:850px){
-      .lp-three,.lp-outcomes,.lp-split,.lp-offer{grid-template-columns:1fr}
-      .lp-split{gap:34px}
-      .lp-three{max-width:620px}
-      .lp-offer-copy ul{grid-template-columns:1fr}
+    @media(max-width:1000px){
+      .lp-ways{grid-template-columns:repeat(2,1fr)}
     }
-
+    @media(max-width:850px){
+      .lp-replace,.lp-road,.lp-offer{grid-template-columns:1fr;gap:36px}
+      .lp-offer-card{position:static}
+      .lp-reasons-in{grid-template-columns:1fr}
+      .lp-reasons article{padding:22px 4px}
+      .lp-reasons article+article{border-left:0;border-top:1px solid rgba(0,0,0,.14)}
+    }
     @media(max-width:640px){
-      .lp-top-in{height:62px;padding-left:18px;padding-right:18px}
+      .lp-top-in{height:58px}
       .lp-brand{font-size:15px}
-      .lp-brand img{width:30px;height:30px}
-      .lp-price{font-size:12px}
-      .lp-hero{padding:52px 0 76px}
-      .lp-hero h1{font-size:clamp(40px,12vw,58px)}
-      .lp-lead{font-size:18px}
-      .lp-vsl-wrap{margin-top:30px}
-      .lp-vsl{border-radius:12px}
-      .lp-play{width:66px;height:66px;font-size:23px}
-      .lp-vsl-note{left:16px;right:16px;bottom:14px;display:block}
-      .lp-vsl-note span{display:block;margin-top:2px}
+      .lp-brand img{width:28px;height:28px}
+      .lp-top-cta{font-size:13px;padding:9px 12px}
+      .lp-hero{padding:56px 0 64px}
+      .lp-hero h1{font-size:clamp(36px,10.5vw,52px)}
+      .lp-lead{font-size:17.5px}
       .lp-main-cta{width:100%}
-      .lp-assure{justify-content:flex-start;display:grid;gap:8px;margin-top:22px}
-      .lp-sec{padding:66px 0}
-      .lp-three,.lp-outcomes{gap:14px;margin-top:32px}
-      .lp-three article,.lp-outcome,.lp-playbook-card,.lp-offer-copy,.lp-offer-action{padding:24px 22px}
-      .lp-outcome{grid-template-columns:38px 1fr;gap:13px}
-      .lp-offer-price strong{font-size:60px}
-      .lp-checkout{margin-top:46px;padding-top:42px}
-      .lp-checkout-shell{margin-top:26px;border-radius:12px}
+      .lp-sec{padding:64px 0}
+      .lp-ways{grid-template-columns:1fr;margin-top:32px}
+      .lp-replace-card{padding:22px}
+      .lp-replace-card ul{grid-template-columns:1fr}
+      .lp-offer-card{padding:26px 22px}
+      .lp-offer-price strong{font-size:58px}
+      .lp-checkout-shell{border-radius:12px}
       .lp-checkout-shell iframe{height:1320px}
-      .lp-final{padding:72px 0 96px}
+      .lp-final{padding:72px 0}
       .lp-footer{padding-bottom:92px}
       .lp-footer .p-wrap{display:grid}
       .lp-mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:80;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(8,8,8,.96);border-top:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px)}
-      .lp-mobile-cta a{display:flex;justify-content:center;align-items:center;background:var(--p-gold);color:#111;border-radius:9px;padding:14px 16px;font-size:14px;font-weight:800}
+      .lp-mobile-cta a{display:flex;justify-content:center;align-items:center;background:var(--p-gold);color:#111;border-radius:9px;padding:14px 16px;font-size:15px;font-weight:800}
     }
   </style>
 </BaseLayout>
