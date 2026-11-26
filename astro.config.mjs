@@ -4,6 +4,7 @@ export default defineConfig({
   site: 'https://gorenegades.com',
   output: 'static',
   redirects: {
-    '/ideas': '/blog'
+    '/ideas': '/blog',
+    '/go': '/crm/start'
   }
 });
