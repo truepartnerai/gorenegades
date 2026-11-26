@@ -247,6 +247,25 @@ const faqs: [string, string][] = [
       // A CTA click only scrolls to checkout; it is not a checkout start or
       // purchase. Those events belong to the HighLevel order system and its
       // Meta Pixel/CAPI integration.
+      // Funnel events for Meta. ViewContent = saw the offer page.
+      // InitiateCheckout = scrolled the order form into view (the form itself
+      // lives on HighLevel's domain, so this is the closest signal this page has).
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'ViewContent', { content_name: 'Renegade CRM', value: 99, currency: 'USD' });
+      }
+      if (frame && 'IntersectionObserver' in window) {
+        let sent = false;
+        const io = new IntersectionObserver((entries) => {
+          if (sent || !entries.some((e) => e.isIntersecting)) return;
+          sent = true;
+          io.disconnect();
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'InitiateCheckout', { content_name: 'Renegade CRM', value: 99, currency: 'USD' });
+          }
+        }, { threshold: 0.25 });
+        io.observe(frame);
+      }
+
       const externalCheckout = document.getElementById('lp-checkout-external');
       if (externalCheckout) {
         const externalUrl = new URL(externalCheckout.href);

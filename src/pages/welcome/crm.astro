@@ -39,17 +39,14 @@ const note = [
 />
 
 <script is:inline>
-  // Fire the Meta Purchase event once per buyer session. The checkout itself
-  // lives in a cross-domain HighLevel iframe, so the pixel can't see the sale —
-  // this thank-you page (the order form's post-purchase redirect target) is
-  // where the conversion gets recorded.
+  // The HighLevel order form runs inside an iframe on /crm/start, so its
+  // post-purchase redirect lands here INSIDE that iframe. Same origin as the
+  // parent page, so pull the buyer out to the full welcome page.
+  // Purchase is NOT fired here: it is sent server-side from HighLevel through
+  // /api/meta-capi with the real order amount, so it is counted once.
   (() => {
     try {
-      if (sessionStorage.getItem('rgm_purchase_tracked')) return;
-      sessionStorage.setItem('rgm_purchase_tracked', '1');
+      if (window.top !== window.self) window.top.location.replace(window.location.href);
     } catch (e) {}
-    if (typeof window.fbq === 'function') {
-      window.fbq('track', 'Purchase', { value: 99.0, currency: 'USD' });
-    }
   })();
 </script>
